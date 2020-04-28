@@ -138,13 +138,27 @@ class _FamilyDifferentOptionContainerState extends State<FamilyDifferentOptionCo
                         itemBuilder: (BuildContext ctxt, int index) {
                           return GestureDetector(
                               onTap: (){
+
+                                if(widget.answerOption[index] == "Vocational training" || widget.answerOption[index] == "Bachelor/Master/Diploma" || widget.answerOption[index] == "None")
+                                {
+                                  Questions.schoolLength += 1;
+                                  Questions.schoolText ="SCHOOL FEES "+Questions.schoolLength.toString();
+                                  qu.FamilyAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, [widget.answerOption[index]], 55.0);
+                                Navigator.of(context).pop();
+                                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                return FamilyMainQuestions(CheckCompleteQuestion : "What type of certification is getting from school no. ${Questions.schoolLength}?",CheckQuestion : widget.questionOption,CheckAnswer : [widget.answerOption[index]]);
+                                }));
+                                }
+
+                                else
+                                  {
                                 qu.FamilyAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, [widget.answerOption[index]], 55.0);
 
                                 Navigator.of(context).pop();
                                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                                  return FamilyMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion : widget.questionOption,CheckAnswer : [widget.answerOption[index]]);
+                                return FamilyMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion : widget.questionOption,CheckAnswer : [widget.answerOption[index]]);
                                 }));
-
+                                }
                               },
 
                               child: Column(

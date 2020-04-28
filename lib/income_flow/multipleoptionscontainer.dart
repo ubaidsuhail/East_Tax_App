@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:easy_taxx/income_flow/incomemainquestions.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 //void main() => runApp(MaterialApp(home:HomeScreen()));
 
 
@@ -98,7 +99,7 @@ class _HomeScreenState extends State<MultiOptionsContainer> {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
-                      color: Colors.lightBlue,
+                      color: Colors.blueAccent,
                     ),
                     height: 130.0,
                     width: 450.0,
@@ -152,7 +153,10 @@ class _HomeScreenState extends State<MultiOptionsContainer> {
 //                                          Icon(Icons.timer),
                                           Image(image:AssetImage(widget.answerImages[index]),width: 22.0,height: 35.0,),
                                           SizedBox(width: 20.0,),
-                                          Text(widget.answerOption[index],style: TextStyle(color:Colors.lightBlue)),
+                                          AutoSizeText(widget.answerOption[index],style: TextStyle(color: Colors.blueAccent),
+                                            minFontSize: 14,
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,),
                                         ],
                                       )
                                     ],

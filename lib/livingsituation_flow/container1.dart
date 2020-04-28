@@ -77,7 +77,7 @@ class _testing3State extends State<Container1> {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
-                      color: Colors.lightBlue,
+                      color: Colors.blueAccent,
                     ),
                     height: 130.0,
                     width: 450.0,

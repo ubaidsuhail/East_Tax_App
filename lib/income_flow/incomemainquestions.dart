@@ -512,6 +512,14 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
 
 
 
+          //Answer No 145
+        else if(widget.CheckCompleteQuestion =="Please choose an input method for your payslip no. 1" && widget.CheckQuestion == "Reason")
+        {
+          return Text("This work is done later");
+        }
+
+
+
 
 
 
@@ -794,7 +802,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
             }
 
             else{
-              print("why else print");
+
               //Question No 14
               return multioptionsContainerNo("","Income","Did you have income from certain secondary activities?","Secondary activities",["Trainer","Supervisor","Instructor / lecturer","Conductor","Organist","Tour guide","Referee","Paramedic","Amateur musician","Other activities for associations","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png"],210.0);
 

@@ -187,7 +187,68 @@ class _FamilyCalculationContainerState extends State<FamilyCalculationContainer>
       Questions.childAddressText ="ADDRESS "+Questions.childAddressLength.toString();
     }
 
+    else if(widget.completeQuestion == "For how many kindergartens did you have costs?" && widget.questionOption == "Kindergartens attended")
+    {
+      Questions.totalKindergarten = int.parse(calculations.text);
+      print("Total Kindergarten:"+Questions.totalKindergarten.toString());
+      Questions.kindergartenLength += 1;
+      Questions.kindergartenText ="KINDERGARTEN "+Questions.kindergartenLength.toString();
+    }
 
+    else if(widget.completeQuestion == "How many child minders did you pay for?" && widget.questionOption == "Number of child minders")
+    {
+      Questions.totalChildMinder = int.parse(calculations.text);
+      print("Total Child Minder"+Questions.totalChildMinder.toString());
+      Questions.childMinderLength += 1;
+      Questions.childMinderText ="CHILD MINDER "+Questions.childMinderLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How many nannies did you pay?" && widget.questionOption == "Number of nannies")
+    {
+      Questions.totalNanny = int.parse(calculations.text);
+      print("Total Nanny"+Questions.totalNanny.toString());
+      Questions.nannyLength += 1;
+      Questions.nannyText ="NANNY "+Questions.nannyLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How many babysitters did you pay for?" && widget.questionOption == "Number of babysitters")
+    {
+      Questions.totalBabySitter = int.parse(calculations.text);
+      print("Total BabySitter"+Questions.totalBabySitter.toString());
+      Questions.babySitterLength += 1;
+      Questions.babySitterText ="BABYSITTER "+Questions.babySitterLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How many au pairs did you pay for?" && widget.questionOption == "Number of au pairs")
+    {
+      Questions.totalAupair = int.parse(calculations.text);
+      print("Total AuPair"+Questions.totalAupair.toString());
+      Questions.aupairLength += 1;
+      Questions.aupairText ="AU PAIR "+Questions.aupairLength.toString();
+    }
+
+
+    else if(widget.completeQuestion == "How many different daycare centers has your child attended?" && widget.questionOption == "Number of daycare centers")
+    {
+      Questions.totalDayCare = int.parse(calculations.text);
+      print("Total DayCare"+Questions.totalDayCare.toString());
+      Questions.dayCareLength += 1;
+      Questions.dayCareText ="DAYCARE CENTER "+Questions.dayCareLength.toString();
+    }
+
+    else if(widget.completeQuestion == "For how many schools did you pay tuition fees?" && widget.questionOption == "Schools attended")
+    {
+      Questions.totalSchool = int.parse(calculations.text);
+      print("Total School"+Questions.totalSchool.toString());
+      Questions.schoolLength += 1;
+      Questions.schoolText ="SCHOOL FEES "+Questions.schoolLength.toString();
+    }
+
+    else if(widget.completeQuestion == "Which school did your child attend?" && widget.questionOption == "Name of school")
+    {
+      Questions.schoolLength += 1;
+      Questions.schoolText ="SCHOOL FEES "+Questions.schoolLength.toString();
+    }
 
 
 

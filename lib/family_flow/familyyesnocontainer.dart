@@ -179,6 +179,44 @@ class _FamilyYesNoContainerScreenState extends State<FamilyYesNoContainer> {
 
   void NoResponse()
   {
+    if(widget.completeQuestion == "Did you receive financial support from your employer for childcare at a kindergarten?" && widget.questionOption == "Grants kindergarten")
+  {
+  Questions.kindergartenLength += 1;
+  Questions.kindergartenText ="KINDERGARTEN "+Questions.kindergartenLength.toString();
+  }
+
+    else if(widget.completeQuestion == "Did you receive financial support from your employer for childcare from a childminder?" && widget.questionOption == "Grants child minder")
+    {
+      Questions.childMinderLength += 1;
+      Questions.childMinderText ="CHILD MINDER "+Questions.childMinderLength.toString();
+    }
+
+    else if(widget.completeQuestion == "Did you receive financial support from your employer for childcare from a nanny?" && widget.questionOption == "Grants nanny care")
+    {
+      Questions.nannyLength += 1;
+      Questions.nannyText ="NANNY "+Questions.nannyLength.toString();
+    }
+
+    else if(widget.completeQuestion == "Did you receive financial support from your employer for childcare from a babysitter?" && widget.questionOption == "Grants babysitter care")
+    {
+      Questions.babySitterLength += 1;
+      Questions.babySitterText ="BABYSITTER "+Questions.babySitterLength.toString();
+    }
+
+    else if(widget.completeQuestion == "Did you receive financial support from your employer for childcare from an au pair?" && widget.questionOption == "Grants au pair care")
+    {
+      Questions.aupairLength += 1;
+      Questions.aupairText ="AU PAIR "+Questions.aupairLength.toString();
+    }
+
+    else if(widget.completeQuestion == "Did you receive financial support from your employer for childcare at a day center?" && widget.questionOption == "Grants daycare center")
+    {
+      Questions.dayCareLength += 1;
+      Questions.dayCareText ="DAYCARE CENTER "+Questions.dayCareLength.toString();
+    }
+
+
+
     qu.FamilyAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, ['No'], 55.0);
 
       Navigator.of(context).pop();

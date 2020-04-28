@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:easy_taxx/home_flow/homemainquestions.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 
 
@@ -171,7 +172,10 @@ class _HomeMultipleOptionsContainerNoState extends State<HomeMultipleOptionsCont
 //                                          Icon(Icons.timer),
                                           Image(image:AssetImage(widget.answerImages[index]),width: 22.0,height: 35.0,),
                                           SizedBox(width: 20.0,),
-                                          Text(widget.answerOption[index],style: TextStyle(color: Colors.blueAccent,)),
+                                          AutoSizeText(widget.answerOption[index],style: TextStyle(color: Colors.blueAccent),
+                                            minFontSize: 14,
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,),
                                         ],
                                       )
                                     ],

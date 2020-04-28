@@ -172,6 +172,40 @@ class _FamilyDateContainerState extends State<FamilyDateContainer> {
       Questions.childAddressLength += 1;
       Questions.childAddressText ="ADDRESS "+Questions.childAddressLength.toString();
     }
+    else if(widget.completeQuestion == "From when to when were you getting grants for child care?" && widget.questionOption == "Period grant")
+    {
+      Questions.kindergartenLength += 1;
+      Questions.kindergartenText ="KINDERGARTEN "+Questions.kindergartenLength.toString();
+    }
+    else if(widget.completeQuestion == "When did you receive grants for childcare?" && widget.questionOption == "Period financial support" && Questions.childMinderText.contains("CHILD MINDER"))
+    {
+      Questions.childMinderLength += 1;
+      Questions.kindergartenText ="CHILD MINDER "+Questions.childMinderLength.toString();
+    }
+
+    else if(widget.completeQuestion == "When did you receive grants for childcare?" && widget.questionOption == "Period financial support" && Questions.nannyText.contains("NANNY"))
+    {
+      Questions.nannyLength += 1;
+      Questions.nannyText ="NANNY "+Questions.nannyLength.toString();
+    }
+
+    else if(widget.completeQuestion == "When did you receive grants for childcare?" && widget.questionOption == "Period financial support" && Questions.babySitterText.contains("BABYSITTER"))
+    {
+      Questions.babySitterLength += 1;
+      Questions.babySitterText ="BABYSITTER "+Questions.babySitterLength.toString();
+    }
+
+    else if(widget.completeQuestion == "When did you receive grants for childcare?" && widget.questionOption == "Period financial support" && Questions.aupairText.contains("AU PAIR"))
+    {
+      Questions.aupairLength += 1;
+      Questions.aupairText ="AU PAIR "+Questions.aupairLength.toString();
+    }
+
+    else if(widget.completeQuestion == "When did you receive grants for childcare?" && widget.questionOption == "Period financial support" && Questions.dayCareText.contains("DAYCARE CENTER"))
+    {
+      Questions.dayCareLength += 1;
+      Questions.dayCareText ="DAYCARE CENTER "+Questions.aupairLength.toString();
+    }
 
 
 

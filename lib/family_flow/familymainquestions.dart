@@ -703,7 +703,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
             if(Questions.childrenExpense == "Care costs")
             {
               //Question No 60
-              return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
+              return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
             }
 
             else if(Questions.childrenExpense == "School fees")
@@ -794,7 +794,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
             if(Questions.childrenExpense == "Care costs")
             {
               //Question No 60
-              return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
+              return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
             }
 
             else if(Questions.childrenExpense == "School fees")
@@ -876,7 +876,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
           if(Questions.childrenExpense == "Care costs")
           {
             //Question No 60
-            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
+            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
           }
 
           else if(Questions.childrenExpense == "School fees")
@@ -933,7 +933,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
             if(Questions.childrenExpense == "Care costs")
             {
               //Question No 60
-              return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
+              return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
             }
 
             else if(Questions.childrenExpense == "School fees")
@@ -995,7 +995,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
           if(Questions.childrenExpense == "Care costs")
           {
             //Question No 60
-            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
+            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
           }
 
           else if(Questions.childrenExpense == "School fees")
@@ -1054,7 +1054,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
           if(Questions.childrenExpense == "Care costs")
           {
             //Question No 60
-            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
+            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
           }
 
           else if(Questions.childrenExpense == "School fees")
@@ -1374,7 +1374,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
               if(Questions.childrenExpense == "Care costs")
               {
                 //Question No 60
-                return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
+                return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
               }
 
               else if(Questions.childrenExpense == "School fees")
@@ -1445,7 +1445,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
           if(Questions.childrenExpense == "Care costs")
           {
             //Question No 60
-            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
+            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
           }
 
           else if(Questions.childrenExpense == "School fees")
@@ -1547,7 +1547,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
         if(Questions.childrenExpense == "Care costs")
         {
           //Question No 60
-          return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
+          return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
         }
 
         else if(Questions.childrenExpense == "School fees")
@@ -1610,7 +1610,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
             if(Questions.childrenExpense == "Care costs")
             {
               //Question No 60
-              return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
+              return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
             }
 
             else if(Questions.childrenExpense == "School fees")
@@ -1657,7 +1657,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
             if(Questions.childrenExpense == "Care costs")
             {
               //Question No 60
-              return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
+              return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
             }
 
             else if(Questions.childrenExpense == "School fees")
@@ -1703,7 +1703,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
           if(Questions.childrenExpense == "Care costs")
           {
             //Question No 60
-            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
+            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
           }
 
           else if(Questions.childrenExpense == "School fees")
@@ -1740,7 +1740,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
           if(Questions.childrenExpense == "Care costs")
           {
             //Question No 60
-            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
+            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
           }
 
           else if(Questions.childrenExpense == "School fees")
@@ -1777,7 +1777,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
           if(Questions.childrenExpense == "Care costs")
           {
             //Question No 60
-            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
+            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
           }
 
           else if(Questions.childrenExpense == "School fees")
@@ -1816,7 +1816,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
           if(Questions.childrenExpense == "Care costs")
           {
             //Question No 60
-            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
+            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
           }
 
           else if(Questions.childrenExpense == "School fees")
@@ -1855,7 +1855,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
           if(Questions.childrenExpense == "Care costs")
           {
             //Question No 60
-            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
+            return familymultipleoptionsContainer("","Child ${Questions.childLength}","How was your child cared for?","Childcare costs",["Nursery / kindergarten","Child minder","Nanny","Babysitter","Au pair","Daycare center"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png"],430.0,"None of this applies",Questions.childText);
           }
 
           else if(Questions.childrenExpense == "School fees")
@@ -1883,7 +1883,939 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
 
 
 
+      // ====== Care costs Starts ======
 
+      //Answer No 60
+      else if(widget.CheckCompleteQuestion =="How was your child cared for?" && widget.CheckQuestion == "Childcare costs")
+      {
+
+        for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+          if(widget.CheckAnswer[m] == "Nursery / kindergarten")
+          {
+           //Question No 64
+            return familycalculationContainer("","Child ${Questions.childLength}","For how many kindergartens did you have costs?","Kindergartens attended",220.0,"loop",Questions.childText);
+
+          }
+
+          else if(widget.CheckAnswer[m] == "Child minder")
+          {
+//Question No 82
+            return familycalculationContainer("","Child ${Questions.childLength}","How many child minders did you pay for?","Number of child minders",220.0,"loop",Questions.childText);
+          }
+
+          else if(widget.CheckAnswer[m] == "Nanny")
+          {
+//Question No 91
+            return familycalculationContainer("","Child ${Questions.childLength}","How many nannies did you pay?","Number of nannies",220.0,"loop",Questions.childText);
+          }
+
+          else if(widget.CheckAnswer[m] == "Babysitter")
+          {
+//Question No 100
+            return familycalculationContainer("","Child ${Questions.childLength}","How many babysitters did you pay for?","Number of babysitters",220.0,"loop",Questions.childText);
+          }
+          else if(widget.CheckAnswer[m] == "Au pair")
+          {
+//Question no 109
+            return familycalculationContainer("","Child ${Questions.childLength}","How many au pairs did you pay for?","Number of au pairs",220.0,"loop",Questions.childText);
+          }
+
+          else if(widget.CheckAnswer[m] == "Daycare center")
+          {
+   //Question No 120
+            return familycalculationContainer("","Child ${Questions.childLength}","How many different daycare centers has your child attended?","Number of daycare centers",220.0,"loop",Questions.childText);
+          }
+
+        }
+      }
+
+
+
+
+      // ====== Kindergarten Starts ====== //
+
+      //Answere No 64
+      else if(widget.CheckCompleteQuestion =="For how many kindergartens did you have costs?" && widget.CheckQuestion == "Kindergartens attended")
+      {
+        //Question No 65
+        return familycalculationContainer("","Child ${Questions.childLength}","How much have you paid for the kindergarten?","Cost kindergarten",220.0,"calculation",Questions.kindergartenText);
+      }
+
+
+      //Answer No 65
+      else if(widget.CheckCompleteQuestion =="How much have you paid for the kindergarten?" && widget.CheckQuestion == "Cost kindergarten")
+      {
+        //Question No 66
+        return familycalculationContainer("","Child ${Questions.childLength}","How much did the other parent pay for the kindergarten?","Amount kindergarten (partner)",220.0,"calculation",Questions.kindergartenText);
+      }
+
+
+      //Answer No 66
+      else if(widget.CheckCompleteQuestion =="How much did the other parent pay for the kindergarten?" && widget.CheckQuestion == "Amount kindergarten (partner)")
+      {
+        //Question No 67
+        return familycalculationContainer("","Child ${Questions.childLength}","Please enter the name of the kindergarten.","Name kindergarten",220.0,"",Questions.kindergartenText);
+      }
+
+      //Answer No 67
+      else if(widget.CheckCompleteQuestion =="Please enter the name of the kindergarten." && widget.CheckQuestion == "Name kindergarten")
+      {
+        //Question No 68
+        return familyaddressContainer("","Child ${Questions.childLength}","What is the address of the kindergarten?","Address kindergarten",220.0,"",Questions.kindergartenText);
+      }
+
+      //Answer No 68
+      else if(widget.CheckCompleteQuestion =="What is the address of the kindergarten?" && widget.CheckQuestion == "Address kindergarten")
+      {
+        //Question No 69
+        return familydateContainer("","Child ${Questions.childLength}","From what period did your child attend?","Period kindergarten",220.0,"",Questions.kindergartenText);
+      }
+
+      //Answer No 69
+      else if(widget.CheckCompleteQuestion =="From what period did your child attend?" && widget.CheckQuestion == "Period kindergarten")
+      {
+        //Question No 70
+        return familyyesnoContainer("","Child ${Questions.childLength}","Did you receive financial support from your employer for childcare at a kindergarten?","Grants kindergarten",220.0,"",Questions.kindergartenText);
+      }
+
+
+      //Answer No 70
+      else if(widget.CheckCompleteQuestion =="Did you receive financial support from your employer for childcare at a kindergarten?" && widget.CheckQuestion == "Grants kindergarten")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+
+          if(Questions.kindergartenLength <= Questions.totalKindergarten)
+          {
+            //Question No 65
+            return familycalculationContainer("","Child ${Questions.childLength}","How much have you paid for the kindergarten?","Cost kindergarten",220.0,"calculation",Questions.kindergartenText);
+          }
+          else
+            {
+              //Question No 73
+              return familyyesnoContainer("","Child ${Questions.childLength}","Did you live together at any time of the year with the other parent in one household?","Joint household",220.0,"",Questions.childText);
+            }
+
+        }
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+
+          //Question No 71
+          return familycalculationContainer("","Child ${Questions.childLength}","What was the amount of grant you received?","Amount of grants",220.0,"calculation",Questions.kindergartenText);
+
+        }
+
+      }
+
+
+      //Answer No 71
+      else if(widget.CheckCompleteQuestion =="What was the amount of grant you received?" && widget.CheckQuestion == "Amount of grants")
+      {
+        //Question No 72
+        return familydateContainer("","Child ${Questions.childLength}","From when to when were you getting grants for child care?","Period grant",220.0,"",Questions.kindergartenText);
+      }
+
+      //Answer No 72
+      else if(widget.CheckCompleteQuestion =="From when to when were you getting grants for child care?" && widget.CheckQuestion == "Period grant")
+      {
+        if(Questions.kindergartenLength <= Questions.totalKindergarten)
+        {
+          //Question No 65
+          return familycalculationContainer("","Child ${Questions.childLength}","How much have you paid for the kindergarten?","Cost kindergarten",220.0,"calculation",Questions.kindergartenText);
+        }
+        else
+        {
+          //Question No 73
+          return familyyesnoContainer("","Child ${Questions.childLength}","Did you live together at any time of the year with the other parent in one household?","Joint household",220.0,"",Questions.childText);
+        }
+      }
+
+
+
+
+      // ====== Kindergarten Ends ====== //
+
+
+
+      // ====== Child Minder Starts ====== //
+
+      //Answer no 82
+      else if(widget.CheckCompleteQuestion =="How many child minders did you pay for?" && widget.CheckQuestion == "Number of child minders")
+      {
+        //Question No 83
+        return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay the child minder?","Cost child minder",220.0,"calculation",Questions.childMinderText);
+      }
+
+      //Answer no 83
+      else if(widget.CheckCompleteQuestion =="How much did you pay the child minder?" && widget.CheckQuestion == "Cost child minder")
+      {
+        //Question No 84
+        return familycalculationContainer("","Child ${Questions.childLength}","How much did the other parent pay the child minder?","Amount child minder (partner)",220.0,"calculation",Questions.childMinderText);
+      }
+
+      //Answer No 84
+      else if(widget.CheckCompleteQuestion =="How much did the other parent pay the child minder?" && widget.CheckQuestion == "Amount child minder (partner)")
+      {
+        //Question No 85
+        return familycalculationContainer("","Child ${Questions.childLength}","Please enter name and surname of the child minder.","Name child minder",220.0,"calculation",Questions.childMinderText);
+      }
+
+
+      //Answer No 85
+      else if(widget.CheckCompleteQuestion =="Please enter name and surname of the child minder." && widget.CheckQuestion == "Name child minder")
+      {
+        //Question No 86
+        return familyaddressContainer("","Child ${Questions.childLength}","What is the address of the child minder?","Address childminder",220.0,"",Questions.childMinderText);
+      }
+
+      //Answer No 86
+      else if(widget.CheckCompleteQuestion =="What is the address of the child minder?" && widget.CheckQuestion == "Address childminder")
+      {
+        //Question No 87
+    //Ya container baad ma change hoga
+        return familydateContainer("","Child ${Questions.childLength}","When was your child taken care of by the child minder?","Period child minder",220.0,"",Questions.childMinderText);
+      }
+
+
+      //Answer No 87
+      else if(widget.CheckCompleteQuestion =="When was your child taken care of by the child minder?" && widget.CheckQuestion == "Period child minder")
+      {
+        //Question No 88
+        //Ya container baad ma change hoga
+        return familyyesnoContainer("","Child ${Questions.childLength}","Did you receive financial support from your employer for childcare from a childminder?","Grants child minder",220.0,"",Questions.childMinderText);
+      }
+
+
+
+      //Answer No 88
+      else if(widget.CheckCompleteQuestion =="Did you receive financial support from your employer for childcare from a childminder?" && widget.CheckQuestion == "Grants child minder")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+
+          if(Questions.childMinderLength <= Questions.totalChildMinder)
+          {
+            //Question No 83
+            return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay the child minder?","Cost child minder",220.0,"calculation",Questions.childMinderText);
+          }
+          else
+          {
+            //Question No 73
+            return familyyesnoContainer("","Child ${Questions.childLength}","Did you live together at any time of the year with the other parent in one household?","Joint household",220.0,"",Questions.childText);
+          }
+
+        }
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+
+          //Question No 89
+          return familycalculationContainer("","Child ${Questions.childLength}","How much was the grant you got?","Amount of grants",220.0,"calculation",Questions.childMinderText);
+
+        }
+
+      }
+
+      //Answer No 89
+      else if(widget.CheckCompleteQuestion =="How much was the grant you got?" && widget.CheckQuestion == "Amount of grants" && Questions.childMinderText.contains("CHILD MINDER"))
+      {
+        //Question No 90
+        //Ya container baad ma change hoga
+        return familydateContainer("","Child ${Questions.childLength}","When did you receive grants for childcare?","Period financial support",220.0,"",Questions.childMinderText);
+
+      }
+
+
+
+      //Answer No 90
+      else if(widget.CheckCompleteQuestion =="When did you receive grants for childcare?" && widget.CheckQuestion == "Period financial support" && Questions.childMinderText.contains("CHILD MINDER"))
+      {
+        if(Questions.childMinderLength <= Questions.totalChildMinder)
+        {
+          //Question No 83
+          return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay the child minder?","Cost child minder",220.0,"calculation",Questions.childMinderText);
+        }
+        else
+        {
+          //Question No 73
+          return familyyesnoContainer("","Child ${Questions.childLength}","Did you live together at any time of the year with the other parent in one household?","Joint household",220.0,"",Questions.childText);
+        }
+
+      }
+
+
+      // ====== Child Minder Ends ====== //
+
+
+
+      // ====== Nanny Starts ====== //
+
+      //Answer No 91
+      else if(widget.CheckCompleteQuestion =="How many nannies did you pay?" && widget.CheckQuestion == "Number of nannies")
+      {
+        //Question No 92
+        return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay the nanny?","Cost nanny",220.0,"calculation",Questions.nannyText);
+      }
+
+      //Answer No 92
+      else if(widget.CheckCompleteQuestion =="How much did you pay the nanny?" && widget.CheckQuestion == "Cost nanny")
+      {
+        //Question No 93
+        return familycalculationContainer("","Child ${Questions.childLength}","How much did the other parent pay the nanny?","Amount nanny (partner)",220.0,"calculation",Questions.nannyText);
+      }
+
+
+      //Answer No 93
+      else if(widget.CheckCompleteQuestion =="How much did the other parent pay the nanny?" && widget.CheckQuestion == "Amount nanny (partner)")
+      {
+        //Question No 94
+        return familycalculationContainer("","Child ${Questions.childLength}","What is the name and surname of the nanny?","Name nanny",220.0,"",Questions.nannyText);
+      }
+
+      //Answer No 94
+      else if(widget.CheckCompleteQuestion =="What is the name and surname of the nanny?" && widget.CheckQuestion == "Name nanny")
+      {
+        //Question No 95
+        return familyaddressContainer("","Child ${Questions.childLength}","What is the address of the nanny?","Address nanny",220.0,"",Questions.nannyText);
+      }
+
+
+      //Answer No 95
+      else if(widget.CheckCompleteQuestion =="What is the address of the nanny?" && widget.CheckQuestion == "Address nanny")
+      {
+        //Question No 96
+    //ya container baad ma change hoga
+        return familydateContainer("","Child ${Questions.childLength}","When did the nanny take care of your child?","Period nanny",220.0,"",Questions.nannyText);
+      }
+
+      //Answer No 96
+      else if(widget.CheckCompleteQuestion =="When did the nanny take care of your child?" && widget.CheckQuestion == "Period nanny")
+      {
+        //Question No 97
+        return familyyesnoContainer("","Child ${Questions.childLength}","Did you receive financial support from your employer for childcare from a nanny?","Grants nanny care",220.0,"",Questions.nannyText);
+      }
+
+
+      //Answer No 97
+
+      else if(widget.CheckCompleteQuestion =="Did you receive financial support from your employer for childcare from a nanny?" && widget.CheckQuestion == "Grants nanny care")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+
+          if(Questions.nannyLength <= Questions.totalNanny)
+          {
+            //Question No 92
+            return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay the nanny?","Cost nanny",220.0,"calculation",Questions.nannyText);
+          }
+          else
+          {
+            //Question No 73
+            return familyyesnoContainer("","Child ${Questions.childLength}","Did you live together at any time of the year with the other parent in one household?","Joint household",220.0,"",Questions.childText);
+          }
+
+        }
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+
+          //Question No 98
+          return familycalculationContainer("","Child ${Questions.childLength}","How much was the grant you got?","Amount of grants",220.0,"calculation",Questions.nannyText);
+
+        }
+
+      }
+
+
+      //Answer No 98
+      else if(widget.CheckCompleteQuestion =="How much was the grant you got?" && widget.CheckQuestion == "Amount of grants" && Questions.nannyText.contains("NANNY"))
+      {
+        //Question No 99
+        //ya container baad ma change hoga
+        return familydateContainer("","Child ${Questions.childLength}","When did you receive grants for childcare?","Period financial support",220.0,"",Questions.nannyText);
+      }
+
+      //Answer No 99
+      else if(widget.CheckCompleteQuestion =="When did you receive grants for childcare?" && widget.CheckQuestion == "Period financial support" && Questions.nannyText.contains("NANNY"))
+      {
+        if(Questions.nannyLength <= Questions.totalNanny)
+        {
+          //Question No 92
+          return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay the nanny?","Cost nanny",220.0,"calculation",Questions.nannyText);
+        }
+        else
+        {
+          //Question No 73
+          return familyyesnoContainer("","Child ${Questions.childLength}","Did you live together at any time of the year with the other parent in one household?","Joint household",220.0,"",Questions.childText);
+        }
+      }
+      // ====== Nanny Ends ====== //
+
+
+
+      // ======= Babysitter Starts =======
+
+      //Answer No 100
+      else if(widget.CheckCompleteQuestion =="How many babysitters did you pay for?" && widget.CheckQuestion == "Number of babysitters")
+      {
+        //Question No 101
+        return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay the babysitter?","Babysitter cost",220.0,"calculation",Questions.babySitterText);
+      }
+
+
+      //Answer No 101
+      else if(widget.CheckCompleteQuestion =="How much did you pay the babysitter?" && widget.CheckQuestion == "Babysitter cost")
+      {
+        //Question No 102
+        return familycalculationContainer("","Child ${Questions.childLength}","How much did the other parent pay the babysitter?","Amount babysitter partner",220.0,"calculation",Questions.babySitterText);
+      }
+
+      //Answer No 102
+      else if(widget.CheckCompleteQuestion =="How much did the other parent pay the babysitter?" && widget.CheckQuestion == "Amount babysitter partner")
+      {
+        //Question No 103
+        return familycalculationContainer("","Child ${Questions.childLength}","What is the babysitter's full name?","Name babysitter",220.0,"calculation",Questions.babySitterText);
+      }
+
+      //Answer No 103
+      else if(widget.CheckCompleteQuestion =="What is the babysitter's full name?" && widget.CheckQuestion == "Name babysitter")
+      {
+        //Question No 104
+        return familyaddressContainer("","Child ${Questions.childLength}","What is the babysitter's address?","Address babysitter",220.0,"",Questions.babySitterText);
+      }
+
+
+      //Answer No 104
+      else if(widget.CheckCompleteQuestion =="What is the babysitter's address?" && widget.CheckQuestion == "Address babysitter")
+      {
+        //Question No 105
+        //Ya container baad ma change hoga
+        return familydateContainer("","Child ${Questions.childLength}","When did the babysitter take care of your child?","Period babysitter care",220.0,"",Questions.babySitterText);
+      }
+
+      //Answer No 105
+      else if(widget.CheckCompleteQuestion =="When did the babysitter take care of your child?" && widget.CheckQuestion == "Period babysitter care")
+      {
+        //Question No 106
+        return familyyesnoContainer("","Child ${Questions.childLength}","Did you receive financial support from your employer for childcare from a babysitter?","Grants babysitter care",220.0,"",Questions.babySitterText);
+
+      }
+
+      //Answer no 106
+      else if(widget.CheckCompleteQuestion =="Did you receive financial support from your employer for childcare from a babysitter?" && widget.CheckQuestion == "Grants babysitter care")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+
+          if(Questions.babySitterLength <= Questions.totalBabySitter)
+          {
+            //Question No 101
+            return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay the babysitter?","Babysitter cost",220.0,"calculation",Questions.babySitterText);
+          }
+          else
+          {
+            //Question No 73
+            return familyyesnoContainer("","Child ${Questions.childLength}","Did you live together at any time of the year with the other parent in one household?","Joint household",220.0,"",Questions.childText);
+          }
+
+        }
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+
+          //Question No 107
+          return familycalculationContainer("","Child ${Questions.childLength}","What was the amount of the grant you received?","Amount of grants",220.0,"calculation",Questions.babySitterText);
+
+        }
+
+      }
+
+      //Answer No 107
+      else if(widget.CheckCompleteQuestion =="What was the amount of the grant you received?" && widget.CheckQuestion == "Amount of grants")
+      {
+        //Question No 108
+        //Ya container baad ma change hoga
+        return familydateContainer("","Child ${Questions.childLength}","When did you receive grants for childcare?","Period financial support",220.0,"",Questions.babySitterText);
+      }
+
+      //Answer No 108
+      else if(widget.CheckCompleteQuestion =="When did you receive grants for childcare?" && widget.CheckQuestion == "Period financial support" && Questions.babySitterText.contains("BABYSITTER"))
+      {
+        if(Questions.babySitterLength <= Questions.totalBabySitter)
+        {
+          //Question No 101
+          return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay the babysitter?","Babysitter cost",220.0,"calculation",Questions.babySitterText);
+        }
+        else
+        {
+          //Question No 73
+          return familyyesnoContainer("","Child ${Questions.childLength}","Did you live together at any time of the year with the other parent in one household?","Joint household",220.0,"",Questions.childText);
+        }
+      }
+
+      // ======= Babysitter Ends =======
+
+
+         //Au pair starts
+      //Answer No 109
+      else if(widget.CheckCompleteQuestion =="How many au pairs did you pay for?" && widget.CheckQuestion == "Number of au pairs")
+      {
+        //Question no 110
+        return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay the au pair?","Cost au pair",220.0,"calculation",Questions.aupairText);
+      }
+
+
+      //Answer No 110
+      else if(widget.CheckCompleteQuestion =="How much did you pay the au pair?" && widget.CheckQuestion == "Cost au pair")
+      {
+        //Question no 111
+        return familycalculationContainer("","Child ${Questions.childLength}","How much did the other parent pay the au pair?","Amount au pair (partner)",220.0,"calculation",Questions.aupairText);
+      }
+
+
+      //Answer No 111
+      else if(widget.CheckCompleteQuestion =="How much did the other parent pay the au pair?" && widget.CheckQuestion == "Amount au pair (partner)")
+      {
+        //Question no 112
+        return familycalculationContainer("","Child ${Questions.childLength}","What is the au pair's full name?","Name au pair",220.0,"",Questions.aupairText);
+      }
+
+
+      //Answer No 112
+      else if(widget.CheckCompleteQuestion =="What is the au pair's full name?" && widget.CheckQuestion == "Name au pair")
+      {
+        //Question no 113
+        return familyaddressContainer("","Child ${Questions.childLength}","What is the address of the au pair?","Address au pair",220.0,"",Questions.aupairText);
+      }
+
+      //Answer no 113
+      else if(widget.CheckCompleteQuestion =="What is the address of the au pair?" && widget.CheckQuestion == "Address au pair")
+      {
+        //Question no 114
+    //ya container baad ma change hoga
+        return familydateContainer("","Child ${Questions.childLength}","From when to when was the au pair caring for your child?","Period au pair",220.0,"",Questions.aupairText);
+      }
+
+
+//Answer no 114
+      else if(widget.CheckCompleteQuestion =="From when to when was the au pair caring for your child?" && widget.CheckQuestion == "Period au pair")
+      {
+        //Question no 115
+        return familyyesnoContainer("","Child ${Questions.childLength}","Did you agree on the salary component of the au pair's pay in advance?","Agreement au pair",220.0,"",Questions.aupairText);
+      }
+
+
+      //Answer No 115
+      else if(widget.CheckCompleteQuestion =="Did you agree on the salary component of the au pair's pay in advance?" && widget.CheckQuestion == "Agreement au pair")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+          //Question no 117
+          return familyyesnoContainer("","Child ${Questions.childLength}","Did you receive financial support from your employer for childcare from an au pair?","Grants au pair care",220.0,"",Questions.aupairText);
+        }
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+
+        //Question No 116
+          return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay the au pair for taking care of your child?","Childcare costs",220.0,"",Questions.aupairText);
+
+        }
+
+      }
+
+      //Answer No 116
+      else if(widget.CheckCompleteQuestion =="How much did you pay the au pair for taking care of your child?" && widget.CheckQuestion == "Childcare costs")
+      {
+        //Question no 117
+        return familyyesnoContainer("","Child ${Questions.childLength}","Did you receive financial support from your employer for childcare from an au pair?","Grants au pair care",220.0,"",Questions.aupairText);
+      }
+
+//Answer No 117
+      else if(widget.CheckCompleteQuestion =="Did you receive financial support from your employer for childcare from an au pair?" && widget.CheckQuestion == "Grants au pair care")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+
+          if(Questions.aupairLength <= Questions.totalAupair)
+          {
+            //Question no 110
+            return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay the au pair?","Cost au pair",220.0,"calculation",Questions.aupairText);
+          }
+          else
+          {
+            //Question No 73
+            return familyyesnoContainer("","Child ${Questions.childLength}","Did you live together at any time of the year with the other parent in one household?","Joint household",220.0,"",Questions.childText);
+          }
+
+        }
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+
+          //Question No 118
+          return familycalculationContainer("","Child ${Questions.childLength}","What was the amount of the grant you have received?","Amount of grants",220.0,"calculation",Questions.aupairText);
+
+        }
+
+      }
+
+
+      //Answer No 118
+      else if(widget.CheckCompleteQuestion =="What was the amount of the grant you have received?" && widget.CheckQuestion == "Amount of grants")
+      {
+        //Question No 119
+        //ya container baad ma change hoga
+        return familydateContainer("","Child ${Questions.childLength}","When did you receive grants for childcare?","Period financial support",220.0,"",Questions.aupairText);
+      }
+
+
+      //Answer No 119
+      else if(widget.CheckCompleteQuestion =="When did you receive grants for childcare?" && widget.CheckQuestion == "Period financial support" && Questions.aupairText.contains("AU PAIR"))
+      {
+        if(Questions.aupairLength <= Questions.totalAupair)
+        {
+          //Question no 110
+          return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay the au pair?","Cost au pair",220.0,"calculation",Questions.aupairText);
+        }
+        else
+        {
+          //Question No 73
+          return familyyesnoContainer("","Child ${Questions.childLength}","Did you live together at any time of the year with the other parent in one household?","Joint household",220.0,"",Questions.childText);
+        }
+      }
+
+      //Au pair ends
+
+
+// ===== Day Care starts ======
+      //Answer No 120
+      else if(widget.CheckCompleteQuestion =="How many different daycare centers has your child attended?" && widget.CheckQuestion == "Number of daycare centers")
+      {
+        //Question no 121
+        return familycalculationContainer("","Child ${Questions.childLength}","How much have you paid for the daycare center?","Cost daycare center",220.0,"calculation",Questions.dayCareText);
+      }
+
+      //Answer No 121
+      else if(widget.CheckCompleteQuestion =="How much have you paid for the daycare center?" && widget.CheckQuestion == "Cost daycare center")
+      {
+        //Question no 122
+        return familycalculationContainer("","Child ${Questions.childLength}","How much did the other parent pay toward the daycare center?","Amount daycare center (partner)",220.0,"calculation",Questions.dayCareText);
+      }
+
+
+      //Answer No 122
+      else if(widget.CheckCompleteQuestion =="How much did the other parent pay toward the daycare center?" && widget.CheckQuestion == "Amount daycare center (partner)")
+      {
+        //Question no 123
+        return familycalculationContainer("","Child ${Questions.childLength}","What was your child's daycare center called?","Name daycare center",220.0,"",Questions.dayCareText);
+      }
+
+
+      //Answer No 123
+      else if(widget.CheckCompleteQuestion =="What was your child's daycare center called?" && widget.CheckQuestion == "Name daycare center")
+      {
+        //Question no 124
+        return familyaddressContainer("","Child ${Questions.childLength}","What is the daycare center's address?","Address Daycare center",220.0,"",Questions.dayCareText);
+      }
+
+
+      //Answer No 124
+      else if(widget.CheckCompleteQuestion =="What is the daycare center's address?" && widget.CheckQuestion == "Address Daycare center")
+      {
+        //Question no 125
+        //yaha container change hoga
+        return familydateContainer("","Child ${Questions.childLength}","when did your child attend this daycare center?","Duration Daycare",220.0,"",Questions.dayCareText);
+      }
+
+
+      //Answer No 125
+      else if(widget.CheckCompleteQuestion =="when did your child attend this daycare center?" && widget.CheckQuestion == "Duration Daycare")
+      {
+        //Question no 126
+        return familyyesnoContainer("","Child ${Questions.childLength}","Did you receive financial support from your employer for childcare at a day center?","Grants daycare center",220.0,"",Questions.dayCareText);
+      }
+
+      //Answer No 126
+      else if(widget.CheckCompleteQuestion =="Did you receive financial support from your employer for childcare at a day center?" && widget.CheckQuestion == "Grants daycare center")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+
+          if(Questions.dayCareLength <= Questions.totalDayCare)
+          {
+            //Question no 121
+            return familycalculationContainer("","Child ${Questions.childLength}","How much have you paid for the daycare center?","Cost daycare center",220.0,"calculation",Questions.dayCareText);
+          }
+          else
+          {
+            //Question No 73
+            return familyyesnoContainer("","Child ${Questions.childLength}","Did you live together at any time of the year with the other parent in one household?","Joint household",220.0,"",Questions.childText);
+          }
+
+        }
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+
+          //Question No 127
+          return familycalculationContainer("","Child ${Questions.childLength}","What was the amount of the grant have you received?","Grant amount",220.0,"calculation",Questions.aupairText);
+
+        }
+      }
+
+
+      //Answer No 127
+      else if(widget.CheckCompleteQuestion =="What was the amount of the grant have you received?" && widget.CheckQuestion == "Grant amount")
+      {
+        //Question No 128
+//yaha container change hoga
+        return familydateContainer("","Child ${Questions.childLength}","When did you receive grants for childcare?","Period financial support",220.0,"",Questions.dayCareText);
+      }
+
+
+      //Answer No 128
+      else if(widget.CheckCompleteQuestion =="When did you receive grants for childcare?" && widget.CheckQuestion == "Period financial support" && Questions.dayCareText.contains("DAYCARE CENTER"))
+      {
+        if(Questions.dayCareLength <= Questions.totalDayCare)
+        {
+          //Question no 121
+          return familycalculationContainer("","Child ${Questions.childLength}","How much have you paid for the daycare center?","Cost daycare center",220.0,"calculation",Questions.dayCareText);
+        }
+        else
+        {
+          //Question No 73
+          return familyyesnoContainer("","Child ${Questions.childLength}","Did you live together at any time of the year with the other parent in one household?","Joint household",220.0,"",Questions.childText);
+        }
+      }
+
+
+
+// ===== Day Care ends =======
+
+
+
+
+      //Answer No 73
+      else if(widget.CheckCompleteQuestion =="Did you live together at any time of the year with the other parent in one household?" && widget.CheckQuestion == "Joint household")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+          //Question No 74
+          //Ya container baad ma change hoga
+          return familydateContainer("","Child ${Questions.childLength}","When was your child living with you?","Your household",220.0,"",Questions.childText);
+        }
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+        //Question No 78
+          return familyyesnoContainer("","Child ${Questions.childLength}","Did you have a joint household with the other parent throughout the year?","Joint household",220.0,"",Questions.childText);
+
+
+        }
+
+      }
+
+
+      //Answer no 74
+      else if(widget.CheckCompleteQuestion =="When was your child living with you?" && widget.CheckQuestion == "Your household")
+      {
+        //Question No 75
+        return familyyesnoContainer("","Child ${Questions.childLength}","Would you like to split the maximum amount of your expenses for childcare costs between you evenly?","Split equally",220.0,"",Questions.childText);
+      }
+
+
+
+      //Answer No 75
+      else if(widget.CheckCompleteQuestion =="Would you like to split the maximum amount of your expenses for childcare costs between you evenly?" && widget.CheckQuestion == "Split equally")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+          //Question No 77
+          return familycalculationContainer("","Child ${Questions.childLength}","What was your share of the maximum amount?","Maximum amount",220.0,"percent",Questions.childText);
+        }
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+         //Question no 63
+          return familydifferentoptionContainer("","Child ${Questions.childLength}","Which is the designated benefits office for child benefits for ${Questions.childFirstName}?","Benefits office",["Baden-Württemberg Ost","Baden-Württemberg West","Bayern Nord","Bayern Süd","Berlin-Brandenburg","Hessen","Niedersachsen-Bremen","Nord","Nordrhein-Westfalen Nord","Nordrhein-Westfalen Ost","Nordrhein-Westfalen West","Rheinland-Pfalz-Saarland","Sachsen","Sachsen-Anhalt - Thüringen","Other"],220.0,"",Questions.childText);
+        }
+
+      }
+
+      //Answer No 77
+      else if(widget.CheckCompleteQuestion =="What was your share of the maximum amount?" && widget.CheckQuestion == "Maximum amount")
+      {
+        //Question no 63
+        return familydifferentoptionContainer("","Child ${Questions.childLength}","Which is the designated benefits office for child benefits for ${Questions.childFirstName}?","Benefits office",["Baden-Württemberg Ost","Baden-Württemberg West","Bayern Nord","Bayern Süd","Berlin-Brandenburg","Hessen","Niedersachsen-Bremen","Nord","Nordrhein-Westfalen Nord","Nordrhein-Westfalen Ost","Nordrhein-Westfalen West","Rheinland-Pfalz-Saarland","Sachsen","Sachsen-Anhalt - Thüringen","Other"],220.0,"",Questions.childText);
+      }
+
+
+      //Answer No 78
+      else if(widget.CheckCompleteQuestion =="Did you have a joint household with the other parent throughout the year?" && widget.CheckQuestion == "Joint household")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+         //Question no 79
+          //Ya container baad ma change hoga
+          return familydateContainer("","Child ${Questions.childLength}","When did you live in a joint household?","Joint household",220.0,"",Questions.childText);
+        }
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+          //Question no 81
+          return familyyesnoContainer("","Child ${Questions.childLength}","Has the child been living in your household the entire year?","Household with child",220.0,"",Questions.childText);
+        }
+
+      }
+
+//Answer No 79
+      else if(widget.CheckCompleteQuestion =="When did you live in a joint household?" && widget.CheckQuestion == "Joint household")
+      {
+        //Question No 80
+        //Ya container baad ma change hoga
+        return familydateContainer("","Child ${Questions.childLength}","For what period were you and the other parent living separately?","Separate households",220.0,"",Questions.childText);
+
+      }
+
+      //Answer No 80
+      else if(widget.CheckCompleteQuestion =="For what period were you and the other parent living separately?" && widget.CheckQuestion == "Separate households")
+      {
+        //Question No 74
+        //Ya container baad ma change hoga
+        return familydateContainer("","Child ${Questions.childLength}","When was your child living with you?","Your household",220.0,"",Questions.childText);
+
+      }
+
+
+//Answer No 81
+      else if(widget.CheckCompleteQuestion =="Has the child been living in your household the entire year?" && widget.CheckQuestion == "Household with child")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+          //Question no 82
+          //Ya container baad ma change hoga
+          return familydateContainer("","Child ${Questions.childLength}","When did your child live in the joint household?","Joint household",220.0,"",Questions.childText);
+
+        }
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+          //Question No 75
+          return familyyesnoContainer("","Child ${Questions.childLength}","Would you like to split the maximum amount of your expenses for childcare costs between you evenly?","Split equally",220.0,"",Questions.childText);
+        }
+
+      }
+
+      //Answer No 82
+      else if(widget.CheckCompleteQuestion =="When did your child live in the joint household?" && widget.CheckQuestion == "Joint household")
+      {
+        //Question No 75
+        return familyyesnoContainer("","Child ${Questions.childLength}","Would you like to split the maximum amount of your expenses for childcare costs between you evenly?","Split equally",220.0,"",Questions.childText);
+      }
+
+
+      // ====== Care costs Ends ======
+
+
+
+     // ====== Schools attended Starts ======
+
+      //Answer No 61
+      else if(widget.CheckCompleteQuestion =="For how many schools did you pay tuition fees?" && widget.CheckQuestion == "Schools attended")
+      {
+        //Question No 129
+        return familydifferentoptionContainer("","Child ${Questions.childLength}","What type of certification is getting from school no. ${Questions.schoolLength}?","Certification Type",["Secondary school diploma","(Technical) university entrance qualification","Primary school diploma","Vocational training","Bachelor/Master/Diploma","None"],220.0,"",Questions.schoolText);
+      }
+
+      //Answer No 129
+
+      else if(widget.CheckCompleteQuestion =="What type of certification is getting from school no. ${Questions.schoolLength}?" && widget.CheckQuestion == "Certification Type")
+      {
+        if(widget.CheckAnswer[0] == "Secondary school diploma" || widget.CheckAnswer[0] == "(Technical) university entrance qualification" || widget.CheckAnswer[0] == "Primary school diploma")
+        {
+          //Question No 130
+          return familycalculationContainer("","Child ${Questions.childLength}","How much have you paid for lessons?","Tuition fees",220.0,"calculation",Questions.schoolText);
+        }
+
+        else if(widget.CheckAnswer[0] == "Vocational training" || widget.CheckAnswer[0] == "Bachelor/Master/Diploma" || widget.CheckAnswer[0] == "None")
+        {
+          if(Questions.schoolLength <= Questions.totalSchool)
+          {
+            //Question No 129
+            return familydifferentoptionContainer("","Child ${Questions.childLength}","What type of certification is getting from school no. ${Questions.schoolLength}?","Certification Type",["Secondary school diploma","(Technical) university entrance qualification","Primary school diploma","Vocational training","Bachelor/Master/Diploma","None"],220.0,"",Questions.schoolText);
+          }
+          else
+          {
+            //Question No 133
+            return familyyesnoContainer("","Child ${Questions.childLength}","Would you like to split the maximum amount of your expenses for school fees between you evenly?","50-50 split school fees",220.0,"",Questions.childText);
+          }
+        }
+
+      }
+
+      //Answer No 130
+      else if(widget.CheckCompleteQuestion =="How much have you paid for lessons?" && widget.CheckQuestion == "Tuition fees")
+      {
+        //Question No 131
+        return familycalculationContainer("","Child ${Questions.childLength}","How much did the other parent pay toward school fees?","Amount school fees (partner)",220.0,"calculation",Questions.schoolText);
+      }
+
+
+      //Answer No 131
+      else if(widget.CheckCompleteQuestion =="How much did the other parent pay toward school fees?" && widget.CheckQuestion == "Amount school fees (partner)")
+      {
+        //Question No 132
+        return familycalculationContainer("","Child ${Questions.childLength}","Which school did your child attend?","Name of school",220.0,"",Questions.schoolText);
+      }
+
+      //Answer No 132
+      else if(widget.CheckCompleteQuestion =="Which school did your child attend?" && widget.CheckQuestion == "Name of school")
+      {
+        if(Questions.schoolLength <= Questions.totalSchool)
+        {
+          //Question No 129
+          return familydifferentoptionContainer("","Child ${Questions.childLength}","What type of certification is getting from school no. ${Questions.schoolLength}?","Certification Type",["Secondary school diploma","(Technical) university entrance qualification","Primary school diploma","Vocational training","Bachelor/Master/Diploma","None"],220.0,"",Questions.schoolText);
+        }
+        else
+          {
+            //Question No 133
+            return familyyesnoContainer("","Child ${Questions.childLength}","Would you like to split the maximum amount of your expenses for school fees between you evenly?","50-50 split school fees",220.0,"",Questions.childText);
+          }
+
+      }
+
+      //Answer No 133
+      else if(widget.CheckCompleteQuestion =="Would you like to split the maximum amount of your expenses for school fees between you evenly?" && widget.CheckQuestion == "50-50 split school fees")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+          //Question no 134
+          return familycalculationContainer("","Child ${Questions.childLength}","What was your share of the total amount?","Your share",220.0,"percent",Questions.childText);
+
+        }
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+//Question no 63
+          return familydifferentoptionContainer("","Child ${Questions.childLength}","Which is the designated benefits office for child benefits for ${Questions.childFirstName}?","Benefits office",["Baden-Württemberg Ost","Baden-Württemberg West","Bayern Nord","Bayern Süd","Berlin-Brandenburg","Hessen","Niedersachsen-Bremen","Nord","Nordrhein-Westfalen Nord","Nordrhein-Westfalen Ost","Nordrhein-Westfalen West","Rheinland-Pfalz-Saarland","Sachsen","Sachsen-Anhalt - Thüringen","Other"],220.0,"",Questions.childText);
+        }
+
+      }
+
+
+      //Answer No 134
+      else if(widget.CheckCompleteQuestion =="What was your share of the total amount?" && widget.CheckQuestion == "Your share")
+      {
+        //Question no 63
+        return familydifferentoptionContainer("","Child ${Questions.childLength}","Which is the designated benefits office for child benefits for ${Questions.childFirstName}?","Benefits office",["Baden-Württemberg Ost","Baden-Württemberg West","Bayern Nord","Bayern Süd","Berlin-Brandenburg","Hessen","Niedersachsen-Bremen","Nord","Nordrhein-Westfalen Nord","Nordrhein-Westfalen Ost","Nordrhein-Westfalen West","Rheinland-Pfalz-Saarland","Sachsen","Sachsen-Anhalt - Thüringen","Other"],220.0,"",Questions.childText);
+      }
+
+
+
+      // ====== Schools attended Ends ======
 
 
 

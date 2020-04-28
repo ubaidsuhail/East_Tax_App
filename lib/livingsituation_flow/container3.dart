@@ -90,7 +90,7 @@ class _HomeScreenState extends State<Container3> {
                                 Container(
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10.0),
-                                    color: Questions.LivingCheck == 1 || Questions.LivingCheck == 2 || Questions.livcolContainer == 1 ? Colors.lightBlue : Colors.deepPurple[400]  ,
+                                    color: Questions.LivingCheck == 1 || Questions.LivingCheck == 2 || Questions.livcolContainer == 1 ? Colors.blueAccent : Colors.deepPurple[400]  ,
                                   ),
                                   height: 130.0,
                                   width: 450.0,

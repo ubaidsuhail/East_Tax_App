@@ -98,7 +98,7 @@ class _HomeScreenState extends State<MultiThreeContainer> {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
-                      color: Colors.lightBlue,
+                      color: Colors.blueAccent,
                     ),
                     height: 130.0,
                     width: 450.0,

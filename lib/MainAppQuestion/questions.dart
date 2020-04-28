@@ -175,6 +175,27 @@ static String childrenExpense = "";
 static int childAddressLength = 0;
 static int totalChildAddress = 0;
 static String childAddressText = "";
+static int kindergartenLength = 0;
+static int totalKindergarten = 0;
+static String kindergartenText = "";
+static int childMinderLength = 0;
+static int totalChildMinder = 0;
+static String childMinderText = "";
+static int nannyLength = 0;
+static int totalNanny = 0;
+static String nannyText = "";
+static int babySitterLength = 0;
+static int totalBabySitter = 0;
+static String babySitterText = "";
+static int aupairLength = 0;
+static int totalAupair = 0;
+static String aupairText = "";
+static int dayCareLength = 0;
+static int totalDayCare = 0;
+static String dayCareText = "";
+static int schoolLength = 0;
+static int totalSchool = 0;
+static String schoolText = "";
 
 
 
