@@ -150,6 +150,17 @@ class _FamilyDifferentOptionContainerState extends State<FamilyDifferentOptionCo
                                 }));
                                 }
 
+                                else if(widget.completeQuestion == "Which is the designated benefits office for child benefits for ${Questions.childFirstName}?" && widget.questionOption == "Benefits office" && widget.answerOption[index] != "Other")
+                                {
+                                  Questions.childLength += 1;
+                                  Questions.childText ="CHILD "+Questions.childLength.toString();
+                                  qu.FamilyAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, [widget.answerOption[index]], 55.0);
+                                  Navigator.of(context).pop();
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                    return FamilyMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion : widget.questionOption,CheckAnswer : [widget.answerOption[index]]);
+                                  }));
+                                }
+
                                 else
                                   {
                                 qu.FamilyAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, [widget.answerOption[index]], 55.0);

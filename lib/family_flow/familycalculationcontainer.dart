@@ -249,6 +249,11 @@ class _FamilyCalculationContainerState extends State<FamilyCalculationContainer>
       Questions.schoolLength += 1;
       Questions.schoolText ="SCHOOL FEES "+Questions.schoolLength.toString();
     }
+    else if(widget.completeQuestion == "What other benefits office is responsible for your child benefits?" && widget.questionOption == "Child benefits office")
+    {
+      Questions.childLength += 1;
+      Questions.childText ="CHILD "+Questions.childLength.toString();
+    }
 
 
 

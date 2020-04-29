@@ -198,7 +198,7 @@ class _HomeScreenState extends State<FinishCategory> {
 
      else if(widget.currentCategory == "Education Category")
      {
-       Questions.familyAnswerShow = [];
+                        Questions.familyAnswerShow = [];
                         Questions.childLength = 0;
                         Questions.totalChild = 0;
                         Questions.childText = "";

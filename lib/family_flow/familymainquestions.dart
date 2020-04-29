@@ -12,6 +12,7 @@ import 'package:easy_taxx/family_flow/familythreeoptioncontainer.dart';
 import 'package:easy_taxx/family_flow/familydifferentoptioncontainer.dart';
 import 'package:easy_taxx/family_flow/familyaddresscontainer.dart';
 import 'package:easy_taxx/family_flow/familytwooptioncontainer.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 
 //void main() => runApp(MaterialApp(home:HomeScreen()));
@@ -267,17 +268,24 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
                   height: 55.0,
                   width: 450.0,
                   child: Padding(
-                      padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                      padding: EdgeInsets.only(left: 10.0, right: 10.0),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           //Text(Questions.answerShow[i]['question']),
-                          Text(Questions.familyAnswerShow[j]['question'],style: TextStyle(color: Colors.grey),),
+                          Container(
+                              width: 155.0,
+                              //color: Colors.purple,
+                              child:AutoSizeText(Questions.familyAnswerShow[j]['question'],style: TextStyle(color: Colors.grey),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+                          ),
                           Row(children: <Widget>[
                             //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
-                            Text(Questions.familyAnswerShow[j]['answer'][0]),
-                            SizedBox(width: 10.0,),
+                            Container(
+                              width: 140.0,
+                              // color:Colors.blue,
+                              child:AutoSizeText(Questions.familyAnswerShow[j]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,),),
+                            SizedBox(width: 5.0,),
                             Icon(Icons.arrow_forward_ios, size: 12.0,
                               color: Colors.lightBlue,)
                           ],)
@@ -590,8 +598,8 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
           else if(widget.CheckAnswer[m] == "Costs due to disability")
           {
             Questions.childrenExpense = "Costs due to disability";
-//            //Question No 7
-//            return familyyesnoContainer("","Child ${Questions.childLength}","Do you wish to transfer your child's disability flat-rate amount to yourself?","Transfer of flat-rate amount",220.0,"",Questions.childText);
+//            //Question No 153
+            return familyyesnoContainer("","Child ${Questions.childLength}","Do you wish to transfer your child's disability flat-rate amount to yourself?","Transfer of flat-rate amount",220.0,"",Questions.childText);
 
           }
           else if(widget.CheckAnswer[m] == "None of this applies")
@@ -1355,7 +1363,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
 
       //Iska baad care costs wagera ka ho
 
-// ====== Only with me Starts and At place of training Starts ======
+// ====== Only with me Starts and At place of training And Patch work family Starts ======
       //Answer No 23
       else if(widget.CheckCompleteQuestion =="Would you like to request more than 50% of the child allowance?" && widget.CheckQuestion == "Share child allowance")
       {
@@ -1762,7 +1770,7 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
 
         }
       }
-// ====== Only with me Ends and At place of training Ends ======
+// ====== Only with me Ends and At place of training And Patch work family Ends ======
 
 
       // ====== With the other parent Starts ======
@@ -2818,6 +2826,430 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
       // ====== Schools attended Ends ======
 
 
+      // ====== Health Insurance Contribution Starts ======
+
+      //Answer No 62
+      else if(widget.CheckCompleteQuestion =="What type of contract is the health insurance policy?" && widget.CheckQuestion == "Supplementary health insurance")
+      {
+        if(widget.CheckAnswer[0] == "Domestic health insurance")
+          {
+            //Question No 135
+            return familytwooptionContainer("","Child ${Questions.childLength}","Who is the contractual partner of this health insurance?","Contracting party",["Me","My child"],220.0,"",Questions.childText);
+
+          }
+        else if(widget.CheckAnswer[0] == "Foreign health insurance")
+          {
+    //Question No 148
+       return familycalculationContainer("","Child ${Questions.childLength}","How much was paid for the foreign health insurance?","Amount foreign health insurance",220.0,"calculation",Questions.childText);
+          }
+      }
+
+
+      //Answer no 135
+      else if(widget.CheckCompleteQuestion =="Who is the contractual partner of this health insurance?" && widget.CheckQuestion == "Contracting party")
+      {
+        if(widget.CheckAnswer[0] == "Me")
+        {
+         //Question No 136
+          return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay for the basic health insurance of your child?","Basic child health insurance",220.0,"calculation",Questions.childText);
+
+        }
+        else if(widget.CheckAnswer[0] == "My child")
+        {
+          //Question No 141
+          return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay for the basic health insurance for your child?","Basic child health insurance",220.0,"calculation",Questions.childText);
+        }
+      }
+
+
+      //Answer No 136
+      else if(widget.CheckCompleteQuestion =="How much did you pay for the basic health insurance of your child?" && widget.CheckQuestion == "Basic child health insurance")
+      {
+        //Question No 137
+        return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay for the basic nursing care insurance for your child?","Basic nursing care insurance - child",220.0,"calculation",Questions.childText);
+      }
+
+      //Answer No 137
+      else if(widget.CheckCompleteQuestion =="How much did you pay for the basic nursing care insurance for your child?" && widget.CheckQuestion == "Basic nursing care insurance - child")
+      {
+        //Question No 138
+        return familyyesnoContainer("","Child ${Questions.childLength}","Did you receive refunds from your child's health insurance?","Health insurance refunds - child",220.0,"",Questions.childText);
+      }
+
+
+      //Answer No 138
+      else if(widget.CheckCompleteQuestion =="Did you receive refunds from your child's health insurance?" && widget.CheckQuestion == "Health insurance refunds - child")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+          //QuestionNo 139
+          return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay for supplementary health and nursing care insurance for your child?","Supplementary health insurance",220.0,"calculation",Questions.childText);
+
+        }
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+          //Question No 140
+          return familycalculationContainer("","Child ${Questions.childLength}","How much did you receive in refunds?","Health insurance refunds - child",220.0,"calculation",Questions.childText);
+        }
+
+      }
+
+      //Answer No 140
+      else if(widget.CheckCompleteQuestion =="How much did you receive in refunds?" && widget.CheckQuestion == "Health insurance refunds - child")
+      {
+        //QuestionNo 139
+        return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay for supplementary health and nursing care insurance for your child?","Supplementary health insurance",220.0,"calculation",Questions.childText);
+      }
+
+      //Answer No 139
+      else if(widget.CheckCompleteQuestion =="How much did you pay for supplementary health and nursing care insurance for your child?" && widget.CheckQuestion == "Supplementary health insurance")
+      {
+        //Question no 63
+        return familydifferentoptionContainer("","Child ${Questions.childLength}","Which is the designated benefits office for child benefits for ${Questions.childFirstName}?","Benefits office",["Baden-Württemberg Ost","Baden-Württemberg West","Bayern Nord","Bayern Süd","Berlin-Brandenburg","Hessen","Niedersachsen-Bremen","Nord","Nordrhein-Westfalen Nord","Nordrhein-Westfalen Ost","Nordrhein-Westfalen West","Rheinland-Pfalz-Saarland","Sachsen","Sachsen-Anhalt - Thüringen","Other"],220.0,"",Questions.childText);
+      }
+
+
+
+      //Answer No 141
+      else if(widget.CheckCompleteQuestion =="How much did you pay for the basic health insurance for your child?" && widget.CheckQuestion == "Basic child health insurance")
+      {
+        //Question No 142
+        return familycalculationContainer("","Child ${Questions.childLength}","How much the refunds relate to contributions that entitle your child to sick pay?","Thereof sick pay",220.0,"calculation",Questions.childText);
+      }
+
+
+      //Answer No 142
+      else if(widget.CheckCompleteQuestion =="How much the refunds relate to contributions that entitle your child to sick pay?" && widget.CheckQuestion == "Thereof sick pay")
+      {
+        //Question No 143
+        return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay for the basic nursing care insurance for your child?","Basic nursing care insurance for child",220.0,"calculation",Questions.childText);
+      }
+
+
+
+      //Answer No 143
+      else if(widget.CheckCompleteQuestion =="How much did you pay for the basic nursing care insurance for your child?" && widget.CheckQuestion == "Basic nursing care insurance for child")
+      {
+        //Question No 144
+        return familyyesnoContainer("","Child ${Questions.childLength}","Did you receive refunds from your health insurance?","Health insurance refunds - child",220.0,"calculation",Questions.childText);
+      }
+
+
+      //Answer No 144
+      else if(widget.CheckCompleteQuestion =="Did you receive refunds from your health insurance?" && widget.CheckQuestion == "Health insurance refunds - child")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+          //QuestionNo 145
+          return familyyesnoContainer("","Child ${Questions.childLength}","Has your child received grants for health insurance from third parties?","Grants third parties",220.0,"calculation",Questions.childText);
+
+        }
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+          //Question No 147
+          return familycalculationContainer("","Child ${Questions.childLength}","What was the amount of the refund you received from your child's health insurance?","Refund amount - child",220.0,"calculation",Questions.childText);
+        }
+
+      }
+
+      //Answer No 147
+      else if(widget.CheckCompleteQuestion =="What was the amount of the refund you received from your child's health insurance?" && widget.CheckQuestion == "Refund amount - child")
+      {
+        //Question No 148
+        return familycalculationContainer("","Child ${Questions.childLength}","How much of the refund relates to contributions that entitle your child to sick pay?","Refund of child sick pay",220.0,"calculation",Questions.childText);
+      }
+
+
+      //Answer No 148
+      else if(widget.CheckCompleteQuestion =="How much of the refund relates to contributions that entitle your child to sick pay?" && widget.CheckQuestion == "Refund of child sick pay")
+      {
+        //QuestionNo 145
+        return familyyesnoContainer("","Child ${Questions.childLength}","Has your child received grants for health insurance from third parties?","Grants third parties",220.0,"calculation",Questions.childText);
+      }
+
+
+      //Answer No 145
+      else if(widget.CheckCompleteQuestion =="Has your child received grants for health insurance from third parties?" && widget.CheckQuestion == "Grants third parties")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+          //Question no 63
+          return familydifferentoptionContainer("","Child ${Questions.childLength}","Which is the designated benefits office for child benefits for ${Questions.childFirstName}?","Benefits office",["Baden-Württemberg Ost","Baden-Württemberg West","Bayern Nord","Bayern Süd","Berlin-Brandenburg","Hessen","Niedersachsen-Bremen","Nord","Nordrhein-Westfalen Nord","Nordrhein-Westfalen Ost","Nordrhein-Westfalen West","Rheinland-Pfalz-Saarland","Sachsen","Sachsen-Anhalt - Thüringen","Other"],220.0,"",Questions.childText);
+
+        }
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+         //Question No 146
+          return familycalculationContainer("","Child ${Questions.childLength}","What was the amount of the grants?","Grant amount",220.0,"calculation",Questions.childText);
+        }
+
+      }
+
+
+      //Answer No 146
+      else if(widget.CheckCompleteQuestion =="What was the amount of the grants?" && widget.CheckQuestion == "Grant amount")
+      {
+        //Question no 63
+        return familydifferentoptionContainer("","Child ${Questions.childLength}","Which is the designated benefits office for child benefits for ${Questions.childFirstName}?","Benefits office",["Baden-Württemberg Ost","Baden-Württemberg West","Bayern Nord","Bayern Süd","Berlin-Brandenburg","Hessen","Niedersachsen-Bremen","Nord","Nordrhein-Westfalen Nord","Nordrhein-Westfalen Ost","Nordrhein-Westfalen West","Rheinland-Pfalz-Saarland","Sachsen","Sachsen-Anhalt - Thüringen","Other"],220.0,"",Questions.childText);
+      }
+
+
+      //Answer No 148
+      else if(widget.CheckCompleteQuestion =="How much was paid for the foreign health insurance?" && widget.CheckQuestion == "Amount foreign health insurance")
+      {
+        //Question No 149
+        return familycalculationContainer("","Child ${Questions.childLength}","How much did you pay for the foreign long-term care (nursing) insurance?","Amount foreign long-term insurance",220.0,"calculation",Questions.childText);
+      }
+
+
+      //Answer No 149
+      else if(widget.CheckCompleteQuestion =="How much was paid for the foreign health insurance?" && widget.CheckQuestion == "Amount foreign health insurance")
+      {
+        //Question No 150
+        return familyyesnoContainer("","Child ${Questions.childLength}","Did you receive reimbursements from the health insurance provider?","Reimbursement",220.0,"",Questions.childText);
+      }
+
+//Answer No 150
+      else if(widget.CheckCompleteQuestion =="Did you receive reimbursements from the health insurance provider?" && widget.CheckQuestion == "Reimbursement")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+          //Question no 151
+          return familycalculationContainer("","Child ${Questions.childLength}","How much of your contribution entitles you to sick pay?","Sick pay claim",220.0,"calculation",Questions.childText);
+
+        }
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+          //Question no 152
+          return familycalculationContainer("","Child ${Questions.childLength}","What amount was reimbursed?","Sick pay claim",220.0,"Amount reimbursement",Questions.childText);
+        }
+
+      }
+
+
+      //Answer No 152
+      else if(widget.CheckCompleteQuestion =="What amount was reimbursed?" && widget.CheckQuestion == "Amount reimbursement")
+      {
+        //Question no 151
+        return familycalculationContainer("","Child ${Questions.childLength}","How much of your contribution entitles you to sick pay?","Sick pay claim",220.0,"calculation",Questions.childText);
+      }
+
+
+//Answer No 151
+      else if(widget.CheckCompleteQuestion =="How much of your contribution entitles you to sick pay?" && widget.CheckQuestion == "Sick pay claim")
+      {
+        //Question no 63
+        return familydifferentoptionContainer("","Child ${Questions.childLength}","Which is the designated benefits office for child benefits for ${Questions.childFirstName}?","Benefits office",["Baden-Württemberg Ost","Baden-Württemberg West","Bayern Nord","Bayern Süd","Berlin-Brandenburg","Hessen","Niedersachsen-Bremen","Nord","Nordrhein-Westfalen Nord","Nordrhein-Westfalen Ost","Nordrhein-Westfalen West","Rheinland-Pfalz-Saarland","Sachsen","Sachsen-Anhalt - Thüringen","Other"],220.0,"",Questions.childText);
+      }
+
+
+
+
+
+      // ====== Health Insurance Contributions End ======
+
+
+      // ====Cost due to disability Starts ====== //
+
+    //Answer No 153
+      else if(widget.CheckCompleteQuestion =="Do you wish to transfer your child's disability flat-rate amount to yourself?" && widget.CheckQuestion == "Transfer of flat-rate amount")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+          if(Questions.childrenLive == "With us parents")
+          {
+            //Question No 7
+            return familyyesnoContainer("","Child ${Questions.childLength}","Do you know the details of the other parent?","Other parent's details",220.0,"",Questions.childText);
+          }
+
+          else if(Questions.childrenLive == "Patchwork family")
+          {
+            //Question No 8
+            return familydifferentoptionContainer("","Child ${Questions.childLength}","What relationship existed between you and the child?","Relationship to child",["Biological child","Adopted child","Foster child","Grandchild","Stepchild"],220.0,"",Questions.childText);
+          }
+
+          else if(Questions.childrenLive == "Only with me")
+          {
+            //Question No 9
+            return familycalculationContainer("","Child ${Questions.childLength}","Enter your child's Tax-ID.","Tax-ID child",220.0,"tax",Questions.childText);
+          }
+
+          else if(Questions.childrenLive == "With the other parent" || Questions.childrenLive == "At place of training" || Questions.childrenLive == "With Step-/Grandparents" || Questions.childrenLive == "Somewhere else")
+          {
+            //Question No 10
+            return familycalculationContainer("","Child ${Questions.childLength}","In how many different places has your child lived?","Number of places lived",220.0,"loop",Questions.childText);
+          }
+
+        }
+
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+         //Question No 154
+          return familythreeoptionContainer("","Child ${Questions.childLength}","What impairment does ${Questions.childFirstName} suffer from?","Health impairment",["Blind or visually impaired","Permanently helpless","Impaired mobility","Generally impaired"],220.0,"",Questions.childText);
+        }
+
+      }
+
+      //answer No 154
+      else if(widget.CheckCompleteQuestion =="What impairment does ${Questions.childFirstName} suffer from?" && widget.CheckQuestion == "Health impairment")
+      {
+        //Question No 155
+          return familycalculationContainer("","Child ${Questions.childLength}","Which degree of disability (GdB) does ${Questions.childFirstName} have?","Degree of disability",220.0,"percentage",Questions.childText);
+
+      }
+
+      //Answer No 155
+      else if(widget.CheckCompleteQuestion =="Which degree of disability (GdB) does ${Questions.childFirstName} have?" && widget.CheckQuestion == "Degree of disability")
+      {
+        //Question No 156
+        return familydateContainer("","Child ${Questions.childLength}","Since when is the disability certificate valid?","Valid since",220.0,"",Questions.childText);
+      }
+
+      //Answer No 156
+      else if(widget.CheckCompleteQuestion =="Since when is the disability certificate valid?" && widget.CheckQuestion == "Valid since")
+      {
+        //Question No 157
+        return familyyesnoContainer("","Child ${Questions.childLength}","Is the certificate valid indefinitely?","Valid indefinitely",220.0,"",Questions.childText);
+      }
+
+      //Answer No 157
+      else if(widget.CheckCompleteQuestion =="Is the certificate valid indefinitely?" && widget.CheckQuestion == "Valid indefinitely")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+          //Question No 158
+          return familydateContainer("","Child ${Questions.childLength}","Until when is the disability certificate valid?","Valid until",220.0,"",Questions.childText);
+        }
+
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+          //Question No 159
+          return familyyesnoContainer("","Child ${Questions.childLength}","Are you and the other parent splitting the disability flat-rate amount equally?","Split 50%",220.0,"",Questions.childText);
+        }
+
+      }
+
+      //Answer No 158
+      else if(widget.CheckCompleteQuestion =="Until when is the disability certificate valid?" && widget.CheckQuestion == "Valid until")
+      {
+        //Question No 159
+        return familyyesnoContainer("","Child ${Questions.childLength}","Are you and the other parent splitting the disability flat-rate amount equally?","Split 50%",220.0,"",Questions.childText);
+      }
+
+      //Answer No 159
+      else if(widget.CheckCompleteQuestion =="Are you and the other parent splitting the disability flat-rate amount equally?" && widget.CheckQuestion == "Split 50%")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+        //Question No 160
+          return familycalculationContainer("","Child ${Questions.childLength}","What share are you requesting for yourself?","Your share",220.0,"percentage",Questions.childText);
+        }
+
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+          if(Questions.childrenLive == "With us parents")
+          {
+            //Question No 7
+            return familyyesnoContainer("","Child ${Questions.childLength}","Do you know the details of the other parent?","Other parent's details",220.0,"",Questions.childText);
+          }
+
+          else if(Questions.childrenLive == "Patchwork family")
+          {
+            //Question No 8
+            return familydifferentoptionContainer("","Child ${Questions.childLength}","What relationship existed between you and the child?","Relationship to child",["Biological child","Adopted child","Foster child","Grandchild","Stepchild"],220.0,"",Questions.childText);
+          }
+
+          else if(Questions.childrenLive == "Only with me")
+          {
+            //Question No 9
+            return familycalculationContainer("","Child ${Questions.childLength}","Enter your child's Tax-ID.","Tax-ID child",220.0,"tax",Questions.childText);
+          }
+
+          else if(Questions.childrenLive == "With the other parent" || Questions.childrenLive == "At place of training" || Questions.childrenLive == "With Step-/Grandparents" || Questions.childrenLive == "Somewhere else")
+          {
+            //Question No 10
+            return familycalculationContainer("","Child ${Questions.childLength}","In how many different places has your child lived?","Number of places lived",220.0,"loop",Questions.childText);
+          }
+        }
+
+      }
+
+      //Answer No 160
+      else if(widget.CheckCompleteQuestion =="What share are you requesting for yourself?" && widget.CheckQuestion == "Your share")
+      {
+        if(Questions.childrenLive == "With us parents")
+        {
+          //Question No 7
+          return familyyesnoContainer("","Child ${Questions.childLength}","Do you know the details of the other parent?","Other parent's details",220.0,"",Questions.childText);
+        }
+
+        else if(Questions.childrenLive == "Patchwork family")
+        {
+          //Question No 8
+          return familydifferentoptionContainer("","Child ${Questions.childLength}","What relationship existed between you and the child?","Relationship to child",["Biological child","Adopted child","Foster child","Grandchild","Stepchild"],220.0,"",Questions.childText);
+        }
+
+        else if(Questions.childrenLive == "Only with me")
+        {
+          //Question No 9
+          return familycalculationContainer("","Child ${Questions.childLength}","Enter your child's Tax-ID.","Tax-ID child",220.0,"tax",Questions.childText);
+        }
+
+        else if(Questions.childrenLive == "With the other parent" || Questions.childrenLive == "At place of training" || Questions.childrenLive == "With Step-/Grandparents" || Questions.childrenLive == "Somewhere else")
+        {
+          //Question No 10
+          return familycalculationContainer("","Child ${Questions.childLength}","In how many different places has your child lived?","Number of places lived",220.0,"loop",Questions.childText);
+        }
+      }
+
+    // ===== Cost due to disability Ends ====== //
+
+
+
+         //Answer no 63
+      else if(widget.CheckCompleteQuestion =="Which is the designated benefits office for child benefits for ${Questions.childFirstName}?" && widget.CheckQuestion == "Benefits office")
+      {
+        if(widget.CheckAnswer[0] == "Other")
+        {
+          //Question No 161
+          return familycalculationContainer("","Child ${Questions.childLength}","What other benefits office is responsible for your child benefits?","Child benefits office",220.0,"",Questions.childText);
+        }
+
+        else
+          {
+            if(Questions.childLength <= Questions.totalChild)
+            {
+              //Question No 2
+              return familycalculationContainer("","Child ${Questions.childLength}","What is your child's first name?","First name child",220.0,"",Questions.childText);
+            }
+            else
+              {
+                return FinishCategory("Family Category","Health Category");
+              }
+          }
+      }
+
+
+      //Answer No 161
+      else if(widget.CheckCompleteQuestion =="What other benefits office is responsible for your child benefits?" && widget.CheckQuestion == "Child benefits office")
+      {
+        if(Questions.childLength <= Questions.totalChild)
+        {
+          //Question No 2
+          return familycalculationContainer("","Child ${Questions.childLength}","What is your child's first name?","First name child",220.0,"",Questions.childText);
+        }
+        else
+        {
+          return FinishCategory("Family Category","Health Category");
+        }
+      }
 
 
 
