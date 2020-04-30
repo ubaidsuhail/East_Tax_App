@@ -210,8 +210,29 @@ static String schoolText = "";
  }
 
 
-// ========= Work Flow End ============ //
+// ========= Family Flow End ============ //
 
+
+
+
+// ========= Health Flow Start ========== //
+
+static List healthAnswerShow=[];
+static double healthAnimatedContainer;
+static String healthYouIdentity = "you";
+static String healthYourIdentity = "your";
+
+ void HealthAddAnswer(String UserIdentity, String details,String completequestion,String question,List answer,double containerheight)
+ {
+  print(question);
+  print("identity is:"+UserIdentity);
+  healthAnswerShow.add({"identity":UserIdentity,"details":details,"completequestion":completequestion,"question":question,"answer":answer,"containerheight":containerheight});
+
+  print(healthAnswerShow.toString());
+ }
+
+
+// ========= Health Flow End ============ //
 
 
 }

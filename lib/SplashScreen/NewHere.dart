@@ -7,6 +7,7 @@ import 'package:easy_taxx/home_flow/homemainquestions.dart';
 import 'package:easy_taxx/work_flow/workmainquestions.dart';
 import 'package:easy_taxx/education_flow/educationmainquestions.dart';
 import 'package:easy_taxx/family_flow/familymainquestions.dart';
+import 'package:easy_taxx/health_flow/healthmainquestions.dart';
 
 class newHere extends StatefulWidget {
   @override
@@ -24,6 +25,7 @@ class _newHereState extends State<newHere> {
     Questions.workAnimatedContainer = 220.0;
     Questions.educationAnimatedContainer = 220.0;
     Questions.familyAnimatedContainer = 220.0;
+    Questions.healthAnimatedContainer = 370.0;
   }
   @override
   Widget build(BuildContext context) {
@@ -85,6 +87,20 @@ class _newHereState extends State<newHere> {
                     GestureDetector(
                       onTap: (){
 
+                        //Health Flow Start//
+                        Questions.healthAnswerShow = [];
+                        Questions.healthYouIdentity = "you";
+                        Questions.healthYourIdentity = "your";
+                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return HealthMainQuestions(CheckCompleteQuestion:"What kind of basic health insurance did ${Questions.healthYouIdentity} have in 2019?",CheckQuestion:"Kind of health insurance",CheckAnswer:[]);
+                        }));
+
+                        //HealthFlow End
+
+
+
+
+
                         //Family Flow Start//
 
 //                        Questions.familyAnswerShow = [];
@@ -132,12 +148,12 @@ class _newHereState extends State<newHere> {
 
                         //Living Situation Flow Start //
 
-                        Questions.answerShow = [];
-                        Questions.LivingCheck = 0;
-                        Questions.livcolContainer = 0;
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-                          return mainQuestions(CheckQuestion:"What is your official marital status in Germany?",CheckAnswer:[]);
-                        }));
+//                        Questions.answerShow = [];
+//                        Questions.LivingCheck = 0;
+//                        Questions.livcolContainer = 0;
+//                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+//                          return mainQuestions(CheckQuestion:"What is your official marital status in Germany?",CheckAnswer:[]);
+//                        }));
 
                         //Living Situation Flow End //
 
