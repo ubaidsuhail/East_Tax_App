@@ -180,6 +180,13 @@ class _HealthYesNoContainerScreenState extends State<HealthYesNoContainer> {
 
   void NoResponse()
   {
+
+    if(widget.completeQuestion == "Did you receive any reimbursements from ${Questions.healthYourIdentity} adult child's supplementary health insurance?" && widget.questionOption == "Health insurance refunds - child")
+    {
+      Questions.healthChildrenLength += 1;
+      Questions.healthChildrenText ="INSURANCE CHILD "+Questions.healthChildrenLength.toString();
+    }
+
     qu.HealthAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, ['No'], 55.0);
 
     Navigator.of(context).pop();

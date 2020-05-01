@@ -449,6 +449,8 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     else if(widget.CheckAnswer[m] == "Family")
     {
       //Question No 15
+      // For Supplementary health insurance 320.0
+      // For rest 220.0
       return healthmultipleoptionsContainer("","Health","Did ${Questions.healthYouIdentity} have costs for any other health insurance policies?","Other health insurance",["Supplementary health insurance","Supplementary nursing care insurance","For my adult child","For my Partner","Foreign health insurance","Travel insurance","Voluntary statutory health insurance","Health insurance for students","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","","");
     }
 
@@ -656,38 +658,46 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
             else if(widget.CheckAnswer[m] == "For my adult child")
             {
             //Question No 27
+              return healthcalculationContainer("","Health","For how many adult children did ${Questions.healthYouIdentity} pay health insurance contributions?","Number of children",220.0,"loop","","");
+
             }
 
             else if(widget.CheckAnswer[m] == "For my Partner")
             {
-
+             //Question No 38
+              return healthcalculationContainer("","Health","Please enter ${Questions.healthYourIdentity} spouse's first and last name.","Spouse's name",220.0,"","","");
             }
 
             else if(widget.CheckAnswer[m] == "Foreign health insurance")
             {
-
+              //Question No 47
+              return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} pay for foreign health insurance?","Foreign health insurance",220.0,"","","");
 
             }
 
             else if(widget.CheckAnswer[m] == "Travel insurance")
             {
-
+              //Question No 55
+              return healthcalculationContainer("","Health","What was the annual amount spent on travel insurance?","Travel insurance",220.0,"","","");
             }
 
             else if(widget.CheckAnswer[m] == "Voluntary statutory health insurance")
             {
-
+            //Question No 56
+              return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} pay for basic health insurance (excluding amounts from the payslip)?","Basic student health insurance",220.0,"","","");
             }
 
             else if(widget.CheckAnswer[m] == "Health insurance for students")
             {
-
+             //Question No 62
+              return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} pay for basic health insurance (Basis-Krankenversicherung)?","Basic health insurance",220.0,"","","");
 
             }
 
             else if(widget.CheckAnswer[m] == "No")
             {
-
+             //Question No 20
+              return healthyesnoContainer("","Health","Did ${Questions.healthYouIdentity} have expenses for work-related health issues?","Work-related illness",220.0,"","","");
             }
 
 
@@ -739,7 +749,7 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
        //Question No 20
         //For No 430.0
         //For Yes 220.0
-        return healthyesnoContainer("","Health","Did you have expenses for work-related health issues?","Work-related illness",220.0,"","","");
+        return healthyesnoContainer("","Health","Did ${Questions.healthYouIdentity} have expenses for work-related health issues?","Work-related illness",220.0,"","","");
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -756,7 +766,7 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     else if(widget.CheckCompleteQuestion =="How much reimbursement did ${Questions.healthYouIdentity} receive?" && widget.CheckQuestion == "Refund")
     {
       //Question No 20
-      return healthyesnoContainer("","Health","Did you have expenses for work-related health issues?","Work-related illness",220.0,"","","");
+      return healthyesnoContainer("","Health","Did ${Questions.healthYouIdentity} have expenses for work-related health issues?","Work-related illness",220.0,"","","");
     }
 
     // ====== Additional insurance (statutory) Ends ====== //
@@ -778,7 +788,7 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
       if(widget.CheckAnswer[0] == "No")
       {
         //Question No 20
-        return healthyesnoContainer("","Health","Did you have expenses for work-related health issues?","Work-related illness",220.0,"","","");
+        return healthyesnoContainer("","Health","Did ${Questions.healthYouIdentity} have expenses for work-related health issues?","Work-related illness",220.0,"","","");
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -795,7 +805,7 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     else if(widget.CheckCompleteQuestion =="How much money was reimbursed?" && widget.CheckQuestion == "Refund amount")
     {
       //Question No 20
-      return healthyesnoContainer("","Health","Did you have expenses for work-related health issues?","Work-related illness",220.0,"","","");
+      return healthyesnoContainer("","Health","Did ${Questions.healthYouIdentity} have expenses for work-related health issues?","Work-related illness",220.0,"","","");
     }
 
   // ====== Additional insurance (private) Ends ====== //
@@ -821,7 +831,7 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
       if(widget.CheckAnswer[0] == "No")
       {
         //Question No 20
-        return healthyesnoContainer("","Health","Did you have expenses for work-related health issues?","Work-related illness",220.0,"","","");
+        return healthyesnoContainer("","Health","Did ${Questions.healthYouIdentity} have expenses for work-related health issues?","Work-related illness",220.0,"","","");
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -838,20 +848,504 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     else if(widget.CheckCompleteQuestion =="How much money was  reimbursed?" && widget.CheckQuestion == "Refund amount")
     {
       //Question No 20
-      return healthyesnoContainer("","Health","Did you have expenses for work-related health issues?","Work-related illness",220.0,"","","");
+      return healthyesnoContainer("","Health","Did ${Questions.healthYouIdentity} have expenses for work-related health issues?","Work-related illness",220.0,"","","");
     }
 
 
   // ====== Supplementary nursing care insurance Ends ====== //
 
 
+        //For my adult child Starts
+
+    //Answer no 27
+    else if(widget.CheckCompleteQuestion =="For how many adult children did ${Questions.healthYouIdentity} pay health insurance contributions?" && widget.CheckQuestion == "Number of children")
+    {
+      //Question No 28
+      return healthcalculationContainer("","Health","What is ${Questions.healthYourIdentity} child's full name?","Your child's name",220.0,"",Questions.healthChildrenText,"");
+    }
+
+
+    //Answer no 28
+    else if(widget.CheckCompleteQuestion =="What is ${Questions.healthYourIdentity} child's full name?" && widget.CheckQuestion == "Your child's name")
+    {
+      //Question No 29
+      return healthcalculationContainer("","Health","Enter ${Questions.healthYourIdentity} child's Tax-ID.","Tax-ID child",220.0,"tax",Questions.healthChildrenText,"");
+    }
 
 
 
-        // ====== Other health insurance Ends ====== //
+    //Answer no 29
+    else if(widget.CheckCompleteQuestion =="Enter ${Questions.healthYourIdentity} child's Tax-ID." && widget.CheckQuestion == "Tax-ID child")
+    {
+      //Question No 30
+      return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} pay for the basic health insurance of ${Questions.healthYourIdentity} child?","Basic health insurance adult child",220.0,"calculation",Questions.healthChildrenText,"");
+    }
+
+
+    //Answer no 30
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} pay for the basic health insurance of ${Questions.healthYourIdentity} child?" && widget.CheckQuestion == "Basic health insurance adult child")
+    {
+      //Question No 31
+      return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} pay for the basic nursing care insurance of ${Questions.healthYourIdentity} child?","Basic health insurance adult child",220.0,"calculation",Questions.healthChildrenText,"");
+    }
+
+
+    //Answer no 31
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} pay for the basic nursing care insurance of ${Questions.healthYourIdentity} child?" && widget.CheckQuestion == "Basic health insurance adult child")
+    {
+      //Question No 32
+      return healthyesnoContainer("","Health","Did you get refunds from ${Questions.healthYourIdentity} adult child's health insurance?","Health insurance refunds - child",220.0,"",Questions.healthChildrenText,"");
+    }
+
+
+    //Answer No 32
+    else if(widget.CheckCompleteQuestion =="Did you get refunds from ${Questions.healthYourIdentity} adult child's health insurance?" && widget.CheckQuestion == "Health insurance refunds - child")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 34
+        return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} pay for additional health and nursing care insurance for ${Questions.healthYourIdentity} adult child?","Supplementary insurance",220.0,"calculation",Questions.healthChildrenText,"");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 33
+        return healthcalculationContainer("","Health","How much reimbursement did ${Questions.healthYouIdentity} receive?","Health insurance refunds - child",220.0,"calculation",Questions.healthChildrenText,"");
+      }
+
+    }
+
+
+    //Answer No 33
+    else if(widget.CheckCompleteQuestion =="How much reimbursement did ${Questions.healthYouIdentity} receive?" && widget.CheckQuestion == "Health insurance refunds - child")
+    {
+      //Question No 34
+      return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} pay for additional health and nursing care insurance for ${Questions.healthYourIdentity} adult child?","Supplementary insurance",220.0,"calculation",Questions.healthChildrenText,"");
+    }
 
 
 
+    //Answer No 34
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} pay for additional health and nursing care insurance for ${Questions.healthYourIdentity} adult child?" && widget.CheckQuestion == "Supplementary insurance")
+    {
+      //Question No 35
+      return healthyesnoContainer("","Health","Did you receive any reimbursements from ${Questions.healthYourIdentity} adult child's supplementary health insurance?","Health insurance refunds - child",220.0,"",Questions.healthChildrenText,"");
+    }
+
+
+    //Answer No 35
+    else if(widget.CheckCompleteQuestion =="Did you receive any reimbursements from ${Questions.healthYourIdentity} adult child's supplementary health insurance?" && widget.CheckQuestion == "Health insurance refunds - child")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        if(Questions.healthChildrenLength <= Questions.totalHealthChildren)
+          {
+            //Question No 28
+            return healthcalculationContainer("","Health","What is ${Questions.healthYourIdentity} child's full name?","Your child's name",220.0,"",Questions.healthChildrenText,"");
+          }
+         else
+           {
+             //Question No 37
+             return healthyesnoContainer("","Health","Are ${Questions.healthYouIdentity} entitled to subsidies for ${Questions.healthYourIdentity} health insurance contributions or ${Questions.healthYourIdentity} medical expenses?","Claim for subsidies",220.0,"","","");
+           }
+
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 36
+        return healthcalculationContainer("","Health","How much were ${Questions.healthYouIdentity} reimbursed?","Health insurance refunds - child",220.0,"calculation",Questions.healthChildrenText,"");
+      }
+
+    }
+
+    //Answer No 36
+    else if(widget.CheckCompleteQuestion =="How much were ${Questions.healthYouIdentity} reimbursed?" && widget.CheckQuestion == "Health insurance refunds - child")
+    {
+      if(Questions.healthChildrenLength <= Questions.totalHealthChildren)
+      {
+       //Question No 28
+        return healthcalculationContainer("","Health","What is ${Questions.healthYourIdentity} child's full name?","Your child's name",220.0,"",Questions.healthChildrenText,"");
+      }
+      else
+      {
+        //Question No 37
+        return healthyesnoContainer("","Health","Are ${Questions.healthYouIdentity} entitled to subsidies for ${Questions.healthYourIdentity} health insurance contributions or ${Questions.healthYourIdentity} medical expenses?","Claim for subsidies",220.0,"","","");
+      }
+    }
+    //For my adult child Ends
+
+
+
+
+
+    //For My Partner Starts
+
+        //Answer No 38
+    else if(widget.CheckCompleteQuestion =="Please enter ${Questions.healthYourIdentity} spouse's first and last name." && widget.CheckQuestion == "Spouse's name")
+    {
+      //Question No 39
+      return healthcalculationContainer("","Health","What is ${Questions.healthYourIdentity} spouse's tax ID?","Tax ID (partner)",220.0,"tax","","");
+    }
+
+
+    //Answer No 39
+    else if(widget.CheckCompleteQuestion =="What is ${Questions.healthYourIdentity} spouse's tax ID?" && widget.CheckQuestion == "Tax ID (partner)")
+    {
+      //Question No 40
+      return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} pay for the basic health insurance of ${Questions.healthYourIdentity} spouse?","Basic health insurance spouse",220.0,"calculation","","");
+    }
+
+    //Answer No 40
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} pay for the basic health insurance of ${Questions.healthYourIdentity} spouse?" && widget.CheckQuestion == "Basic health insurance spouse")
+    {
+      //Question No 41
+      return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} pay for the basic nursing care insurance of ${Questions.healthYourIdentity} spouse?","Basic nursing care insurance - spouse",220.0,"calculation","","");
+    }
+
+    //Answer No 41
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} pay for the basic nursing care insurance of ${Questions.healthYourIdentity} spouse?" && widget.CheckQuestion == "Basic nursing care insurance - spouse")
+    {
+      //Question No 42
+      return healthyesnoContainer("","Health","Did ${Questions.healthYouIdentity} get refunds from ${Questions.healthYourIdentity} spouse's health insurance?","Health insurance refunds - spouse",220.0,"","","");
+    }
+
+
+    //Answer No 42
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYouIdentity} get refunds from ${Questions.healthYourIdentity} spouse's health insurance?" && widget.CheckQuestion == "Health insurance refunds - spouse")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 44
+        return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} pay for supplementary private health and nursing care insurance for ${Questions.healthYourIdentity} spouse?","Additional insurance spouse",220.0,"calculation","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 43
+        return healthcalculationContainer("","Health","How much reimbursement did ${Questions.healthYouIdentity} receive?","Health insurance refunds - spouse",220.0,"calculation","","");
+      }
+
+    }
+
+    //Answer No 43
+    else if(widget.CheckCompleteQuestion =="How much reimbursement did ${Questions.healthYouIdentity} receive?" && widget.CheckQuestion == "Health insurance refunds - spouse")
+    {
+      //Question No 44
+      return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} pay for supplementary private health and nursing care insurance for ${Questions.healthYourIdentity} spouse?","Additional insurance spouse",220.0,"calculation","","");
+    }
+
+    //Answer No 44
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} pay for supplementary private health and nursing care insurance for ${Questions.healthYourIdentity} spouse?" && widget.CheckQuestion == "Additional insurance spouse")
+    {
+      //Question No 45
+      return healthyesnoContainer("","Health","Did ${Questions.healthYouIdentity} receive refunds from ${Questions.healthYourIdentity} spouse's supplementary health insurance?","Health insurance refunds - spouse",220.0,"","","");
+    }
+
+
+    //Answer No 45
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYouIdentity} receive refunds from ${Questions.healthYourIdentity} spouse's supplementary health insurance?" && widget.CheckQuestion == "Health insurance refunds - spouse")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 37
+        return healthyesnoContainer("","Health","Are ${Questions.healthYouIdentity} entitled to subsidies for ${Questions.healthYourIdentity} health insurance contributions or ${Questions.healthYourIdentity} medical expenses?","Claim for subsidies",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 46
+        return healthcalculationContainer("","Health","How much reimbursement did ${Questions.healthYouIdentity} receive?","Refund amount - spouse",220.0,"calculation","","");
+      }
+
+    }
+
+    //Answer No 46
+    else if(widget.CheckCompleteQuestion =="How much reimbursement did ${Questions.healthYouIdentity} receive?" && widget.CheckQuestion == "Refund amount - spouse")
+    {
+      //Question No 37
+      return healthyesnoContainer("","Health","Are ${Questions.healthYouIdentity} entitled to subsidies for ${Questions.healthYourIdentity} health insurance contributions or ${Questions.healthYourIdentity} medical expenses?","Claim for subsidies",220.0,"","","");
+    }
+
+        // For My Partner Ends
+
+
+
+
+    // ====== Foreign health insurance Starts ====== //
+
+
+    //Answer No 47
+    else if(widget.CheckCompleteQuestion =="How much reimbursement did ${Questions.healthYouIdentity} receive?" && widget.CheckQuestion == "Refund amount - spouse")
+    {
+      //Question No 48
+      return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} pay for foreign health insurance?","Foreign health insurance",220.0,"calculation","","");
+    }
+
+    //Answer No 48
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} pay for foreign health insurance?" && widget.CheckQuestion == "Foreign health insurance")
+    {
+      //Question No 49
+      return healthcalculationContainer("","Health","What share of ${Questions.healthYourIdentity} contribution to foreign health insurance does not entitle ${Questions.healthYouIdentity} to sick pay?","No sick pay",220.0,"calculation","","");
+    }
+
+
+    //Answer No 49
+    else if(widget.CheckCompleteQuestion =="What share of ${Questions.healthYourIdentity} contribution to foreign health insurance does not entitle ${Questions.healthYouIdentity} to sick pay?" && widget.CheckQuestion == "No sick pay")
+    {
+      //Question No 50
+      return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} spend on foreign basic nursing care insurance?","Foreign nursing care insurance",220.0,"calculation","","");
+    }
+
+
+    //Answer No 50
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend on foreign basic nursing care insurance?" && widget.CheckQuestion == "Foreign nursing care insurance")
+    {
+      //Question No 51
+      return healthyesnoContainer("","Health","Were ${Questions.healthYouIdentity} reimbursed for contributions from ${Questions.healthYourIdentity} foreign health insurance payments?","Refunds",220.0,"","","");
+    }
+
+    //Answer No 51
+    else if(widget.CheckCompleteQuestion =="Were ${Questions.healthYouIdentity} reimbursed for contributions from ${Questions.healthYourIdentity} foreign health insurance payments?" && widget.CheckQuestion == "Refunds")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 54
+        return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} pay for foreign supplementary insurance?","Foreign supplementary insurance",220.0,"calculation","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+       //Question No 52
+        return healthcalculationContainer("","Health","How much reimbursement did ${Questions.healthYouIdentity} receive from ${Questions.healthYourIdentity} foreign heath insurance?","Refund amount",220.0,"calculation","","");
+      }
+
+    }
+
+    //Answer No 52
+    else if(widget.CheckCompleteQuestion =="How much reimbursement did ${Questions.healthYouIdentity} receive from ${Questions.healthYourIdentity} foreign heath insurance?" && widget.CheckQuestion == "Refund amount")
+    {
+      //Question No 53
+      return healthcalculationContainer("","Health","What share of the reimbursed amount does not entitle ${Questions.healthYouIdentity} to sick pay?","Refund of child sick pay",220.0,"calculation","","");
+    }
+
+
+    //Answer No 53
+    else if(widget.CheckCompleteQuestion =="What share of the reimbursed amount does not entitle ${Questions.healthYouIdentity} to sick pay?" && widget.CheckQuestion == "Refund of child sick pay")
+    {
+      //Question No 54
+      return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} pay for foreign supplementary insurance?","Foreign supplementary insurance",220.0,"calculation","","");
+    }
+
+
+    //Answer No 54
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} pay for foreign supplementary insurance?" && widget.CheckQuestion == "Foreign supplementary insurance")
+    {
+      //Question No 37
+      return healthyesnoContainer("","Health","Are ${Questions.healthYouIdentity} entitled to subsidies for ${Questions.healthYourIdentity} health insurance contributions or ${Questions.healthYourIdentity} medical expenses?","Claim for subsidies",220.0,"","","");
+    }
+
+
+
+    // ====== Foreign health insurance Ends ====== //
+
+
+    // ====== Travel insurance Starts ====== //
+
+
+//Answer No 55
+    else if(widget.CheckCompleteQuestion =="What was the annual amount spent on travel insurance?" && widget.CheckQuestion == "Travel insurance")
+    {
+      //Question No 20
+      return healthyesnoContainer("","Health","Did ${Questions.healthYouIdentity} have expenses for work-related health issues?","Work-related illness",220.0,"","","");
+    }
+
+
+    // ====== Travel insurance Ends ====== //
+
+
+    // ====== Voluntary statutory health insurance Starts ====== //
+
+//Answer No 56
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} pay for basic health insurance (excluding amounts from the payslip)?" && widget.CheckQuestion == "Basic student health insurance")
+    {
+      //Question No 57
+      return healthcalculationContainer("","Health","How much of ${Questions.healthYourIdentity} premium is available to ${Questions.healthYouIdentity} as sick pay?","Sick pay",220.0,"calculation","","");
+    }
+
+    //Answer No 57
+    else if(widget.CheckCompleteQuestion =="How much of ${Questions.healthYourIdentity} premium is available to ${Questions.healthYouIdentity} as sick pay?" && widget.CheckQuestion == "Sick pay")
+    {
+      //Question No 58
+      return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} pay for basic nursing care insurance?","Basic nursing care insurance",220.0,"calculation","","");
+    }
+
+    //Answer No 58
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} pay for basic nursing care insurance?" && widget.CheckQuestion == "Basic nursing care insurance")
+    {
+      //Question No 59
+      return healthyesnoContainer("","Health","Were ${Questions.healthYouIdentity} reimbursed for contributions from ${Questions.healthYouIdentity} health insurance payments?","Health insurance refunds",220.0,"","","");
+    }
+
+
+    //Answer No 59
+    else if(widget.CheckCompleteQuestion =="Were ${Questions.healthYouIdentity} reimbursed for contributions from ${Questions.healthYouIdentity} health insurance payments?" && widget.CheckQuestion == "Health insurance refunds")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 37
+        return healthyesnoContainer("","Health","Are ${Questions.healthYouIdentity} entitled to subsidies for ${Questions.healthYourIdentity} health insurance contributions or ${Questions.healthYourIdentity} medical expenses?","Claim for subsidies",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 60
+        return healthcalculationContainer("","Health","How much reimbursement did ${Questions.healthYouIdentity} receive from health insurance?","Refund amount health insurance",220.0,"calculation","","");
+      }
+
+    }
+
+
+    //Answer No 60
+    else if(widget.CheckCompleteQuestion =="How much reimbursement did ${Questions.healthYouIdentity} receive from health insurance?" && widget.CheckQuestion == "Refund amount health insurance")
+    {
+      //Question No 61
+      return healthcalculationContainer("","Health","What share of ${Questions.healthYourIdentity} contribution to ${Questions.healthYourIdentity} health insurance entitles ${Questions.healthYouIdentity} to sick pay?","Sick pay",220.0,"calculation","","");
+    }
+
+
+    //Answer No 61
+    else if(widget.CheckCompleteQuestion =="What share of ${Questions.healthYourIdentity} contribution to ${Questions.healthYourIdentity} health insurance entitles ${Questions.healthYouIdentity} to sick pay?" && widget.CheckQuestion == "Sick pay")
+    {
+      //Question No 37
+      return healthyesnoContainer("","Health","Are ${Questions.healthYouIdentity} entitled to subsidies for ${Questions.healthYourIdentity} health insurance contributions or ${Questions.healthYourIdentity} medical expenses?","Claim for subsidies",220.0,"","","");
+    }
+
+
+
+    // ====== Voluntary statutory health insurance Ends ====== //
+
+
+
+
+    // ====== Health insurance for students Starts ====== //
+
+    //Answer No 62
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} pay for basic health insurance (Basis-Krankenversicherung)?" && widget.CheckQuestion == "Basic health insurance")
+    {
+      //Question No 63
+      return healthcalculationContainer("","Health","How much of ${Questions.healthYourIdentity} health insurance premium is available to ${Questions.healthYouIdentity} as sick pay?","Thereof claim to sick pay",220.0,"calculation","","");
+    }
+
+
+    //Answer No 63
+    else if(widget.CheckCompleteQuestion =="How much of ${Questions.healthYourIdentity} health insurance premium is available to ${Questions.healthYouIdentity} as sick pay?" && widget.CheckQuestion == "Thereof claim to sick pay")
+    {
+      //Question No 64
+      return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} pay for basic nursing care insurance (Basis-Pflegeversicherung)?","Basic nursing care insurance",220.0,"calculation","","");
+    }
+
+
+    //Answer No 64
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} pay for basic nursing care insurance (Basis-Pflegeversicherung)?" && widget.CheckQuestion == "Basic nursing care insurance")
+    {
+      //Question No 65
+      return healthyesnoContainer("","Health","Did ${Questions.healthYouIdentity} receive any reimbursement from ${Questions.healthYourIdentity} health insurance?","Health insurance refunds",220.0,"","","");
+    }
+
+
+    //Answer No 65
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYouIdentity} receive any reimbursement from ${Questions.healthYourIdentity} health insurance?" && widget.CheckQuestion == "Health insurance refunds")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+//Question No 68
+        return healthyesnoContainer("","Health","Have ${Questions.healthYouIdentity} received subsidies to ${Questions.healthYourIdentity} health insurance from the BAföG office?","Health insurance subsidies from the BAföG office",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 66
+        return healthcalculationContainer("","Health","How much reimbursement  did ${Questions.healthYouIdentity} receive?","Amount reimbursed",220.0,"calculation","","");
+      }
+
+    }
+
+    //Answer No 66
+    else if(widget.CheckCompleteQuestion =="How much reimbursement  did ${Questions.healthYouIdentity} receive?" && widget.CheckQuestion == "Amount reimbursed")
+    {
+      //Question No 67
+      return healthcalculationContainer("","Health","What share of ${Questions.healthYourIdentity} contribution to ${Questions.healthYourIdentity} health insurance entitles ${Questions.healthYouIdentity} to sick pay?","Thereof claim to sick pay",220.0,"calculation","","");
+    }
+
+    //Answer No 67
+    else if(widget.CheckCompleteQuestion =="What share of ${Questions.healthYourIdentity} contribution to ${Questions.healthYourIdentity} health insurance entitles ${Questions.healthYouIdentity} to sick pay?" && widget.CheckQuestion == "Thereof claim to sick pay")
+    {
+      //Question No 68
+      return healthyesnoContainer("","Health","Have ${Questions.healthYouIdentity} received subsidies to ${Questions.healthYourIdentity} health insurance from the BAföG office?","Health insurance subsidies from the BAföG office",220.0,"","","");
+    }
+
+
+    //Answer No 68
+    else if(widget.CheckCompleteQuestion =="Have ${Questions.healthYouIdentity} received subsidies to ${Questions.healthYourIdentity} health insurance from the BAföG office?" && widget.CheckQuestion == "Health insurance subsidies from the BAföG office")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+       //Question No 20
+        return healthyesnoContainer("","Health","Did ${Questions.healthYouIdentity} have expenses for work-related health issues?","Work-related illness",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 69
+        return healthcalculationContainer("","Health","How much did ${Questions.healthYouIdentity} receive in BAföG subsidies?","Amount BAföG subsidies",220.0,"calculation","","");
+      }
+
+    }
+
+
+    //Answer No 69
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} receive in BAföG subsidies?" && widget.CheckQuestion == "Amount BAföG subsidies")
+    {
+      //Question No 20
+      return healthyesnoContainer("","Health","Did ${Questions.healthYouIdentity} have expenses for work-related health issues?","Work-related illness",220.0,"","","");
+    }
+
+    // ====== Health insurance for students Ends ====== //
+
+
+
+
+    //For  adult child and Partner and foreign health insurance and Voluntary statutory health insurance Starts
+    //Answer No 37
+    else if(widget.CheckCompleteQuestion =="Are ${Questions.healthYouIdentity} entitled to subsidies for ${Questions.healthYourIdentity} health insurance contributions or ${Questions.healthYourIdentity} medical expenses?" && widget.CheckQuestion == "Claim for subsidies")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 20
+        return healthyesnoContainer("","Health","Did ${Questions.healthYouIdentity} have expenses for work-related health issues?","Work-related illness",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 20
+        return healthyesnoContainer("","Health","Did ${Questions.healthYouIdentity} have expenses for work-related health issues?","Work-related illness",220.0,"","","");
+      }
+
+    }
+
+//For  adult child and Partner and foreign health insurance and Voluntary statutory health insurance Ends
+
+// ====== Other health insurance Ends ====== //
 
   }
 

@@ -167,6 +167,21 @@ class _HealthCalculationContainerState extends State<HealthCalculationContainer>
   void AddData()
   {
 
+    if(widget.completeQuestion == "For how many adult children did ${Questions.healthYouIdentity} pay health insurance contributions?" && widget.questionOption == "Number of children")
+    {
+      Questions.totalHealthChildren = int.parse(calculations.text);
+      print("Total Health Children:"+Questions.totalHealthChildren.toString());
+      Questions.healthChildrenLength += 1;
+      Questions.healthChildrenText ="INSURANCE CHILD "+Questions.healthChildrenLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How much were ${Questions.healthYouIdentity} reimbursed?" && widget.questionOption == "Health insurance refunds - child")
+    {
+      Questions.healthChildrenLength += 1;
+      Questions.healthChildrenText ="INSURANCE CHILD "+Questions.healthChildrenLength.toString();
+    }
+
+
     qu.HealthAddAnswer(widget.identity, widget.bigQuestion, widget.completeQuestion, widget.questionOption, [calculations.text.toString()], 55.0);
 
     Navigator.of(context).pop();

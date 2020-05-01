@@ -221,6 +221,9 @@ static List healthAnswerShow=[];
 static double healthAnimatedContainer;
 static String healthYouIdentity = "you";
 static String healthYourIdentity = "your";
+static int healthChildrenLength = 0;
+static int totalHealthChildren = 0;
+static String healthChildrenText = "";
 
  void HealthAddAnswer(String UserIdentity, String details,String completequestion,String question,List answer,double containerheight)
  {
