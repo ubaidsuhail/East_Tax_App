@@ -1347,6 +1347,397 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
 // ====== Other health insurance Ends ====== //
 
+
+   //Answer No 20
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYouIdentity} have expenses for work-related health issues?" && widget.CheckQuestion == "Work-related illness")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+//Question No 72
+        return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 70
+        //For No 430.0
+        //For Yes 220.0
+        return healthyesnoContainer("","Health","Did a doctor certify the professional cause of ${Questions.healthYourIdentity} job related health costs?","Certified by doctor",430.0,"","","");
+      }
+
+    }
+
+
+    //Answer No 70
+    else if(widget.CheckCompleteQuestion =="Did a doctor certify the professional cause of ${Questions.healthYourIdentity} job related health costs?" && widget.CheckQuestion == "Certified by doctor")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+//Question No 72
+        return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 71
+        return healthcalculationContainer("","Health","How much have ${Questions.healthYouIdentity} spent on work-related health issues?","Work-related healthcare costs",430.0,"calculation","","");
+      }
+
+    }
+
+    //Answer No 71
+    else if(widget.CheckCompleteQuestion =="How much have ${Questions.healthYouIdentity} spent on work-related health issues?" && widget.CheckQuestion == "Work-related healthcare costs")
+    {
+      //Question No 72
+      return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+    }
+
+    // ====== Non work related Medical Expense Starts ====== //
+
+
+    //Answer No 72
+    else if(widget.CheckCompleteQuestion =="Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?" && widget.CheckQuestion == "Treatment costs")
+    {
+
+      for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+        if(widget.CheckAnswer[m] == "Prescribed medication")
+        {
+         //Question No 73
+          return healthcalculationContainer("","Your healthcare costs","How much did ${Questions.healthYouIdentity} spend in total on medication?","Medication costs",220.0,"calculation","","");
+        }
+
+        else if(widget.CheckAnswer[m] == "Treatment by a doctor")
+        {
+         //Questiion No 77
+          return healthcalculationContainer("","Your healthcare costs","How much did ${Questions.healthYouIdentity} spend in total for medical treatments?","Treatment costs",220.0,"calculation","","");
+        }
+
+        else if(widget.CheckAnswer[m] == "Trips to the doctor or to treatments")
+        {
+
+
+        }
+
+        else if(widget.CheckAnswer[m] == "Operations")
+        {
+        //Question No 80
+          return healthcalculationContainer("","Your healthcare costs","What did ${Questions.healthYouIdentity} spend in total on operations?","Operation costs",220.0,"calculation","","");
+        }
+
+        else if(widget.CheckAnswer[m] == "Glasses")
+        {
+        //Question No 83
+          return healthcalculationContainer("","Your healthcare costs","How much did ${Questions.healthYouIdentity} spend on glasses?","Glasses costs",220.0,"calculation","","");
+        }
+
+        else if(widget.CheckAnswer[m] == "Contact lenses")
+        {
+          //Question No 86
+          return healthcalculationContainer("","Your healthcare costs","How much did ${Questions.healthYouIdentity} spend on contact lenses?","Cost of contact lenses",220.0,"calculation","","");
+        }
+
+        else if(widget.CheckAnswer[m] == "Hearing aid")
+        {
+          //Question No 89
+          return healthcalculationContainer("","Your healthcare costs","How much did ${Questions.healthYouIdentity} spend on hearing aids?","Cost of hearing aid",220.0,"calculation","","");
+        }
+
+        else if(widget.CheckAnswer[m] == "Dental treatment")
+        {
+
+
+        }
+
+        else if(widget.CheckAnswer[m] == "Wheelchair / walking aid")
+        {
+
+        }
+
+        else if(widget.CheckAnswer[m] == "Hospital stay")
+        {
+
+        }
+
+        else if(widget.CheckAnswer[m] == "Nursing care")
+        {
+
+        }
+
+        else if(widget.CheckAnswer[m] == "Health course")
+        {
+
+        }
+
+        else if(widget.CheckAnswer[m] == "Other costs")
+        {
+
+        }
+
+        else if(widget.CheckAnswer[m] == "None")
+        {
+
+        }
+      }
+    }
+
+
+
+    // ====== Prescribed medication Starts ====== //
+
+        //Answer No 73
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend in total on medication?" && widget.CheckQuestion == "Medication costs")
+    {
+      //Question No 74
+      return healthyesnoContainer("","Your healthcare costs","Did ${Questions.healthYourIdentity} health insurance reimburse the cost of medication?","Reimbursements",220.0,"","","");
+    }
+
+
+   //Answer No 74
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYourIdentity} health insurance reimburse the cost of medication?" && widget.CheckQuestion == "Reimbursements")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 75
+        return healthcalculationContainer("","Your healthcare costs","How much has been reimbursed?","Reimbursement amount",220.0,"calculation","","");
+      }
+
+    }
+
+
+    //Answer No 75
+    else if(widget.CheckCompleteQuestion =="How much has been reimbursed?" && widget.CheckQuestion == "Reimbursement amount")
+    {
+      //Question No 76
+      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+    }
+   // ====== Prescribed medication Ends ====== //
+
+
+
+
+
+
+  // ====== Treatment by a doctor Starts ====== //
+
+    //Answer No 77
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend in total for medical treatments?" && widget.CheckQuestion == "Treatment costs")
+    {
+      //Question No 78
+      return healthyesnoContainer("","Your healthcare costs","Did ${Questions.healthYourIdentity} health insurance reimburse your treatment costs?","Reimbursements",430.0,"","","");
+    }
+
+
+    //Answer No 78
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYourIdentity} health insurance reimburse your treatment costs?" && widget.CheckQuestion == "Reimbursements")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 79
+        return healthcalculationContainer("","Your healthcare costs"," How much has been reimbursed?","Reimbursement amount",220.0,"calculation","","");
+      }
+
+    }
+
+
+    //Answer No 79
+    else if(widget.CheckCompleteQuestion ==" How much has been reimbursed?" && widget.CheckQuestion == "Reimbursement amount")
+    {
+      //Question No 76
+      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+    }
+
+  // ====== Treatment by a doctor Ends ====== //
+
+
+
+
+ // ====== Operations Starts ====== //
+
+
+    //Answer No 80
+    else if(widget.CheckCompleteQuestion =="What did ${Questions.healthYouIdentity} spend in total on operations?" && widget.CheckQuestion == "Operation costs")
+    {
+      //Question No 81
+      return healthyesnoContainer("","Your healthcare costs","Did ${Questions.healthYourIdentity} health insurance reimburse the cost of operations?","Reimbursements",220.0,"","","");
+    }
+
+
+    //Answer No 81
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYourIdentity} health insurance reimburse the cost of operations?" && widget.CheckQuestion == "Reimbursements")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 82
+        return healthcalculationContainer("","Your healthcare costs","  How much has been reimbursed?","Reimbursement amount",220.0,"calculation","","");
+      }
+
+    }
+
+
+    //Answer No 82
+    else if(widget.CheckCompleteQuestion =="  How much has been reimbursed?" && widget.CheckQuestion == "Reimbursement amount")
+    {
+      //Question No 76
+      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+    }
+
+
+
+ // ====== Operations Ends ====== //
+
+
+
+  // ====== Glasses Starts ====== //
+
+   //Answer no 83
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend on glasses?" && widget.CheckQuestion == "Glasses costs")
+    {
+      //Question No 84
+      return healthyesnoContainer("","Your healthcare costs","Did ${Questions.healthYourIdentity} health insurance reimburse the cost of glasses?","Reimbursements",220.0,"","","");
+    }
+
+
+    //Answer No 84
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYourIdentity} health insurance reimburse the cost of glasses?" && widget.CheckQuestion == "Reimbursements")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 85
+        return healthcalculationContainer("","Your healthcare costs","How much has been  reimbursed?","Reimbursement amount",220.0,"calculation","","");
+      }
+
+    }
+
+    //Answer No 85
+    else if(widget.CheckCompleteQuestion =="How much has been  reimbursed?" && widget.CheckQuestion == "Reimbursement amount")
+    {
+      //Question No 76
+      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+    }
+
+
+ // ====== Glasses Ends ====== //
+
+
+ // ====== Contact lenses Starts ====== //
+
+    //Answer no 86
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend on contact lenses?" && widget.CheckQuestion == "Cost of contact lenses")
+    {
+      //Question No 87
+      return healthyesnoContainer("","Your healthcare costs","Did ${Questions.healthYourIdentity} health insurance reimburse the cost of contact lenses?","Reimbursements",220.0,"","","");
+    }
+
+
+    //Answer No 87
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYourIdentity} health insurance reimburse the cost of contact lenses?" && widget.CheckQuestion == "Reimbursements")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 88
+        return healthcalculationContainer("","Your healthcare costs","How much has been reimburse?","Reimbursement amount",220.0,"calculation","","");
+      }
+
+    }
+
+    //Answer No 88
+    else if(widget.CheckCompleteQuestion =="How much has been reimburse?" && widget.CheckQuestion == "Reimbursement amount")
+    {
+      //Question No 76
+      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+    }
+
+
+        // ====== Contact lenses Ends ====== //
+
+
+
+   // ====== hearing aids Start  ====== //
+
+    //Answer no 89
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend on hearing aids?" && widget.CheckQuestion == "Cost of hearing aid")
+    {
+      //Question No 90
+      return healthyesnoContainer("","Your healthcare costs","Did ${Questions.healthYourIdentity} health insurance reimburse the cost of hearing aids?","Reimbursements",220.0,"","","");
+    }
+
+
+    //Answer No 90
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYourIdentity} health insurance reimburse the cost of hearing aids?" && widget.CheckQuestion == "Reimbursements")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 91
+        return healthcalculationContainer("","Your healthcare costs","How much has reimburse?","Reimbursement amount",220.0,"calculation","","");
+      }
+
+    }
+
+
+    //Answer No 91
+    else if(widget.CheckCompleteQuestion =="How much has reimburse?" && widget.CheckQuestion == "Reimbursement amount")
+    {
+      //Question No 76
+      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+    }
+
+
+  // ====== hearing aids Ends  ====== //
+
+
+
+
+   // ====== Non work related Medical Expense Ends ====== //
+
+
+
+
+
   }
 
   }
