@@ -187,6 +187,18 @@ class _HealthYesNoContainerScreenState extends State<HealthYesNoContainer> {
       Questions.healthChildrenText ="INSURANCE CHILD "+Questions.healthChildrenLength.toString();
     }
 
+    else if(widget.completeQuestion == "Did other people help ${Questions.healthYouIdentity} to care for this person?" && widget.questionOption == "Other carers" && Questions.totalPeopleCare > 0)
+    {
+      Questions.peopleCareLength += 1;
+      Questions.peopleCareText ="PEOPLE "+Questions.peopleCareLength.toString();
+    }
+
+    else if(widget.completeQuestion == "Did ${Questions.healthYourIdentity} health insurance reimburse ${Questions.healthYourIdentity} travel costs?" && widget.questionOption == "Reimbursement of costs")
+    {
+      Questions.doctorTripLength += 1;
+      Questions.doctorTripText ="JOURNEY "+Questions.doctorTripLength.toString();
+    }
+
     qu.HealthAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, ['No'], 55.0);
 
     Navigator.of(context).pop();

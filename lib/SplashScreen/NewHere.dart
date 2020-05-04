@@ -91,6 +91,13 @@ class _newHereState extends State<newHere> {
                         Questions.healthAnswerShow = [];
                         Questions.healthYouIdentity = "you";
                         Questions.healthYourIdentity = "your";
+                        Questions.healthChildrenLength = 0;
+                        Questions.totalHealthChildren = 0;
+                        Questions.healthChildrenText = "";
+                        Questions.peopleCareLength = 0;
+                        Questions.totalPeopleCare = 0;
+                        Questions.peopleCareText = "";
+
                         Navigator.push(context, MaterialPageRoute(builder: (context) {
                           return HealthMainQuestions(CheckCompleteQuestion:"What kind of basic health insurance did ${Questions.healthYouIdentity} have in 2019?",CheckQuestion:"Kind of health insurance",CheckAnswer:[]);
                         }));

@@ -10,6 +10,8 @@ import 'package:easy_taxx/health_flow/healthyesnocontainer.dart';
 import 'package:easy_taxx/health_flow/healthcalculationcontainer.dart';
 import 'package:easy_taxx/health_flow/healthmultipleoptionscontainer.dart';
 import 'package:easy_taxx/health_flow/healthmultitwocontainer.dart';
+import 'package:easy_taxx/health_flow/healthaddresscontainer.dart';
+import 'package:easy_taxx/health_flow/healthtwooptioncontainer.dart';
 
 
 
@@ -1417,7 +1419,8 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
         else if(widget.CheckAnswer[m] == "Trips to the doctor or to treatments")
         {
-
+         //Question No 123
+          return healthcalculationContainer("","Your healthcare costs","To how many different doctors did ${Questions.healthYouIdentity} travel?","Doctors",280.0,"calculation","","");
 
         }
 
@@ -1447,38 +1450,45 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
         else if(widget.CheckAnswer[m] == "Dental treatment")
         {
-
+          //Question No 92
+          return healthcalculationContainer("","Your healthcare costs","How much did ${Questions.healthYouIdentity} spend on dental implants, dentures, etc.?","Cost of dental treatments",220.0,"calculation","","");
 
         }
 
         else if(widget.CheckAnswer[m] == "Wheelchair / walking aid")
         {
-
+          //Question No 95
+          return healthcalculationContainer("","Your healthcare costs","How much did ${Questions.healthYouIdentity} spend overall on wheelchairs or walking aids?","Costs for wheelchair",220.0,"calculation","","");
         }
 
         else if(widget.CheckAnswer[m] == "Hospital stay")
         {
-
+          //Question No 98
+          return healthcalculationContainer("","Your healthcare costs","How much did ${Questions.healthYouIdentity} pay for your stay in hospital?","Accommodation costs",220.0,"calculation","","");
         }
 
         else if(widget.CheckAnswer[m] == "Nursing care")
         {
-
+          //Question No 101
+          return healthcalculationContainer("","Your healthcare costs","How much did ${Questions.healthYouIdentity} spend on nursing care?","Nursing care costs",220.0,"calculation","","");
         }
 
         else if(widget.CheckAnswer[m] == "Health course")
         {
-
+          //Question No 104
+          return healthcalculationContainer("","Your healthcare costs","How much have ${Questions.healthYouIdentity} spent on healthcare workshops?","Healthcare workshops",220.0,"calculation","","");
         }
 
         else if(widget.CheckAnswer[m] == "Other costs")
         {
-
+          //Question No 107
+          return healthcalculationContainer("","Your healthcare costs","What additional costs did ${Questions.healthYouIdentity} have (e.g. physical therapy, naturopathy homeopathy or rehabilitation costs)?","Other costs",220.0,"calculation","","");
         }
 
         else if(widget.CheckAnswer[m] == "None")
         {
-
+//Question No 76
+          return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
         }
       }
     }
@@ -1564,6 +1574,173 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     }
 
   // ====== Treatment by a doctor Ends ====== //
+
+
+
+    // ====== Trips to the doctor or to treatments Starts ====== //
+    //Answer No 123
+    else if(widget.CheckCompleteQuestion =="To how many different doctors did ${Questions.healthYouIdentity} travel?" && widget.CheckQuestion == "Doctors")
+    {
+      //Question No 124
+      return healthtwooptionContainer("","Your healthcare costs","Where have ${Questions.healthYouIdentity} travelled to?","${Questions.doctorTripLength}. drive to doctor",["Germany","Abroad"],430.0,"",Questions.doctorTripText,"");
+    }
+
+    //Answer No 124
+    else if(widget.CheckCompleteQuestion =="Where have ${Questions.healthYouIdentity} travelled to?" && widget.CheckQuestion == "${Questions.doctorTripLength}. drive to doctor")
+    {
+
+      if(widget.CheckAnswer[0] == "Germany")
+      {
+        //Question No 125
+        return healthmultipleoptionsContainer("","Your healthcare costs","How did ${Questions.healthYouIdentity} get there?","Means of transport",["By car","Bus / train","Airplane","Bicycle","On foot"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],220.0,"",Questions.doctorTripText,"");
+      }
+
+      else if(widget.CheckAnswer[0] == "Abroad")
+      {
+        //Question No 125
+        return healthmultipleoptionsContainer("","Your healthcare costs","How did ${Questions.healthYouIdentity} get there?","Means of transport",["By car","Bus / train","Airplane","Bicycle","On foot"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],220.0,"",Questions.doctorTripText,"");
+      }
+
+    }
+
+    //Answer No 125
+    else if(widget.CheckCompleteQuestion =="How did ${Questions.healthYouIdentity} get there?" && widget.CheckQuestion == "Means of transport")
+    {
+
+      for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+        if(widget.CheckAnswer[m] == "By car")
+        {
+          //Question No 126
+          //Ya container baad ma change hoga
+          return healthcalculationContainer("","Your healthcare costs","Please enter the start and end point of ${Questions.healthYourIdentity} route that ${Questions.healthYouIdentity} travelled by car.","Distance by car",220.0,"",Questions.doctorTripText,"");
+        }
+
+        else if(widget.CheckAnswer[m] == "Bus / train")
+        {
+          //Bus/train and Airplace goes to same question
+         //Question No 130
+          return healthcalculationContainer("","Your healthcare costs","How much did ${Questions.healthYouIdentity} spend in total on trains to go to doctor no. ${Questions.doctorTripLength}?","Amount",220.0,"calculation",Questions.doctorTripText,"");
+        }
+
+        else if(widget.CheckAnswer[m] == "Airplane")
+        {
+          //Bus/train and Airplace goes to same question
+         //Question No 130
+          return healthcalculationContainer("","Your healthcare costs","How much did ${Questions.healthYouIdentity} spend in total on trains to go to doctor no. ${Questions.doctorTripLength}?","Amount",220.0,"calculation",Questions.doctorTripText,"");
+
+        }
+
+        else if(widget.CheckAnswer[m] == "Bicycle")
+        {
+          if(Questions.doctorTripLength <= Questions.totalDoctorTrip)
+          {
+            //Question No 124
+            return healthtwooptionContainer("","Your healthcare costs","Where have ${Questions.healthYouIdentity} travelled to?","${Questions.doctorTripLength}. drive to doctor",["Germany","Abroad"],430.0,"",Questions.doctorTripText,"");
+          }
+          else
+          {
+            //Question No 76
+            return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+          }
+        }
+
+        else if(widget.CheckAnswer[m] == "On foot")
+        {
+          if(Questions.doctorTripLength <= Questions.totalDoctorTrip)
+          {
+            //Question No 124
+            return healthtwooptionContainer("","Your healthcare costs","Where have ${Questions.healthYouIdentity} travelled to?","${Questions.doctorTripLength}. drive to doctor",["Germany","Abroad"],430.0,"",Questions.doctorTripText,"");
+          }
+          else
+          {
+            //Question No 76
+            return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+          }
+        }
+
+      }
+    }
+
+    //By Car starts //
+    //Answer No 126
+
+    else if(widget.CheckCompleteQuestion =="Please enter the start and end point of ${Questions.healthYourIdentity} route that ${Questions.healthYouIdentity} travelled by car." && widget.CheckQuestion == "Distance by car")
+    {
+      //Question No 127
+      return healthcalculationContainer("","Your healthcare costs","How often did ${Questions.healthYouIdentity} take the route to doctor No.${Questions.doctorTripLength} by car?","Number of drives by car",220.0,"",Questions.doctorTripText,"");
+    }
+
+
+    //Answer No 127
+    else if(widget.CheckCompleteQuestion =="How often did ${Questions.healthYouIdentity} take the route to doctor No.${Questions.doctorTripLength} by car?" && widget.CheckQuestion == "Number of drives by car")
+    {
+      //Question No 128
+      return healthyesnoContainer("","Your healthcare costs","Did ${Questions.healthYourIdentity} health insurance reimburse ${Questions.healthYourIdentity} travel costs?","Reimbursement of costs",220.0,"",Questions.doctorTripText,"");
+    }
+
+    //By Car ends //
+
+
+    //By Bus/train Starts
+
+//Answer No 130
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend in total on trains to go to doctor no. ${Questions.doctorTripLength}?" && widget.CheckQuestion == "Amount")
+    {
+      //Question No 128
+      return healthyesnoContainer("","Your healthcare costs","Did ${Questions.healthYourIdentity} health insurance reimburse ${Questions.healthYourIdentity} travel costs?","Reimbursement of costs",220.0,"",Questions.doctorTripText,"");
+    }
+
+    //By Bus/train Ends
+
+
+
+
+    //Answer No 128
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYourIdentity} health insurance reimburse ${Questions.healthYourIdentity} travel costs?" && widget.CheckQuestion == "Reimbursement of costs")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        if(Questions.doctorTripLength <= Questions.totalDoctorTrip)
+        {
+          //Question No 124
+          return healthtwooptionContainer("","Your healthcare costs","Where have ${Questions.healthYouIdentity} travelled to?","${Questions.doctorTripLength}. drive to doctor",["Germany","Abroad"],430.0,"",Questions.doctorTripText,"");
+        }
+        else
+          {
+            //Question No 76
+            return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+          }
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+      //Question No 129
+        return healthcalculationContainer("","Your healthcare costs","How much has been reimbursed?      ","Reimbursement amount",220.0,"calculation",Questions.doctorTripText,"");
+      }
+
+    }
+
+    //Answer No 129
+    else if(widget.CheckCompleteQuestion =="How much has been reimbursed?      " && widget.CheckQuestion == "Reimbursement amount")
+    {
+      if(Questions.doctorTripLength <= Questions.totalDoctorTrip)
+      {
+        //Question No 124
+        return healthtwooptionContainer("","Your healthcare costs","Where have ${Questions.healthYouIdentity} travelled to?","${Questions.doctorTripLength}. drive to doctor",["Germany","Abroad"],430.0,"",Questions.doctorTripText,"");
+      }
+      else
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+      }
+    }
+
+
+
+
+    // ====== Trips to the doctor or to treatments Ends ====== //
 
 
 
@@ -1730,15 +1907,406 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
   // ====== hearing aids Ends  ====== //
 
 
+  // ====== Dental treatment Starts ====== //
 
+    //Answer no 92
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend on dental implants, dentures, etc.?" && widget.CheckQuestion == "Cost of dental treatments")
+    {
+      //Question No 93
+      return healthyesnoContainer("","Your healthcare costs","Did ${Questions.healthYourIdentity} health insurance reimburse the cost dental treatments?","Reimbursements",220.0,"","","");
+    }
+
+
+    //Answer No 93
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYourIdentity} health insurance reimburse the cost dental treatments?" && widget.CheckQuestion == "Reimbursements")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 94
+        return healthcalculationContainer("","Your healthcare costs","How much has been reimbursed? ","Reimbursement amount",220.0,"calculation","","");
+      }
+
+    }
+
+    //Answer No 94
+    else if(widget.CheckCompleteQuestion =="How much has been reimbursed? " && widget.CheckQuestion == "Reimbursement amount")
+    {
+      //Question No 76
+      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+    }
+
+    // ====== Dental treatment Ends ====== //
+
+
+
+  // ====== Wheelchair / walking aid Starts ====== //
+
+    //Answer no 95
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend overall on wheelchairs or walking aids?" && widget.CheckQuestion == "Costs for wheelchair")
+    {
+      //Question No 96
+      return healthyesnoContainer("","Your healthcare costs","Did ${Questions.healthYourIdentity} health insurance reimburse the cost of a wheelchair or walking aid?","Reimbursements",220.0,"","","");
+    }
+
+
+    //Answer No 96
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYourIdentity} health insurance reimburse the cost of a wheelchair or walking aid?" && widget.CheckQuestion == "Reimbursements")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 97
+        return healthcalculationContainer("","Your healthcare costs","How much has been reimbursed?  ","Reimbursement amount",220.0,"calculation","","");
+      }
+
+    }
+
+    //Answer No 97
+    else if(widget.CheckCompleteQuestion =="How much has been reimbursed?  " && widget.CheckQuestion == "Reimbursement amount")
+    {
+      //Question No 76
+      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+    }
+
+
+
+ // ====== Wheelchair / walking aid Ends ====== //
+
+
+ // ====== Hospital stay Starts ====== //
+
+    //Answer no 98
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} pay for your stay in hospital?" && widget.CheckQuestion == "Accommodation costs")
+    {
+      //Question No 99
+      return healthyesnoContainer("","Your healthcare costs","Did ${Questions.healthYourIdentity} health insurance reimburse the accommodation costs for your hospital stay?","Healthcare reimbursement",220.0,"","","");
+    }
+
+    //Answer No 99
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYourIdentity} health insurance reimburse the accommodation costs for your hospital stay?" && widget.CheckQuestion == "Healthcare reimbursement")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 100
+        return healthcalculationContainer("","Your healthcare costs","How much has been reimbursed?   ","Reimbursement amount",220.0,"calculation","","");
+      }
+
+    }
+
+
+    //Answer No 100
+    else if(widget.CheckCompleteQuestion =="How much has been reimbursed?   " && widget.CheckQuestion == "Reimbursement amount")
+    {
+      //Question No 76
+      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+    }
+
+
+ // ====== Hospital stay Ends ====== //
+
+
+ // ====== Nursing care Starts ====== //
+
+    //Answer no 101
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend on nursing care?" && widget.CheckQuestion == "Nursing care costs")
+    {
+      //Question No 102
+      return healthyesnoContainer("","Your healthcare costs","Did ${Questions.healthYourIdentity} health insurance reimburse ${Questions.healthYourIdentity} nursing care costs?","Reimbursements",220.0,"","","");
+    }
+
+
+    //Answer No 102
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYourIdentity} health insurance reimburse ${Questions.healthYourIdentity} nursing care costs?" && widget.CheckQuestion == "Reimbursements")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 103
+        return healthcalculationContainer("","Your healthcare costs","How much has been reimbursed?    ","Reimbursement amount",220.0,"calculation","","");
+      }
+
+    }
+
+    //Answer No 103
+    else if(widget.CheckCompleteQuestion =="How much has been reimbursed?    " && widget.CheckQuestion == "Reimbursement amount")
+    {
+      //Question No 76
+      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+    }
+
+ // ====== Nursing care Ends ====== //
+
+
+
+ // ====== Health course Starts ====== //
+
+    //Answer no 104
+    else if(widget.CheckCompleteQuestion =="How much have ${Questions.healthYouIdentity} spent on healthcare workshops?" && widget.CheckQuestion == "Healthcare workshops")
+    {
+      //Question No 105
+      return healthyesnoContainer("","Your healthcare costs","Has ${Questions.healthYourIdentity} health insurance reimbursed ${Questions.healthYourIdentity} healthcare workshop costs?","Reimbursements",220.0,"","","");
+    }
+
+   //Answer no 105
+    else if(widget.CheckCompleteQuestion =="Has ${Questions.healthYourIdentity} health insurance reimbursed ${Questions.healthYourIdentity} healthcare workshop costs?" && widget.CheckQuestion == "Reimbursements")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 106
+        return healthcalculationContainer("","Your healthcare costs","How much has been reimbursed?     ","Refund amount",220.0,"calculation","","");
+      }
+
+    }
+
+    //Answer No 106
+    else if(widget.CheckCompleteQuestion =="How much has been reimbursed?     " && widget.CheckQuestion == "Refund amount")
+    {
+      //Question No 76
+      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+    }
+
+
+ // ====== Health course Ends ====== //
+
+
+   // ======= Other costs Starts ====== //
+
+    //Answer no 107
+    else if(widget.CheckCompleteQuestion =="What additional costs did ${Questions.healthYouIdentity} have (e.g. physical therapy, naturopathy homeopathy or rehabilitation costs)?" && widget.CheckQuestion == "Other costs")
+    {
+      //Question No 108
+      return healthcalculationContainer("","Your healthcare costs","How much did ${Questions.healthYouIdentity} spend on other costs?","Amount of other costs",220.0,"calculation","","");
+    }
+
+    //Answer no 108
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend on other costs?" && widget.CheckQuestion == "Amount of other costs")
+    {
+      //Question No 109
+      return healthyesnoContainer("","Your healthcare costs","Did ${Questions.healthYouIdentity} receive reimbursement for this from ${Questions.healthYourIdentity} health insurance?","Reimbursement of costs from health insurance",220.0,"","","");
+    }
+
+    //Answer no 109
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYouIdentity} receive reimbursement for this from ${Questions.healthYourIdentity} health insurance?" && widget.CheckQuestion == "Reimbursement of costs from health insurance")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 110
+        return healthcalculationContainer("","Your healthcare costs","How much has been reimbursed?","Health insurance reimbursement",220.0,"calculation","","");
+      }
+
+    }
+
+    //Answer No 110
+    else if(widget.CheckCompleteQuestion =="How much has been reimbursed?" && widget.CheckQuestion == "Health insurance reimbursement")
+    {
+      //Question No 76
+      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+    }
+
+
+        // ======= Other costs Ends ====== //
 
    // ====== Non work related Medical Expense Ends ====== //
 
 
 
+  //Answer No 76
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYouIdentity} nurse another person at home without payment?" && widget.CheckQuestion == "Free care of others")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 119
+        return healthyesnoContainer("","Costs funeral","Did ${Questions.healthYouIdentity} have any funeral costs?","Funeral costs",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 111
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} care for more than one person?","Care for multiple persons",220.0,"","","");
+      }
+
+    }
 
 
-  }
+    //Answer No 111
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYouIdentity} care for more than one person?" && widget.CheckQuestion == "Care for multiple persons")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 114
+        return healthcalculationContainer("","Care of others","What is the full name of the person ${Questions.healthYouIdentity} cared for?","Name of the person",220.0,"","","");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+       //Question No 112
+        return healthcalculationContainer("","Care of others","How many people did ${Questions.healthYouIdentity} take care of?","Number of people cared for",220.0,"loop","","");
+      }
+
+    }
+
+    //Answer No 112
+    else if(widget.CheckCompleteQuestion =="How many people did ${Questions.healthYouIdentity} take care of?" && widget.CheckQuestion == "Number of people cared for")
+    {
+      //Question No 113
+      return healthcalculationContainer("","Care of others","What is the full name of the person that has been cared for?","Name of the person",220.0,"",Questions.peopleCareText,"");
+    }
+
+
+    //Answer no 113 and Answer No 114
+    else if((widget.CheckCompleteQuestion =="What is the full name of the person that has been cared for?" ||  widget.CheckCompleteQuestion =="What is the full name of the person ${Questions.healthYouIdentity} cared for?") && widget.CheckQuestion == "Name of the person")
+    {
+      //Question No 115
+      return healthaddressContainer("","Care of others","What is the address of the person ${Questions.healthYouIdentity} cared for?","Address of the person",220.0,"",Questions.peopleCareText,"");
+    }
+
+    //Answer no 115
+    else if(widget.CheckCompleteQuestion =="What is the address of the person ${Questions.healthYouIdentity} cared for?" && widget.CheckQuestion == "Address of the person")
+    {
+      //Question No 116
+      return healthcalculationContainer("","Care of others","What kind of relationship is there to the person nursed?","Relationship to this person",220.0,"",Questions.peopleCareText,"");
+    }
+
+    //Answer no 116
+    else if(widget.CheckCompleteQuestion =="What kind of relationship is there to the person nursed?" && widget.CheckQuestion == "Relationship to this person")
+    {
+      //Question No 117
+      return healthyesnoContainer("","Care of others","Did other people help ${Questions.healthYouIdentity} to care for this person?","Other carers",220.0,"",Questions.peopleCareText,"");
+    }
+
+    //Answer No 117
+    else if(widget.CheckCompleteQuestion =="Did other people help ${Questions.healthYouIdentity} to care for this person?" && widget.CheckQuestion == "Other carers")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+       if(Questions.peopleCareLength <= Questions.totalPeopleCare && Questions.totalPeopleCare > 0)
+         {
+           //Question No 113
+           return healthcalculationContainer("","Care of others","What is the full name of the person that has been cared for?","Name of the person",220.0,"",Questions.peopleCareText,"");
+         }
+         else
+           {
+             //Question No 119
+             return healthyesnoContainer("","Costs funeral","Did ${Questions.healthYouIdentity} have any funeral costs?","Funeral costs",220.0,"","","");
+       }
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 118
+        return healthcalculationContainer("","Care of others","How many other carers were there?","Number of carers",220.0,"",Questions.peopleCareText,"");
+      }
+
+    }
+
+
+    //Answer no 118
+    else if(widget.CheckCompleteQuestion =="How many other carers were there?" && widget.CheckQuestion == "Number of carers")
+    {
+      if(Questions.peopleCareLength <= Questions.totalPeopleCare && Questions.totalPeopleCare > 0)
+      {
+        //Question No 113
+        return healthcalculationContainer("","Care of others","What is the full name of the person that has been cared for?","Name of the person",220.0,"",Questions.peopleCareText,"");
+      }
+      else
+      {
+        //Question No 119
+        return healthyesnoContainer("","Costs funeral","Did ${Questions.healthYouIdentity} have any funeral costs?","Funeral costs",220.0,"","","");
+      }
+    }
+
+    //Answer No 119
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYouIdentity} have any funeral costs?" && widget.CheckQuestion == "Funeral costs")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+       return FinishCategory("Health Category","Finance Category");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 120
+        return healthcalculationContainer("","Costs funeral","How much did ${Questions.healthYouIdentity} spend on the funeral?","Amount of funeral costs",220.0,"calculation","","");
+      }
+
+    }
+
+    //Answer No 120
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend on the funeral?" && widget.CheckQuestion == "Amount of funeral costs")
+    {
+      //Question No 121
+      return healthyesnoContainer("","Costs funeral","Did ${Questions.healthYouIdentity} receive an inheritance?","Inheritance",220.0,"","","");
+    }
+
+
+    //Answer No 121
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYouIdentity} receive an inheritance?" && widget.CheckQuestion == "Inheritance")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        return FinishCategory("Health Category","Finance Category");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 122
+        return healthcalculationContainer("","Costs funeral","What was the total tax value of the inheritance?","Value of inheritance",220.0,"calculation","","");
+      }
+
+    }
+
+    //Answer No 122
+    else if(widget.CheckCompleteQuestion =="What was the total tax value of the inheritance?" && widget.CheckQuestion == "Value of inheritance")
+    {
+      return FinishCategory("Health Category","Finance Category");
+    }
+
+      }
 
   }
 
@@ -1773,6 +2341,19 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
   {
     Questions.healthAnimatedContainer = animatedcontainer;
     return HealthMultiTwoContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,answerImages:AnswerImages,containerSize:320.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
+  }
+
+  Widget healthaddressContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption, double animatedcontainer, String AdditionalData, String MultipleData, String Suggestion)
+  {
+    Questions.healthAnimatedContainer = animatedcontainer;
+    return HealthAddressContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:210.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
+
+  }
+
+  Widget healthtwooptionContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,double animatedcontainer, String AdditionalData, String MultipleData,  String Suggestion )
+  {
+    Questions.healthAnimatedContainer = animatedcontainer;
+    return HealthTwoOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:280.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
   }
 
 }

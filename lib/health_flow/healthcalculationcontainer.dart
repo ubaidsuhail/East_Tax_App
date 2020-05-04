@@ -181,6 +181,36 @@ class _HealthCalculationContainerState extends State<HealthCalculationContainer>
       Questions.healthChildrenText ="INSURANCE CHILD "+Questions.healthChildrenLength.toString();
     }
 
+    else if(widget.completeQuestion == "To how many different doctors did ${Questions.healthYouIdentity} travel?" && widget.questionOption == "Doctors")
+    {
+      Questions.totalDoctorTrip = int.parse(calculations.text);
+      print("Total Doctor Trip:"+Questions.totalHealthChildren.toString());
+      Questions.doctorTripLength += 1;
+      Questions.doctorTripText ="JOURNEY "+Questions.doctorTripLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How much has been reimbursed?      " && widget.questionOption == "Reimbursement amount")
+    {
+      Questions.doctorTripLength += 1;
+      Questions.doctorTripText ="JOURNEY "+Questions.doctorTripLength.toString();
+    }
+
+
+
+    else if(widget.completeQuestion == "How many people did ${Questions.healthYouIdentity} take care of?" && widget.questionOption == "Number of people cared for")
+    {
+      Questions.totalPeopleCare = int.parse(calculations.text);
+      print("Total People Care:"+Questions.totalPeopleCare.toString());
+      Questions.peopleCareLength += 1;
+      Questions.peopleCareText ="PEOPLE "+Questions.peopleCareLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How many other carers were there?" && widget.questionOption == "Number of carers" && Questions.totalPeopleCare > 0)
+    {
+      Questions.peopleCareLength += 1;
+      Questions.peopleCareText ="PEOPLE "+Questions.peopleCareLength.toString();
+    }
+
 
     qu.HealthAddAnswer(widget.identity, widget.bigQuestion, widget.completeQuestion, widget.questionOption, [calculations.text.toString()], 55.0);
 

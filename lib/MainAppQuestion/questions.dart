@@ -224,6 +224,12 @@ static String healthYourIdentity = "your";
 static int healthChildrenLength = 0;
 static int totalHealthChildren = 0;
 static String healthChildrenText = "";
+static int peopleCareLength = 0;
+static int totalPeopleCare = 0;
+static String peopleCareText = "";
+static int doctorTripLength = 0;
+static int totalDoctorTrip = 0;
+static String doctorTripText = "";
 
  void HealthAddAnswer(String UserIdentity, String details,String completequestion,String question,List answer,double containerheight)
  {

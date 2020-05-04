@@ -243,6 +243,11 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
 
     }
 
+    if(widget.completeQuestion == "How did ${Questions.healthYouIdentity} get there?" && widget.questionOption == "Means of transport" && (data[0] == "Bicycle" || data[0] == "On foot"))
+    {
+      Questions.doctorTripLength += 1;
+      Questions.doctorTripText ="JOURNEY "+Questions.doctorTripLength.toString();
+    }
 
     qu.HealthAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, data, 55.0);
 
