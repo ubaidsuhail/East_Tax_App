@@ -99,34 +99,45 @@ class _FamilyTwoOptionContainerState extends State<FamilyTwoOptionContainer> {
               child:
               Column(
                 children: <Widget>[
-                  Stack(
-                    children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.blueAccent,
-                        ),
-                        height: 140.0,
-                        width: 450.0,
+              Stack(
+              children: <Widget>[
+              Container(
+              decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+              color: Colors.blueAccent,
+            ),
+          height: 140.0,
+          width: 450.0,
 
-                      ),
+        ),
 
-                      Positioned(
-                        left: 10.0,
-                        top: 13.0,
-                        child: Text(widget.multipleData,style: TextStyle(fontSize:12.5,color: Colors.black),),
-                      ),
 
-                      Positioned(
-                        top: 35.0,
-                        left: 10.0,
-                        right: 10.0,
+      Positioned(
+          right: MediaQuery.of(context).size.width* 0.04 ,
+          top: 7.0,
+          child: GestureDetector(
+              onTap: (){
 
-                        child: Text(widget.completeQuestion,style: TextStyle(fontSize:17.5,color: Colors.white,wordSpacing: 3.0),),
-                      )
+              },
+              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+      ),
 
-                    ],
-                  ),
+      Positioned(
+        left: MediaQuery.of(context).size.width / 30.0,
+        top: 30.0,
+        child: Text(widget.multipleData,style: TextStyle(fontSize:12.5,color: Colors.black),),
+      ),
+
+      Positioned(
+        top: 52.0,
+        left: MediaQuery.of(context).size.width / 30.0,
+        right: MediaQuery.of(context).size.width / 30.0,
+
+        child: Text(widget.completeQuestion,style: TextStyle(fontSize:17.5,color: Colors.white,wordSpacing: 3.0),),
+      )
+
+      ],
+    ),
                   SizedBox(height: 10.0,),
                   Container(
                     height: 120.0,

@@ -175,8 +175,8 @@ bool a= false;
               height: Questions.answerShow[i]['containerheight'],
               width: 450.0,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  border: Border.all(width: 1.0, color: Colors.lightBlue)
+                  borderRadius: BorderRadius.circular(7.0),
+                  border: Border.all(width: 1.0, color: Color.fromARGB(0xFF, 0xE8, 0xE8, 0xE8))
               ),
               child: Padding(
                   padding: EdgeInsets.only(left: 15.0, right: 15.0),
@@ -290,7 +290,7 @@ bool a= false;
                         padding: EdgeInsets.only(left: 20.0),
                         child:Container(
                           margin: EdgeInsets.only(top:2.0,bottom:2.0),
-                          height: 1.0,
+                          height: j == countLongContainer-1 ? 0.0 :1.0,
                           color: Colors.grey[200],
 
                         )));
@@ -303,8 +303,8 @@ bool a= false;
               height:  screenheightList[hlength] ,
               margin: EdgeInsets.only(bottom:2.5,top:2.5,left: 10.0,right: 10.0),
               decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              border: Border.all(width: 1.0,color: Colors.lightBlue)
+                  borderRadius: BorderRadius.circular(7.0),
+                  border: Border.all(width: 1.0, color: Color.fromARGB(0xFF, 0xE8, 0xE8, 0xE8))
               ),
               child:Column(
                 children:dynamicContainerbig,
@@ -347,8 +347,8 @@ bool a= false;
             child: Container(
               color: Colors.white,
            // height: 667.0,
-            //height:Questions.answerShow.length <3 ? MediaQuery.of(context).size.height*0.87 : (Questions.answerShow.length*60.0)+420.0,
-            //height:Questions.answerShow.length <3 ? 624.0 : (Questions.answerShow.length*60.0)+420.0,
+            //height:Questions.answerShow.length <3 ? MediaQuery.of(context).size.height*0.87 : (Questions.answerShow.length*60.0)+430.0,
+            //height:Questions.answerShow.length <3 ? 624.0 : (Questions.answerShow.length*60.0)+430.0,
               //height: MediaQuery.of(context).size.height*0.87,
 
               height: MediaQuery.of(context).size.height*0.87 >= screenHeight ? MediaQuery.of(context).size.height*0.87 : screenHeight ,
@@ -405,52 +405,52 @@ Widget ChangeContainer()
 {
   if(Questions.answerShow.length ==0)
     {
-      //For Single 420.0
-      //For Divorced 210.0
-      //For Widowed 210.0
-      //For Married/ civil partnership 210.0
-      //For It's Complicated 210.0
+      //For Single 430.0
+      //For Divorced 220.0
+      //For Widowed 220.0
+      //For Married/ civil partnership 220.0
+      //For It's Complicated 220.0
       Questions.LivingCheck = 1;
-          return MaritalStatus("",420.0);
+          return MaritalStatus("",430.0);
     }
     else if(Questions.LivingCheck == 1 || Questions.LivingCheck == 2 ) {
     if (widget.CheckQuestion == "Marital"){
       if (widget.CheckAnswer[0] == "Single") {
-        //for Employed 210.0
-        // for Minijob (e.g. 450€ basis) 420.0
-        // for studying 360.0 for container No 5
+        //for Employed 220.0
+        // for Minijob (e.g. 450€ basis) 430.0
+        // for studying 380.0 for container No 5
         // for training 260 for container No 6
-        //for Self-employed unsupported screen 210.0
-        //for Own business unsupported 210.0
-        //for Forestry unsupported 210.0
-        //for Retired unsupported 210.0
-        //for Parental Leave 420.0
-        //for Not working  420.0
+        //for Self-employed unsupported screen 220.0
+        //for Own business unsupported 220.0
+        //for Forestry unsupported 220.0
+        //for Retired unsupported 220.0
+        //for Parental Leave 430.0
+        //for Not working  430.0
 
         //qu.addAnswer("You","", "", [], 80.0);
 
-        return OccupationContainer("",420.0);
+        return OccupationContainer("",430.0);
       }
 
       else if(widget.CheckAnswer[0] == "Married/ civil partnership")
         {
-          return LivingTogether("",210.0);
+          return LivingTogether("",220.0);
         }
 
         else if(widget.CheckAnswer[0] == "Divorced"){
-        return DivorceDate("",420.0);
+        return DivorceDate("",430.0);
 
       }
 
       else if(widget.CheckAnswer[0] == "Widowed"){
-        return WidowedDate("",420.0);
+        return WidowedDate("",430.0);
       }
 
       else if(widget.CheckAnswer[0] == "It's Complicated"){
 
-        //For No 420.0
-        //For yes 210.0
-        return FormallyMarried("",420.0);
+        //For No 430.0
+        //For yes 220.0
+        return FormallyMarried("",430.0);
       }
 
 
@@ -460,14 +460,14 @@ Widget ChangeContainer()
 //divorce date
         else if(widget.CheckQuestion == "Date of divorce")
           {
-            return OccupationContainer("",420.0);
+            return OccupationContainer("",430.0);
           }
 
  //Widowed since
 
     else if(widget.CheckQuestion == "Widowed since")
     {
-      return OccupationContainer("",420.0);
+      return OccupationContainer("",430.0);
     }
 
 
@@ -477,11 +477,11 @@ Widget ChangeContainer()
       {
         if(widget.CheckAnswer[0] == "No")
           {
-            return StartLivingPart("",420.0);
+            return StartLivingPart("",430.0);
           }
           else if(widget.CheckAnswer[0] == "Yes")
             {
-              return GetMarried("",210.0);
+              return GetMarried("",220.0);
             }
       }
 
@@ -489,7 +489,7 @@ Widget ChangeContainer()
 
         else if(widget.CheckQuestion == "Date of separation")
         {
-          return OccupationContainer("",420.0);
+          return OccupationContainer("",430.0);
           }
 
 
@@ -498,7 +498,7 @@ Widget ChangeContainer()
 
         else if(widget.CheckQuestion == "Date of marriage")
         {
-          return AssessedJointly("",420.0);
+          return AssessedJointly("",430.0);
         }
 
 
@@ -507,11 +507,11 @@ Widget ChangeContainer()
           {
             if(widget.CheckAnswer[0] == "No")
             {
-              return OccupationContainer("",420.0);
+              return OccupationContainer("",430.0);
             }
             else if(widget.CheckAnswer[0] == "Yes")
             {
-             return LivingTogether("", 210.0);
+             return LivingTogether("", 220.0);
             }
           }
 
@@ -521,7 +521,7 @@ Widget ChangeContainer()
           {
             if(widget.CheckAnswer[0] == "No")
             {
-              return OccupationContainer("",420.0);
+              return OccupationContainer("",430.0);
             }
             else if(widget.CheckAnswer[0] == "Yes")
             {
@@ -529,7 +529,7 @@ Widget ChangeContainer()
               Questions.LivingCheck = 2;
               qu.updateAnswer("You & Partner","", "", [], 60.0);
               qu.addAnswer("You", "", "", [], 60.0);
-              return OccupationContainer("",420.0);
+              return OccupationContainer("",430.0);
             }
           }
 
@@ -539,26 +539,26 @@ Widget ChangeContainer()
           {
             for(int m=0;m<widget.CheckAnswer.length;m++) {
               if(widget.CheckAnswer[m] == "Employed") {
-                return ProfessionalCourseTraining("",420.0);
+                return ProfessionalCourseTraining("",430.0);
               }
 
               else if(widget.CheckAnswer[m] == "Minijob (e.g. 450€ basis)")
                 {
-                  return IncomeSources("",420.0);
+                  return IncomeSources("",430.0);
                 }
               else if(widget.CheckAnswer[m] == "Studying")
               {
-                //For Part-time degree 420.0
-                //For Distance learning 420.0
-                //For Postgraduate studies 420.0
-                //For None 210.0
+                //For Part-time degree 430.0
+                //For Distance learning 430.0
+                //For Postgraduate studies 430.0
+                //For None 220.0
 
-                return ApplyStudies("",420.0);
+                return ApplyStudies("",430.0);
               }
 
               else if(widget.CheckAnswer[m] == "Training")
               {
-                return KindOfTraining("",420.0);
+                return KindOfTraining("",430.0);
               }
               else if(widget.CheckAnswer[m] == "Self-employed")
               {
@@ -578,23 +578,23 @@ Widget ChangeContainer()
               }
               else if(widget.CheckAnswer[m] == "Parental Leave")
               {
-                return IncomeSources("",420.0);
+                return IncomeSources("",430.0);
               }
               else if(widget.CheckAnswer[m] == "Not working")
               {
-                return IncomeSources("",420.0);
+                return IncomeSources("",430.0);
               }
             }
           }
 
           else if(widget.CheckQuestion == "Training" && (widget.CheckAnswer[0] == "Yes" || widget.CheckAnswer[0] == "No" ))
             {
-              //for Letting and Leasing 210.0
-              // for sale of property 210.0
-              // for capital gain 210.0
-              //for pension 210.0
-              ////for Alimony here we said 420.0 but we have to check for 370.0 its better if I put 370.0
-              return IncomeSources("",420.0);
+              //for Letting and Leasing 220.0
+              // for sale of property 220.0
+              // for capital gain 220.0
+              //for pension 220.0
+              ////for Alimony here we said 430.0 but we have to check for 380.0 its better if I put 380.0
+              return IncomeSources("",430.0);
             }
 
 
@@ -604,18 +604,18 @@ Widget ChangeContainer()
           for(int m=0;m<widget.CheckAnswer.length;m++) {
             if(widget.CheckAnswer[m] == "Part-time degree")
             {
-              return IncomeSources("",420.0);
+              return IncomeSources("",430.0);
             }
             else if(widget.CheckAnswer[m] == "Distance learning") {
-              return IncomeSources("",420.0);
+              return IncomeSources("",430.0);
             }
             else if(widget.CheckAnswer[m] == "Postgraduate studies")
             {
-              return IncomeSources("",420.0);
+              return IncomeSources("",430.0);
             }
             else if(widget.CheckAnswer[m] == "None")
             {
-              return PreviousCompletedDegree("",420.0);
+              return PreviousCompletedDegree("",430.0);
             }
 
 
@@ -625,14 +625,14 @@ Widget ChangeContainer()
         //previouslydegreecompleted
         else if(widget.CheckQuestion == "Previous degree" && (widget.CheckAnswer[0] == "Yes" || widget.CheckAnswer[0] == "No" ))
         {
-          return IncomeSources("",420.0);
+          return IncomeSources("",430.0);
         }
 
 
         //Typeoftraining
         else if(widget.CheckQuestion == "Type of training" && (widget.CheckAnswer[0] == "Dual training" || widget.CheckAnswer[0] == "Professional School" ))
         {
-          return IncomeSources("",420.0);
+          return IncomeSources("",430.0);
         }
 
 
@@ -644,13 +644,13 @@ Widget ChangeContainer()
                 return UnSupportedScreen();
               }
             else if(widget.CheckAnswer[m] == "Sale of Property") {
-              //for yes 210 and for no 370.0
-              return SaleProperty("",370.0);
+              //for yes 210 and for no 380.0
+              return SaleProperty("",380.0);
             }
             else if(widget.CheckAnswer[m] == "Capital gains")
               {
-                //for no 210 and for yes 420.0
-                return CapitalGain("",420.0);
+                //for no 210 and for yes 430.0
+                return CapitalGain("",430.0);
               }
 
             else if(widget.CheckAnswer[m] == "Pensions")
@@ -661,10 +661,10 @@ Widget ChangeContainer()
 
             else if(widget.CheckAnswer[m] == "Alimony")
             {
-              //for Separated spouse 210.0
-              // for Adult relatives 210.0
-              //for child 210.0
-              return PayAlimony("",210.0);
+              //for Separated spouse 220.0
+              // for Adult relatives 220.0
+              //for child 220.0
+              return PayAlimony("",220.0);
             }
           }
         }
@@ -682,11 +682,11 @@ Widget ChangeContainer()
             }
             else if(widget.CheckAnswer[0] == "No")
               {
-                //for Have a disability 210.0
-                //for Alimony here we said 420.0 but we have to check for 370.0 its better if I put 370.0
-                //for Survivor's pension unsupported screen show 210.0
-                //for None 210.0
-                return ApplySources("",420.0);
+                //for Have a disability 220.0
+                //for Alimony here we said 430.0 but we have to check for 380.0 its better if I put 380.0
+                //for Survivor's pension unsupported screen show 220.0
+                //for None 220.0
+                return ApplySources("",430.0);
               }
 
         }
@@ -698,16 +698,16 @@ Widget ChangeContainer()
           for(int m=0;m<widget.CheckAnswer.length;m++) {
             if(widget.CheckAnswer[m] == "Separated spouse")
             {
-              return ApplySources("",420.0);
+              return ApplySources("",430.0);
             }
             else if(widget.CheckAnswer[m] == "Adult relatives") {
               return UnSupportedScreen();
             }
             else if(widget.CheckAnswer[m] == "Child")
             {
-              //for no 210.0
-              // for yes 370.0
-              return ChildTaxAllowance("",370.0);
+              //for no 220.0
+              // for yes 380.0
+              return ChildTaxAllowance("",380.0);
             }
 
 
@@ -722,7 +722,7 @@ Widget ChangeContainer()
           }
           else if(widget.CheckAnswer[0] == "Yes")
           {
-            return ApplySources("",420.0);
+            return ApplySources("",430.0);
           }
 
         }
@@ -741,13 +741,13 @@ Widget ChangeContainer()
           }
           else if(widget.CheckAnswer[0] == "Yes")
           {
-            //370.0 for interest in capitalgain
+            //380.0 for interest in capitalgain
             // 420.for From shares
-            // 420.0 for From loans check its size it has three elements
-            // 210.0 For insurance contracts
-            // 210.0 Old shares from funds
-            //420.0 	From complex financial instruments
-            return ReceiveCapitalGain("",420.0);
+            // 430.0 for From loans check its size it has three elements
+            // 220.0 For insurance contracts
+            // 220.0 Old shares from funds
+            //430.0 	From complex financial instruments
+            return ReceiveCapitalGain("",430.0);
           }
 
         }
@@ -756,37 +756,37 @@ Widget ChangeContainer()
         {
           for(int m=0;m<widget.CheckAnswer.length;m++) {
             if(widget.CheckAnswer[m] == "Interest") {
-               return ApplySources("",420.0);
+               return ApplySources("",430.0);
             }
             else if(widget.CheckAnswer[m] == "From shares"){
-              //for dividends and Earnings  and Liquidation proceeds  and Shares in associations and foundations size is 210.0,Earnings from sale of stocks is 370.0,Shares in associations and foundations 370.0
-              return IncomeShares("",370.0);
+              //for dividends and Earnings  and Liquidation proceeds  and Shares in associations and foundations size is 220.0,Earnings from sale of stocks is 380.0,Shares in associations and foundations 380.0
+              return IncomeShares("",380.0);
             }
             else if(widget.CheckAnswer[m] == "From loans"){
 
 
-              //for Privateloan unsupported 210.0
-              //for Shareholder loan question 21  210.0
-              // for Partiarisches Darlehen 210.0
-              return TypeOfLoan("",210.0);
+              //for Privateloan unsupported 220.0
+              //for Shareholder loan question 21  220.0
+              // for Partiarisches Darlehen 220.0
+              return TypeOfLoan("",220.0);
             }
             else if(widget.CheckAnswer[m] == "From insurance contracts"){
 
-              return ApplySources("",420.0);
+              return ApplySources("",430.0);
             }
             else if(widget.CheckAnswer[m] == "Old shares from funds"){
 
-              return OldFundShares("",210.0);
+              return OldFundShares("",220.0);
             }
             else if(widget.CheckAnswer[m] == "From complex financial instruments"){
 
-              //For Domestic Investment Funds 210.0
-              //For Investment funds 210.0
-              // For Option 210.0
-              // For Option Premiums 210.0
-              // For Derivatives 210.0
-              //For Bonds 210.0
-              return FinancialInstruments("",210.0);
+              //For Domestic Investment Funds 220.0
+              //For Investment funds 220.0
+              // For Option 220.0
+              // For Option Premiums 220.0
+              // For Derivatives 220.0
+              //For Bonds 220.0
+              return FinancialInstruments("",220.0);
             }
           }
         }
@@ -801,7 +801,7 @@ Widget ChangeContainer()
             }
             else if(widget.CheckAnswer[m] == "Shareholder loan")
               {
-                return Shares10Company("",210.0);
+                return Shares10Company("",220.0);
               }
              else if(widget.CheckAnswer[m] == "Partiarisches Darlehen"){
               return UnSupportedScreen();
@@ -815,7 +815,7 @@ Widget ChangeContainer()
             {
             if(widget.CheckAnswer[0] == "No")
             {
-            return ApplySources("",420.0);
+            return ApplySources("",430.0);
             }
             else if(widget.CheckAnswer[0] == "Yes")
             {
@@ -836,7 +836,7 @@ Widget ChangeContainer()
           else if(widget.CheckAnswer[0] == "Yes")
           {
 
-            return ApplySources("",420.0);
+            return ApplySources("",430.0);
           }
         }
 
@@ -847,16 +847,16 @@ Widget ChangeContainer()
         {
           for(int m=0;m<widget.CheckAnswer.length;m++) {
             if(widget.CheckAnswer[m] == "Dividends") {
-              return KeyRole("",210.0);
+              return KeyRole("",220.0);
             }
             else if(widget.CheckAnswer[m] == "Earnings from sale of stocks") {
-              return ApplySources("",420.0);
+              return ApplySources("",430.0);
             }
             else if(widget.CheckAnswer[m] == "Liquidation proceeds") {
-              return KeyRole("",210.0);
+              return KeyRole("",220.0);
             }
             else if(widget.CheckAnswer[m] == "Shares in associations and foundations") {
-              return ApplySources("",420.0);
+              return ApplySources("",430.0);
             }
             else if(widget.CheckAnswer[m] == "Silent partnerships") {
               return UnSupportedScreen();
@@ -871,7 +871,7 @@ Widget ChangeContainer()
         {
           for(int m=0;m<widget.CheckAnswer.length;m++) {
             if(widget.CheckAnswer[m] == "Domestic investment funds") {
-              return ApplySources("",420.0);
+              return ApplySources("",430.0);
             }
             else if(widget.CheckAnswer[m] == "Foreign investment funds")
               {
@@ -879,19 +879,19 @@ Widget ChangeContainer()
               }
             else if(widget.CheckAnswer[m] == "Options")
             {
-              return ApplySources("",420.0);
+              return ApplySources("",430.0);
             }
             else if(widget.CheckAnswer[m] == "Option premiums")
             {
-              return ApplySources("",420.0);
+              return ApplySources("",430.0);
             }
             else if(widget.CheckAnswer[m] == "Derivatives")
             {
-              return ApplySources("",420.0);
+              return ApplySources("",430.0);
             }
             else if(widget.CheckAnswer[m] == "Bonds")
             {
-              return ApplySources("",420.0);
+              return ApplySources("",430.0);
             }
 
 
@@ -908,12 +908,12 @@ Widget ChangeContainer()
         {
           if(widget.CheckAnswer[0] == "No")
           {
-            return Shares25Company("",210.0);
+            return Shares25Company("",220.0);
           }
           else if(widget.CheckAnswer[0] == "Yes")
           {
 
-            return Shares1Company("",210.0);
+            return Shares1Company("",220.0);
           }
 
         }
@@ -923,7 +923,7 @@ Widget ChangeContainer()
         {
           if(widget.CheckAnswer[0] == "No")
           {
-            return ApplySources("",420.0);
+            return ApplySources("",430.0);
           }
           else if(widget.CheckAnswer[0] == "Yes")
           {
@@ -938,7 +938,7 @@ Widget ChangeContainer()
         {
           if(widget.CheckAnswer[0] == "No")
           {
-            return ApplySources("",420.0);
+            return ApplySources("",430.0);
           }
           else if(widget.CheckAnswer[0] == "Yes")
           {
@@ -956,11 +956,11 @@ Widget ChangeContainer()
         {
           for(int m=0;m<widget.CheckAnswer.length;m++) {
             if(widget.CheckAnswer[m] == "Have a disability") {
-              return TaxReturn("",210.0);
+              return TaxReturn("",220.0);
             }
             else if(widget.CheckAnswer[m] == "Alimony paid") {
               //question 8
-              return PayAlimony("",210.0);
+              return PayAlimony("",220.0);
             }
             else if(widget.CheckAnswer[m] == "Survivor’s pension") {
               //question 8
@@ -968,9 +968,9 @@ Widget ChangeContainer()
             }
             else if(widget.CheckAnswer[m] == "None") {
               //question 8
-              //for Questions. LivingCheck=1 210.0
-              //for Questions. LivingCheck=2 420.0
-              return TaxReturn("",420.0);
+              //for Questions. LivingCheck=1 220.0
+              //for Questions. LivingCheck=2 430.0
+              return TaxReturn("",430.0);
             }
           }
         }
@@ -978,7 +978,7 @@ Widget ChangeContainer()
         else if(widget.CheckQuestion == "Tax return filed" && (widget.CheckAnswer[0] == "No" || widget.CheckAnswer[0] == "Yes"))
           {
             if(Questions.LivingCheck == 1) {
-              return HaveChildren("", 210.0);
+              return HaveChildren("", 220.0);
             }
             else if(Questions.LivingCheck == 2)
               {
@@ -986,25 +986,25 @@ Widget ChangeContainer()
                 qu.addAnswer("Partner", "", "", [], 60.0);
                 //Partner's Yaha sa start hoga ab .Partner ka flow
                 //Yaha size right nhi check it
-                return PartnerOccupationContainer("",210.0);
+                return PartnerOccupationContainer("",220.0);
               }
           }
 
         else if(widget.CheckQuestion == "Children" && (widget.CheckAnswer[0] == "No" || widget.CheckAnswer[0] == "Yes"))
         {
-          //For yes 210.0
+          //For yes 220.0
           //For living abroad no :420
           //yaha last ma at home ka kaam bhi krna ha
-          return LiveAlone("",420.0);
+          return LiveAlone("",430.0);
         }
         else if(widget.CheckQuestion == "Living alone")
         {
           if(widget.CheckAnswer[0] == "Yes") {
-            return LiveAbroad("",210.0);
+            return LiveAbroad("",220.0);
           }
           else if(widget.CheckAnswer[0] == "No")
             {
-              return WhoLiveWith("",210.0);
+              return WhoLiveWith("",220.0);
             }
         }
 
@@ -1014,23 +1014,23 @@ Widget ChangeContainer()
         {
           for(int m=0;m<widget.CheckAnswer.length;m++) {
             if(widget.CheckAnswer[m] == "With my spouse") {
-              return LiveAbroad("",210.0);
+              return LiveAbroad("",220.0);
             }
             else if(widget.CheckAnswer[m] == "With my partner") {
               //question 8
-              return LiveAbroad("",210.0);
+              return LiveAbroad("",220.0);
             }
             else if(widget.CheckAnswer[m] == "With my children") {
               //question 8
-              return LiveAbroad("",210.0);
+              return LiveAbroad("",220.0);
             }
             else if(widget.CheckAnswer[m] == "In a flat share") {
               //question 8
-              return LiveAbroad("",210.0);
+              return LiveAbroad("",220.0);
             }
             else if(widget.CheckAnswer[m] == "With my parents") {
               //question 8
-              return LiveAbroad("",210.0);
+              return LiveAbroad("",220.0);
             }
           }
         }
@@ -1048,7 +1048,7 @@ Widget ChangeContainer()
           }
           else if(widget.CheckAnswer[0] == "No")
           {
-            return ForeignIncome("",210.0);
+            return ForeignIncome("",220.0);
           }
         }
 
@@ -1076,26 +1076,26 @@ Widget ChangeContainer()
   {
     for(int m=0;m<widget.CheckAnswer.length;m++) {
       if(widget.CheckAnswer[m] == "Employed") {
-        return PartnerProfessionalCourseTraining("",420.0);
+        return PartnerProfessionalCourseTraining("",430.0);
       }
 
       else if(widget.CheckAnswer[m] == "Minijob (e.g. 450€ basis)")
       {
-        return PartnerIncomeSources("",420.0);
+        return PartnerIncomeSources("",430.0);
       }
       else if(widget.CheckAnswer[m] == "Studying")
       {
-        //For Part-time degree 420.0
-        //For Distance learning 420.0
-        //For Postgraduate studies 420.0
-        //For None 210.0
+        //For Part-time degree 430.0
+        //For Distance learning 430.0
+        //For Postgraduate studies 430.0
+        //For None 220.0
 
-        return PartnerApplyStudies("",420.0);
+        return PartnerApplyStudies("",430.0);
       }
 
       else if(widget.CheckAnswer[m] == "Training")
       {
-        return PartnerKindOfTraining("",420.0);
+        return PartnerKindOfTraining("",430.0);
       }
       else if(widget.CheckAnswer[m] == "Self-employed")
       {
@@ -1115,23 +1115,23 @@ Widget ChangeContainer()
       }
       else if(widget.CheckAnswer[m] == "Parental Leave")
       {
-        return PartnerIncomeSources("",420.0);
+        return PartnerIncomeSources("",430.0);
       }
       else if(widget.CheckAnswer[m] == "Not working")
       {
-        return PartnerIncomeSources("",420.0);
+        return PartnerIncomeSources("",430.0);
       }
     }
   }
 
   else if(widget.CheckQuestion == "Training" && (widget.CheckAnswer[0] == "Yes" || widget.CheckAnswer[0] == "No" ))
   {
-    //for Letting and Leasing 210.0
-    // for sale of property 210.0
-    // for capital gain 210.0
-    //for pension 210.0
-    ////for Alimony here we said 420.0 but we have to check for 370.0 its better if I put 370.0
-    return PartnerIncomeSources("",420.0);
+    //for Letting and Leasing 220.0
+    // for sale of property 220.0
+    // for capital gain 220.0
+    //for pension 220.0
+    ////for Alimony here we said 430.0 but we have to check for 380.0 its better if I put 380.0
+    return PartnerIncomeSources("",430.0);
   }
 
 
@@ -1141,18 +1141,18 @@ Widget ChangeContainer()
     for(int m=0;m<widget.CheckAnswer.length;m++) {
       if(widget.CheckAnswer[m] == "Part-time degree")
       {
-        return PartnerIncomeSources("",420.0);
+        return PartnerIncomeSources("",430.0);
       }
       else if(widget.CheckAnswer[m] == "Distance learning") {
-        return PartnerIncomeSources("",420.0);
+        return PartnerIncomeSources("",430.0);
       }
       else if(widget.CheckAnswer[m] == "Postgraduate studies")
       {
-        return PartnerIncomeSources("",420.0);
+        return PartnerIncomeSources("",430.0);
       }
       else if(widget.CheckAnswer[m] == "None")
       {
-        return PartnerPreviousCompletedDegree("",420.0);
+        return PartnerPreviousCompletedDegree("",430.0);
       }
 
 
@@ -1162,14 +1162,14 @@ Widget ChangeContainer()
   //previouslydegreecompleted
   else if(widget.CheckQuestion == "Previous degree" && (widget.CheckAnswer[0] == "Yes" || widget.CheckAnswer[0] == "No" ))
   {
-    return PartnerIncomeSources("",420.0);
+    return PartnerIncomeSources("",430.0);
   }
 
 
   //Typeoftraining
   else if(widget.CheckQuestion == "Type of training" && (widget.CheckAnswer[0] == "Dual training" || widget.CheckAnswer[0] == "Professional School" ))
   {
-    return PartnerIncomeSources("",420.0);
+    return PartnerIncomeSources("",430.0);
   }
 
 
@@ -1181,13 +1181,13 @@ Widget ChangeContainer()
         return UnSupportedScreen();
       }
       else if(widget.CheckAnswer[m] == "Sale of Property") {
-        //for yes 210 and for no 370.0
-        return PartnerSaleProperty("",370.0);
+        //for yes 210 and for no 380.0
+        return PartnerSaleProperty("",380.0);
       }
       else if(widget.CheckAnswer[m] == "Capital gains")
       {
-        //for no 210 and for yes 420.0
-        return PartnerCapitalGain("",420.0);
+        //for no 210 and for yes 430.0
+        return PartnerCapitalGain("",430.0);
       }
 
       else if(widget.CheckAnswer[m] == "Pensions")
@@ -1198,10 +1198,10 @@ Widget ChangeContainer()
 
       else if(widget.CheckAnswer[m] == "Alimony")
       {
-        //for Separated spouse 210.0
-        // for Adult relatives 210.0
-        //for child 210.0
-        return PartnerPayAlimony("",210.0);
+        //for Separated spouse 220.0
+        // for Adult relatives 220.0
+        //for child 220.0
+        return PartnerPayAlimony("",220.0);
       }
     }
   }
@@ -1219,11 +1219,11 @@ Widget ChangeContainer()
     }
     else if(widget.CheckAnswer[0] == "No")
     {
-      //for Have a disability 210.0
-      //for Alimony here we said 420.0 but we have to check for 370.0 its better if I put 370.0
-      //for Survivor's pension unsupported screen show 210.0
-      //for None 210.0
-      return PartnerApplySources("",420.0);
+      //for Have a disability 220.0
+      //for Alimony here we said 430.0 but we have to check for 380.0 its better if I put 380.0
+      //for Survivor's pension unsupported screen show 220.0
+      //for None 220.0
+      return PartnerApplySources("",430.0);
     }
 
   }
@@ -1235,16 +1235,16 @@ Widget ChangeContainer()
     for(int m=0;m<widget.CheckAnswer.length;m++) {
       if(widget.CheckAnswer[m] == "Separated spouse")
       {
-        return PartnerApplySources("",420.0);
+        return PartnerApplySources("",430.0);
       }
       else if(widget.CheckAnswer[m] == "Adult relatives") {
         return UnSupportedScreen();
       }
       else if(widget.CheckAnswer[m] == "Child")
       {
-        //for no 210.0
-        // for yes 370.0
-        return PartnerChildTaxAllowance("",370.0);
+        //for no 220.0
+        // for yes 380.0
+        return PartnerChildTaxAllowance("",380.0);
       }
 
 
@@ -1259,7 +1259,7 @@ Widget ChangeContainer()
     }
     else if(widget.CheckAnswer[0] == "Yes")
     {
-      return PartnerApplySources("",420.0);
+      return PartnerApplySources("",430.0);
     }
 
   }
@@ -1278,13 +1278,13 @@ Widget ChangeContainer()
     }
     else if(widget.CheckAnswer[0] == "Yes")
     {
-      //370.0 for interest in capitalgain
+      //380.0 for interest in capitalgain
       // 420.for From shares
-      // 420.0 for From loans check its size it has three elements
-      // 210.0 For insurance contracts
-      // 210.0 Old shares from funds
-      //420.0 	From complex financial instruments
-      return PartnerReceiveCapitalGain("",420.0);
+      // 430.0 for From loans check its size it has three elements
+      // 220.0 For insurance contracts
+      // 220.0 Old shares from funds
+      //430.0 	From complex financial instruments
+      return PartnerReceiveCapitalGain("",430.0);
     }
 
   }
@@ -1293,38 +1293,38 @@ Widget ChangeContainer()
   {
     for(int m=0;m<widget.CheckAnswer.length;m++) {
       if(widget.CheckAnswer[m] == "Interest") {
-        return PartnerApplySources("",420.0);
+        return PartnerApplySources("",430.0);
       }
       else if(widget.CheckAnswer[m] == "From shares"){
-        //for dividends and Earnings  and Liquidation proceeds  and Shares in associations and foundations size is 210.0,Earnings from sale of stocks is 370.0,Shares in associations and foundations 370.0
-        return PartnerIncomeShares("",370.0);
+        //for dividends and Earnings  and Liquidation proceeds  and Shares in associations and foundations size is 220.0,Earnings from sale of stocks is 380.0,Shares in associations and foundations 380.0
+        return PartnerIncomeShares("",380.0);
       }
 
       else if(widget.CheckAnswer[m] == "From loans"){
 
 
-        //for Privateloan unsupported 210.0
-        //for Shareholder loan question 21  210.0
-        // for Partiarisches Darlehen 210.0
-        return PartnerTypeOfLoan("",210.0);
+        //for Privateloan unsupported 220.0
+        //for Shareholder loan question 21  220.0
+        // for Partiarisches Darlehen 220.0
+        return PartnerTypeOfLoan("",220.0);
       }
       else if(widget.CheckAnswer[m] == "From insurance contracts"){
 
-        return PartnerApplySources("",420.0);
+        return PartnerApplySources("",430.0);
       }
       else if(widget.CheckAnswer[m] == "Old shares from funds"){
 
-        return PartnerOldFundShares("",210.0);
+        return PartnerOldFundShares("",220.0);
       }
       else if(widget.CheckAnswer[m] == "From complex financial instruments"){
 
-        //For Domestic Investment Funds 210.0
-        //For Investment funds 210.0
-        // For Option 210.0
-        // For Option Premiums 210.0
-        // For Derivatives 210.0
-        //For Bonds 210.0
-        return PartnerFinancialInstruments("",210.0);
+        //For Domestic Investment Funds 220.0
+        //For Investment funds 220.0
+        // For Option 220.0
+        // For Option Premiums 220.0
+        // For Derivatives 220.0
+        //For Bonds 220.0
+        return PartnerFinancialInstruments("",220.0);
       }
     }
   }
@@ -1339,7 +1339,7 @@ Widget ChangeContainer()
       }
       else if(widget.CheckAnswer[m] == "Shareholder loan")
       {
-        return PartnerShares10Company("",210.0);
+        return PartnerShares10Company("",220.0);
       }
       else if(widget.CheckAnswer[m] == "Partiarisches Darlehen"){
         return UnSupportedScreen();
@@ -1353,7 +1353,7 @@ Widget ChangeContainer()
   {
     if(widget.CheckAnswer[0] == "No")
     {
-      return PartnerApplySources("",420.0);
+      return PartnerApplySources("",430.0);
     }
     else if(widget.CheckAnswer[0] == "Yes")
     {
@@ -1374,7 +1374,7 @@ Widget ChangeContainer()
     else if(widget.CheckAnswer[0] == "Yes")
     {
 
-      return PartnerApplySources("",420.0);
+      return PartnerApplySources("",430.0);
     }
   }
 
@@ -1385,16 +1385,16 @@ Widget ChangeContainer()
   {
     for(int m=0;m<widget.CheckAnswer.length;m++) {
       if(widget.CheckAnswer[m] == "Dividends") {
-        return PartnerKeyRole("",210.0);
+        return PartnerKeyRole("",220.0);
       }
       else if(widget.CheckAnswer[m] == "Earnings from sale of stocks") {
-        return PartnerApplySources("",420.0);
+        return PartnerApplySources("",430.0);
       }
       else if(widget.CheckAnswer[m] == "Liquidation proceeds") {
-        return PartnerKeyRole("",210.0);
+        return PartnerKeyRole("",220.0);
       }
       else if(widget.CheckAnswer[m] == "Shares in associations and foundations") {
-        return PartnerApplySources("",420.0);
+        return PartnerApplySources("",430.0);
       }
       else if(widget.CheckAnswer[m] == "Silent partnerships") {
         return UnSupportedScreen();
@@ -1409,7 +1409,7 @@ Widget ChangeContainer()
   {
     for(int m=0;m<widget.CheckAnswer.length;m++) {
       if(widget.CheckAnswer[m] == "Domestic investment funds") {
-        return PartnerApplySources("",420.0);
+        return PartnerApplySources("",430.0);
       }
       else if(widget.CheckAnswer[m] == "Foreign investment funds")
       {
@@ -1417,19 +1417,19 @@ Widget ChangeContainer()
       }
       else if(widget.CheckAnswer[m] == "Options")
       {
-        return PartnerApplySources("",420.0);
+        return PartnerApplySources("",430.0);
       }
       else if(widget.CheckAnswer[m] == "Option premiums")
       {
-        return PartnerApplySources("",420.0);
+        return PartnerApplySources("",430.0);
       }
       else if(widget.CheckAnswer[m] == "Derivatives")
       {
-        return PartnerApplySources("",420.0);
+        return PartnerApplySources("",430.0);
       }
       else if(widget.CheckAnswer[m] == "Bonds")
       {
-        return PartnerApplySources("",420.0);
+        return PartnerApplySources("",430.0);
       }
 
 
@@ -1446,12 +1446,12 @@ Widget ChangeContainer()
   {
     if(widget.CheckAnswer[0] == "No")
     {
-      return PartnerShares25Company("",210.0);
+      return PartnerShares25Company("",220.0);
     }
     else if(widget.CheckAnswer[0] == "Yes")
     {
 
-      return PartnerShares1Company("",210.0);
+      return PartnerShares1Company("",220.0);
     }
 
   }
@@ -1461,7 +1461,7 @@ Widget ChangeContainer()
   {
     if(widget.CheckAnswer[0] == "No")
     {
-      return PartnerApplySources("",420.0);
+      return PartnerApplySources("",430.0);
     }
     else if(widget.CheckAnswer[0] == "Yes")
     {
@@ -1476,7 +1476,7 @@ Widget ChangeContainer()
   {
     if(widget.CheckAnswer[0] == "No")
     {
-      return PartnerApplySources("",420.0);
+      return PartnerApplySources("",430.0);
     }
     else if(widget.CheckAnswer[0] == "Yes")
     {
@@ -1494,11 +1494,11 @@ Widget ChangeContainer()
   {
     for(int m=0;m<widget.CheckAnswer.length;m++) {
       if(widget.CheckAnswer[m] == "Have a disability") {
-        return PartnerTaxReturn("",210.0);
+        return PartnerTaxReturn("",220.0);
       }
       else if(widget.CheckAnswer[m] == "Alimony paid") {
         //question 8
-        return PartnerPayAlimony("",210.0);
+        return PartnerPayAlimony("",220.0);
       }
       else if(widget.CheckAnswer[m] == "Survivor’s pension") {
         //question 8
@@ -1506,9 +1506,9 @@ Widget ChangeContainer()
       }
       else if(widget.CheckAnswer[m] == "None") {
         //question 8
-        //for Questions. LivingCheck=1 210.0
-        //for Questions. LivingCheck=2 420.0
-        return PartnerTaxReturn("",210.0);
+        //for Questions. LivingCheck=1 220.0
+        //for Questions. LivingCheck=2 430.0
+        return PartnerTaxReturn("",220.0);
       }
     }
   }
@@ -1518,19 +1518,19 @@ Widget ChangeContainer()
     Questions.livcolContainer = 1;
     qu.addAnswer("You & Partner", "", "", [], 60.0);
 
-      return PartnerHaveChildren("",210.0);
+      return PartnerHaveChildren("",220.0);
 
   }
 
         else if(widget.CheckQuestion == "Children" && (widget.CheckAnswer[0] == "No" || widget.CheckAnswer[0] == "Yes"))
         {
 
-          return PartnerLiveTogetherEntireYear("",210.0);
+          return PartnerLiveTogetherEntireYear("",220.0);
         }
 
         else if(widget.CheckQuestion == "Together all-year" && (widget.CheckAnswer[0] == "No" || widget.CheckAnswer[0] == "Yes"))
         {
-          return PartnerLiveAbroad("", 210.0);
+          return PartnerLiveAbroad("", 220.0);
         }
 
         //Living situation
@@ -1542,7 +1542,7 @@ Widget ChangeContainer()
           }
           else if(widget.CheckAnswer[0] == "No")
           {
-            return PartnerForeignIncome("",210.0);
+            return PartnerForeignIncome("",220.0);
           }
         }
 
@@ -1564,47 +1564,47 @@ Widget ChangeContainer()
 Widget MaritalStatus(String identity,double anContainer)
 {
   Questions.animatedContainer = anContainer;
-  return Container1(Identity:identity,BigQuestion:"",Question:"What is your official marital status in Germany?",QuestionOption:"Marital",AnswerOption:["Single","Married/ civil partnership","Divorced","Widowed","It's Complicated"],Containersize:420.0);
+  return Container1(Identity:identity,BigQuestion:"",Question:"What is your official marital status in Germany?",QuestionOption:"Marital",AnswerOption:["Single","Married/ civil partnership","Divorced","Widowed","It's Complicated"],Containersize:430.0);
 }
 
 Widget OccupationContainer(String identity,double anContainer)
 {
   Questions.animatedContainer = anContainer;
-  return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"What were your occupations in the year 2019?",QuestionOption:"Occupation",AnswerOption:["Employed","Minijob (e.g. 450€ basis)","Studying","Training","Self-employed","Own business","Forestry","Retired","Parental Leave","Not working"],AnswerImages:["images/employedoption.png","images/minijoboption.png","images/studyingoption.png","images/trainingoption.png","images/selfemployed.png","images/ownbusinessoption.png","images/forestryoption.png","images/retired.png","images/parentalleaveoption.png","images/notworkingoption.png"],Containersize:420.0);
+  return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"What were your occupations in the year 2019?",QuestionOption:"Occupation",AnswerOption:["Employed","Minijob (e.g. 450€ basis)","Studying","Training","Self-employed","Own business","Forestry","Retired","Parental Leave","Not working"],AnswerImages:["images/employedoption.png","images/minijoboption.png","images/studyingoption.png","images/trainingoption.png","images/selfemployed.png","images/ownbusinessoption.png","images/forestryoption.png","images/retired.png","images/parentalleaveoption.png","images/notworkingoption.png"],Containersize:430.0);
 }
 
   Widget ProfessionalCourseTraining(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did you attend any professional training courses?",QuestionOption:"Training",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did you attend any professional training courses?",QuestionOption:"Training",Containersize:220.0);
   }
 
 
   Widget IncomeSources(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"Did you have any other income sources in 2019?",QuestionOption:"Other income",AnswerOption:["Letting and Leasing","Sale of Property","Capital gains","Pensions","Alimony"],AnswerImages:["images/lettingoption.png","images/salepropertyoption.png","images/capitalgainoption.png","images/pensionsoption.png","images/alimonyoption.png"],Containersize:420.0);
+    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"Did you have any other income sources in 2019?",QuestionOption:"Other income",AnswerOption:["Letting and Leasing","Sale of Property","Capital gains","Pensions","Alimony"],AnswerImages:["images/lettingoption.png","images/salepropertyoption.png","images/capitalgainoption.png","images/pensionsoption.png","images/alimonyoption.png"],Containersize:430.0);
   }
 
 
   Widget SaleProperty(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did you sell more than one property?",QuestionOption:"More than one property",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did you sell more than one property?",QuestionOption:"More than one property",Containersize:220.0);
   }
 
   Widget ApplySources(String identity,double anContainer)
   {
 
     Questions.animatedContainer = anContainer;
-    return Container4(Identity:identity,BigQuestion:"Personal Details",Question:"Did any of these applied to you during 2019?",QuestionOption:"Further Information",AnswerOption:["Have a disability","Alimony paid","Survivor’s pension","None"],AnswerImages:["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],Containersize:370.0);
+    return Container4(Identity:identity,BigQuestion:"Personal Details",Question:"Did any of these applied to you during 2019?",QuestionOption:"Further Information",AnswerOption:["Have a disability","Alimony paid","Survivor’s pension","None"],AnswerImages:["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],Containersize:380.0);
   }
 
   Widget TaxReturn(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
     //Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Have you filed a tax return before?",QuestionOption:"Tax return filed",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Have you filed a tax return before?",QuestionOption:"Tax return filed",Containersize:220.0);
   }
 
 
@@ -1612,28 +1612,28 @@ Widget OccupationContainer(String identity,double anContainer)
   {
 
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"",Question:"Do you have children?",QuestionOption:"Children",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"",Question:"Do you have children?",QuestionOption:"Children",Containersize:220.0);
   }
 
   Widget LiveAlone(String identity,double anContainer)
   {
 
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"",Question:"Did you live alone in 2019?",QuestionOption:"Living alone",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"",Question:"Did you live alone in 2019?",QuestionOption:"Living alone",Containersize:220.0);
   }
 
   Widget LiveAbroad(String identity,double anContainer)
   {
 
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"",Question:"Did you live abroad for extended periods of time in 2019?",QuestionOption:"Living abroad",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"",Question:"Did you live abroad for extended periods of time in 2019?",QuestionOption:"Living abroad",Containersize:220.0);
   }
 
   Widget ForeignIncome(String identity,double anContainer)
   {
 
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"",Question:"Did you have income from abroad during 2019",QuestionOption:"Foreign Income",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"",Question:"Did you have income from abroad during 2019",QuestionOption:"Foreign Income",Containersize:220.0);
   }
 
 
@@ -1641,21 +1641,21 @@ Widget OccupationContainer(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
     //Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did your capital gain enter a German depot or bank account only?",QuestionOption:"German account",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did your capital gain enter a German depot or bank account only?",QuestionOption:"German account",Containersize:220.0);
   }
 
 
   Widget ReceiveCapitalGain(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"What kind of capital gains did you receive?",QuestionOption:"Type of Capital gains",AnswerOption:["Interest","From shares","From loans","From insurance contracts","Old shares from funds","From complex financial instruments"],AnswerImages:["images/interestoption.png","images/fromsharesoption.png","images/fromsharesoption.png","images/frominsuranceoption.png","images/oldsharesoption.png","images/oldsharesoption.png"],Containersize:420.0);
+    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"What kind of capital gains did you receive?",QuestionOption:"Type of Capital gains",AnswerOption:["Interest","From shares","From loans","From insurance contracts","Old shares from funds","From complex financial instruments"],AnswerImages:["images/interestoption.png","images/fromsharesoption.png","images/fromsharesoption.png","images/frominsuranceoption.png","images/oldsharesoption.png","images/oldsharesoption.png"],Containersize:430.0);
   }
 
   Widget IncomeShares(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
     //Questions.animatedContainer = anContainer;
-    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"What type of income from shares did you have?",QuestionOption:"Shares",AnswerOption:["Dividends","Earnings from sale of stocks","Liquidation proceeds","Shares in associations and foundations","Silent partnerships"],AnswerImages:["images/fromsharesoption.png","images/fromsharesoption.png","images/fromsharesoption.png","images/fromsharesoption.png","images/fromsharesoption.png"],Containersize:420.0);
+    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"What type of income from shares did you have?",QuestionOption:"Shares",AnswerOption:["Dividends","Earnings from sale of stocks","Liquidation proceeds","Shares in associations and foundations","Silent partnerships"],AnswerImages:["images/fromsharesoption.png","images/fromsharesoption.png","images/fromsharesoption.png","images/fromsharesoption.png","images/fromsharesoption.png"],Containersize:430.0);
   }
 
 
@@ -1663,7 +1663,7 @@ Widget OccupationContainer(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
     //Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did you work in a key role for any of these companies?",QuestionOption:"Key roles",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did you work in a key role for any of these companies?",QuestionOption:"Key roles",Containersize:220.0);
   }
 
 
@@ -1671,41 +1671,41 @@ Widget OccupationContainer(String identity,double anContainer)
   {
       Questions.animatedContainer = anContainer;
     //Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did you hold more than 25% of the shares of any one company?",QuestionOption:"> 25% of shares",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did you hold more than 25% of the shares of any one company?",QuestionOption:"> 25% of shares",Containersize:220.0);
   }
 
   Widget Shares1Company(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
     //Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did you hold more than 1% of the shares of any one company?",QuestionOption:"> 1% of shares",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did you hold more than 1% of the shares of any one company?",QuestionOption:"> 1% of shares",Containersize:220.0);
   }
 
 
   Widget TypeOfLoan(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"What type of loan did you grant?",QuestionOption:"Loan",AnswerOption:["Private loan","Shareholder loan","Partiarisches Darlehen"],AnswerImages:["images/fromsharesoption.png","images/fromsharesoption.png","images/fromsharesoption.png"],Containersize:420.0);
+    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"What type of loan did you grant?",QuestionOption:"Loan",AnswerOption:["Private loan","Shareholder loan","Partiarisches Darlehen"],AnswerImages:["images/fromsharesoption.png","images/fromsharesoption.png","images/fromsharesoption.png"],Containersize:430.0);
   }
 
   Widget Shares10Company(String identity,double anContainer)
   {
    // Questions.animatedContainer = anContainer;
 
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did you hold at least 10% of the shares of any one company?",QuestionOption:"> 10% of shares",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did you hold at least 10% of the shares of any one company?",QuestionOption:"> 10% of shares",Containersize:220.0);
   }
 
   Widget OldFundShares(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
 
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Have you received a certificate from the bank listing the returns on old fund shares (Alt-Anteile von Fonds) that you purchased before 2009?",QuestionOption:"Certificate for old shares",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Have you received a certificate from the bank listing the returns on old fund shares (Alt-Anteile von Fonds) that you purchased before 2009?",QuestionOption:"Certificate for old shares",Containersize:220.0);
   }
 
   Widget FinancialInstruments(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"In which financial instruments have you invested?",QuestionOption:"Financial assests",AnswerOption:["Domestic investment funds","Foreign investment funds","Options","Option premiums","Derivatives","Bonds"],AnswerImages:["images/oldsharesoption.png","images/oldsharesoption.png","images/oldsharesoption.png","images/oldsharesoption.png","images/oldsharesoption.png","images/oldsharesoption.png"],Containersize:420.0);
+    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"In which financial instruments have you invested?",QuestionOption:"Financial assests",AnswerOption:["Domestic investment funds","Foreign investment funds","Options","Option premiums","Derivatives","Bonds"],AnswerImages:["images/oldsharesoption.png","images/oldsharesoption.png","images/oldsharesoption.png","images/oldsharesoption.png","images/oldsharesoption.png","images/oldsharesoption.png"],Containersize:430.0);
   }
 
 
@@ -1713,19 +1713,19 @@ Widget OccupationContainer(String identity,double anContainer)
   Widget PayAlimony(String identity,double anContainer)
   {
     //Questions.animatedContainer = anContainer;
-    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"To whom did you pay Alimony?",QuestionOption:"Alimony recipient",AnswerOption:["Separated spouse","Adult relatives","Child"],AnswerImages:["images/spouseoption.png","images/adultoption.png","images/childoption.png"],Containersize:420.0);
+    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"To whom did you pay Alimony?",QuestionOption:"Alimony recipient",AnswerOption:["Separated spouse","Adult relatives","Child"],AnswerImages:["images/spouseoption.png","images/adultoption.png","images/childoption.png"],Containersize:430.0);
   }
 
   Widget WhoLiveWith(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container2(Identity:identity,BigQuestion:"",Question:"Who do you live with?",QuestionOption:"Living situation",AnswerOption:["With my spouse","With my partner","With my children","In a flat share","With my parents"],AnswerImages:["images/withspouseoption.png","images/withpartneroption.png","images/withchildren.png","images/flatshareoption.png","images/withparent.png"],Containersize:420.0);
+    return Container2(Identity:identity,BigQuestion:"",Question:"Who do you live with?",QuestionOption:"Living situation",AnswerOption:["With my spouse","With my partner","With my children","In a flat share","With my parents"],AnswerImages:["images/withspouseoption.png","images/withpartneroption.png","images/withchildren.png","images/flatshareoption.png","images/withparent.png"],Containersize:430.0);
   }
 
   Widget ChildTaxAllowance(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Are you or any other person entitled to receive child benefits or the child tax allowance for this child?",QuestionOption:"Child benefits",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Are you or any other person entitled to receive child benefits or the child tax allowance for this child?",QuestionOption:"Child benefits",Containersize:220.0);
   }
 
 
@@ -1733,69 +1733,69 @@ Widget OccupationContainer(String identity,double anContainer)
   Widget ApplyStudies(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container5(Identity:identity,BigQuestion:"Personal Details",Question:"Which of these apply to your studies?",QuestionOption:"Type of study",AnswerOption:["Part-time degree","Distance learning","Postgraduate studies","None"],Containersize:360.0);
+    return Container5(Identity:identity,BigQuestion:"Personal Details",Question:"Which of these apply to your studies?",QuestionOption:"Type of study",AnswerOption:["Part-time degree","Distance learning","Postgraduate studies","None"],Containersize:380.0);
   }
 
 
   Widget PreviousCompletedDegree(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Have you previously completed a degree (study or training)?",QuestionOption:"Previous degree",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Have you previously completed a degree (study or training)?",QuestionOption:"Previous degree",Containersize:220.0);
   }
 
 
   Widget KindOfTraining(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container6(Identity:identity,BigQuestion:"Personal Details",Question:"What kind of training did you do?",QuestionOption:"Type of training",AnswerOption:["Dual training","Professional School"],Containersize:260.0);
+    return Container6(Identity:identity,BigQuestion:"Personal Details",Question:"What kind of training did you do?",QuestionOption:"Type of training",AnswerOption:["Dual training","Professional School"],Containersize:280.0);
   }
 
   Widget DivorceDate(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container7(Identity:identity,BigQuestion:"Relationship status",Question:"When did you get divorced?",QuestionOption:"Date of divorce",Containersize:210.0);
+    return Container7(Identity:identity,BigQuestion:"Relationship status",Question:"When did you get divorced?",QuestionOption:"Date of divorce",Containersize:220.0);
   }
 
 
   Widget WidowedDate(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container7(Identity:identity,BigQuestion:"Relationship status",Question:"Since when have you been widowed?",QuestionOption:"Widowed since",Containersize:210.0);
+    return Container7(Identity:identity,BigQuestion:"Relationship status",Question:"Since when have you been widowed?",QuestionOption:"Widowed since",Containersize:220.0);
   }
 
 
   Widget LivingTogether(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Relationship status",Question:"Have you been living together at any time during the tax year?",QuestionOption:"Living together",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Relationship status",Question:"Have you been living together at any time during the tax year?",QuestionOption:"Living together",Containersize:220.0);
   }
 
 
   Widget StartLivingPart(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container7(Identity:identity,BigQuestion:"Relationship status",Question:"When did you start living apart?",QuestionOption:"Date of separation",Containersize:210.0);
+    return Container7(Identity:identity,BigQuestion:"Relationship status",Question:"When did you start living apart?",QuestionOption:"Date of separation",Containersize:220.0);
   }
 
 
   Widget GetMarried(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container7(Identity:identity,BigQuestion:"Relationship status",Question:"When did you get married?",QuestionOption:"Date of marriage",Containersize:210.0);
+    return Container7(Identity:identity,BigQuestion:"Relationship status",Question:"When did you get married?",QuestionOption:"Date of marriage",Containersize:220.0);
   }
 
 
   Widget AssessedJointly(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Relationship status",Question:"Do you wish to be assessed jointly?",QuestionOption:"Joint assessment",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Relationship status",Question:"Do you wish to be assessed jointly?",QuestionOption:"Joint assessment",Containersize:220.0);
   }
 
 
   Widget FormallyMarried(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Relationship status",Question:"Are you formally married?",QuestionOption:"Formally married",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Relationship status",Question:"Are you formally married?",QuestionOption:"Formally married",Containersize:220.0);
   }
 
 
@@ -1813,41 +1813,41 @@ Widget OccupationContainer(String identity,double anContainer)
   Widget PartnerOccupationContainer(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"What were your partner’s occupation in the year 2019?",QuestionOption:"Occupation",AnswerOption:["Employed","Minijob (e.g. 450€ basis)","Studying","Training","Self-employed","Own business","Forestry","Retired","Parental Leave","Not working"],AnswerImages:["images/employedoption.png","images/minijoboption.png","images/studyingoption.png","images/trainingoption.png","images/selfemployed.png","images/ownbusinessoption.png","images/forestryoption.png","images/retired.png","images/parentalleaveoption.png","images/notworkingoption.png"],Containersize:420.0);
+    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"What were your partner’s occupation in the year 2019?",QuestionOption:"Occupation",AnswerOption:["Employed","Minijob (e.g. 450€ basis)","Studying","Training","Self-employed","Own business","Forestry","Retired","Parental Leave","Not working"],AnswerImages:["images/employedoption.png","images/minijoboption.png","images/studyingoption.png","images/trainingoption.png","images/selfemployed.png","images/ownbusinessoption.png","images/forestryoption.png","images/retired.png","images/parentalleaveoption.png","images/notworkingoption.png"],Containersize:430.0);
   }
 
   Widget PartnerProfessionalCourseTraining(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did your partner attend any professional training courses?",QuestionOption:"Training",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did your partner attend any professional training courses?",QuestionOption:"Training",Containersize:220.0);
   }
 
 
   Widget PartnerIncomeSources(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"Did your partner have any other income sources in 2019?",QuestionOption:"Other income",AnswerOption:["Letting and Leasing","Sale of Property","Capital gains","Pensions","Alimony"],AnswerImages:["images/lettingoption.png","images/salepropertyoption.png","images/capitalgainoption.png","images/pensionsoption.png","images/alimonyoption.png"],Containersize:420.0);
+    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"Did your partner have any other income sources in 2019?",QuestionOption:"Other income",AnswerOption:["Letting and Leasing","Sale of Property","Capital gains","Pensions","Alimony"],AnswerImages:["images/lettingoption.png","images/salepropertyoption.png","images/capitalgainoption.png","images/pensionsoption.png","images/alimonyoption.png"],Containersize:430.0);
   }
 
 
   Widget PartnerSaleProperty(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did your partner sell more than one property?",QuestionOption:"More than one property",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did your partner sell more than one property?",QuestionOption:"More than one property",Containersize:220.0);
   }
 
   Widget PartnerApplySources(String identity,double anContainer)
   {
 
     Questions.animatedContainer = anContainer;
-    return Container4(Identity:identity,BigQuestion:"Personal Details",Question:"Did any of these applied to your partner during 2019?",QuestionOption:"Further Information",AnswerOption:["Have a disability","Alimony paid","Survivor’s pension","None"],AnswerImages:["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],Containersize:370.0);
+    return Container4(Identity:identity,BigQuestion:"Personal Details",Question:"Did any of these applied to your partner during 2019?",QuestionOption:"Further Information",AnswerOption:["Have a disability","Alimony paid","Survivor’s pension","None"],AnswerImages:["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],Containersize:380.0);
   }
 
   Widget PartnerTaxReturn(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
     //Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Has your partner filed a tax return before?",QuestionOption:"Tax return filed",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Has your partner filed a tax return before?",QuestionOption:"Tax return filed",Containersize:220.0);
   }
 
 
@@ -1855,21 +1855,21 @@ Widget OccupationContainer(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
     //Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did your partner’s capital gain enter a German depot or bank account only?",QuestionOption:"German account",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did your partner’s capital gain enter a German depot or bank account only?",QuestionOption:"German account",Containersize:220.0);
   }
 
 
   Widget PartnerReceiveCapitalGain(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"What kind of capital gains did your partner receive?",QuestionOption:"Type of Capital gains",AnswerOption:["Interest","From shares","From loans","From insurance contracts","Old shares from funds","From complex financial instruments"],AnswerImages:["images/interestoption.png","images/fromsharesoption.png","images/fromsharesoption.png","images/frominsuranceoption.png","images/oldsharesoption.png","images/oldsharesoption.png"],Containersize:420.0);
+    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"What kind of capital gains did your partner receive?",QuestionOption:"Type of Capital gains",AnswerOption:["Interest","From shares","From loans","From insurance contracts","Old shares from funds","From complex financial instruments"],AnswerImages:["images/interestoption.png","images/fromsharesoption.png","images/fromsharesoption.png","images/frominsuranceoption.png","images/oldsharesoption.png","images/oldsharesoption.png"],Containersize:430.0);
   }
 
   Widget PartnerIncomeShares(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
     //Questions.animatedContainer = anContainer;
-    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"What type of income from shares did your partner have?",QuestionOption:"Shares",AnswerOption:["Dividends","Earnings from sale of stocks","Liquidation proceeds","Shares in associations and foundations","Silent partnerships"],AnswerImages:["images/fromsharesoption.png","images/fromsharesoption.png","images/fromsharesoption.png","images/fromsharesoption.png","images/fromsharesoption.png"],Containersize:420.0);
+    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"What type of income from shares did your partner have?",QuestionOption:"Shares",AnswerOption:["Dividends","Earnings from sale of stocks","Liquidation proceeds","Shares in associations and foundations","Silent partnerships"],AnswerImages:["images/fromsharesoption.png","images/fromsharesoption.png","images/fromsharesoption.png","images/fromsharesoption.png","images/fromsharesoption.png"],Containersize:430.0);
   }
 
 
@@ -1877,7 +1877,7 @@ Widget OccupationContainer(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
     //Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did your partner work in a key role for any of these companies?",QuestionOption:"Key roles",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did your partner work in a key role for any of these companies?",QuestionOption:"Key roles",Containersize:220.0);
   }
 
 
@@ -1885,41 +1885,41 @@ Widget OccupationContainer(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
     //Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did your partner hold more than 25% of the shares of any one company?",QuestionOption:"> 25% of shares",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did your partner hold more than 25% of the shares of any one company?",QuestionOption:"> 25% of shares",Containersize:220.0);
   }
 
   Widget PartnerShares1Company(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
     //Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did your partner hold more than 1% of the shares of any one company?",QuestionOption:"> 1% of shares",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did your partner hold more than 1% of the shares of any one company?",QuestionOption:"> 1% of shares",Containersize:220.0);
   }
 
 
   Widget PartnerTypeOfLoan(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"What type of loan did your partner grant?",QuestionOption:"Loan",AnswerOption:["Private loan","Shareholder loan","Partiarisches Darlehen"],AnswerImages:["images/fromsharesoption.png","images/fromsharesoption.png","images/fromsharesoption.png"],Containersize:420.0);
+    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"What type of loan did your partner grant?",QuestionOption:"Loan",AnswerOption:["Private loan","Shareholder loan","Partiarisches Darlehen"],AnswerImages:["images/fromsharesoption.png","images/fromsharesoption.png","images/fromsharesoption.png"],Containersize:430.0);
   }
 
   Widget PartnerShares10Company(String identity,double anContainer)
   {
     // Questions.animatedContainer = anContainer;
 
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did your partner hold at least 10% of the shares of any one company?",QuestionOption:"> 10% of shares",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Did your partner hold at least 10% of the shares of any one company?",QuestionOption:"> 10% of shares",Containersize:220.0);
   }
 
   Widget PartnerOldFundShares(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
 
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Have your partner received a certificate from the bank listing the returns on old fund shares (Alt-Anteile von Fonds) that you purchased before 2009?",QuestionOption:"Certificate for old shares",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Have your partner received a certificate from the bank listing the returns on old fund shares (Alt-Anteile von Fonds) that you purchased before 2009?",QuestionOption:"Certificate for old shares",Containersize:220.0);
   }
 
   Widget PartnerFinancialInstruments(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"In which financial instruments have your partner invested?",QuestionOption:"Financial assests",AnswerOption:["Domestic investment funds","Foreign investment funds","Options","Option premiums","Derivatives","Bonds"],AnswerImages:["images/oldsharesoption.png","images/oldsharesoption.png","images/oldsharesoption.png","images/oldsharesoption.png","images/oldsharesoption.png","images/oldsharesoption.png"],Containersize:420.0);
+    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"In which financial instruments have your partner invested?",QuestionOption:"Financial assests",AnswerOption:["Domestic investment funds","Foreign investment funds","Options","Option premiums","Derivatives","Bonds"],AnswerImages:["images/oldsharesoption.png","images/oldsharesoption.png","images/oldsharesoption.png","images/oldsharesoption.png","images/oldsharesoption.png","images/oldsharesoption.png"],Containersize:430.0);
   }
 
 
@@ -1927,14 +1927,14 @@ Widget OccupationContainer(String identity,double anContainer)
   Widget PartnerPayAlimony(String identity,double anContainer)
   {
     //Questions.animatedContainer = anContainer;
-    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"To whom did your partner pay Alimony?",QuestionOption:"Alimony recipient",AnswerOption:["Separated spouse","Adult relatives","Child"],AnswerImages:["images/spouseoption.png","images/adultoption.png","images/childoption.png"],Containersize:420.0);
+    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"To whom did your partner pay Alimony?",QuestionOption:"Alimony recipient",AnswerOption:["Separated spouse","Adult relatives","Child"],AnswerImages:["images/spouseoption.png","images/adultoption.png","images/childoption.png"],Containersize:430.0);
   }
 
 
   Widget PartnerChildTaxAllowance(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Are you or your partner entitled to receive child benefits or the child tax allowance for this child",QuestionOption:"Child benefits",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Are you or your partner entitled to receive child benefits or the child tax allowance for this child",QuestionOption:"Child benefits",Containersize:220.0);
   }
 
 
@@ -1942,21 +1942,21 @@ Widget OccupationContainer(String identity,double anContainer)
   Widget PartnerApplyStudies(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container5(Identity:identity,BigQuestion:"Personal Details",Question:"Which of these apply to your partner’s studies?",QuestionOption:"Type of study",AnswerOption:["Part-time degree","Distance learning","Postgraduate studies","None"],Containersize:360.0);
+    return Container5(Identity:identity,BigQuestion:"Personal Details",Question:"Which of these apply to your partner’s studies?",QuestionOption:"Type of study",AnswerOption:["Part-time degree","Distance learning","Postgraduate studies","None"],Containersize:380.0);
   }
 
 
   Widget PartnerPreviousCompletedDegree(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Have your partner previously completed a degree (study or training)?",QuestionOption:"Previous degree",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"Personal Details",Question:"Have your partner previously completed a degree (study or training)?",QuestionOption:"Previous degree",Containersize:220.0);
   }
 
 
   Widget PartnerKindOfTraining(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container6(Identity:identity,BigQuestion:"Personal Details",Question:"What kind of training did your partner do?",QuestionOption:"Type of training",AnswerOption:["Dual training","Professional School"],Containersize:260.0);
+    return Container6(Identity:identity,BigQuestion:"Personal Details",Question:"What kind of training did your partner do?",QuestionOption:"Type of training",AnswerOption:["Dual training","Professional School"],Containersize:280.0);
   }
 
 
@@ -1964,28 +1964,28 @@ Widget OccupationContainer(String identity,double anContainer)
   {
 
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"",Question:"Do either of you have children?",QuestionOption:"Children",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"",Question:"Do either of you have children?",QuestionOption:"Children",Containersize:220.0);
   }
 
   Widget PartnerLiveTogetherEntireYear(String identity,double anContainer)
   {
 
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"",Question:"Did the two of you live together for the entire year?",QuestionOption:"Together all-year",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"",Question:"Did the two of you live together for the entire year?",QuestionOption:"Together all-year",Containersize:220.0);
   }
 
   Widget PartnerLiveAbroad(String identity,double anContainer)
   {
 
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"",Question:"Did either of you live abroad for extended periods of time in 2019?",QuestionOption:"Living abroad",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"",Question:"Did either of you live abroad for extended periods of time in 2019?",QuestionOption:"Living abroad",Containersize:220.0);
   }
 
   Widget PartnerForeignIncome(String identity,double anContainer)
   {
 
     Questions.animatedContainer = anContainer;
-    return Container3(Identity:identity,BigQuestion:"",Question:"Did either of you have income from abroad during 2019?",QuestionOption:"Foreign Income",Containersize:210.0);
+    return Container3(Identity:identity,BigQuestion:"",Question:"Did either of you have income from abroad during 2019?",QuestionOption:"Foreign Income",Containersize:220.0);
   }
 
 }

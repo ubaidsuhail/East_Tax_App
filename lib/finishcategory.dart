@@ -8,6 +8,7 @@ import 'package:easy_taxx/income_flow/incomemainquestions.dart';
 import 'package:easy_taxx/home_flow/homemainquestions.dart';
 import 'package:easy_taxx/education_flow/educationmainquestions.dart';
 import 'package:easy_taxx/family_flow/familymainquestions.dart';
+import 'package:easy_taxx/health_flow/healthmainquestions.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:responsive_container/responsive_container.dart';
 //void main() => runApp(MaterialApp(home:HomeScreen()));
@@ -235,6 +236,22 @@ class _HomeScreenState extends State<FinishCategory> {
                           return FamilyMainQuestions(CheckCompleteQuestion:"How many children do you have?",CheckQuestion:"Number of children",CheckAnswer:[]);
                         }));
 
+     }
+     else if(widget.currentCategory == "Family Category")
+     {
+                        Questions.healthAnswerShow = [];
+                        Questions.healthYouIdentity = "you";
+                        Questions.healthYourIdentity = "your";
+                        Questions.healthChildrenLength = 0;
+                        Questions.totalHealthChildren = 0;
+                        Questions.healthChildrenText = "";
+                        Questions.peopleCareLength = 0;
+                        Questions.totalPeopleCare = 0;
+                        Questions.peopleCareText = "";
+
+                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return HealthMainQuestions(CheckCompleteQuestion:"What kind of basic health insurance did ${Questions.healthYouIdentity} have in 2019?",CheckQuestion:"Kind of health insurance",CheckAnswer:[]);
+                        }));
      }
   }
 }

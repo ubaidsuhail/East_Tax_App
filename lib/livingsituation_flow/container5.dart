@@ -75,21 +75,48 @@ class _testing3State extends State<Container5> {
               child:
               Column(
                 children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: Questions.LivingCheck == 1 || Questions.LivingCheck == 2 ? Colors.blueAccent : Colors.deepPurple[400]  ,
-                    ),
-                    height: 130.0,
-                    width: 450.0,
+                  Stack(
+                    children: <Widget>[
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Questions.LivingCheck == 1 || Questions.LivingCheck == 2 ? Colors.blueAccent : Colors.deepPurple[400],
+                        ),
+                        height: 140.0,
+                        width: 450.0,
 
-                    child: Padding(padding: EdgeInsets.only(left: 20.0,top: 45.0),
-                      child: Text(widget.Question,style: TextStyle(fontSize:20.0,color: Colors.white),),),
+                      ),
 
+
+                      Positioned(
+                          right: MediaQuery.of(context).size.width* 0.04 ,
+                          top: 7.0,
+                          child: GestureDetector(
+                              onTap: (){
+
+                              },
+                              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+                      ),
+
+                      Positioned(
+                        left: MediaQuery.of(context).size.width / 30.0,
+                        top: 30.0,
+                        child: Text("",style: TextStyle(fontSize:12.5,color: Colors.black),),
+                      ),
+
+                      Positioned(
+                        top: 52.0,
+                        left: MediaQuery.of(context).size.width / 30.0,
+                        right: MediaQuery.of(context).size.width / 30.0,
+
+                        child: Text(widget.Question,style: TextStyle(fontSize:17.5,color: Colors.white,wordSpacing: 3.0),),
+                      )
+
+                    ],
                   ),
                   SizedBox(height: 10.0,),
                   Container(
-                    height: 240.0,
+                    height: 220.0,
                     width: 450.0,
 //                                        color: Colors.red,
                     child: ListView.builder

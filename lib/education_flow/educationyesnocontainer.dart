@@ -96,22 +96,32 @@ class _EducationYesNoContainerScreenState extends State<EducationYesNoContainer>
                           borderRadius: BorderRadius.circular(10.0),
                           color: Colors.blueAccent,
                         ),
-                        // height: 200.0,
-                        height:140.0,
+                        height: 140.0,
                         width: 450.0,
 
                       ),
 
+
                       Positioned(
-                        left: 10.0,
-                        top: 13.0,
+                          right: MediaQuery.of(context).size.width* 0.04 ,
+                          top: 7.0,
+                          child: GestureDetector(
+                              onTap: (){
+
+                              },
+                              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+                      ),
+
+                      Positioned(
+                        left: MediaQuery.of(context).size.width / 30.0,
+                        top: 30.0,
                         child: Text(widget.multipleData,style: TextStyle(fontSize:12.5,color: Colors.black),),
                       ),
 
                       Positioned(
-                        top: 35.0,
-                        left: 10.0,
-                        right: 10.0,
+                        top: 52.0,
+                        left: MediaQuery.of(context).size.width / 30.0,
+                        right: MediaQuery.of(context).size.width / 30.0,
 
                         child: Text(widget.completeQuestion,style: TextStyle(fontSize:17.5,color: Colors.white,wordSpacing: 3.0),),
                       )

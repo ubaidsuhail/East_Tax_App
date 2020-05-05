@@ -172,8 +172,8 @@ class _EducationMainQuestionsState extends State<EducationMainQuestions> {
               height: Questions.educationAnswerShow[i]['containerheight'],
               width: 450.0,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  border: Border.all(width: 1.0, color: Colors.lightBlue)
+                  borderRadius: BorderRadius.circular(7.0),
+                  border: Border.all(width: 1.0, color: Color.fromARGB(0xFF, 0xE8, 0xE8, 0xE8))
               ),
               child: Padding(
                   padding: EdgeInsets.only(left: 15.0, right: 15.0),
@@ -294,7 +294,7 @@ class _EducationMainQuestionsState extends State<EducationMainQuestions> {
                     padding: EdgeInsets.only(left: 20.0),
                     child:Container(
                       margin: EdgeInsets.only(top:2.0,bottom:2.0),
-                      height: 1.0,
+                      height: j == countLongContainer-1 ? 0.0 :1.0,
                       color: Colors.grey[200],
 
                     )));
@@ -307,8 +307,8 @@ class _EducationMainQuestionsState extends State<EducationMainQuestions> {
                 height:  screenheightList[hlength] ,
                 margin: EdgeInsets.only(bottom:2.5,top:2.5,left: 10.0,right: 10.0),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    border: Border.all(width: 1.0,color: Colors.lightBlue)
+                    borderRadius: BorderRadius.circular(7.0),
+                    border: Border.all(width: 1.0, color: Color.fromARGB(0xFF, 0xE8, 0xE8, 0xE8))
                 ),
                 child:Column(
                   children:dynamicContainerbig,
@@ -2983,7 +2983,7 @@ class _EducationMainQuestionsState extends State<EducationMainQuestions> {
   Widget educationdifferentoptionContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,double animatedcontainer, String AdditionalData, String MultipleData )
   {
     Questions.educationAnimatedContainer = animatedcontainer;
-    return EducationDifferentOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:420.0,additionalData:AdditionalData,multipleData:MultipleData);
+    return EducationDifferentOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:430.0,additionalData:AdditionalData,multipleData:MultipleData);
   }
 
 
