@@ -1356,8 +1356,15 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-//Question No 72
-        return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+        if(Questions.livingChildrenRelation == "Children")
+        {
+          //Question No 131
+          return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+        }
+        else{
+          //Question No 72
+          return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+        }
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -1377,8 +1384,15 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-//Question No 72
-        return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+        if(Questions.livingChildrenRelation == "Children")
+        {
+          //Question No 131
+          return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+        }
+        else{
+          //Question No 72
+          return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+        }
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -1392,15 +1406,24 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     //Answer No 71
     else if(widget.CheckCompleteQuestion =="How much have ${Questions.healthYouIdentity} spent on work-related health issues?" && widget.CheckQuestion == "Work-related healthcare costs")
     {
-      //Question No 72
-      return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+
+      if(Questions.livingChildrenRelation == "Children")
+      {
+        //Question No 131
+        return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+      }
+      else{
+        //Question No 72
+        return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+      }
+
     }
 
     // ====== Non work related Medical Expense Starts ====== //
 
 
-    //Answer No 72
-    else if(widget.CheckCompleteQuestion =="Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?" && widget.CheckQuestion == "Treatment costs")
+    //Answer No 72 and 131
+    else if((widget.CheckCompleteQuestion =="Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?" || widget.CheckCompleteQuestion =="What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?" ) && (widget.CheckQuestion == "Treatment costs" || widget.CheckQuestion == "Medical expenses"))
     {
 
       for(int m=0;m<widget.CheckAnswer.length;m++) {

@@ -230,6 +230,7 @@ static String peopleCareText = "";
 static int doctorTripLength = 0;
 static int totalDoctorTrip = 0;
 static String doctorTripText = "";
+static String livingChildrenRelation = "";
 
  void HealthAddAnswer(String UserIdentity, String details,String completequestion,String question,List answer,double containerheight)
  {
