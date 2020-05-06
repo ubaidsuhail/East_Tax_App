@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:easy_taxx/health_flow/healthmainquestions.dart';
+import 'package:easy_taxx/finance_flow/financemainquestions.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 
 
 
-class HealthMultipleOptionsContainer extends StatefulWidget {
+class FinanceMultipleOptionsContainer extends StatefulWidget {
   String identity;
   String completeQuestion;
   String questionOption;
@@ -18,15 +18,15 @@ class HealthMultipleOptionsContainer extends StatefulWidget {
   List answerImages = [];
   String additionalData;
   String multipleData;
-  String suggestion;
+  List suggestion;
 
 
-  HealthMultipleOptionsContainer({this.identity,this.bigQuestion,this.completeQuestion,this.questionOption,this.answerOption,this.answerImages,this.containerSize,this.additionalData,this.multipleData,this.suggestion});
+  FinanceMultipleOptionsContainer({this.identity,this.bigQuestion,this.completeQuestion,this.questionOption,this.answerOption,this.answerImages,this.containerSize,this.additionalData,this.multipleData,this.suggestion});
   @override
-  _HealthMultipleOptionsContainerState createState() => _HealthMultipleOptionsContainerState();
+  _FinanceMultipleOptionsContainerState createState() => _FinanceMultipleOptionsContainerState();
 }
 
-class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsContainer> {
+class _FinanceMultipleOptionsContainerState extends State<FinanceMultipleOptionsContainer> {
   bool open = false;
   bool v3 = false;
   Questions qu =Questions();
@@ -163,57 +163,23 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
                                         height: 1.0,
                                         thickness: 1.0,
                                       ),
-                                      GestureDetector(
-                                        onTap: (){
-                                          print("work");
-                                         if(values[index] == true)
-                                           {
-                                             setState(() {
-                                               values[index] = false;
-                                             });
-
-                                           }
-
-                                           else
-                                             {
-                                               setState(() {
-                                                 values[index] = true;
-                                               });
-
-                                             }
-                                        },
-                                      child:Opacity(
-                                          opacity: 0.8,
-                                      child:Container(
-                                        color: values[index] == true ? Colors.lightBlueAccent[100] : Colors.white,
-
-                                        padding: EdgeInsets.only(top: 10.0,bottom: 10.0),
-                                      child:Row(
+                                      Row(
                                         children: <Widget>[
 
-//                                          Checkbox(
-//
-//                                            value: this.values[index],
-//                                            onChanged: (bool value) {
-//                                              print(value);
-//
-//                                              setState(() {
-//                                                this.values[index] = value;
-//                                                //containerColor = ! containerColor;
-//
-//                                              });
-//                                            },
-//
-//                                          ),
+                                          Checkbox(
 
-                                        Padding(
-                                         padding:EdgeInsets.only(left:10.0),
-                                         child: values[index] == true ?
-                                          Image(image:AssetImage("images/checked.png"),width: 18.0,height: 18.0,)
-                                          :
-                                          Image(image:AssetImage("images/unchecked.png"),width: 18.0,height: 18.0,),
-                                        ),
-                                          SizedBox(width: 20.0,),
+                                            value: this.values[index],
+                                            onChanged: (bool value) {
+                                              print(value);
+
+                                              setState(() {
+                                                this.values[index] = value;
+                                                //containerColor = ! containerColor;
+
+                                              });
+                                            },
+
+                                          ),
 
 //                                          Icon(Icons.timer),
                                           Image(image:AssetImage(widget.answerImages[index]),width: 22.0,height: 35.0,),
@@ -227,7 +193,7 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
                                           )
 
                                         ],
-                                      ))))
+                                      )
                                     ],
                                   )
                               ));
@@ -288,18 +254,13 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
 
     }
 
-    if(widget.completeQuestion == "How did ${Questions.healthYouIdentity} get there?" && widget.questionOption == "Means of transport" && (data[0] == "Bicycle" || data[0] == "On foot"))
-    {
-      Questions.doctorTripLength += 1;
-      Questions.doctorTripText ="JOURNEY "+Questions.doctorTripLength.toString();
-    }
 
-    qu.HealthAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, data, 55.0);
+      qu.FinanceAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, data, 55.0);
 
-    Navigator.of(context).pop();
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return HealthMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion : widget.questionOption,CheckAnswer : data);
-    }));
+      Navigator.of(context).pop();
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return FinanceMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion : widget.questionOption,CheckAnswer : data);
+      }));
 
 
 

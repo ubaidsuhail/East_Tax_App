@@ -245,4 +245,26 @@ static String livingChildrenRelation = "";
 // ========= Health Flow End ============ //
 
 
+
+
+// ========= Finance Flow Start ========= //
+
+static List financeAnswerShow=[];
+static double financeAnimatedContainer;
+static String financeYouIdentity = "you";
+static String financeYourIdentity = "your";
+
+
+ void FinanceAddAnswer(String UserIdentity, String details,String completequestion,String question,List answer,double containerheight)
+ {
+  print(question);
+  print("identity is:"+UserIdentity);
+  financeAnswerShow.add({"identity":UserIdentity,"details":details,"completequestion":completequestion,"question":question,"answer":answer,"containerheight":containerheight});
+
+  print(financeAnswerShow.toString());
+ }
+
+
+// ========= Finance Flow End ========= //
+
 }

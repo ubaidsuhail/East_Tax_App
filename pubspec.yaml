@@ -85,6 +85,8 @@ flutter:
    - images/payslip.png
    - images/tax1.png
    - images/question_mark.png
+   - images/unchecked.png
+   - images/checked.png
 
 
   #  - images/a_dot_ham.jpeg

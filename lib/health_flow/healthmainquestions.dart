@@ -2355,13 +2355,13 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
   Widget healthcalculationContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption, double animatedcontainer, String AdditionalData, String MultipleData, String Suggestion)
   {
-    Questions.familyAnimatedContainer = animatedcontainer;
+    Questions.healthAnimatedContainer = animatedcontainer;
     return HealthCalculationContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:220.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
   }
 
   Widget healthmultipleoptionsContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,List AnswerImages, double animatedcontainer, String AdditionalData, String MultipleData, String Suggestion)
   {
-    Questions.familyAnimatedContainer = animatedcontainer;
+    Questions.healthAnimatedContainer = animatedcontainer;
     return HealthMultipleOptionsContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,answerImages:AnswerImages,containerSize:430.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
   }
 
