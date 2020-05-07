@@ -104,10 +104,10 @@ class _EducationMultipleOptionsContainerState extends State<EducationMultipleOpt
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.blueAccent,
+                          color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),
                         ),
                         height: 140.0,
-                        width: 450.0,
+                        width: MediaQuery.of(context).size.width,
 
                       ),
 
@@ -123,17 +123,22 @@ class _EducationMultipleOptionsContainerState extends State<EducationMultipleOpt
                       ),
 
                       Positioned(
-                        left: MediaQuery.of(context).size.width / 30.0,
-                        top: 30.0,
-                        child: Text(widget.multipleData,style: TextStyle(fontSize:12.5,color: Colors.black),),
-                      ),
+                          left: MediaQuery.of(context).size.width / 30.0,
+                          top: 30.0,
+                          child:Padding(
+                            padding: EdgeInsets.only(left: 10.0),
+                            child: Text(widget.multipleData,style: TextStyle(fontSize:12.5,color: Colors.black),),
+                          )),
 
                       Positioned(
                         top: 52.0,
                         left: MediaQuery.of(context).size.width / 30.0,
                         right: MediaQuery.of(context).size.width / 30.0,
 
-                        child: Text(widget.completeQuestion,style: TextStyle(fontSize:17.5,color: Colors.white,wordSpacing: 3.0),),
+                        child:Padding(
+                            padding: EdgeInsets.only(left: 10.0),
+                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+
                       )
 
                     ],
@@ -185,7 +190,7 @@ class _EducationMultipleOptionsContainerState extends State<EducationMultipleOpt
                                           SizedBox(width: 20.0,),
                                           Container(
                                             width: MediaQuery.of(context).size.width * 0.65,
-                                          child:AutoSizeText(widget.answerOption[index],style: TextStyle(color: Colors.blueAccent),
+                                          child:AutoSizeText(widget.answerOption[index],style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),
                                             minFontSize: 14,
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,),
@@ -218,7 +223,7 @@ class _EducationMultipleOptionsContainerState extends State<EducationMultipleOpt
                       child: GestureDetector(onTap:(){
                         Confirm();
                       },
-                          child:Text('Confirm',style: TextStyle(color: Colors.blueAccent,))
+                          child:Text('Confirm',style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize: 16.0))
                       ),
 
                     ),

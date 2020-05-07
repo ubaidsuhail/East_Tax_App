@@ -76,17 +76,49 @@ class _testing3State extends State<ThreeOptionContainer> {
               child:
               Column(
                 children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: Colors.blueAccent,
-                    ),
-                    height: 130.0,
-                    width: 450.0,
+                  Stack(
+                    children: <Widget>[
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),
+                        ),
+                        height: 140.0,
+                        width: MediaQuery.of(context).size.width,
 
-                    child: Padding(padding: EdgeInsets.only(left: 20.0,top: 40.0),
-                      child: Text(widget.completeQuestion,style: TextStyle(fontSize:20.0,color: Colors.white),),),
+                      ),
 
+
+                      Positioned(
+                          right: MediaQuery.of(context).size.width* 0.04 ,
+                          top: 7.0,
+                          child: GestureDetector(
+                              onTap: (){
+
+                              },
+                              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+                      ),
+
+                      Positioned(
+                          left: MediaQuery.of(context).size.width / 30.0,
+                          top: 30.0,
+                          child:Padding(
+                            padding: EdgeInsets.only(left: 10.0),
+                            child: Text("",style: TextStyle(fontSize:12.5,color: Colors.black),),
+                          )),
+
+                      Positioned(
+                        top: 52.0,
+                        left: MediaQuery.of(context).size.width / 30.0,
+                        right: MediaQuery.of(context).size.width / 30.0,
+
+                        child:Padding(
+                            padding: EdgeInsets.only(left: 10.0),
+                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+
+                      )
+
+                    ],
                   ),
                   SizedBox(height: 10.0,),
                   Container(
@@ -110,7 +142,7 @@ class _testing3State extends State<ThreeOptionContainer> {
                                   children: <Widget>[
 
                                     ListTile(
-                                      leading:Text(widget.answerOption[index],style:TextStyle(color: Colors.lightBlue) ),
+                                      leading:Text(widget.answerOption[index],style:TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),) ),
                                     ),
 
 

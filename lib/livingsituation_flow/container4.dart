@@ -101,12 +101,13 @@ class _HomeScreenState extends State<Container4> {
                   Stack(
                     children: <Widget>[
                       Container(
+                        //margin: EdgeInsets.only(left: 10.0,right: 10.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
-                          color: Questions.LivingCheck == 1 || Questions.LivingCheck == 2 ? Colors.blueAccent : Colors.deepPurple[400],
+                          color: Questions.LivingCheck == 1 || Questions.LivingCheck == 2 ? Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF) : Colors.deepPurple[400],
                         ),
                         height: 140.0,
-                        width: 450.0,
+                        width: MediaQuery.of(context).size.width,
 
                       ),
 
@@ -122,17 +123,22 @@ class _HomeScreenState extends State<Container4> {
                       ),
 
                       Positioned(
-                        left: MediaQuery.of(context).size.width / 30.0,
-                        top: 30.0,
-                        child: Text("",style: TextStyle(fontSize:12.5,color: Colors.black),),
-                      ),
+                          left: MediaQuery.of(context).size.width / 30.0,
+                          top: 30.0,
+                          child:Padding(
+                            padding: EdgeInsets.only(left: 10.0),
+                            child: Text("",style: TextStyle(fontSize:12.5,color: Colors.black),),
+                          )),
 
                       Positioned(
                         top: 52.0,
                         left: MediaQuery.of(context).size.width / 30.0,
                         right: MediaQuery.of(context).size.width / 30.0,
 
-                        child: Text(widget.Question,style: TextStyle(fontSize:17.5,color: Colors.white,wordSpacing: 3.0),),
+                        child:Padding(
+                            padding: EdgeInsets.only(left: 10.0),
+                            child:Text(widget.Question,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+
                       )
 
                     ],
@@ -182,7 +188,7 @@ class _HomeScreenState extends State<Container4> {
 //                                          Icon(Icons.timer),
                                           Image(image:AssetImage(widget.AnswerImages[index]),width: 22.0,height: 35.0,),
                                           SizedBox(width: 20.0,),
-                                          Text(widget.AnswerOption[index],style: TextStyle(color:Questions.LivingCheck == 1 || Questions.LivingCheck == 2 ? Colors.lightBlue : Colors.deepPurple[300])),
+                                          Text(widget.AnswerOption[index],style: TextStyle(color:Questions.LivingCheck == 1 || Questions.LivingCheck == 2 ? Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF) : Colors.deepPurple[300])),
                                         ],
                                       )
                                     ],
@@ -210,7 +216,7 @@ class _HomeScreenState extends State<Container4> {
                       child: GestureDetector(onTap:(){
                         Confirm();
                       },
-                          child:Text('Confirm',style: TextStyle(color:Questions.LivingCheck == 1 || Questions.LivingCheck == 2 ? Colors.lightBlue : Colors.deepPurple[300]))
+                          child:Text('Confirm',style: TextStyle(color:Questions.LivingCheck == 1 || Questions.LivingCheck == 2 ? Colors.lightBlue : Colors.deepPurple[300],fontWeight: FontWeight.w600,fontSize: 16.0))
                       ),
 
                     ),

@@ -169,21 +169,30 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
                   border: Border.all(width: 1.0, color: Color.fromARGB(0xFF, 0xE8, 0xE8, 0xE8))
               ),
               child: Padding(
-                  padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                  padding: EdgeInsets.only(left: 10.0, right: 10.0),
                   child: Row(crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       //Text(Questions.answerShow[i]['question']),
-                      Text(Questions.healthAnswerShow[i]['question'],
-                        style: TextStyle(fontWeight: FontWeight.bold),),
+                      Container(
+                          width: 155.0,
+                          //color: Colors.purple,
+                          child:AutoSizeText(Questions.healthAnswerShow[j]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+                      ),
                       Row(children: <Widget>[
                         //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
-                        Text(Questions.healthAnswerShow[i]['answer'][0]),
-                        SizedBox(width: 10.0,),
+                        Container(
+                            width: 140.0,
+                            // color:Colors.blue,
+                            child:AutoSizeText(Questions.healthAnswerShow[j]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+
+                        ),
+                        SizedBox(width: 5.0,),
                         Icon(Icons.arrow_forward_ios, size: 12.0,
-                          color: Colors.lightBlue,)
+                            color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF))
                       ],)
-                    ],)),
+                    ],
+                  )),
             ));
       }
 
@@ -219,7 +228,7 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
                   width: 450.0,
                   color: Colors.white,
                   child: Padding(
-                      padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                      padding: EdgeInsets.only(left: 10.0, right: 15.0),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -267,29 +276,23 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
                           Container(
                               width: 155.0,
                               //color: Colors.purple,
-                              child: AutoSizeText(
-                                Questions.healthAnswerShow[j]['question'],
-                                style: TextStyle(color: Colors.grey),
-                                minFontSize: 14.0,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,)
+                              child:AutoSizeText(Questions.healthAnswerShow[j]['question'],style: TextStyle(color: Colors.grey),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
                           ),
                           Row(children: <Widget>[
                             //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
                             Container(
-                              width: 140.0,
-                              // color:Colors.blue,
-                              child: AutoSizeText(
-                                Questions.healthAnswerShow[j]['answer'][0],
-                                textAlign: TextAlign.end,
-                                minFontSize: 14.0,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,),),
+                                width: 140.0,
+                                // color:Colors.blue,
+                                child:AutoSizeText(Questions.healthAnswerShow[j]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+
+                            ),
                             SizedBox(width: 5.0,),
                             Icon(Icons.arrow_forward_ios, size: 12.0,
-                              color: Colors.lightBlue,)
+                              color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),)
                           ],)
-                        ],))),
+                        ],
+                      ))
+              ),
 
             );
 
@@ -353,12 +356,21 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Icon(
-                Icons.arrow_back, color: Colors.lightBlue, size: 18.0,)
-          ),
-          title: Text(
-            'Health', style: TextStyle(color: Colors.black, fontSize: 14.0),),
-          centerTitle: true,
+              child:Icon(Icons.arrow_back_ios,color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),size: 20.0)
+        ),
+        title: Text('Health',style: TextStyle(color: Colors.black,fontSize: 14.0),),
+        centerTitle: true,
+        actions: <Widget>[
+          Padding(
+              padding: EdgeInsets.only(right: 18.0),
+              child:GestureDetector(
+                  onTap: (){
+                    print("skip");
+                  },
+                  child:Image(image:AssetImage("images/skip.png"),width: 23.0,height: 23.0,)
+              )
+          )
+        ]
         ),
         body: SingleChildScrollView(
             reverse: true,

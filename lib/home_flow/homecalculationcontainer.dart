@@ -53,7 +53,7 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
 //        .height * .3;
 
     //double maxHeight = 210.0;
-    double maxHeight = widget.containerSize;
+    double maxHeight = widget.completeQuestion == "What was the bill amount for services or craftsmen on your utilities statement (excluding heating, electricity, insurances etc.)?" ? 270.0:widget.containerSize;
     // var maskTextInputFormatter = MaskTextInputFormatter(mask: "## / ## / ####");
 //filter: { "#": RegExp(r'[0-9]')
 
@@ -86,25 +86,41 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.blueAccent,
+                          color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),
                         ),
-                        height: 130.0,
-                        width: 450.0,
+                        height: widget.completeQuestion == "What was the bill amount for services or craftsmen on your utilities statement (excluding heating, electricity, insurances etc.)?" ? 190.0:140.0,
+                        width: MediaQuery.of(context).size.width,
 
                       ),
 
+
                       Positioned(
-                        left: 10.0,
-                        top: 13.0,
-                        child: Text(widget.multipleData,style: TextStyle(fontSize:12.5,color: Colors.black),),
+                          right: MediaQuery.of(context).size.width* 0.04 ,
+                          top: 7.0,
+                          child: GestureDetector(
+                              onTap: (){
+
+                              },
+                              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
                       ),
 
                       Positioned(
-                        top: 35.0,
-                        left: 10.0,
-                        right: 10.0,
+                          left: MediaQuery.of(context).size.width / 30.0,
+                          top: 30.0,
+                          child:Padding(
+                            padding: EdgeInsets.only(left: 10.0),
+                            child: Text(widget.multipleData,style: TextStyle(fontSize:12.5,color: Colors.black),),
+                          )),
 
-                        child: Text(widget.completeQuestion,style: TextStyle(fontSize:17.5,color: Colors.white,wordSpacing: 3.0),),
+                      Positioned(
+                        top: 52.0,
+                        left: MediaQuery.of(context).size.width / 30.0,
+                        right: MediaQuery.of(context).size.width / 30.0,
+
+                        child:Padding(
+                            padding: EdgeInsets.only(left: 10.0),
+                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+
                       )
 
                     ],
@@ -146,12 +162,12 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
                               Container(
                                 //margin: EdgeInsets.only(left: 20.0),
                                 // color: Colors.blue,
-                                width: MediaQuery.of(context).size.width*0.15,
+                                width: MediaQuery.of(context).size.width*0.20,
                                 child:GestureDetector(
                                   onTap: (){
                                     AddData();
                                   },
-                                  child: Text("Confirm",style: TextStyle(color: Colors.blueAccent)),
+                                  child: Text("Confirm",style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize: 16.0)),
                                 ),)
                             ],
                           ))),

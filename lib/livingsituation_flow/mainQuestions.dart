@@ -14,6 +14,7 @@ import 'package:easy_taxx/livingsituation_flow/container7.dart';
 import 'package:easy_taxx/finishcategory.dart';
 import 'package:easy_taxx/livingsituation_flow/unsupportedscreen.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 //void main() => runApp(MaterialApp(home:HomeScreen()));
 
@@ -170,7 +171,15 @@ bool a= false;
         }
      else if(Questions.answerShow[i]['details'] == "") {
         dynamicContainer.add(
-            Container(
+            GestureDetector(
+              onTap: (){
+                print("data single");
+                Navigator.of(context).pop();
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return mainQuestions(CheckQuestion : Questions.answerShow[i-1]['question'],CheckAnswer : [Questions.answerShow[i-1]['answer'][0]]);
+                }));
+              },
+            child:Container(
               margin: EdgeInsets.only(top: 2.5, bottom: 2.5, left: 10.0, right: 10.0),
               height: Questions.answerShow[i]['containerheight'],
               width: 450.0,
@@ -179,21 +188,32 @@ bool a= false;
                   border: Border.all(width: 1.0, color: Color.fromARGB(0xFF, 0xE8, 0xE8, 0xE8))
               ),
               child: Padding(
-                  padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                  padding: EdgeInsets.only(left: 10.0, right: 10.0),
                   child: Row(crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       //Text(Questions.answerShow[i]['question']),
-                      Text(Questions.answerShow[i]['question'],style: TextStyle(fontWeight: FontWeight.bold),),
+                      Container(
+                          width: 155.0,
+                          //color: Colors.purple,
+                          child:AutoSizeText(Questions.answerShow[j]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+                      ),
                       Row(children: <Widget>[
                         //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
-                        Text(Questions.answerShow[i]['answer'][0]),
-                        SizedBox(width: 10.0,),
+                        Container(
+                            width: 140.0,
+                            // color:Colors.blue,
+                            child:AutoSizeText(Questions.answerShow[j]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+
+                        ),
+                        SizedBox(width: 5.0,),
                         Icon(Icons.arrow_forward_ios, size: 12.0,
-                          color: Colors.lightBlue,)
+                          color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF))
                       ],)
-                    ],)),
-            ));
+                    ],
+                  )),
+            ))
+        );
       }
 
       //data that contains long container
@@ -230,7 +250,7 @@ bool a= false;
                     width: 450.0,
                     color: Colors.white,
                     child: Padding(
-                        padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                        padding: EdgeInsets.only(left: 10.0, right: 15.0),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -262,26 +282,45 @@ bool a= false;
             if(Questions.answerShow[j]['details'] == detailOption && detail == false)
               {
                 dynamicContainerbig.add(
-                  Container(
+                  GestureDetector(
+                    onTap: (){
+                      print("data employeed");
+                      Navigator.of(context).pop();
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        return mainQuestions(CheckQuestion : Questions.answerShow[j-1]['question'],CheckAnswer : [Questions.answerShow[j-1]['answer'][0]]);
+                      }));
+                    },
+                  child:Container(
                     color: Colors.white,
                       height: 55.0,
                       width: 450.0,
                       child: Padding(
-                          padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                          padding: EdgeInsets.only(left: 10.0, right: 10.0),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               //Text(Questions.answerShow[i]['question']),
-                              Text(Questions.answerShow[j]['question'],style: TextStyle(color: Colors.grey),),
+                              Container(
+                                  width: 155.0,
+                                  //color: Colors.purple,
+                                  child:AutoSizeText(Questions.answerShow[j]['question'],style: TextStyle(color: Colors.grey),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+                              ),
                               Row(children: <Widget>[
                                 //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
-                                Text(Questions.answerShow[j]['answer'][0]),
-                                SizedBox(width: 10.0,),
+                                Container(
+                                    width: 140.0,
+                                    // color:Colors.blue,
+                                    child:AutoSizeText(Questions.answerShow[j]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+
+                                ),
+                                SizedBox(width: 5.0,),
                                 Icon(Icons.arrow_forward_ios, size: 12.0,
-                                  color: Colors.lightBlue,)
+                                  color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),)
                               ],)
-                            ],))),
+                            ],
+                          ))
+                  )),
 
                 );
 
@@ -337,10 +376,23 @@ bool a= false;
           onTap: (){
           Navigator.pop(context);
           },
-            child:Icon(Icons.arrow_back,color: Colors.lightBlue,size: 18.0,)
+            child:Icon(Icons.arrow_back_ios,color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),size: 20.0)
         ),
         title: Text('Living Situation',style: TextStyle(color: Colors.black,fontSize: 14.0),),
         centerTitle: true,
+          actions: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(right: 18.0),
+            child:GestureDetector(
+              onTap: (){
+                print("skip");
+              },
+            child:Image(image:AssetImage("images/skip.png"),width: 23.0,height: 23.0,)
+            )
+            )
+       ]
+
+
       ),
       body: SingleChildScrollView(
         reverse: true,
@@ -362,6 +414,7 @@ bool a= false;
                 bottom: 0,
                 child: Container(
                     width: MediaQuery.of(context).size.width,
+                    //color: Colors.red,
                     child:
                 Column(
 

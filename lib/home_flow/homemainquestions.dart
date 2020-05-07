@@ -10,6 +10,7 @@ import 'package:easy_taxx/home_flow/homecalculationcontainer.dart';
 import 'package:easy_taxx/home_flow/homesixoptioncontainer.dart';
 import 'package:easy_taxx/home_flow/homethreeoptioncontainer.dart';
 import 'package:easy_taxx/home_flow/homedatecontainer.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 
 class HomeMainQuestions extends StatefulWidget {
@@ -165,21 +166,30 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
                   border: Border.all(width: 1.0, color: Color.fromARGB(0xFF, 0xE8, 0xE8, 0xE8))
               ),
               child: Padding(
-                  padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                  padding: EdgeInsets.only(left: 10.0, right: 10.0),
                   child: Row(crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       //Text(Questions.answerShow[i]['question']),
-                      Text(Questions.homeAnswerShow[i]['question'],
-                        style: TextStyle(fontWeight: FontWeight.bold),),
+                      Container(
+                          width: 155.0,
+                          //color: Colors.purple,
+                          child:AutoSizeText(Questions.homeAnswerShow[j]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+                      ),
                       Row(children: <Widget>[
                         //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
-                        Text(Questions.homeAnswerShow[i]['answer'][0]),
-                        SizedBox(width: 10.0,),
+                        Container(
+                            width: 140.0,
+                            // color:Colors.blue,
+                            child:AutoSizeText(Questions.homeAnswerShow[j]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+
+                        ),
+                        SizedBox(width: 5.0,),
                         Icon(Icons.arrow_forward_ios, size: 12.0,
-                          color: Colors.lightBlue,)
+                            color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF))
                       ],)
-                    ],)),
+                    ],
+                  )),
             ));
       }
 
@@ -215,7 +225,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
                   width: 450.0,
                   color: Colors.white,
                   child: Padding(
-                      padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                      padding: EdgeInsets.only(left: 10.0, right: 15.0),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -254,22 +264,32 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
                   height: 55.0,
                   width: 450.0,
                   child: Padding(
-                      padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                      padding: EdgeInsets.only(left: 10.0, right: 10.0),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           //Text(Questions.answerShow[i]['question']),
-                          Text(Questions.homeAnswerShow[j]['question'],
-                            style: TextStyle(color: Colors.grey,fontSize: 13),),
+                          Container(
+                              width: 155.0,
+                              //color: Colors.purple,
+                              child:AutoSizeText(Questions.homeAnswerShow[j]['question'],style: TextStyle(color: Colors.grey),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+                          ),
                           Row(children: <Widget>[
                             //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
-                            Text(Questions.homeAnswerShow[j]['answer'][0],style: TextStyle(fontSize: 13),),
-                            SizedBox(width: 2.0,),
+                            Container(
+                                width: 140.0,
+                                // color:Colors.blue,
+                                child:AutoSizeText(Questions.homeAnswerShow[j]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+
+                            ),
+                            SizedBox(width: 5.0,),
                             Icon(Icons.arrow_forward_ios, size: 12.0,
-                              color: Colors.lightBlue,)
+                              color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),)
                           ],)
-                        ],))),
+                        ],
+                      ))
+              ),
 
             );
 
@@ -328,20 +348,29 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Icon(
-                Icons.arrow_back, color: Colors.lightBlue, size: 18.0,)
+              child:Icon(Icons.arrow_back_ios,color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),size: 20.0)
           ),
-          title: Text('Home',
-            style: TextStyle(color: Colors.black, fontSize: 14.0),),
-          centerTitle: true,
+            title: Text('Home',style: TextStyle(color: Colors.black,fontSize: 14.0),),
+            centerTitle: true,
+            actions: <Widget>[
+              Padding(
+                  padding: EdgeInsets.only(right: 18.0),
+                  child:GestureDetector(
+                      onTap: (){
+                        print("skip");
+                      },
+                      child:Image(image:AssetImage("images/skip.png"),width: 23.0,height: 23.0,)
+                  )
+              )
+            ]
         ),
         body: SingleChildScrollView(
             reverse: true,
             child: Container(
               color: Colors.white,
               // height: 667.0,
-              //height:Questions.answerShow.length <3 ? MediaQuery.of(context).size.height*0.87 : (Questions.answerShow.length*60.0)+420.0,
-              //height:Questions.answerShow.length <3 ? 624.0 : (Questions.answerShow.length*60.0)+420.0,
+              //height:Questions.answerShow.length <3 ? MediaQuery.of(context).size.height*0.87 : (Questions.answerShow.length*60.0)+430.0,
+              //height:Questions.answerShow.length <3 ? 624.0 : (Questions.answerShow.length*60.0)+430.0,
               //height: MediaQuery.of(context).size.height*0.87,
 
               height: MediaQuery
@@ -409,7 +438,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
     if(Questions.homeAnswerShow.length == 0)
     {
       //Question No 1
-      return homeaddressContainer("","Home address","What is your current address?","Current address",210.0,"","");
+      return homeaddressContainer("","Home address","What is your current address?","Current address",220.0,"","");
     }
 
     else{
@@ -418,9 +447,9 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       if(widget.CheckCompleteQuestion == "What is your current address?"  && widget.CheckQuestion == "Current address")
       {
         //Question No 2
-        //For No 320.0
-        //For yes 210.0
-        return homeyesnoContainer("","Home address","Did you move during 2019?","Move 2019",320.0,"","");
+        //For No 330.0
+        //For yes 220.0
+        return homeyesnoContainer("","Home address","Did you move during 2019?","Move 2019",330.0,"","");
       }
 
 
@@ -432,16 +461,16 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
             //Question No 3
-          //For None 420.0
-          //For Utility Bill 210.0
-          //For Home Owner 210.0
-          return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 420.0,"None","");
+          //For None 430.0
+          //For Utility Bill 220.0
+          //For Home Owner 220.0
+          return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 430.0,"None","");
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
           //Question No 63
-          return homeyesnoContainer("","Relocation","Did you move for job-related reasons?","Due to work",210.0,"","");
+          return homeyesnoContainer("","Relocation","Did you move for job-related reasons?","Due to work",220.0,"","");
 
         }
       }
@@ -458,16 +487,16 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
           //Question No 64
-          //For No 320.0
-          //For yes 210.0
-          return homeyesnoContainer("","Relocation","Did you hire a moving company?","Moving company",210.0,"","");
+          //For No 330.0
+          //For yes 220.0
+          return homeyesnoContainer("","Relocation","Did you hire a moving company?","Moving company",220.0,"","");
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
           //Question No 65
 
-          return homecalculationContainer("","Relocation","How often did you move for job-related reasons in 2019?","Number of moves",320.0,"calculation","");
+          return homecalculationContainer("","Relocation","How often did you move for job-related reasons in 2019?","Number of moves",330.0,"calculation","");
 
         }
       }
@@ -481,13 +510,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
           //Question No 3
-          return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 420.0,"None","");
+          return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 430.0,"None","");
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
           //Question No 66
-          return homecalculationContainer("","Relocation","How much was the moving company?","Amount moving company",320.0,"calculation","");
+          return homecalculationContainer("","Relocation","How much was the moving company?","Amount moving company",330.0,"calculation","");
         }
       }
 
@@ -496,7 +525,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much was the moving company?" && widget.CheckQuestion == "Amount moving company")
       {
         //Question No 3
-        return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 420.0,"None","");
+        return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 430.0,"None","");
       }
 
 
@@ -507,7 +536,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       {
         //Question No 67
 
-        return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],210.0,"",Questions.relocationText);
+        return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],220.0,"",Questions.relocationText);
 
 
       }
@@ -522,9 +551,9 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "Started a new job")
         {
           //Question No 68
-    //For No 210.0
-          //For yes 420.0
-          return homeyesnoContainer("","Relocation","Did you want to make use of the lump sum for so called other moving expenses?","Lump sum",210.0,"",Questions.relocationText);
+    //For No 220.0
+          //For yes 430.0
+          return homeyesnoContainer("","Relocation","Did you want to make use of the lump sum for so called other moving expenses?","Lump sum",220.0,"",Questions.relocationText);
         }
 
         else if(widget.CheckAnswer[0] == "Moved in or out of a second household")
@@ -532,60 +561,60 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
           if(Questions.relocationLength <= Questions.totalRelocation)
           {
             //Question No 67
-            return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],210.0,"",Questions.relocationText);
+            return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],220.0,"",Questions.relocationText);
           }
           else{
             //Question No 3
-            return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 420.0,"None","");
+            return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 430.0,"None","");
           }
         }
 
         else if(widget.CheckAnswer[0] == "Saving 1 hour per day")
         {
           //Question No 68
-          //For No 210.0
-          //For yes 420.0
-          return homeyesnoContainer("","Relocation","Did you want to make use of the lump sum for so called other moving expenses?","Lump sum",210.0,"",Questions.relocationText);
+          //For No 220.0
+          //For yes 430.0
+          return homeyesnoContainer("","Relocation","Did you want to make use of the lump sum for so called other moving expenses?","Lump sum",220.0,"",Questions.relocationText);
         }
 
         else if(widget.CheckAnswer[0] == "Employer moved")
         {
 //Question No 68
-          //For No 210.0
-          //For yes 420.0
-          return homeyesnoContainer("","Relocation","Did you want to make use of the lump sum for so called other moving expenses?","Lump sum",210.0,"",Questions.relocationText);
+          //For No 220.0
+          //For yes 430.0
+          return homeyesnoContainer("","Relocation","Did you want to make use of the lump sum for so called other moving expenses?","Lump sum",220.0,"",Questions.relocationText);
         }
 
         else if(widget.CheckAnswer[0] == "Transferred to other employer’s location")
         {
 //Question No 68
-          //For No 210.0
-          //For yes 420.0
-          return homeyesnoContainer("","Relocation","Did you want to make use of the lump sum for so called other moving expenses?","Lump sum",210.0,"",Questions.relocationText);
+          //For No 220.0
+          //For yes 430.0
+          return homeyesnoContainer("","Relocation","Did you want to make use of the lump sum for so called other moving expenses?","Lump sum",220.0,"",Questions.relocationText);
         }
 
         else if(widget.CheckAnswer[0] == "At employer’s request")
         {
 //Question No 68
-          //For No 210.0
-          //For yes 420.0
-          return homeyesnoContainer("","Relocation","Did you want to make use of the lump sum for so called other moving expenses?","Lump sum",210.0,"",Questions.relocationText);
+          //For No 220.0
+          //For yes 430.0
+          return homeyesnoContainer("","Relocation","Did you want to make use of the lump sum for so called other moving expenses?","Lump sum",220.0,"",Questions.relocationText);
         }
 
         else if(widget.CheckAnswer[0] == "Moving in or out of company flat")
         {
 //Question No 68
-          //For No 210.0
-          //For yes 420.0
-          return homeyesnoContainer("","Relocation","Did you want to make use of the lump sum for so called other moving expenses?","Lump sum",210.0,"",Questions.relocationText);
+          //For No 220.0
+          //For yes 430.0
+          return homeyesnoContainer("","Relocation","Did you want to make use of the lump sum for so called other moving expenses?","Lump sum",220.0,"",Questions.relocationText);
         }
 
         else if(widget.CheckAnswer[0] == "Other provable occupational reasons")
         {
 //Question No 68
-          //For No 210.0
-          //For yes 420.0
-          return homeyesnoContainer("","Relocation","Did you want to make use of the lump sum for so called other moving expenses?","Lump sum",210.0,"",Questions.relocationText);
+          //For No 220.0
+          //For yes 430.0
+          return homeyesnoContainer("","Relocation","Did you want to make use of the lump sum for so called other moving expenses?","Lump sum",220.0,"",Questions.relocationText);
         }
 
         else if(widget.CheckAnswer[0] == "None of them")
@@ -593,11 +622,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
           if(Questions.relocationLength <= Questions.totalRelocation)
           {
             //Question No 67
-            return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],210.0,"",Questions.relocationText);
+            return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],220.0,"",Questions.relocationText);
           }
           else{
             //Question No 3
-            return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 420.0,"None","");
+            return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 430.0,"None","");
           }
         }
 
@@ -612,9 +641,9 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
           //Question No 69
-          //For No 420.0
-          //For yes 210.0
-          return homeyesnoContainer("","Relocation","Did you have any miscellaneous moving expenses?","Miscellaneous moving expenses",210.0,"",Questions.relocationText);
+          //For No 430.0
+          //For yes 220.0
+          return homeyesnoContainer("","Relocation","Did you have any miscellaneous moving expenses?","Miscellaneous moving expenses",220.0,"",Questions.relocationText);
 
         }
 
@@ -622,8 +651,8 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         {
           //Question No 70
     //For None 420
-    //For rest of 210.0
-          return homemultipleoptionsContainerNo("","Relocation","How did you move?","Relocation",["Own car","Rental car","Moving company","By plane","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],210.0,"None",Questions.relocationText);
+    //For rest of 220.0
+          return homemultipleoptionsContainerNo("","Relocation","How did you move?","Relocation",["Own car","Rental car","Moving company","By plane","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],220.0,"None",Questions.relocationText);
         }
       }
 
@@ -634,14 +663,14 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
           //Question No 70
-          return homemultipleoptionsContainerNo("","Relocation","How did you move?","Relocation",["Own car","Rental car","Moving company","By plane","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],210.0,"None",Questions.relocationText);
+          return homemultipleoptionsContainerNo("","Relocation","How did you move?","Relocation",["Own car","Rental car","Moving company","By plane","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],220.0,"None",Questions.relocationText);
 
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
          //Question No 71
-          return homecalculationContainer("","Relocation","How much did you spent on miscellaneous moving expenses?","Actual costs",420.0,"calculation",Questions.relocationText);
+          return homecalculationContainer("","Relocation","How much did you spent on miscellaneous moving expenses?","Actual costs",430.0,"calculation",Questions.relocationText);
         }
       }
 
@@ -650,7 +679,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spent on miscellaneous moving expenses?" && widget.CheckQuestion == "Actual costs")
       {
         //Question No 70
-        return homemultipleoptionsContainerNo("","Relocation","How did you move?","Relocation",["Own car","Rental car","Moving company","By plane","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],210.0,"None",Questions.relocationText);
+        return homemultipleoptionsContainerNo("","Relocation","How did you move?","Relocation",["Own car","Rental car","Moving company","By plane","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],220.0,"None",Questions.relocationText);
 
       }
 
@@ -663,23 +692,23 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
           if(widget.CheckAnswer[m] == "Own car") {
    //Question No 72
             //Ya container from to sa change hoga
-            return homecalculationContainer("","Relocation","We want to calculate the distance. From where to where did you go by car?","Distance by car",420.0,"",Questions.relocationText);
+            return homecalculationContainer("","Relocation","We want to calculate the distance. From where to where did you go by car?","Distance by car",430.0,"",Questions.relocationText);
           }
           else if(widget.CheckAnswer[m] == "Rental car") {
 //Question No 73
-            return homecalculationContainer("","Relocation","How much did you spend on the rental car?","Amount",420.0,"calculation",Questions.relocationText);
+            return homecalculationContainer("","Relocation","How much did you spend on the rental car?","Amount",430.0,"calculation",Questions.relocationText);
           }
           else if(widget.CheckAnswer[m] == "Moving company") {
 //Question No 74
-            return homecalculationContainer("","Relocation","How much did you spend on the moving company?","Amount",420.0,"calculation",Questions.relocationText);
+            return homecalculationContainer("","Relocation","How much did you spend on the moving company?","Amount",430.0,"calculation",Questions.relocationText);
           }
           else if(widget.CheckAnswer[m] == "By plane") {
 //Question No 75
-            return homecalculationContainer("","Relocation","How much did you spent on the plane?","Costs for plane",420.0,"calculation",Questions.relocationText);
+            return homecalculationContainer("","Relocation","How much did you spent on the plane?","Costs for plane",430.0,"calculation",Questions.relocationText);
           }
           else if(widget.CheckAnswer[m] == "None") {
 //Question No 76
-            return homemultipleoptionsContainerNo("","Relocation","Did you have any other costs due to the move?","Costs",["Broker’s fee","Travel to apartment viewings","Double rent","Damages during transport","Private tutoring","Other expenses","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.relocationText);
+            return homemultipleoptionsContainerNo("","Relocation","Did you have any other costs due to the move?","Costs",["Broker’s fee","Travel to apartment viewings","Double rent","Damages during transport","Private tutoring","Other expenses","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.relocationText);
           }
         }
       }
@@ -689,7 +718,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="We want to calculate the distance. From where to where did you go by car?" && widget.CheckQuestion == "Distance by car")
       {
         //Question No 76
-        return homemultipleoptionsContainerNo("","Relocation","Did you have any other costs due to the move?","Costs",["Broker’s fee","Travel to apartment viewings","Double rent","Damages during transport","Private tutoring","Other expenses","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.relocationText);
+        return homemultipleoptionsContainerNo("","Relocation","Did you have any other costs due to the move?","Costs",["Broker’s fee","Travel to apartment viewings","Double rent","Damages during transport","Private tutoring","Other expenses","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.relocationText);
 
       }
 
@@ -697,7 +726,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the rental car?" && widget.CheckQuestion == "Amount")
       {
         //Question No 76
-        return homemultipleoptionsContainerNo("","Relocation","Did you have any other costs due to the move?","Costs",["Broker’s fee","Travel to apartment viewings","Double rent","Damages during transport","Private tutoring","Other expenses","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.relocationText);
+        return homemultipleoptionsContainerNo("","Relocation","Did you have any other costs due to the move?","Costs",["Broker’s fee","Travel to apartment viewings","Double rent","Damages during transport","Private tutoring","Other expenses","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.relocationText);
 
       }
 
@@ -705,7 +734,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the moving company?" && widget.CheckQuestion == "Amount")
       {
         //Question No 76
-        return homemultipleoptionsContainerNo("","Relocation","Did you have any other costs due to the move?","Costs",["Broker’s fee","Travel to apartment viewings","Double rent","Damages during transport","Private tutoring","Other expenses","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.relocationText);
+        return homemultipleoptionsContainerNo("","Relocation","Did you have any other costs due to the move?","Costs",["Broker’s fee","Travel to apartment viewings","Double rent","Damages during transport","Private tutoring","Other expenses","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.relocationText);
 
       }
 
@@ -714,7 +743,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spent on the plane?" && widget.CheckQuestion == "Costs for plane")
       {
         //Question No 76
-        return homemultipleoptionsContainerNo("","Relocation","Did you have any other costs due to the move?","Costs",["Broker’s fee","Travel to apartment viewings","Double rent","Damages during transport","Private tutoring","Other expenses","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.relocationText);
+        return homemultipleoptionsContainerNo("","Relocation","Did you have any other costs due to the move?","Costs",["Broker’s fee","Travel to apartment viewings","Double rent","Damages during transport","Private tutoring","Other expenses","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.relocationText);
 
       }
 
@@ -726,27 +755,27 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
 
           if(widget.CheckAnswer[m] == "Broker’s fee") {
       //Question No 77
-            return homecalculationContainer("","Relocation","How much was the broker’s fee?","Broker",420.0,"calculation",Questions.relocationText);
+            return homecalculationContainer("","Relocation","How much was the broker’s fee?","Broker",430.0,"calculation",Questions.relocationText);
           }
           else if(widget.CheckAnswer[m] == "Travel to apartment viewings") {
 //Question No 78
-            return homecalculationContainer("","Relocation","How much were your travel costs for apartment viewings?","Apartment viewings",420.0,"calculation",Questions.relocationText);
+            return homecalculationContainer("","Relocation","How much were your travel costs for apartment viewings?","Apartment viewings",430.0,"calculation",Questions.relocationText);
           }
           else if(widget.CheckAnswer[m] == "Double rent") {
 //Question No 79
-            return homecalculationContainer("","Relocation","How much did you pay in rent for the unused apartment?","Double rent payments",420.0,"calculation",Questions.relocationText);
+            return homecalculationContainer("","Relocation","How much did you pay in rent for the unused apartment?","Double rent payments",430.0,"calculation",Questions.relocationText);
           }
           else if(widget.CheckAnswer[m] == "Damages during transport") {
 //Question No 80
-            return homecalculationContainer("","Relocation","How much were the damages due to transport?","Damages during transport",420.0,"calculation",Questions.relocationText);
+            return homecalculationContainer("","Relocation","How much were the damages due to transport?","Damages during transport",430.0,"calculation",Questions.relocationText);
           }
           else if(widget.CheckAnswer[m] == "Private tutoring") {
 //Question No 81
-            return homecalculationContainer("","Relocation","How much did you spend on tutoring due to change of school?","Private tutoring",420.0,"calculation",Questions.relocationText);
+            return homecalculationContainer("","Relocation","How much did you spend on tutoring due to change of school?","Private tutoring",430.0,"calculation",Questions.relocationText);
           }
           else if(widget.CheckAnswer[m] == "Other expenses") {
 //Question No 82
-            return homecalculationContainer("","Relocation","Please enter any other costs you had due to relocation?","Other costs",420.0,"calculation",Questions.relocationText);
+            return homecalculationContainer("","Relocation","Please enter any other costs you had due to relocation?","Other costs",430.0,"calculation",Questions.relocationText);
           }
 
           else if(widget.CheckAnswer[m] == "No") {
@@ -754,11 +783,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
             if(Questions.relocationLength <= Questions.totalRelocation)
             {
               //Question No 67
-              return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],210.0,"",Questions.relocationText);
+              return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],220.0,"",Questions.relocationText);
             }
             else{
               //Question No 3
-              return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 420.0,"None","");
+              return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 430.0,"None","");
             }
           }
         }
@@ -771,11 +800,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(Questions.relocationLength <= Questions.totalRelocation)
           {
             //Question No 67
-            return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],210.0,"",Questions.relocationText);
+            return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],220.0,"",Questions.relocationText);
           }
          else{
            //Question No 3
-          return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 420.0,"None","");
+          return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 430.0,"None","");
         }
 
 
@@ -788,11 +817,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(Questions.relocationLength <= Questions.totalRelocation)
         {
           //Question No 67
-          return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],210.0,"",Questions.relocationText);
+          return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],220.0,"",Questions.relocationText);
         }
         else{
           //Question No 3
-          return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 420.0,"None","");
+          return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 430.0,"None","");
         }
 
 
@@ -804,11 +833,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(Questions.relocationLength <= Questions.totalRelocation)
         {
           //Question No 67
-          return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],210.0,"",Questions.relocationText);
+          return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],220.0,"",Questions.relocationText);
         }
         else{
           //Question No 3
-          return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 420.0,"None","");
+          return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 430.0,"None","");
         }
 
 
@@ -820,11 +849,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(Questions.relocationLength <= Questions.totalRelocation)
         {
           //Question No 67
-          return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],210.0,"",Questions.relocationText);
+          return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],220.0,"",Questions.relocationText);
         }
         else{
           //Question No 3
-          return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 420.0,"None","");
+          return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 430.0,"None","");
         }
 
 
@@ -837,11 +866,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(Questions.relocationLength <= Questions.totalRelocation)
         {
           //Question No 67
-          return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],210.0,"",Questions.relocationText);
+          return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],220.0,"",Questions.relocationText);
         }
         else{
           //Question No 3
-          return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 420.0,"None","");
+          return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 430.0,"None","");
         }
       }
 
@@ -851,11 +880,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(Questions.relocationLength <= Questions.totalRelocation)
         {
           //Question No 67
-          return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],210.0,"",Questions.relocationText);
+          return homesixoptioncontainer("","Relocation","What is the reason for your relocation No. ${Questions.relocationLength}?","Reason of relocation",["Started a new job","Moved in or out of a second household","Saving 1 hour per day","Employer moved","Transferred to other employer’s location","At employer’s request","Moving in or out of company flat","Other provable occupational reasons","None of them"],220.0,"",Questions.relocationText);
         }
         else{
           //Question No 3
-          return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 420.0,"None","");
+          return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 430.0,"None","");
         }
 
       }
@@ -881,19 +910,19 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
 
           if(widget.CheckAnswer[m] == "Utility Bill") {
             //Question No 5
-            return homeyesnoContainer("","Household services","Would you like to enter more than one utility bill?","More bills",210.0,"","");
+            return homeyesnoContainer("","Household services","Would you like to enter more than one utility bill?","More bills",220.0,"","");
           }
           else if(widget.CheckAnswer[m] == "Home owner statement ('WEG')") {
             //Question No 17
-            return homeyesnoContainer("","Household services","Would you like to enter more than one 'WEG' statement?","More than one",210.0,"","");
+            return homeyesnoContainer("","Household services","Would you like to enter more than one 'WEG' statement?","More than one",220.0,"","");
 
           }
           else if(widget.CheckAnswer[m] == "None") {
            //Question No 9
-            //For No 210.0
-            //For nursing care 210.0
-            //For rest 320.0
-            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+            //For No 220.0
+            //For nursing care 220.0
+            //For rest 330.0
+            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
 
           }
         }
@@ -908,15 +937,15 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
           //Question No 6
-          //For No 420.0
-          //For Yes 210.0
-          return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.)?","Certificate",420.0,"","");
+          //For No 430.0
+          //For Yes 220.0
+          return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.)?","Certificate",430.0,"","");
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
           //Question No 7
-          return homecalculationContainer("","Household services","How many utility statements would you like to enter?","Number of bills",420.0,"calculation","");
+          return homecalculationContainer("","Household services","How many utility statements would you like to enter?","Number of bills",430.0,"calculation","");
         }
       }
 
@@ -924,11 +953,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       //Answer No 7
       else if(widget.CheckCompleteQuestion =="How many utility statements would you like to enter?" && widget.CheckQuestion == "Number of bills"){
        //Question No 58
-        //For No 420.0
-        //For Yes 210.0
+        //For No 430.0
+        //For Yes 220.0
 
         //Multiple data
-        return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",420.0,"","STATEMENT ${Questions.utilityBillLength}");
+        return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",430.0,"","STATEMENT ${Questions.utilityBillLength}");
 
       }
 
@@ -945,15 +974,15 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         {
           //Question No 8
           //For No services 420
-          //For Rest 210.0
-          return homemultipleoptionsContainerNo("","Household services","Which of the following services are included in your utility bill?","Services",["Cleaning / pest control","Gardening","Facility manager","Maintenance / repair","Chimney sweeper","Winter service","Other services","No services"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No services","");
+          //For Rest 220.0
+          return homemultipleoptionsContainerNo("","Household services","Which of the following services are included in your utility bill?","Services",["Cleaning / pest control","Gardening","Facility manager","Maintenance / repair","Chimney sweeper","Winter service","Other services","No services"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No services","");
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
           //Question No 179
 
-          return homecalculationContainer("","Household services","What was the bill amount for services or craftsmen on your utilities statement (excluding heating, electricity, insurances etc.)?","Amount utilities",420.0,"calculation","");
+          return homecalculationContainer("","Household services","What was the bill amount for services or craftsmen on your utilities statement (excluding heating, electricity, insurances etc.)?","Amount utilities",430.0,"calculation","");
         }
 
         }
@@ -967,16 +996,16 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
           {
             //Question No 59
             //For No services 420
-            //For Rest 210.0
+            //For Rest 220.0
 
-            return homemultipleoptionsContainerNo("","Household services","Which of the following services are included in your utility bill no. ${Questions.utilityBillLength}?","Services ${Questions.utilityBillLength}",["Cleaning / pest control","Gardening","Facility manager","Maintenance / repair","Chimney sweeper","Winter service","Other services","No services"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No services","STATEMENT ${Questions.utilityBillLength}");
+            return homemultipleoptionsContainerNo("","Household services","Which of the following services are included in your utility bill no. ${Questions.utilityBillLength}?","Services ${Questions.utilityBillLength}",["Cleaning / pest control","Gardening","Facility manager","Maintenance / repair","Chimney sweeper","Winter service","Other services","No services"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No services","STATEMENT ${Questions.utilityBillLength}");
           }
 
           else if(widget.CheckAnswer[0] == "Yes")
           {
             //Question No 179
 
-            return homecalculationContainer("","Household services","What was the bill amount for services or craftsmen on your utilities statement (excluding heating, electricity, insurances etc.)?","Amount for ${Questions.utilityBillLength}",420.0,"calculation","STATEMENT ${Questions.utilityBillLength}");
+            return homecalculationContainer("","Household services","What was the bill amount for services or craftsmen on your utilities statement (excluding heating, electricity, insurances etc.)?","Amount for ${Questions.utilityBillLength}",430.0,"calculation","STATEMENT ${Questions.utilityBillLength}");
           }
 
         }
@@ -993,20 +1022,20 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         //Single Option
         if(widget.CheckQuestion == "Amount utilities"){
           //Question No 9
-          return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+          return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
         }
 
         //Multiple Option
         else{
         if(Questions.utilityBillLength <= Questions.totalUtilityBill) {
           //Question No 58
-          return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",420.0,"","STATEMENT ${Questions.utilityBillLength}");
+          return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",430.0,"","STATEMENT ${Questions.utilityBillLength}");
         }
 
         //Single Option
         else{
           //Question No 9
-        return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+        return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
 
         }
 
@@ -1027,44 +1056,44 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
 
           if(widget.CheckAnswer[m] == "Cleaning / pest control") {
            //Question No 10
-            return homecalculationContainer("","Household services","How much is your share for cleaning / pest control relating to your flat?","Share cleaning/pest control",420.0,"calculation","");
+            return homecalculationContainer("","Household services","How much is your share for cleaning / pest control relating to your flat?","Share cleaning/pest control",430.0,"calculation","");
 
           }
 
           else if(widget.CheckAnswer[m] == "Gardening") {
            //Question No 11
-            return homecalculationContainer("","Household services","How much is your share for gardening relating to your flat?","Share gardening",420.0,"calculation","");
+            return homecalculationContainer("","Household services","How much is your share for gardening relating to your flat?","Share gardening",430.0,"calculation","");
 
           }
 
           else if(widget.CheckAnswer[m] == "Facility manager") {
             //Question No 12
-            return homecalculationContainer("","Household services","How much is your share for janitorial services relating to your flat?","Share janitorial service",420.0,"calculation","");
+            return homecalculationContainer("","Household services","How much is your share for janitorial services relating to your flat?","Share janitorial service",430.0,"calculation","");
           }
 
           else if(widget.CheckAnswer[m] == "Maintenance / repair") {
             //Question No 13
-            return homecalculationContainer("","Household services","How much is your share for maintenance / repair relating to your flat?","Share maintenance/repair",420.0,"calculation","");
+            return homecalculationContainer("","Household services","How much is your share for maintenance / repair relating to your flat?","Share maintenance/repair",430.0,"calculation","");
           }
 
           else if(widget.CheckAnswer[m] == "Chimney sweeper") {
             //Question No 14
-            return homecalculationContainer("","Household services","How much is your share for chimney sweeper relating to your flat?","Share chimney sweeper",420.0,"calculation","");
+            return homecalculationContainer("","Household services","How much is your share for chimney sweeper relating to your flat?","Share chimney sweeper",430.0,"calculation","");
           }
 
           else if(widget.CheckAnswer[m] == "Winter service") {
             //Question No 15
-            return homecalculationContainer("","Household services","How much is your share for winter services relating to your flat?","Share winter services",420.0,"calculation","");
+            return homecalculationContainer("","Household services","How much is your share for winter services relating to your flat?","Share winter services",430.0,"calculation","");
           }
 
           else if(widget.CheckAnswer[m] == "Other services") {
             //Question No 16
-            return homecalculationContainer("","Household services","How much is your share for other services from utility bill no. relating to your flat (excluding heating, electricity, insurances etc.)?","Share other services",420.0,"calculation","");
+            return homecalculationContainer("","Household services","How much is your share for other services from utility bill no. relating to your flat (excluding heating, electricity, insurances etc.)?","Share other services",430.0,"calculation","");
           }
 
           else if(widget.CheckAnswer[m] == "No services") {
             //Question No 9
-            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
 
 
           }
@@ -1081,52 +1110,52 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
           if(widget.CheckAnswer[m] == "Cleaning / pest control") {
             //Question No 10
 
-            return homecalculationContainer("","Household services","How much is your share for cleaning / pest control from utility bill no. ${Questions.utilityBillLength} relating to your flat?","Share cleaning/pest control ${Questions.utilityBillLength}",420.0,"calculation","STATEMENT ${Questions.utilityBillLength}");
+            return homecalculationContainer("","Household services","How much is your share for cleaning / pest control from utility bill no. ${Questions.utilityBillLength} relating to your flat?","Share cleaning/pest control ${Questions.utilityBillLength}",430.0,"calculation","STATEMENT ${Questions.utilityBillLength}");
 
           }
 
           else if(widget.CheckAnswer[m] == "Gardening") {
             //Question No 11
-            return homecalculationContainer("","Household services","How much is your share for gardening from utility bill no. ${Questions.utilityBillLength} relating to your flat?","Share gardening ${Questions.utilityBillLength}",420.0,"calculation","STATEMENT ${Questions.utilityBillLength}");
+            return homecalculationContainer("","Household services","How much is your share for gardening from utility bill no. ${Questions.utilityBillLength} relating to your flat?","Share gardening ${Questions.utilityBillLength}",430.0,"calculation","STATEMENT ${Questions.utilityBillLength}");
 
           }
 
           else if(widget.CheckAnswer[m] == "Facility manager") {
             //Question No 12
-            return homecalculationContainer("","Household services","How much is your share for janitorial services from utility bill no. ${Questions.utilityBillLength} relating to your flat?","Share janitorial service ${Questions.utilityBillLength}",420.0,"calculation","STATEMENT ${Questions.utilityBillLength}");
+            return homecalculationContainer("","Household services","How much is your share for janitorial services from utility bill no. ${Questions.utilityBillLength} relating to your flat?","Share janitorial service ${Questions.utilityBillLength}",430.0,"calculation","STATEMENT ${Questions.utilityBillLength}");
           }
 
           else if(widget.CheckAnswer[m] == "Maintenance / repair") {
             //Question No 13
-            return homecalculationContainer("","Household services","How much is your share for maintenance / repair from utility bill no. ${Questions.utilityBillLength} relating to your flat?","Share maintenance/repair ${Questions.utilityBillLength}",420.0,"calculation","STATEMENT ${Questions.utilityBillLength}");
+            return homecalculationContainer("","Household services","How much is your share for maintenance / repair from utility bill no. ${Questions.utilityBillLength} relating to your flat?","Share maintenance/repair ${Questions.utilityBillLength}",430.0,"calculation","STATEMENT ${Questions.utilityBillLength}");
           }
 
           else if(widget.CheckAnswer[m] == "Chimney sweeper") {
             //Question No 14
-            return homecalculationContainer("","Household services","How much is your share for chimney sweeper from utility bill no. ${Questions.utilityBillLength} relating to your flat?","Share chimney sweeper ${Questions.utilityBillLength}",420.0,"calculation","STATEMENT ${Questions.utilityBillLength}");
+            return homecalculationContainer("","Household services","How much is your share for chimney sweeper from utility bill no. ${Questions.utilityBillLength} relating to your flat?","Share chimney sweeper ${Questions.utilityBillLength}",430.0,"calculation","STATEMENT ${Questions.utilityBillLength}");
           }
 
           else if(widget.CheckAnswer[m] == "Winter service") {
             //Question No 15
-            return homecalculationContainer("","Household services","How much is your share for winter services from utility bill no. ${Questions.utilityBillLength} relating to your flat?","Share winter services ${Questions.utilityBillLength}",420.0,"calculation","STATEMENT ${Questions.utilityBillLength}");
+            return homecalculationContainer("","Household services","How much is your share for winter services from utility bill no. ${Questions.utilityBillLength} relating to your flat?","Share winter services ${Questions.utilityBillLength}",430.0,"calculation","STATEMENT ${Questions.utilityBillLength}");
           }
 
           else if(widget.CheckAnswer[m] == "Other services") {
             //Question No 16
-            return homecalculationContainer("","Household services","How much is your share for other services from utility bill no. ${Questions.utilityBillLength} relating to your flat (excluding heating, electricity, insurances etc.)?","Share other services ${Questions.utilityBillLength}",420.0,"calculation","STATEMENT ${Questions.utilityBillLength}");
+            return homecalculationContainer("","Household services","How much is your share for other services from utility bill no. ${Questions.utilityBillLength} relating to your flat (excluding heating, electricity, insurances etc.)?","Share other services ${Questions.utilityBillLength}",430.0,"calculation","STATEMENT ${Questions.utilityBillLength}");
           }
 
           else if(widget.CheckAnswer[m] == "No services") {
             int noServiceQuestion = Questions.utilityBillLength +1;
             if(noServiceQuestion <= Questions.totalUtilityBill) {
               //Question No 58
-              return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${noServiceQuestion}?","Certificate ${noServiceQuestion}",420.0,"","STATEMENT ${noServiceQuestion}");
+              return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${noServiceQuestion}?","Certificate ${noServiceQuestion}",430.0,"","STATEMENT ${noServiceQuestion}");
             }
 
             //Single Option
             else{
               //Question No 9
-              return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+              return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
 
             }
 
@@ -1150,7 +1179,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
          //Question No 9
           //Single Option
         if(widget.CheckCompleteQuestion == "How much is your share for cleaning / pest control relating to your flat?"){
-        return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+        return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
         }
 
 
@@ -1158,13 +1187,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         else{
           if(Questions.utilityBillLength <= Questions.totalUtilityBill) {
             //Question No 58
-            return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",420.0,"","STATEMENT ${Questions.utilityBillLength}");
+            return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",430.0,"","STATEMENT ${Questions.utilityBillLength}");
           }
 
           //Single Option
           else{
             //Question No 9
-            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
 
           }
 
@@ -1181,7 +1210,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         //Single Option
         print("gussa ha");
         if(widget.CheckCompleteQuestion == "How much is your share for gardening relating to your flat?"){
-          return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+          return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
         }
 
 
@@ -1189,13 +1218,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         else{
           if(Questions.utilityBillLength <= Questions.totalUtilityBill) {
             //Question No 58
-            return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",420.0,"","STATEMENT ${Questions.utilityBillLength}");
+            return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",430.0,"","STATEMENT ${Questions.utilityBillLength}");
           }
 
           //Single Option
           else{
             //Question No 9
-            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
 
           }
 
@@ -1210,7 +1239,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         //Single Option
         print("gussa ha");
         if(widget.CheckCompleteQuestion == "How much is your share for janitorial services relating to your flat?"){
-          return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+          return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
         }
 
 
@@ -1218,13 +1247,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         else{
           if(Questions.utilityBillLength <= Questions.totalUtilityBill) {
             //Question No 58
-            return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",420.0,"","STATEMENT ${Questions.utilityBillLength}");
+            return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",430.0,"","STATEMENT ${Questions.utilityBillLength}");
           }
 
           //Single Option
           else{
             //Question No 9
-            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
 
           }
 
@@ -1242,7 +1271,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         //Single Option
         print("gussa ha");
         if(widget.CheckCompleteQuestion == "How much is your share for maintenance / repair relating to your flat?"){
-          return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+          return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
         }
 
 
@@ -1250,13 +1279,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         else{
           if(Questions.utilityBillLength <= Questions.totalUtilityBill) {
             //Question No 58
-            return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",420.0,"","STATEMENT ${Questions.utilityBillLength}");
+            return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",430.0,"","STATEMENT ${Questions.utilityBillLength}");
           }
 
           //Single Option
           else{
             //Question No 9
-            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
 
           }
 
@@ -1276,7 +1305,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         //Single Option
         print("gussa ha");
         if(widget.CheckCompleteQuestion == "How much is your share for chimney sweeper relating to your flat?"){
-          return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+          return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
         }
 
 
@@ -1284,13 +1313,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         else{
           if(Questions.utilityBillLength <= Questions.totalUtilityBill) {
             //Question No 58
-            return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",420.0,"","STATEMENT ${Questions.utilityBillLength}");
+            return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",430.0,"","STATEMENT ${Questions.utilityBillLength}");
           }
 
           //Single Option
           else{
             //Question No 9
-            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
 
           }
 
@@ -1307,7 +1336,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         //Single Option
         print("gussa ha");
         if(widget.CheckCompleteQuestion == "How much is your share for winter services relating to your flat?"){
-          return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+          return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
         }
 
 
@@ -1315,13 +1344,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         else{
           if(Questions.utilityBillLength <= Questions.totalUtilityBill) {
             //Question No 58
-            return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",420.0,"","STATEMENT ${Questions.utilityBillLength}");
+            return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",430.0,"","STATEMENT ${Questions.utilityBillLength}");
           }
 
           //Single Option
           else{
             //Question No 9
-            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
 
           }
 
@@ -1338,7 +1367,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         //Single Option
         print("gussa ha");
         if(widget.CheckCompleteQuestion == "How much is your share for other services from utility bill no. relating to your flat (excluding heating, electricity, insurances etc.)?"){
-          return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+          return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
         }
 
 
@@ -1346,13 +1375,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         else{
           if(Questions.utilityBillLength <= Questions.totalUtilityBill) {
             //Question No 58
-            return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",420.0,"","STATEMENT ${Questions.utilityBillLength}");
+            return homeyesnoContainer("","Household services","Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.) for utility bill no. ${Questions.utilityBillLength}?","Certificate ${Questions.utilityBillLength}",430.0,"","STATEMENT ${Questions.utilityBillLength}");
           }
 
           //Single Option
           else{
             //Question No 9
-            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
 
           }
 
@@ -1376,13 +1405,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
             //Question No 18
-          return homecalculationContainer("","Household services","How much was invoiced for utility services on your 'WEG' bill?","Amount",210.0,"calculation","");
+          return homecalculationContainer("","Household services","How much was invoiced for utility services on your 'WEG' bill?","Amount",220.0,"calculation","");
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
           //Question No 19
-          return homecalculationContainer("","Household services","How many 'WEG' statements would you like to enter?","Number of 'WEG' statements",210.0,"calculation","");
+          return homecalculationContainer("","Household services","How many 'WEG' statements would you like to enter?","Number of 'WEG' statements",220.0,"calculation","");
         }
       }
 
@@ -1392,7 +1421,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How many 'WEG' statements would you like to enter?" && widget.CheckQuestion == "Number of 'WEG' statements")
       {
         //Question No 18
-        return homecalculationContainer("","Household services","How much was invoiced for utility services on your 'WEG' bill?","'WEG' ${Questions.WEGLength}",210.0,"calculation","WEG BILL ${Questions.WEGLength}");
+        return homecalculationContainer("","Household services","How much was invoiced for utility services on your 'WEG' bill?","'WEG' ${Questions.WEGLength}",220.0,"calculation","WEG BILL ${Questions.WEGLength}");
       }
 
 
@@ -1405,7 +1434,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         //Single Option
         if(widget.CheckQuestion == "Amount"){
           //Question No 9
-        return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+        return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
         }
 
         //Multiple Option
@@ -1413,11 +1442,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
           if(Questions.WEGLength <= Questions.totalWEG)
             {
               //Question No 18
-              return homecalculationContainer("","Household services","How much was invoiced for utility services on your 'WEG' bill?","'WEG' ${Questions.WEGLength}",210.0,"calculation","WEG BILL ${Questions.WEGLength}");
+              return homecalculationContainer("","Household services","How much was invoiced for utility services on your 'WEG' bill?","'WEG' ${Questions.WEGLength}",220.0,"calculation","WEG BILL ${Questions.WEGLength}");
             }
             else{
             //Question No 9
-            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],210.0,"No","");
+            return homemultipleoptionsContainerNo("","Household services","Did you order any of the following work or services for your household?","Made use of",["Cleaning","Winter service","Gardening","Nursing care","Pet Care","Craftsmen","Chimney sweep","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","");
           }
 
         }
@@ -1437,46 +1466,46 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
           if(widget.CheckAnswer[m] == "Cleaning") {
             //Question No 21
 
-            return homemultitwooptionContainer("", "Household services", "Who provided the cleaning service?", "Provided by", ["Service company", "Employee"], ["images/disabilityoption.png", "images/alimonypaidoption.png"], 210.0,"","");
+            return homemultitwooptionContainer("", "Household services", "Who provided the cleaning service?", "Provided by", ["Service company", "Employee"], ["images/disabilityoption.png", "images/alimonypaidoption.png"], 220.0,"","");
           }
 
           else if(widget.CheckAnswer[m] == "Winter service") {
 
             //Question No 26
-            return homemultitwooptionContainer("", "Household services", "Who provided the winter service?", "Provided by", ["Service company", "Employee"], ["images/disabilityoption.png", "images/alimonypaidoption.png"], 210.0,"","");
+            return homemultitwooptionContainer("", "Household services", "Who provided the winter service?", "Provided by", ["Service company", "Employee"], ["images/disabilityoption.png", "images/alimonypaidoption.png"], 220.0,"","");
           }
 
           else if(widget.CheckAnswer[m] == "Gardening") {
             //Question No 30
-            return homemultitwooptionContainer("", "Household services", "Who provided you with the gardening service?", "Provider", ["Service company", "Employee"], ["images/disabilityoption.png", "images/alimonypaidoption.png"], 210.0,"","");
+            return homemultitwooptionContainer("", "Household services", "Who provided you with the gardening service?", "Provider", ["Service company", "Employee"], ["images/disabilityoption.png", "images/alimonypaidoption.png"], 220.0,"","");
           }
 
           else if(widget.CheckAnswer[m] == "Nursing care") {
             //Question No 34
-            return homecalculationContainer("","Household services","How much did you spend on nursing care?","Household help nursing care",210.0,"calculation","");
+            return homecalculationContainer("","Household services","How much did you spend on nursing care?","Household help nursing care",220.0,"calculation","");
           }
 
           else if(widget.CheckAnswer[m] == "Pet Care") {
             //Question No 35
-            return homemultitwooptionContainer("", "Household services", "Who provided the pet care service?", "Provided by", ["Service company", "Employee"], ["images/disabilityoption.png", "images/alimonypaidoption.png"], 210.0,"","");
+            return homemultitwooptionContainer("", "Household services", "Who provided the pet care service?", "Provided by", ["Service company", "Employee"], ["images/disabilityoption.png", "images/alimonypaidoption.png"], 220.0,"","");
           }
 
           else if(widget.CheckAnswer[m] == "Craftsmen") {
             //Question No 39
-            //For No 420.0
-            //For Yes 210.0
-            return homeyesnoContainer("","Household services","Would you like to enter several craftsmen services?","More than one",420.0,"","");
+            //For No 430.0
+            //For Yes 220.0
+            return homeyesnoContainer("","Household services","Would you like to enter several craftsmen services?","More than one",430.0,"","");
           }
 
           else if(widget.CheckAnswer[m] == "Chimney sweep") {
             //Question No 43
-            return homecalculationContainer("","Household services","How much did you spend on the chimney sweep?","Costs chimney sweep",210.0,"calculation","");
+            return homecalculationContainer("","Household services","How much did you spend on the chimney sweep?","Costs chimney sweep",220.0,"calculation","");
           }
 
           else if(widget.CheckAnswer[m] == "No") {
 
             //Question No 98
-            return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+            return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
 
           }
 
@@ -1493,11 +1522,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
 
           if(widget.CheckAnswer[m] == "Service company") {
             //Question No 22
-            return homecalculationContainer("","Household services","How much was the cleaning?","Costs cleaning company",210.0,"calculation","");
+            return homecalculationContainer("","Household services","How much was the cleaning?","Costs cleaning company",220.0,"calculation","");
           }
           else if(widget.CheckAnswer[m] == "Employee") {
             //Question No 23
-            return homeyesnoContainer("","Household services","Were the cleaning services provided as part of a marginal employment (mini-job)?","Cleaning: mini job",210.0,"","");
+            return homeyesnoContainer("","Household services","Were the cleaning services provided as part of a marginal employment (mini-job)?","Cleaning: mini job",220.0,"","");
 
           }
 
@@ -1509,7 +1538,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion == "How much was the cleaning?" && widget.CheckQuestion == "Costs cleaning company")
       {
         //Question No 98
-        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
 
       }
 
@@ -1520,13 +1549,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
           //Question 24
-          return homecalculationContainer("","Household services","How much did you pay the household help for the cleaning service?","Household help cleaning",210.0,"calculation","");
+          return homecalculationContainer("","Household services","How much did you pay the household help for the cleaning service?","Household help cleaning",220.0,"calculation","");
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
           //Question No 25
-          return homecalculationContainer("","Household services","How much did you spend on (employed) cleaning services?","Cleaning services (employed)",210.0,"calculation","");
+          return homecalculationContainer("","Household services","How much did you spend on (employed) cleaning services?","Cleaning services (employed)",220.0,"calculation","");
         }
       }
 
@@ -1535,7 +1564,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you pay the household help for the cleaning service?" && widget.CheckQuestion == "Household help cleaning") {
 
         //Question No 98
-        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
       }
 
 
@@ -1543,7 +1572,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
        else if(widget.CheckCompleteQuestion =="How much did you spend on (employed) cleaning services?" && widget.CheckQuestion == "Cleaning services (employed)") {
 
         //Question No 98
-        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
       }
 
 
@@ -1558,11 +1587,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
 
           if(widget.CheckAnswer[m] == "Service company") {
             //Question No 27
-            return homecalculationContainer("","Household services","How much was the winter service?","Amount table",210.0,"calculation","");
+            return homecalculationContainer("","Household services","How much was the winter service?","Amount table",220.0,"calculation","");
           }
           else if(widget.CheckAnswer[m] == "Employee") {
             //Question No 28
-            return homeyesnoContainer("","Household services","Were the winter service provided as part of marginal employment (mini-job)?","Winter service: Mini job",210.0,"","");
+            return homeyesnoContainer("","Household services","Were the winter service provided as part of marginal employment (mini-job)?","Winter service: Mini job",220.0,"","");
 
           }
 
@@ -1574,7 +1603,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion == "How much was the winter service?" && widget.CheckQuestion == "Amount table")
       {
         //Question No 98
-        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
 
       }
 
@@ -1585,13 +1614,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
           //Question No 29
-          return homecalculationContainer("","Household services","How much did you pay the person who provided the service?","Amount",210.0,"calculation","");
+          return homecalculationContainer("","Household services","How much did you pay the person who provided the service?","Amount",220.0,"calculation","");
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
           //Question No 29
-          return homecalculationContainer("","Household services","How much did you pay the person who provided the service?","Household help winter service",210.0,"calculation","");
+          return homecalculationContainer("","Household services","How much did you pay the person who provided the service?","Household help winter service",220.0,"calculation","");
         }
       }
 
@@ -1601,7 +1630,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you pay the person who provided the service?" && (widget.CheckQuestion == "Amount" || widget.CheckQuestion == "Household help winter service")) {
 
         //Question No 98
-        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
       }
 
 
@@ -1613,11 +1642,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
 
           if(widget.CheckAnswer[m] == "Service company") {
             //Question No 31
-            return homecalculationContainer("","Household services","How much was the gardening?","Gardening company",210.0,"calculation","");
+            return homecalculationContainer("","Household services","How much was the gardening?","Gardening company",220.0,"calculation","");
           }
           else if(widget.CheckAnswer[m] == "Employee") {
             //Question No 32
-            return homeyesnoContainer("","Household services","Was the gardening provided as part of marginal employment (mini-job)?","Gardening: mini job",210.0,"","");
+            return homeyesnoContainer("","Household services","Was the gardening provided as part of marginal employment (mini-job)?","Gardening: mini job",220.0,"","");
 
           }
 
@@ -1630,7 +1659,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion == "How much was the gardening?" && widget.CheckQuestion == "Gardening company")
       {
         //Question No 98
-        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
 
       }
 
@@ -1642,13 +1671,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
           //Question No 33
-          return homecalculationContainer("","Household services","How much did you pay the person who did the gardening?","Household help gardening",210.0,"calculation","");
+          return homecalculationContainer("","Household services","How much did you pay the person who did the gardening?","Household help gardening",220.0,"calculation","");
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
           //Question No 33
-          return homecalculationContainer("","Household services","How much did you pay the person who did the gardening?","Amount",210.0,"calculation","");
+          return homecalculationContainer("","Household services","How much did you pay the person who did the gardening?","Amount",220.0,"calculation","");
         }
       }
 
@@ -1657,7 +1686,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you pay the person who did the gardening?" && (widget.CheckQuestion == "Household help gardening" || widget.CheckQuestion == "Amount")) {
 
         //Question No 98
-        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
       }
 
 
@@ -1665,7 +1694,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on nursing care?" &&  widget.CheckQuestion == "Household help nursing care") {
 
         //Question No 98
-        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
       }
 
 
@@ -1677,11 +1706,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
 
           if(widget.CheckAnswer[m] == "Service company") {
             //Question No 36
-            return homecalculationContainer("","Household services","How much did you pay the service company for the pet care?","Pet care",210.0,"calculation","");
+            return homecalculationContainer("","Household services","How much did you pay the service company for the pet care?","Pet care",220.0,"calculation","");
           }
           else if(widget.CheckAnswer[m] == "Employee") {
             //Question No 37
-            return homeyesnoContainer("","Household services","Was the pet care provided as part of a marginal employment(mini-job)?","Petcare: mini job",210.0,"","");
+            return homeyesnoContainer("","Household services","Was the pet care provided as part of a marginal employment(mini-job)?","Petcare: mini job",220.0,"","");
 
           }
 
@@ -1693,7 +1722,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you pay the service company for the pet care?" &&  widget.CheckQuestion == "Pet care") {
 
         //Question No 98
-        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
       }
 
 
@@ -1704,13 +1733,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
           //Question No 38
-          return homecalculationContainer("","Household services","How much did you pay the person who took care of your pet?","Amount pet care",210.0,"calculation","");
+          return homecalculationContainer("","Household services","How much did you pay the person who took care of your pet?","Amount pet care",220.0,"calculation","");
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
           //Question No 40
-          return homecalculationContainer("","Household services","How much did you pay your household help for taking care of your pet?","Household help pet care",210.0,"calculation","");
+          return homecalculationContainer("","Household services","How much did you pay your household help for taking care of your pet?","Household help pet care",220.0,"calculation","");
         }
       }
 
@@ -1718,7 +1747,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you pay the person who took care of your pet?" &&  widget.CheckQuestion == "Amount pet care") {
 
         //Question No 98
-        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
       }
 
 
@@ -1727,7 +1756,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you pay your household help for taking care of your pet?" &&  widget.CheckQuestion == "Household help pet care") {
 
         //Question No 98
-        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
       }
 
 
@@ -1741,14 +1770,14 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         {
           //Question 41
 
-          return homesixoptioncontainer("","Household services","What kind of work did the craftsmen do?","Training",["Maintenance","Repairs","Paintwork","Modernisations","Extension work","Plumbing"],210.0,"","");
+          return homesixoptioncontainer("","Household services","What kind of work did the craftsmen do?","Training",["Maintenance","Repairs","Paintwork","Modernisations","Extension work","Plumbing"],220.0,"","");
 
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
           //Question No 49
-          return homecalculationContainer("","Household services","How many services by craftsmen would you like to enter?","Craftsmen services",210.0,"calculation","");
+          return homecalculationContainer("","Household services","How many services by craftsmen would you like to enter?","Craftsmen services",220.0,"calculation","");
         }
       }
 
@@ -1758,7 +1787,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the chimney sweep?" && widget.CheckQuestion == "Costs chimney sweep")
       {
         //Question No 98
-        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
       }
 
 
@@ -1766,7 +1795,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How many services by craftsmen would you like to enter?" && widget.CheckQuestion == "Craftsmen services")
       {
         //Question No 50
-        return homesixoptioncontainer("","Household services","What kind of services were done by craftsmen no. ${Questions.craftsmenLength}?","Craftsman service ${Questions.craftsmenLength}",["Maintenance","Repairs","Paintwork","Modernisations","Extension work","Plumbing"],210.0,"",Questions.craftsmenText);
+        return homesixoptioncontainer("","Household services","What kind of services were done by craftsmen no. ${Questions.craftsmenLength}?","Craftsman service ${Questions.craftsmenLength}",["Maintenance","Repairs","Paintwork","Modernisations","Extension work","Plumbing"],220.0,"",Questions.craftsmenText);
       }
 
 
@@ -1781,38 +1810,38 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "Maintenance")
         {
         //Question No 42
-        return homecalculationContainer("","Household services","How much have you spent on maintenance?","Amount maintenance",210.0,"calculation",Questions.craftsmenText);
+        return homecalculationContainer("","Household services","How much have you spent on maintenance?","Amount maintenance",220.0,"calculation",Questions.craftsmenText);
 
         }
 
         else if(widget.CheckAnswer[0] == "Repairs")
         {
           //Question No 44
-          return homecalculationContainer("","Household services","How much did you spend on repairs?","Amount repairs",210.0,"calculation",Questions.craftsmenText);
+          return homecalculationContainer("","Household services","How much did you spend on repairs?","Amount repairs",220.0,"calculation",Questions.craftsmenText);
         }
 
         else if(widget.CheckAnswer[0] == "Paintwork")
         {
           //Question No 45
-          return homecalculationContainer("","Household services","How much did you spend on paintwork?","Amount paintwork",210.0,"calculation",Questions.craftsmenText);
+          return homecalculationContainer("","Household services","How much did you spend on paintwork?","Amount paintwork",220.0,"calculation",Questions.craftsmenText);
         }
 
         else if(widget.CheckAnswer[0] == "Modernisations")
         {
           //Question No 46
-          return homecalculationContainer("","Household services","How much did you spend on modernisation?","Costs modernisation",210.0,"calculation",Questions.craftsmenText);
+          return homecalculationContainer("","Household services","How much did you spend on modernisation?","Costs modernisation",220.0,"calculation",Questions.craftsmenText);
         }
 
         else if(widget.CheckAnswer[0] == "Extension work")
         {
           //Question No 47
-          return homecalculationContainer("","Household services","How much did you spend on extension work?","Amount extension work",210.0,"calculation",Questions.craftsmenText);
+          return homecalculationContainer("","Household services","How much did you spend on extension work?","Amount extension work",220.0,"calculation",Questions.craftsmenText);
         }
 
         else if(widget.CheckAnswer[0] == "Plumbing")
         {
           //Question No 48
-          return homecalculationContainer("","Household services","How much did you spend on supply works?","Amount supply works",210.0,"calculation",Questions.craftsmenText);
+          return homecalculationContainer("","Household services","How much did you spend on supply works?","Amount supply works",220.0,"calculation",Questions.craftsmenText);
         }
 
       }
@@ -1824,11 +1853,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
 
         if(Questions.craftsmenLength <= Questions.totalCraftsmen && Questions.craftsmenLength > 0){
           //Question No 50
-          return homesixoptioncontainer("","Household services","What kind of services were done by craftsmen no. ${Questions.craftsmenLength}?","Craftsman service ${Questions.craftsmenLength}",["Maintenance","Repairs","Paintwork","Modernisations","Extension work","Plumbing"],210.0,"",Questions.craftsmenText);
+          return homesixoptioncontainer("","Household services","What kind of services were done by craftsmen no. ${Questions.craftsmenLength}?","Craftsman service ${Questions.craftsmenLength}",["Maintenance","Repairs","Paintwork","Modernisations","Extension work","Plumbing"],220.0,"",Questions.craftsmenText);
         }
         else{
        //Question No 98
-        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+        return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
 
       }
 
@@ -1839,11 +1868,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       {
         if(Questions.craftsmenLength <= Questions.totalCraftsmen && Questions.craftsmenLength > 0){
           //Question No 50
-          return homesixoptioncontainer("","Household services","What kind of services were done by craftsmen no. ${Questions.craftsmenLength}?","Craftsman service ${Questions.craftsmenLength}",["Maintenance","Repairs","Paintwork","Modernisations","Extension work","Plumbing"],210.0,"",Questions.craftsmenText);
+          return homesixoptioncontainer("","Household services","What kind of services were done by craftsmen no. ${Questions.craftsmenLength}?","Craftsman service ${Questions.craftsmenLength}",["Maintenance","Repairs","Paintwork","Modernisations","Extension work","Plumbing"],220.0,"",Questions.craftsmenText);
         }
         else{
           //Question No 98
-          return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+          return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
 
         }
 
@@ -1854,11 +1883,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       {
         if(Questions.craftsmenLength <= Questions.totalCraftsmen && Questions.craftsmenLength > 0){
           //Question No 50
-          return homesixoptioncontainer("","Household services","What kind of services were done by craftsmen no. ${Questions.craftsmenLength}?","Craftsman service ${Questions.craftsmenLength}",["Maintenance","Repairs","Paintwork","Modernisations","Extension work","Plumbing"],210.0,"",Questions.craftsmenText);
+          return homesixoptioncontainer("","Household services","What kind of services were done by craftsmen no. ${Questions.craftsmenLength}?","Craftsman service ${Questions.craftsmenLength}",["Maintenance","Repairs","Paintwork","Modernisations","Extension work","Plumbing"],220.0,"",Questions.craftsmenText);
         }
         else{
           //Question No 98
-          return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+          return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
 
         }
       }
@@ -1869,11 +1898,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       {
         if(Questions.craftsmenLength <= Questions.totalCraftsmen && Questions.craftsmenLength > 0){
           //Question No 50
-          return homesixoptioncontainer("","Household services","What kind of services were done by craftsmen no. ${Questions.craftsmenLength}?","Craftsman service ${Questions.craftsmenLength}",["Maintenance","Repairs","Paintwork","Modernisations","Extension work","Plumbing"],210.0,"",Questions.craftsmenText);
+          return homesixoptioncontainer("","Household services","What kind of services were done by craftsmen no. ${Questions.craftsmenLength}?","Craftsman service ${Questions.craftsmenLength}",["Maintenance","Repairs","Paintwork","Modernisations","Extension work","Plumbing"],220.0,"",Questions.craftsmenText);
         }
         else{
           //Question No 98
-          return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+          return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
 
         }
       }
@@ -1883,11 +1912,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       {
         if(Questions.craftsmenLength <= Questions.totalCraftsmen && Questions.craftsmenLength > 0){
           //Question No 50
-          return homesixoptioncontainer("","Household services","What kind of services were done by craftsmen no. ${Questions.craftsmenLength}?","Craftsman service ${Questions.craftsmenLength}",["Maintenance","Repairs","Paintwork","Modernisations","Extension work","Plumbing"],210.0,"",Questions.craftsmenText);
+          return homesixoptioncontainer("","Household services","What kind of services were done by craftsmen no. ${Questions.craftsmenLength}?","Craftsman service ${Questions.craftsmenLength}",["Maintenance","Repairs","Paintwork","Modernisations","Extension work","Plumbing"],220.0,"",Questions.craftsmenText);
         }
         else{
           //Question No 98
-          return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+          return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
 
         }
       }
@@ -1897,11 +1926,11 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       {
         if(Questions.craftsmenLength <= Questions.totalCraftsmen && Questions.craftsmenLength > 0){
           //Question No 50
-          return homesixoptioncontainer("","Household services","What kind of services were done by craftsmen no. ${Questions.craftsmenLength}?","Craftsman service ${Questions.craftsmenLength}",["Maintenance","Repairs","Paintwork","Modernisations","Extension work","Plumbing"],210.0,"",Questions.craftsmenText);
+          return homesixoptioncontainer("","Household services","What kind of services were done by craftsmen no. ${Questions.craftsmenLength}?","Craftsman service ${Questions.craftsmenLength}",["Maintenance","Repairs","Paintwork","Modernisations","Extension work","Plumbing"],220.0,"",Questions.craftsmenText);
         }
         else{
           //Question No 98
-          return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",210.0,"","");
+          return homeyesnoContainer("","Home","Did you have a second household due to work in 2019?","Second household",220.0,"","");
 
         }
       }
@@ -1925,7 +1954,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         else if(widget.CheckAnswer[0] == "Yes")
         {
           //Question No 99
-          return homeyesnoContainer("","Home","Did you bear at least 10% of your first household's costs?","10% of costs",210.0,"","");
+          return homeyesnoContainer("","Home","Did you bear at least 10% of your first household's costs?","10% of costs",220.0,"","");
         }
       }
 
@@ -1941,9 +1970,9 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         else if(widget.CheckAnswer[0] == "Yes")
         {
          //Question No 100
-          //For No 320.0
-          //For yes 210.0
-          return homeyesnoContainer("","Home","You have stated you have a second household. Did you have more than one second household?","Multiple second households",210.0,"","");
+          //For No 330.0
+          //For yes 220.0
+          return homeyesnoContainer("","Home","You have stated you have a second household. Did you have more than one second household?","Multiple second households",220.0,"","");
         }
       }
 
@@ -1956,13 +1985,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         {
           //Question No 101
 
-          return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],210.0,"","");
+          return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],220.0,"","");
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
         //Question No 102
-          return homecalculationContainer("","Home","How many second households would you like to enter?","Quantity",210.0,"calculation","");
+          return homecalculationContainer("","Home","How many second households would you like to enter?","Quantity",220.0,"calculation","");
         }
       }
 
@@ -1970,7 +1999,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How many second households would you like to enter?" && widget.CheckQuestion == "Quantity")
       {
         //Question No 101
-        return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],210.0,"",Questions.secondHouseHoldText);
+        return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],220.0,"",Questions.secondHouseHoldText);
       }
 
 
@@ -1981,19 +2010,19 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "Rented apartment")
         {
             //Question No 103
-          return homeaddressContainer("","Home","What is the address of your second household?","Address second household",210.0,"",Questions.secondHouseHoldText);
+          return homeaddressContainer("","Home","What is the address of your second household?","Address second household",220.0,"",Questions.secondHouseHoldText);
         }
 
         else if(widget.CheckAnswer[0] == "Own home")
         {
 //Question No 103
-          return homeaddressContainer("","Home","What is the address of your second household?","Address second household",210.0,"",Questions.secondHouseHoldText);
+          return homeaddressContainer("","Home","What is the address of your second household?","Address second household",220.0,"",Questions.secondHouseHoldText);
         }
 
         else if(widget.CheckAnswer[0] == "With friends or family")
         {
          //Question No 103
-          return homeaddressContainer("","Home","What is the address of your second household?","Address second household",210.0,"",Questions.secondHouseHoldText);
+          return homeaddressContainer("","Home","What is the address of your second household?","Address second household",220.0,"",Questions.secondHouseHoldText);
         }
       }
 
@@ -2002,7 +2031,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What is the address of your second household?" && widget.CheckQuestion == "Address second household")
       {
        //Question No 104
-        return homedateContainer("","Home","When did you move into your second household?","Moving to",210.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","When did you move into your second household?","Moving to",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -2012,9 +2041,9 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="When did you move into your second household?" && widget.CheckQuestion == "Moving to")
       {
        //Question No 105
-        //For No 210.0
-        //For Yes 420.0
-        return homeyesnoContainer("","Home","Were you still living there by the end of year?","Living end of 2019",210.0,"",Questions.secondHouseHoldText);
+        //For No 220.0
+        //For Yes 430.0
+        return homeyesnoContainer("","Home","Were you still living there by the end of year?","Living end of 2019",220.0,"",Questions.secondHouseHoldText);
       }
 
 
@@ -2026,13 +2055,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
           //Question No 106
-          return homedateContainer("","Home","When did you move out of your second household?","Moved out on",420.0,"",Questions.secondHouseHoldText);
+          return homedateContainer("","Home","When did you move out of your second household?","Moved out on",430.0,"",Questions.secondHouseHoldText);
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
          //Question No 107
-          return homesixoptioncontainer("","Home","Why did you have a second household?","Reason for double housekeeping",["Transfer to another location","Change of employer","New workplace","Shorter commute","Private reasons"],210.0,"",Questions.secondHouseHoldText);
+          return homesixoptioncontainer("","Home","Why did you have a second household?","Reason for double housekeeping",["Transfer to another location","Change of employer","New workplace","Shorter commute","Private reasons"],220.0,"",Questions.secondHouseHoldText);
         }
       }
 
@@ -2041,7 +2070,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="When did you move out of your second household?" && widget.CheckQuestion == "Moved out on")
       {
         //Question No 107
-        return homesixoptioncontainer("","Home","Why did you have a second household?","Reason for double housekeeping",["Transfer to another location","Change of employer","New workplace","Shorter commute","Private reasons"],210.0,"",Questions.secondHouseHoldText);
+        return homesixoptioncontainer("","Home","Why did you have a second household?","Reason for double housekeeping",["Transfer to another location","Change of employer","New workplace","Shorter commute","Private reasons"],220.0,"",Questions.secondHouseHoldText);
       }
 
 
@@ -2052,31 +2081,31 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "Transfer to another location")
         {
          //Question No 108
-          return homeyesnoContainer("","Home","Have you had an external activity at this place before?","External activity before",210.0,"",Questions.secondHouseHoldText);
+          return homeyesnoContainer("","Home","Have you had an external activity at this place before?","External activity before",220.0,"",Questions.secondHouseHoldText);
         }
 
         else if(widget.CheckAnswer[0] == "Change of employer")
         {
           //Question No 108
-          return homeyesnoContainer("","Home","Have you had an external activity at this place before?","External activity before",210.0,"",Questions.secondHouseHoldText);
+          return homeyesnoContainer("","Home","Have you had an external activity at this place before?","External activity before",220.0,"",Questions.secondHouseHoldText);
         }
 
         else if(widget.CheckAnswer[0] == "New workplace")
         {
           //Question No 108
-          return homeyesnoContainer("","Home","Have you had an external activity at this place before?","External activity before",210.0,"",Questions.secondHouseHoldText);
+          return homeyesnoContainer("","Home","Have you had an external activity at this place before?","External activity before",220.0,"",Questions.secondHouseHoldText);
         }
 
         else if(widget.CheckAnswer[0] == "Shorter commute")
         {
           //Question No 108
-          return homeyesnoContainer("","Home","Have you had an external activity at this place before?","External activity before",210.0,"",Questions.secondHouseHoldText);
+          return homeyesnoContainer("","Home","Have you had an external activity at this place before?","External activity before",220.0,"",Questions.secondHouseHoldText);
         }
 
         else if(widget.CheckAnswer[0] == "Private reasons")
         {
           if((Questions.secondHouseHoldLength <= Questions.totalSecondHouseHold) && Questions.secondHouseHoldLength > 0){
-            return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],210.0,"",Questions.secondHouseHoldText);
+            return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],220.0,"",Questions.secondHouseHoldText);
           }
 
           else {
@@ -2092,13 +2121,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
           //Question No 109
-          return homeyesnoContainer("","Home","Is the address of your main residence in 2019 equal to your current address?","Current address main residence",210.0,"",Questions.secondHouseHoldText);
+          return homeyesnoContainer("","Home","Is the address of your main residence in 2019 equal to your current address?","Current address main residence",220.0,"",Questions.secondHouseHoldText);
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
          //Question No 109
-          return homeyesnoContainer("","Home","Is the address of your main residence in 2019 equal to your current address?","Current address main residence",210.0,"",Questions.secondHouseHoldText);
+          return homeyesnoContainer("","Home","Is the address of your main residence in 2019 equal to your current address?","Current address main residence",220.0,"",Questions.secondHouseHoldText);
         }
       }
 
@@ -2109,13 +2138,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
         //Question No 110
-          return homeaddressContainer("","Home","What is the address of your main residence in 2019?","Main residence 2019",210.0,"",Questions.secondHouseHoldText);
+          return homeaddressContainer("","Home","What is the address of your main residence in 2019?","Main residence 2019",220.0,"",Questions.secondHouseHoldText);
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
          //Question No 111
-          return homedateContainer("","Home","Since when do you have your primary residence at this address?","Primary residence since",420.0,"",Questions.secondHouseHoldText);
+          return homedateContainer("","Home","Since when do you have your primary residence at this address?","Primary residence since",430.0,"",Questions.secondHouseHoldText);
         }
       }
 
@@ -2123,7 +2152,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What is the address of your main residence in 2019?" && widget.CheckQuestion == "Main residence 2019")
       {
        //Question No 111
-        return homedateContainer("","Home","Since when do you have your primary residence at this address?","Primary residence since",420.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","Since when do you have your primary residence at this address?","Primary residence since",430.0,"",Questions.secondHouseHoldText);
       }
 
 
@@ -2131,7 +2160,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="Since when do you have your primary residence at this address?" && widget.CheckQuestion == "Primary residence since")
       {
        //Question No 112
-        return homemultipleoptionsContainerNo("","Home","How did you travel between your households?","Mode of transport",["Car","Bus and train","Airplane","Car sharing","Company car","Motorcycle","Collective transport","Free collective transport","Ferry"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],210.0,"None",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","How did you travel between your households?","Mode of transport",["Car","Bus and train","Airplane","Car sharing","Company car","Motorcycle","Collective transport","Free collective transport","Ferry"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],220.0,"None",Questions.secondHouseHoldText);
       }
 
 
@@ -2146,62 +2175,62 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
             //Question No 113
             Questions.modeOfTransport = "Car";
             //Agar ya car ka liya agaya to phir multiple option ma baqi kisi ka liya nhi aiga
-            return homecalculationContainer("","Home","How many times did you travel between your first and second household?","Number of journeys",210.0,"",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How many times did you travel between your first and second household?","Number of journeys",220.0,"",Questions.secondHouseHoldText);
 
           }
           else if(widget.CheckAnswer[m] == "Bus and train") {
             //Question No 113
             Questions.modeOfTransport = "Bus and train";
-            return homecalculationContainer("","Home","How many times did you travel between your first and second household?","Number of journeys",210.0,"",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How many times did you travel between your first and second household?","Number of journeys",220.0,"",Questions.secondHouseHoldText);
 
           }
 
           else if(widget.CheckAnswer[m] == "Airplane") {
             //Question No 113
             Questions.modeOfTransport = "Airplane";
-            return homecalculationContainer("","Home","How many times did you travel between your first and second household?","Number of journeys",210.0,"",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How many times did you travel between your first and second household?","Number of journeys",220.0,"",Questions.secondHouseHoldText);
 
           }
 
           else if(widget.CheckAnswer[m] == "Car sharing") {
             //Question No 113
             Questions.modeOfTransport = "Car sharing";
-            return homecalculationContainer("","Home","How many times did you travel between your first and second household?","Number of journeys",210.0,"",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How many times did you travel between your first and second household?","Number of journeys",220.0,"",Questions.secondHouseHoldText);
 
           }
 
           else if(widget.CheckAnswer[m] == "Company car") {
             //Question New
             Questions.modeOfTransport = "Company car";
-            return homecalculationContainer("","Home","How often did you travel between your first and second household?","No. regular drives",210.0,"",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How often did you travel between your first and second household?","No. regular drives",220.0,"",Questions.secondHouseHoldText);
 
           }
 
           else if(widget.CheckAnswer[m] == "Motorcycle") {
             //Question 113
             Questions.modeOfTransport = "Motorcycle";
-            return homecalculationContainer("","Home","How many times did you travel between your first and second household?","Number of journeys",210.0,"",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How many times did you travel between your first and second household?","Number of journeys",220.0,"",Questions.secondHouseHoldText);
 
           }
 
           else if(widget.CheckAnswer[m] == "Collective transport") {
             //Question 113
             Questions.modeOfTransport = "Collective transport";
-            return homecalculationContainer("","Home","How many times did you travel between your first and second household?","Number of journeys",210.0,"",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How many times did you travel between your first and second household?","Number of journeys",220.0,"",Questions.secondHouseHoldText);
 
           }
 
           else if(widget.CheckAnswer[m] == "Free collective transport") {
             //Question New
             Questions.modeOfTransport = "Free collective transport";
-            return homecalculationContainer("","Home","How often did you travel between your first and second household?","No. regular drives",210.0,"",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How often did you travel between your first and second household?","No. regular drives",220.0,"",Questions.secondHouseHoldText);
 
           }
 
           else if(widget.CheckAnswer[m] == "Ferry") {
             //Question 113
             Questions.modeOfTransport = "Ferry";
-            return homecalculationContainer("","Home","How many times did you travel between your first and second household?","Number of journeys",210.0,"",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How many times did you travel between your first and second household?","Number of journeys",220.0,"",Questions.secondHouseHoldText);
 
           }
 
@@ -2221,42 +2250,42 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(Questions.modeOfTransport == "Car"){
           //Yaha sa container change hoga is tara ka
            //Question No 114
-            return homecalculationContainer("","Home","Where was the start and end point of your car journey?","By car",420.0,"",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","Where was the start and end point of your car journey?","By car",430.0,"",Questions.secondHouseHoldText);
         }
 
         else if(Questions.modeOfTransport == "Bus and train"){
 //Yaha sa container change hoga is tara ka
           //Question No 115
-          return homecalculationContainer("","Home","Where was the start and end point of your journey by train or bus?","By train or bus",210.0,"",Questions.secondHouseHoldText);
+          return homecalculationContainer("","Home","Where was the start and end point of your journey by train or bus?","By train or bus",220.0,"",Questions.secondHouseHoldText);
         }
 
         else if(Questions.modeOfTransport == "Airplane"){
           //Question No 125
-          return homecalculationContainer("","Home","How much did you spend on flight tickets?","Flight costs",210.0,"",Questions.secondHouseHoldText);
+          return homecalculationContainer("","Home","How much did you spend on flight tickets?","Flight costs",220.0,"",Questions.secondHouseHoldText);
         }
 
         else if(Questions.modeOfTransport == "Car sharing"){
           //Yaha sa container change hoga is tara ka
           //Question No 116
-          return homecalculationContainer("","Home","Where was the start and end point of your journey via car sharing?","Car sharing",210.0,"",Questions.secondHouseHoldText);
+          return homecalculationContainer("","Home","Where was the start and end point of your journey via car sharing?","Car sharing",220.0,"",Questions.secondHouseHoldText);
         }
 
         else if(Questions.modeOfTransport == "Motorcycle"){
           //Yaha sa container change hoga is tara ka
           //Question No 117
-          return homecalculationContainer("","Home","Please enter the route you traveled by motorcycle?","By motorcycle",420.0,"",Questions.secondHouseHoldText);
+          return homecalculationContainer("","Home","Please enter the route you traveled by motorcycle?","By motorcycle",430.0,"",Questions.secondHouseHoldText);
         }
 
         else if(Questions.modeOfTransport == "Collective transport"){
           //Yaha sa container change hoga is tara ka
           //Question No 118
-          return homecalculationContainer("","Home","Where was the start and end point of your journey via company transport?","Company transport",210.0,"",Questions.secondHouseHoldText);
+          return homecalculationContainer("","Home","Where was the start and end point of your journey via company transport?","Company transport",220.0,"",Questions.secondHouseHoldText);
         }
 
 
         else if(Questions.modeOfTransport == "Ferry"){
           //Question No 126
-          return homecalculationContainer("","Home","How much did you spend on ferry tickets?","Ferry costs",420.0,"",Questions.secondHouseHoldText);
+          return homecalculationContainer("","Home","How much did you spend on ferry tickets?","Ferry costs",430.0,"",Questions.secondHouseHoldText);
         }
 
 
@@ -2270,7 +2299,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       {
 
         //Question No 127
-        return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],210.0,"None",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],220.0,"None",Questions.secondHouseHoldText);
 
       }
 
@@ -2280,9 +2309,9 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       {
 
         //Question No 119
-        //For No 420.0
-        //For Yes 210.0
-        return homeyesnoContainer("","Home","We have calculated an amount of €4.80 as travelling expenses. Were your actual costs for public transport higher than this?","Higher costs",210.0,"",Questions.secondHouseHoldText);
+        //For No 430.0
+        //For Yes 220.0
+        return homeyesnoContainer("","Home","We have calculated an amount of €4.80 as travelling expenses. Were your actual costs for public transport higher than this?","Higher costs",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -2293,13 +2322,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
           //Question No 127
-          return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],210.0,"None",Questions.secondHouseHoldText);
+          return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],220.0,"None",Questions.secondHouseHoldText);
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
           //Question No 120
-          return homecalculationContainer("","Home","How much did you spend on public transport?","Costs bus / train",210.0,"calculation",Questions.secondHouseHoldText);
+          return homecalculationContainer("","Home","How much did you spend on public transport?","Costs bus / train",220.0,"calculation",Questions.secondHouseHoldText);
         }
       }
 
@@ -2308,7 +2337,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on public transport?" && widget.CheckQuestion == "Costs bus / train")
       {
         //Question No 127
-        return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],210.0,"None",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],220.0,"None",Questions.secondHouseHoldText);
       }
 
 
@@ -2316,7 +2345,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on flight tickets?" && widget.CheckQuestion == "Flight costs")
       {
         //Question No 127
-        return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],210.0,"None",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],220.0,"None",Questions.secondHouseHoldText);
       }
 
 
@@ -2326,9 +2355,9 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       {
 
         //Question No 121
-        //For No 420.0
-        //For Yes 210.0
-        return homeyesnoContainer("","Home","We have calculated an amount of €4.80 as travelling expenses. Were your actual costs for car sharing higher than this?","Higher costs",210.0,"",Questions.secondHouseHoldText);
+        //For No 430.0
+        //For Yes 220.0
+        return homeyesnoContainer("","Home","We have calculated an amount of €4.80 as travelling expenses. Were your actual costs for car sharing higher than this?","Higher costs",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -2340,13 +2369,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
           //Question No 127
-          return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],210.0,"None",Questions.secondHouseHoldText);
+          return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],220.0,"None",Questions.secondHouseHoldText);
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
           //Question No 122
-          return homecalculationContainer("","Home","How much did you spend on car sharing?","Costs car sharing",420.0,"calculation",Questions.secondHouseHoldText);
+          return homecalculationContainer("","Home","How much did you spend on car sharing?","Costs car sharing",430.0,"calculation",Questions.secondHouseHoldText);
         }
       }
 
@@ -2355,7 +2384,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on car sharing?" && widget.CheckQuestion == "Costs car sharing")
       {
         //Question No 127
-        return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],210.0,"None",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],220.0,"None",Questions.secondHouseHoldText);
       }
 
 
@@ -2363,7 +2392,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
     else if(widget.CheckCompleteQuestion =="How often did you travel between your first and second household?" && widget.CheckQuestion == "No. regular drives")
     {
     //Question No 127
-    return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],210.0,"None",Questions.secondHouseHoldText);
+    return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],220.0,"None",Questions.secondHouseHoldText);
     }
 
 
@@ -2371,7 +2400,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="Please enter the route you traveled by motorcycle?" && widget.CheckQuestion == "By motorcycle")
       {
         //Question No 127
-        return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],210.0,"None",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],220.0,"None",Questions.secondHouseHoldText);
       }
 
 
@@ -2381,9 +2410,9 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       {
 
         //Question No 123
-        //For No 420.0
-        //For Yes 210.0
-        return homeyesnoContainer("","Home","We have calculated an amount of €4.80 as travelling expenses. Were your actual costs for company transport higher than this?","Costs company transport",210.0,"",Questions.secondHouseHoldText);
+        //For No 430.0
+        //For Yes 220.0
+        return homeyesnoContainer("","Home","We have calculated an amount of €4.80 as travelling expenses. Were your actual costs for company transport higher than this?","Costs company transport",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -2394,13 +2423,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
           //Question No 127
-          return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],210.0,"None",Questions.secondHouseHoldText);
+          return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],220.0,"None",Questions.secondHouseHoldText);
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
           //Question No 124
-          return homecalculationContainer("","Home","How much did you spend on company transport?","Costs company transport",210.0,"calculation",Questions.secondHouseHoldText);
+          return homecalculationContainer("","Home","How much did you spend on company transport?","Costs company transport",220.0,"calculation",Questions.secondHouseHoldText);
         }
       }
 
@@ -2409,7 +2438,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on company transport?" && widget.CheckQuestion == "Costs company transport")
       {
         //Question No 127
-        return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],210.0,"None",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],220.0,"None",Questions.secondHouseHoldText);
       }
 
 
@@ -2418,7 +2447,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on ferry tickets?" && widget.CheckQuestion == "Ferry costs")
       {
         //Question No 127
-        return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],210.0,"None",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","What kind of costs did you have for your second home?","Costs second home",["Rent","Additional property expenses","Furnishing","Parking space","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png"],220.0,"None",Questions.secondHouseHoldText);
       }
 
       // ====== Travel Between Household End ======
@@ -2433,31 +2462,31 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
           if(widget.CheckAnswer[m] == "Rent")
           {
            //Question No 128
-            return homecalculationContainer("","Home","How much was annual basic rent?","Basic rent",420.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much was annual basic rent?","Basic rent",430.0,"calculation",Questions.secondHouseHoldText);
           }
           else if(widget.CheckAnswer[m] == "Additional property expenses")
           {
           //Question No 129
-            return homecalculationContainer("","Home","What were your ancillary costs?","Ancillary costs",420.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","What were your ancillary costs?","Ancillary costs",430.0,"calculation",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Furnishing")
           {
           //Question No 131
-            return homemultipleoptionsContainerNo("","Home","Did you spend more than 488 EUR on any piece of furniture or household appliance?",">488 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Desk","Kitchen","Wardrobe","Sofa","Shelf","Other furniture","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],420.0,"No",Questions.secondHouseHoldText);
+            return homemultipleoptionsContainerNo("","Home","Did you spend more than 488 EUR on any piece of furniture or household appliance?",">488 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Desk","Kitchen","Wardrobe","Sofa","Shelf","Other furniture","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],430.0,"No",Questions.secondHouseHoldText);
 
           }
 
           else if(widget.CheckAnswer[m] == "Parking space")
           {
           //Question No 130
-            return homecalculationContainer("","Home","How much did you spend on your parking space?","Parking space",420.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much did you spend on your parking space?","Parking space",430.0,"calculation",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "None")
           {
             //Question No 167
-            return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+            return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
           }
 
 
@@ -2472,7 +2501,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much was annual basic rent?" && widget.CheckQuestion == "Basic rent")
       {
      //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
       }
 
 
@@ -2480,7 +2509,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What were your ancillary costs?" && widget.CheckQuestion == "Ancillary costs")
       {
         //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
       }
 
 
@@ -2488,7 +2517,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on your parking space?" && widget.CheckQuestion == "Parking space")
       {
         //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
       }
 
 
@@ -2502,86 +2531,86 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
           {
              Questions.Appliance = "Dryer";
              //Question No 132
-             return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],420.0,"No",Questions.secondHouseHoldText);
+             return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],430.0,"No",Questions.secondHouseHoldText);
           }
           else if(widget.CheckAnswer[m] == "Refrigerator")
           {
             Questions.Appliance = "Refrigerator";
             //Question No 132
-            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],420.0,"No",Questions.secondHouseHoldText);
+            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],430.0,"No",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Microwave")
           {
             Questions.Appliance = "Microwave";
             //Question No 132
-            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],420.0,"No",Questions.secondHouseHoldText);
+            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],430.0,"No",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Computer")
           {
             Questions.Appliance = "Computer";
             //Question No 132
-            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],420.0,"No",Questions.secondHouseHoldText);
+            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],430.0,"No",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Computer accessory")
           {
             Questions.Appliance = "Computer accessory";
             //Question No 132
-            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],420.0,"No",Questions.secondHouseHoldText);
+            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],430.0,"No",Questions.secondHouseHoldText);
           }
           else if(widget.CheckAnswer[m] == "TV")
           {
             Questions.Appliance = "TV";
             //Question No 132
-            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],420.0,"No",Questions.secondHouseHoldText);
+            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],430.0,"No",Questions.secondHouseHoldText);
           }
           else if(widget.CheckAnswer[m] == "Dishwasher")
           {
             Questions.Appliance = "Dishwasher";
             //Question No 132
-            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],420.0,"No",Questions.secondHouseHoldText);
+            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],430.0,"No",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Washing Machine")
           {
             Questions.Appliance = "Washing Machine";
             //Question No 132
-            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],420.0,"No",Questions.secondHouseHoldText);
+            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],430.0,"No",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Bed")
           {
             Questions.Appliance = "Bed";
             //Question No 132
-            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],420.0,"No",Questions.secondHouseHoldText);
+            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],430.0,"No",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Desk")
           {
             Questions.Appliance = "Desk";
             //Question No 132
-            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],420.0,"No",Questions.secondHouseHoldText);
+            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],430.0,"No",Questions.secondHouseHoldText);
           }
           else if(widget.CheckAnswer[m] == "Kitchen")
           {
             Questions.Appliance = "Kitchen";
             //Question No 132
-            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],420.0,"No",Questions.secondHouseHoldText);
+            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],430.0,"No",Questions.secondHouseHoldText);
           }
           else if(widget.CheckAnswer[m] == "Wardrobe")
           {
             Questions.Appliance = "Wardrobe";
             //Question No 132
-            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],420.0,"No",Questions.secondHouseHoldText);
+            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],430.0,"No",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Sofa")
           {
             Questions.Appliance = "Sofa";
             //Question No 132
-            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],420.0,"No",Questions.secondHouseHoldText);
+            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],430.0,"No",Questions.secondHouseHoldText);
 
           }
 
@@ -2589,7 +2618,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
           {
             Questions.Appliance = "Shelf";
             //Question No 132
-            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],420.0,"No",Questions.secondHouseHoldText);
+            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],430.0,"No",Questions.secondHouseHoldText);
 
           }
 
@@ -2597,14 +2626,14 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
           {
             Questions.Appliance = "Other furniture";
             //Question No 132
-            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],420.0,"No",Questions.secondHouseHoldText);
+            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],430.0,"No",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "No")
           {
             Questions.Appliance = "No";
             //Question No 132
-            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],420.0,"No",Questions.secondHouseHoldText);
+            return homemultipleoptionsContainerNo("","Home","Did you spend more than 952 EUR on any appliance or piece of furniture?",">952 EUR",["Dryer","Refrigerator","Microwave","Computer","Computer accessory","TV","Dishwasher","Washing Machine","Bed","Table","Kitchen","Wardrobe","Sofa","Shelves","Other","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png"],430.0,"No",Questions.secondHouseHoldText);
           }
         }
       }
@@ -2622,81 +2651,81 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
           if(widget.CheckAnswer[m] == "Dryer")
           {
             //Question No 133
-            return homecalculationContainer("","Home","How much did you spend on the dryer?","Amount: dryer",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much did you spend on the dryer?","Amount: dryer",220.0,"calculation",Questions.secondHouseHoldText);
           }
           else if(widget.CheckAnswer[m] == "Refrigerator")
           {
            //Question No 135
-            return homecalculationContainer("","Home","How much did you spend on the refrigerator?","Amount refrigerator",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much did you spend on the refrigerator?","Amount refrigerator",220.0,"calculation",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Microwave")
           {
             //Question No 137
-            return homecalculationContainer("","Home","How much did you spend on the microwave?","Amount: microwave",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much did you spend on the microwave?","Amount: microwave",220.0,"calculation",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Computer")
           {
             //Question No 139
-            return homecalculationContainer("","Home","How much did you spend on the computer?","Amount: computer",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much did you spend on the computer?","Amount: computer",220.0,"calculation",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Computer accessory")
           {
             //Question No 141
-            return homecalculationContainer("","Home","How much did you spend on the computer accessory?","Amount: computer accessory",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much did you spend on the computer accessory?","Amount: computer accessory",220.0,"calculation",Questions.secondHouseHoldText);
           }
           else if(widget.CheckAnswer[m] == "TV")
           {
             //Question No 143
-            return homecalculationContainer("","Home","How much did you spend on the TV?","Amount: TV",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much did you spend on the TV?","Amount: TV",220.0,"calculation",Questions.secondHouseHoldText);
           }
           else if(widget.CheckAnswer[m] == "Dishwasher")
           {
            //Question No 145
-            return homecalculationContainer("","Home","How much did you spend on the dishwasher?","Amount: dishwasher",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much did you spend on the dishwasher?","Amount: dishwasher",220.0,"calculation",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Washing Machine")
           {
            //Question No 147
-            return homecalculationContainer("","Home","How much did you spend on the washing machine?","Amount: washing machine",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much did you spend on the washing machine?","Amount: washing machine",220.0,"calculation",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Bed")
           {
             //Question No 149
-            return homecalculationContainer("","Home","How much did you spend on the bed?","Amount: bed",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much did you spend on the bed?","Amount: bed",220.0,"calculation",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Table")
           {
             //Question No 151
-            return homecalculationContainer("","Home","How much did you spend on the table?","Amount: table",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much did you spend on the table?","Amount: table",220.0,"calculation",Questions.secondHouseHoldText);
           }
           else if(widget.CheckAnswer[m] == "Kitchen")
           {
             //Question No 153
-            return homecalculationContainer("","Home","How much did you spend on the kitchen?","Amount: kitchen",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much did you spend on the kitchen?","Amount: kitchen",220.0,"calculation",Questions.secondHouseHoldText);
           }
           else if(widget.CheckAnswer[m] == "Wardrobe")
           {
             //Question No 155
-            return homecalculationContainer("","Home","How much did you spend on the wardrobe?","Amount: wardrobe",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much did you spend on the wardrobe?","Amount: wardrobe",220.0,"calculation",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Sofa")
           {
             //Question No 157
-            return homecalculationContainer("","Home","How much did you spend on the sofa?","Amount: sofa",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much did you spend on the sofa?","Amount: sofa",220.0,"calculation",Questions.secondHouseHoldText);
 
           }
 
           else if(widget.CheckAnswer[m] == "Shelves")
           {
             //Question No 159
-            return homecalculationContainer("","Home","How much did you spend on the shelf?","Amount: shelf",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much did you spend on the shelf?","Amount: shelf",220.0,"calculation",Questions.secondHouseHoldText);
 
 
           }
@@ -2705,7 +2734,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
           {
 //Question No 161
 
-            return homecalculationContainer("","Home","Which other fixtures did you buy?","Other fixture",210.0,"",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","Which other fixtures did you buy?","Other fixture",220.0,"",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "No")
@@ -2713,67 +2742,67 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
 
             if(Questions.Appliance == "Dryer") {
               //Question No 133
-              return homecalculationContainer("","Home","How much did you spend on the dryer?","Amount: dryer",210.0,"calculation",Questions.secondHouseHoldText);
+              return homecalculationContainer("","Home","How much did you spend on the dryer?","Amount: dryer",220.0,"calculation",Questions.secondHouseHoldText);
             }
             else if(Questions.Appliance == "Refrigerator") {
               //Question No 135
-              return homecalculationContainer("","Home","How much did you spend on the refrigerator?","Amount refrigerator",210.0,"calculation",Questions.secondHouseHoldText);
+              return homecalculationContainer("","Home","How much did you spend on the refrigerator?","Amount refrigerator",220.0,"calculation",Questions.secondHouseHoldText);
             }
             else if(Questions.Appliance == "Microwave") {
               //Question No 137
-              return homecalculationContainer("","Home","How much did you spend on the microwave?","Amount: microwave",210.0,"calculation",Questions.secondHouseHoldText);
+              return homecalculationContainer("","Home","How much did you spend on the microwave?","Amount: microwave",220.0,"calculation",Questions.secondHouseHoldText);
             }
             else if(Questions.Appliance == "Computer") {
               //Question No 139
-              return homecalculationContainer("","Home","How much did you spend on the computer?","Amount: computer",210.0,"calculation",Questions.secondHouseHoldText);
+              return homecalculationContainer("","Home","How much did you spend on the computer?","Amount: computer",220.0,"calculation",Questions.secondHouseHoldText);
             }
             else if(Questions.Appliance == "Computer accessory") {
               //Question No 141
-              return homecalculationContainer("","Home","How much did you spend on the computer accessory?","Amount: computer accessory",210.0,"calculation",Questions.secondHouseHoldText);
+              return homecalculationContainer("","Home","How much did you spend on the computer accessory?","Amount: computer accessory",220.0,"calculation",Questions.secondHouseHoldText);
             }
             else if(Questions.Appliance == "TV") {
               //Question No 143
-              return homecalculationContainer("","Home","How much did you spend on the TV?","Amount: TV",210.0,"calculation",Questions.secondHouseHoldText);
+              return homecalculationContainer("","Home","How much did you spend on the TV?","Amount: TV",220.0,"calculation",Questions.secondHouseHoldText);
             }
             else if(Questions.Appliance == "Dishwasher") {
               //Question No 145
-              return homecalculationContainer("","Home","How much did you spend on the dishwasher?","Amount: dishwasher",210.0,"calculation",Questions.secondHouseHoldText);
+              return homecalculationContainer("","Home","How much did you spend on the dishwasher?","Amount: dishwasher",220.0,"calculation",Questions.secondHouseHoldText);
             }
             else if(Questions.Appliance == "Washing Machine") {
               //Question No 147
-              return homecalculationContainer("","Home","How much did you spend on the washing machine?","Amount: washing machine",210.0,"calculation",Questions.secondHouseHoldText);
+              return homecalculationContainer("","Home","How much did you spend on the washing machine?","Amount: washing machine",220.0,"calculation",Questions.secondHouseHoldText);
             }
             else if(Questions.Appliance == "Bed") {
               //Question No 149
-              return homecalculationContainer("","Home","How much did you spend on the bed?","Amount: bed",210.0,"calculation",Questions.secondHouseHoldText);
+              return homecalculationContainer("","Home","How much did you spend on the bed?","Amount: bed",220.0,"calculation",Questions.secondHouseHoldText);
             }
             else if(Questions.Appliance == "Desk") {
               //Question No 151
-              return homecalculationContainer("","Home","How much did you spend on the table?","Amount: table",210.0,"calculation",Questions.secondHouseHoldText);
+              return homecalculationContainer("","Home","How much did you spend on the table?","Amount: table",220.0,"calculation",Questions.secondHouseHoldText);
             }
             else if(Questions.Appliance == "Kitchen") {
               //Question No 153
-              return homecalculationContainer("","Home","How much did you spend on the kitchen?","Amount: kitchen",210.0,"calculation",Questions.secondHouseHoldText);
+              return homecalculationContainer("","Home","How much did you spend on the kitchen?","Amount: kitchen",220.0,"calculation",Questions.secondHouseHoldText);
             }
             else if(Questions.Appliance == "Wardrobe") {
               //Question No 155
-              return homecalculationContainer("","Home","How much did you spend on the wardrobe?","Amount: wardrobe",210.0,"calculation",Questions.secondHouseHoldText);
+              return homecalculationContainer("","Home","How much did you spend on the wardrobe?","Amount: wardrobe",220.0,"calculation",Questions.secondHouseHoldText);
             }
             else if(Questions.Appliance == "Sofa") {
               //Question No 157
-              return homecalculationContainer("","Home","How much did you spend on the sofa?","Amount: sofa",210.0,"calculation",Questions.secondHouseHoldText);
+              return homecalculationContainer("","Home","How much did you spend on the sofa?","Amount: sofa",220.0,"calculation",Questions.secondHouseHoldText);
             }
             else if(Questions.Appliance == "Shelf") {
               //Question No 159
-              return homecalculationContainer("","Home","How much did you spend on the shelf?","Amount: shelf",210.0,"calculation",Questions.secondHouseHoldText);
+              return homecalculationContainer("","Home","How much did you spend on the shelf?","Amount: shelf",220.0,"calculation",Questions.secondHouseHoldText);
             }
             else if(Questions.Appliance == "Other furniture") {
               //Question No 161
-              return homecalculationContainer("","Home","Which other fixtures did you buy?","Other fixture",210.0,"",Questions.secondHouseHoldText);
+              return homecalculationContainer("","Home","Which other fixtures did you buy?","Other fixture",220.0,"",Questions.secondHouseHoldText);
             }
             else if(Questions.Appliance == "No") {
               //Question No 167
-              return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+              return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
             }
 
 
@@ -2787,7 +2816,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the dryer?" && widget.CheckQuestion == "Amount: dryer")
       {
 //Question No 134
-        return homedateContainer("","Home","When did you buy the dryer?","Date: dryer",210.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","When did you buy the dryer?","Date: dryer",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -2797,7 +2826,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="When did you buy the dryer?" && widget.CheckQuestion == "Date: dryer")
       {
        //Question No 166
-        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",420.0,"calculation",Questions.secondHouseHoldText);
+        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",430.0,"calculation",Questions.secondHouseHoldText);
 
       }
 
@@ -2806,7 +2835,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What other furnishing costs did you have?" && widget.CheckQuestion == "Furnishing costs")
       {
         //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
 
       }
 
@@ -2821,7 +2850,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the refrigerator?" && widget.CheckQuestion == "Amount refrigerator")
       {
 //Question No 136
-        return homedateContainer("","Home","When did you buy the refrigerator?","Date: refrigerator",210.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","When did you buy the refrigerator?","Date: refrigerator",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -2831,7 +2860,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="When did you buy the refrigerator?" && widget.CheckQuestion == "Date: refrigerator")
       {
         //Question No 166
-        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",420.0,"calculation",Questions.secondHouseHoldText);
+        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",430.0,"calculation",Questions.secondHouseHoldText);
 
       }
 
@@ -2840,7 +2869,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What other furnishing costs did you have?" && widget.CheckQuestion == "Furnishing costs")
       {
         //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
 
       }
 
@@ -2855,7 +2884,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the microwave?" && widget.CheckQuestion == "Amount: microwave")
       {
 //Question No 138
-        return homedateContainer("","Home","When did you buy the microwave?","Date: microwave",210.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","When did you buy the microwave?","Date: microwave",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -2865,7 +2894,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="When did you buy the microwave?" && widget.CheckQuestion == "Date: microwave")
       {
         //Question No 166
-        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",420.0,"calculation",Questions.secondHouseHoldText);
+        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",430.0,"calculation",Questions.secondHouseHoldText);
 
       }
 
@@ -2874,7 +2903,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What other furnishing costs did you have?" && widget.CheckQuestion == "Furnishing costs")
       {
         //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
 
       }
 
@@ -2887,7 +2916,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the computer accessory?" && widget.CheckQuestion == "Amount: computer accessory")
       {
 //Question No 142
-        return homedateContainer("","Home","When did you buy the computer accessory?","Date: computer accessory",210.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","When did you buy the computer accessory?","Date: computer accessory",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -2897,7 +2926,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="When did you buy the computer accessory?" && widget.CheckQuestion == "Date: computer accessory")
       {
         //Question No 166
-        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",420.0,"calculation",Questions.secondHouseHoldText);
+        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",430.0,"calculation",Questions.secondHouseHoldText);
 
       }
 
@@ -2906,7 +2935,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What other furnishing costs did you have?" && widget.CheckQuestion == "Furnishing costs")
       {
         //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
 
       }
 
@@ -2920,7 +2949,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the computer?" && widget.CheckQuestion == "Amount: computer")
       {
 //Question No 140
-        return homedateContainer("","Home","When did you buy the computer?","Date: computer",210.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","When did you buy the computer?","Date: computer",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -2930,7 +2959,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="When did you buy the computer?" && widget.CheckQuestion == "Date: computer")
       {
         //Question No 166
-        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",420.0,"calculation",Questions.secondHouseHoldText);
+        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",430.0,"calculation",Questions.secondHouseHoldText);
 
       }
 
@@ -2939,7 +2968,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What other furnishing costs did you have?" && widget.CheckQuestion == "Furnishing costs")
       {
         //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
 
       }
 
@@ -2953,7 +2982,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the TV?" && widget.CheckQuestion == "Amount: TV")
       {
 //Question No 144
-        return homedateContainer("","Home","When did you buy the TV?","Date: TV",210.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","When did you buy the TV?","Date: TV",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -2963,7 +2992,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="When did you buy the TV?" && widget.CheckQuestion == "Date: TV")
       {
         //Question No 166
-        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",420.0,"calculation",Questions.secondHouseHoldText);
+        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",430.0,"calculation",Questions.secondHouseHoldText);
 
       }
 
@@ -2972,7 +3001,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What other furnishing costs did you have?" && widget.CheckQuestion == "Furnishing costs")
       {
         //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
 
       }
 
@@ -2986,7 +3015,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the dishwasher?" && widget.CheckQuestion == "Amount: dishwasher")
       {
 //Question No 146
-        return homedateContainer("","Home","When did you buy the dishwasher?","Date: dishwasher",210.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","When did you buy the dishwasher?","Date: dishwasher",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -2996,7 +3025,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="When did you buy the dishwasher?" && widget.CheckQuestion == "Date: dishwasher")
       {
         //Question No 166
-        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",420.0,"calculation",Questions.secondHouseHoldText);
+        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",430.0,"calculation",Questions.secondHouseHoldText);
 
       }
 
@@ -3005,7 +3034,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What other furnishing costs did you have?" && widget.CheckQuestion == "Furnishing costs")
       {
         //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
 
       }
 
@@ -3019,7 +3048,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the washing machine?" && widget.CheckQuestion == "Amount: washing machine")
       {
 //Question No 148
-        return homedateContainer("","Home","When did you buy the washing machine?","Date: washing machine",210.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","When did you buy the washing machine?","Date: washing machine",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -3029,7 +3058,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="When did you buy the washing machine?" && widget.CheckQuestion == "Date: washing machine")
       {
         //Question No 166
-        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",420.0,"calculation",Questions.secondHouseHoldText);
+        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",430.0,"calculation",Questions.secondHouseHoldText);
 
       }
 
@@ -3038,7 +3067,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What other furnishing costs did you have?" && widget.CheckQuestion == "Furnishing costs")
       {
         //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
 
       }
 
@@ -3051,7 +3080,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the bed?" && widget.CheckQuestion == "Amount: bed")
       {
 //Question No 150
-        return homedateContainer("","Home","When did you buy the bed?","Date: bed",210.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","When did you buy the bed?","Date: bed",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -3061,7 +3090,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="When did you buy the bed?" && widget.CheckQuestion == "Date: bed")
       {
         //Question No 166
-        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",420.0,"calculation",Questions.secondHouseHoldText);
+        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",430.0,"calculation",Questions.secondHouseHoldText);
 
       }
 
@@ -3070,7 +3099,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What other furnishing costs did you have?" && widget.CheckQuestion == "Furnishing costs")
       {
         //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
 
       }
 
@@ -3084,7 +3113,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the table?" && widget.CheckQuestion == "Amount: table")
       {
 //Question No 152
-        return homedateContainer("","Home","When did you buy the table?","Date: table",210.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","When did you buy the table?","Date: table",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -3094,7 +3123,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="When did you buy the table?" && widget.CheckQuestion == "Date: table")
       {
         //Question No 166
-        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",420.0,"calculation",Questions.secondHouseHoldText);
+        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",430.0,"calculation",Questions.secondHouseHoldText);
 
       }
 
@@ -3103,7 +3132,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What other furnishing costs did you have?" && widget.CheckQuestion == "Furnishing costs")
       {
         //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
 
       }
 
@@ -3118,7 +3147,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       {
 //Question No 154
 
-        return homedateContainer("","Home","When did you buy the kitchen?","Date: kitchen",210.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","When did you buy the kitchen?","Date: kitchen",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -3128,7 +3157,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="When did you buy the kitchen?" && widget.CheckQuestion == "Date: kitchen")
       {
         //Question No 166
-        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",420.0,"calculation",Questions.secondHouseHoldText);
+        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",430.0,"calculation",Questions.secondHouseHoldText);
 
       }
 
@@ -3137,7 +3166,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What other furnishing costs did you have?" && widget.CheckQuestion == "Furnishing costs")
       {
         //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
 
       }
 
@@ -3150,7 +3179,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the wardrobe?" && widget.CheckQuestion == "Amount: wardrobe")
       {
 //Question No 156
-        return homedateContainer("","Home","When did you buy the wardrobe?","Date: wardrobe",210.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","When did you buy the wardrobe?","Date: wardrobe",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -3160,7 +3189,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="When did you buy the wardrobe?" && widget.CheckQuestion == "Date: wardrobe")
       {
         //Question No 166
-        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",420.0,"calculation",Questions.secondHouseHoldText);
+        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",430.0,"calculation",Questions.secondHouseHoldText);
 
       }
 
@@ -3169,7 +3198,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What other furnishing costs did you have?" && widget.CheckQuestion == "Furnishing costs")
       {
         //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
 
       }
 
@@ -3182,7 +3211,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the sofa?" && widget.CheckQuestion == "Amount: sofa")
       {
 //Question No 158
-        return homedateContainer("","Home","When did you buy the sofa?","Date: sofa",210.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","When did you buy the sofa?","Date: sofa",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -3192,7 +3221,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="When did you buy the sofa?" && widget.CheckQuestion == "Date: sofa")
       {
         //Question No 166
-        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",420.0,"calculation",Questions.secondHouseHoldText);
+        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",430.0,"calculation",Questions.secondHouseHoldText);
 
       }
 
@@ -3201,7 +3230,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What other furnishing costs did you have?" && widget.CheckQuestion == "Furnishing costs")
       {
         //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
 
       }
 
@@ -3215,7 +3244,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the shelf?" && widget.CheckQuestion == "Amount: shelf")
       {
 //Question No 160
-        return homedateContainer("","Home","When did you buy the shelf?","Date: shelf",210.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","When did you buy the shelf?","Date: shelf",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -3225,7 +3254,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="When did you buy the shelf?" && widget.CheckQuestion == "Date: shelf")
       {
         //Question No 166
-        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",420.0,"calculation",Questions.secondHouseHoldText);
+        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",430.0,"calculation",Questions.secondHouseHoldText);
 
       }
 
@@ -3234,7 +3263,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What other furnishing costs did you have?" && widget.CheckQuestion == "Furnishing costs")
       {
         //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
 
       }
 
@@ -3248,7 +3277,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="Which other fixtures did you buy?" && widget.CheckQuestion == "Other fixture")
       {
 //Question No 162
-        return homedateContainer("","Home","How much did you spend on the ${Questions.otherFixture}?","Amount: other",210.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","How much did you spend on the ${Questions.otherFixture}?","Amount: other",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -3256,7 +3285,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the ${Questions.otherFixture}?" && widget.CheckQuestion == "Amount: other")
       {
 //Question No 163
-        return homedateContainer("","Home","When did you buy the ${Questions.otherFixture}?","Date: other",210.0,"",Questions.secondHouseHoldText);
+        return homedateContainer("","Home","When did you buy the ${Questions.otherFixture}?","Date: other",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -3266,9 +3295,9 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="When did you buy the ${Questions.otherFixture}?" && widget.CheckQuestion == "Date: other")
       {
 //        //Question No 166
-//        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",420.0,"calculation","");
+//        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",430.0,"calculation","");
           //Question No 164
-        return homeyesnoContainer("","Home","We appreciate you depreciate the ${Questions.otherFixture} over a period of 10 years. Do you agree?","Usual depreciation",210.0,"",Questions.secondHouseHoldText);
+        return homeyesnoContainer("","Home","We appreciate you depreciate the ${Questions.otherFixture} over a period of 10 years. Do you agree?","Usual depreciation",220.0,"",Questions.secondHouseHoldText);
       }
 
 
@@ -3279,13 +3308,13 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
         if(widget.CheckAnswer[0] == "No")
         {
           //Question No 165
-          return homecalculationContainer("","Home","How many years are you going to use the ${Questions.otherFixture} for?","Correct depreciation",420.0,"",Questions.secondHouseHoldText);
+          return homecalculationContainer("","Home","How many years are you going to use the ${Questions.otherFixture} for?","Correct depreciation",430.0,"",Questions.secondHouseHoldText);
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
           //Question No 166
-          return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",420.0,"calculation",Questions.secondHouseHoldText);
+          return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",430.0,"calculation",Questions.secondHouseHoldText);
         }
       }
 
@@ -3294,7 +3323,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How many years are you going to use the ${Questions.otherFixture} for?" && widget.CheckQuestion == "Correct depreciation")
       {
         //Question No 166
-        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",420.0,"calculation",Questions.secondHouseHoldText);
+        return homecalculationContainer("","Home","What other furnishing costs did you have?","Furnishing costs",430.0,"calculation",Questions.secondHouseHoldText);
 
       }
 
@@ -3305,7 +3334,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What other furnishing costs did you have?" && widget.CheckQuestion == "Furnishing costs")
       {
         //Question No 167
-        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],210.0,"No",Questions.secondHouseHoldText);
+        return homemultipleoptionsContainerNo("","Home","Did you have any other costs due to double housekeeping?","Type of costs",["Dry cleaning costs","Broadcasting fee","Second residence tax","Trips to flat viewings","Broker’s fee","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/disabilityoption.png","images/disabilityoption.png","images/disabilityoption.png"],220.0,"No",Questions.secondHouseHoldText);
 
       }
 
@@ -3326,40 +3355,40 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
           {
 
           //Question No 168
-            return homecalculationContainer("","Home","How much was the cleaning?","Cleaning costs",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much was the cleaning?","Cleaning costs",220.0,"calculation",Questions.secondHouseHoldText);
           }
           else if(widget.CheckAnswer[m] == "Broadcasting fee")
           {
            //Question No 169
-           return homecalculationContainer("","Home","How much did you spend on the broadcasting license fee?","Costs broadcasting fee",210.0,"calculation",Questions.secondHouseHoldText);
+           return homecalculationContainer("","Home","How much did you spend on the broadcasting license fee?","Costs broadcasting fee",220.0,"calculation",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Second residence tax")
           {
            //Question No 170
-            return homecalculationContainer("","Home","How much did you spend on taxes for your second household?","Second home tax",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much did you spend on taxes for your second household?","Second home tax",220.0,"calculation",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Trips to flat viewings")
           {
             //Question No 171
-            return homecalculationContainer("","Home","How much have you spent on journeys to apartment viewings?","Apartment viewings",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much have you spent on journeys to apartment viewings?","Apartment viewings",220.0,"calculation",Questions.secondHouseHoldText);
           }
 
           else if(widget.CheckAnswer[m] == "Broker’s fee")
           {
             //Question No 172
-            return homecalculationContainer("","Home","How much was the brokerage fee?","Broker's fee",210.0,"calculation",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","How much was the brokerage fee?","Broker's fee",220.0,"calculation",Questions.secondHouseHoldText);
           }
           else if(widget.CheckAnswer[m] == "Other costs")
           {
              //Question No 173
-            return homecalculationContainer("","Home","What type of other costs did you had?","Kind of costs",210.0,"",Questions.secondHouseHoldText);
+            return homecalculationContainer("","Home","What type of other costs did you had?","Kind of costs",220.0,"",Questions.secondHouseHoldText);
           }
           else if(widget.CheckAnswer[m] == "No")
           {
             if((Questions.secondHouseHoldLength <= Questions.totalSecondHouseHold) && Questions.secondHouseHoldLength > 0){
-              return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],210.0,"",Questions.secondHouseHoldText);
+              return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],220.0,"",Questions.secondHouseHoldText);
             }
 
             else {
@@ -3377,7 +3406,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       {
 
        if((Questions.secondHouseHoldLength <= Questions.totalSecondHouseHold) && Questions.secondHouseHoldLength > 0){
-         return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],210.0,"",Questions.secondHouseHoldText);
+         return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],220.0,"",Questions.secondHouseHoldText);
        }
 
        else {
@@ -3390,7 +3419,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on the broadcasting license fee?" && widget.CheckQuestion == "Costs broadcasting fee")
       {
         if((Questions.secondHouseHoldLength <= Questions.totalSecondHouseHold) && Questions.secondHouseHoldLength > 0){
-          return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],210.0,"",Questions.secondHouseHoldText);
+          return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],220.0,"",Questions.secondHouseHoldText);
         }
 
         else {
@@ -3404,7 +3433,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on taxes for your second household?" && widget.CheckQuestion == "Second home tax")
       {
         if((Questions.secondHouseHoldLength <= Questions.totalSecondHouseHold) && Questions.secondHouseHoldLength > 0){
-          return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],210.0,"",Questions.secondHouseHoldText);
+          return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],220.0,"",Questions.secondHouseHoldText);
         }
 
         else {
@@ -3417,7 +3446,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much have you spent on journeys to apartment viewings?" && widget.CheckQuestion == "Apartment viewings")
       {
         if((Questions.secondHouseHoldLength <= Questions.totalSecondHouseHold) && Questions.secondHouseHoldLength > 0){
-          return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],210.0,"",Questions.secondHouseHoldText);
+          return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],220.0,"",Questions.secondHouseHoldText);
         }
 
         else {
@@ -3430,7 +3459,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much was the brokerage fee?" && widget.CheckQuestion == "Broker's fee")
       {
         if((Questions.secondHouseHoldLength <= Questions.totalSecondHouseHold) && Questions.secondHouseHoldLength > 0){
-          return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],210.0,"",Questions.secondHouseHoldText);
+          return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],220.0,"",Questions.secondHouseHoldText);
         }
 
         else {
@@ -3443,7 +3472,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What type of other costs did you had?" && widget.CheckQuestion == "Kind of costs")
       {
         //Question No 174
-        return homecalculationContainer("","Home","How much did you spend on that?","Amount other",210.0,"",Questions.secondHouseHoldText);
+        return homecalculationContainer("","Home","How much did you spend on that?","Amount other",220.0,"",Questions.secondHouseHoldText);
 
       }
 
@@ -3451,7 +3480,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="How much did you spend on that?" && widget.CheckQuestion == "Amount other")
       {
         if((Questions.secondHouseHoldLength <= Questions.totalSecondHouseHold) && Questions.secondHouseHoldLength > 0){
-          return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],210.0,"",Questions.secondHouseHoldText);
+          return homethreeoptioncontainer("","Home","What is living situation in your second household?","Living there",["Rented apartment","Own home","With friends or family"],220.0,"",Questions.secondHouseHoldText);
         }
 
         else {
@@ -3485,7 +3514,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
   Widget homeaddressContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption, double animatedcontainer, String AdditionalData, String MultipleData )
   {
     Questions.homeAnimatedContainer = animatedcontainer;
-    return HomeAddressContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:210.0,additionalData:AdditionalData,multipleData:MultipleData);
+    return HomeAddressContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:220.0,additionalData:AdditionalData,multipleData:MultipleData);
 
   }
 
@@ -3493,48 +3522,48 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
   Widget homeyesnoContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption, double animatedcontainer, String AdditionalData, String MultipleData)
   {
     Questions.homeAnimatedContainer = animatedcontainer;
-    return HomeYesNoContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:210.0,additionalData:AdditionalData,multipleData:MultipleData);
+    return HomeYesNoContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:220.0,additionalData:AdditionalData,multipleData:MultipleData);
   }
 
 
   Widget homemultitwooptionContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,List AnswerImages, double animatedcontainer, String AdditionalData, String MultipleData )
   {
     Questions.homeAnimatedContainer = animatedcontainer;
-    return HomeMultiTwoOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,answerImages:AnswerImages,containerSize:320.0,additionalData:AdditionalData,multipleData:MultipleData);
+    return HomeMultiTwoOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,answerImages:AnswerImages,containerSize:330.0,additionalData:AdditionalData,multipleData:MultipleData);
   }
 
   Widget homemultipleoptionsContainerNo(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,List AnswerImages, double animatedcontainer, String AdditionalData, String MultipleData )
   {
     Questions.homeAnimatedContainer = animatedcontainer;
-    return HomeMultipleOptionsContainerNo(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,answerImages:AnswerImages,containerSize:420.0,additionalData:AdditionalData,multipleData:MultipleData);
+    return HomeMultipleOptionsContainerNo(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,answerImages:AnswerImages,containerSize:430.0,additionalData:AdditionalData,multipleData:MultipleData);
   }
 
 
   Widget homecalculationContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption, double animatedcontainer, String AdditionalData, String MultipleData)
   {
     Questions.homeAnimatedContainer = animatedcontainer;
-    return HomeCalculationContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:210.0,additionalData:AdditionalData,multipleData:MultipleData);
+    return HomeCalculationContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:220.0,additionalData:AdditionalData,multipleData:MultipleData);
 
   }
 
   Widget homesixoptioncontainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,double animatedcontainer, String AdditionalData, String MultipleData )
   {
     Questions.homeAnimatedContainer = animatedcontainer;
-    return HomeSixOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:420.0,additionalData:AdditionalData,multipleData:MultipleData);
+    return HomeSixOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:430.0,additionalData:AdditionalData,multipleData:MultipleData);
   }
 
 
   Widget homethreeoptioncontainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,double animatedcontainer, String AdditionalData, String MultipleData )
   {
     Questions.homeAnimatedContainer = animatedcontainer;
-    return HomeThreeOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:320.0,additionalData:AdditionalData,multipleData:MultipleData);
+    return HomeThreeOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:340.0,additionalData:AdditionalData,multipleData:MultipleData);
   }
 
 
   Widget homedateContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption, double animatedcontainer, String AdditionalData, String MultipleData)
   {
     Questions.homeAnimatedContainer = animatedcontainer;
-    return HomeDateContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:210.0,additionalData:AdditionalData,multipleData:MultipleData);
+    return HomeDateContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:220.0,additionalData:AdditionalData,multipleData:MultipleData);
 
   }
 
