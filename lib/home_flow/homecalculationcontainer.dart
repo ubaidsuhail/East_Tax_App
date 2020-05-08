@@ -63,7 +63,7 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
         width: MediaQuery.of(context).size.width,
 //                    constraints: BoxConstraints(minHeight: minHeight, maxHeight: maxHeight),
         alignment: Alignment.topCenter,
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.only(top: 10.0,bottom: 10.0),
         decoration: BoxDecoration(
           //color: Colors.grey[200],
           color: Colors.white,
@@ -84,11 +84,12 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
                   Stack(
                     children: <Widget>[
                       Container(
+                        margin: EdgeInsets.only(left: 10.0,right: 10.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),
                         ),
-                        height: widget.completeQuestion == "What was the bill amount for services or craftsmen on your utilities statement (excluding heating, electricity, insurances etc.)?" ? 190.0:140.0,
+                        height: widget.completeQuestion == "What was the bill amount for services or craftsmen on your utilities statement (excluding heating, electricity, insurances etc.)?" ? 200.0:150.0,
                         width: MediaQuery.of(context).size.width,
 
                       ),
@@ -125,11 +126,24 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
 
                     ],
                   ),
-                  SizedBox(height: 10.0,),
 
-                  Card(
-                      elevation: 6.0,
-                      child:Container(
+                  SizedBox(height: 8.0,),
+                  Container(
+                    //margin: EdgeInsets.only(top: 5.0),
+                    height: 2.0,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: new BoxDecoration(boxShadow: [
+                      new BoxShadow(
+                        color: Colors.grey[300],
+                        blurRadius: 0.8,
+
+                      ),
+                    ]),
+
+                  ),
+
+
+                      Container(
                         //margin: EdgeInsets.only(right: 60.0),
 //                                      decoration: new BoxDecoration(boxShadow: [
 //                                        new BoxShadow(
@@ -143,8 +157,8 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
                             children: <Widget>[
                               Container(
                                   color:Colors.white,
-                                  width: MediaQuery.of(context).size.width*0.45,
-                                  height: 60.0,
+                                  width: MediaQuery.of(context).size.width*0.70,
+                                  height: 50.0,
 //                    color: Colors.wh,
                                   child: TextFormField(
                                     controller: calculations,
@@ -170,7 +184,7 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
                                   child: Text("Confirm",style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize: 16.0)),
                                 ),)
                             ],
-                          ))),
+                          )),
 
                 ],
               ),

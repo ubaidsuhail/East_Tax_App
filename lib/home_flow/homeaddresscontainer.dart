@@ -61,7 +61,7 @@ class _HomeAddressContainerState extends State<HomeAddressContainer> {
         width: MediaQuery.of(context).size.width,
 //                    constraints: BoxConstraints(minHeight: minHeight, maxHeight: maxHeight),
         alignment: Alignment.topCenter,
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.only(top: 10.0,bottom: 10.0),
         decoration: BoxDecoration(
           //color: Colors.grey[200],
           color: Colors.white,
@@ -82,11 +82,12 @@ class _HomeAddressContainerState extends State<HomeAddressContainer> {
                   Stack(
                     children: <Widget>[
                       Container(
+                        margin: EdgeInsets.only(left: 10.0,right: 10.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),
                         ),
-                        height: 140.0,
+                        height: 150.0,
                         width: MediaQuery.of(context).size.width,
 
                       ),
@@ -123,19 +124,32 @@ class _HomeAddressContainerState extends State<HomeAddressContainer> {
 
                     ],
                   ),
-                  SizedBox(height: 10.0,),
 
-                  Card(
-                      elevation: 6.0,
-                      child:Container(
+
+                  SizedBox(height: 8.0,),
+                  Container(
+                    //margin: EdgeInsets.only(top: 5.0),
+                    height: 2.0,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: new BoxDecoration(boxShadow: [
+                      new BoxShadow(
+                        color: Colors.grey[300],
+                        blurRadius: 0.8,
+
+                      ),
+                    ]),
+
+                  ),
+
+                 Container(
                           width: MediaQuery.of(context).size.width,
                           child:Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Container(
                                   color:Colors.white,
-                                  width: MediaQuery.of(context).size.width*0.45,
-                                  height: 60.0,
+                                  width: MediaQuery.of(context).size.width*0.70,
+                                  height: 50.0,
 //                    color: Colors.wh,
                                   child: TextFormField(
                                     onTap: (){
@@ -165,7 +179,7 @@ class _HomeAddressContainerState extends State<HomeAddressContainer> {
 //                                  child: Text("Confirm",style: TextStyle(color:Colors.lightBlue)),
 //                                ),)
                             ],
-                          ))),
+                          )),
 
                 ],
               ),
