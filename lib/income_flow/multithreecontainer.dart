@@ -77,7 +77,7 @@ class _HomeScreenState extends State<MultiThreeContainer> {
         width: MediaQuery.of(context).size.width,
 //                    constraints: BoxConstraints(minHeight: minHeight, maxHeight: maxHeight),
         alignment: Alignment.topCenter,
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.only(top: 10.0,bottom: 10.0),
         decoration: BoxDecoration(
           //color: Colors.grey[200],
           color: Colors.white,
@@ -98,11 +98,12 @@ class _HomeScreenState extends State<MultiThreeContainer> {
                   Stack(
                     children: <Widget>[
                       Container(
+                        margin: EdgeInsets.only(left: 10.0,right: 10.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),
                         ),
-                        height: 140.0,
+                        height: 160.0,
                         width: MediaQuery.of(context).size.width,
 
                       ),
@@ -139,7 +140,7 @@ class _HomeScreenState extends State<MultiThreeContainer> {
 
                     ],
                   ),
-                  SizedBox(height: 10.0,),
+                  SizedBox(height: 9.0,),
                   Container(
                     height: 150.0,
                     width: 450.0,
@@ -195,18 +196,33 @@ class _HomeScreenState extends State<MultiThreeContainer> {
 
                   ),
 
-                  Container(
-                    decoration: new BoxDecoration(
-                        color: Colors.white,
-                        boxShadow: [
-                          new BoxShadow(
-                            color: Colors.grey,
-                            blurRadius: 5.0,
-                          ),
 
-                        ]),
+                  Container(
+                    //margin: EdgeInsets.only(top: 5.0),
+                    height: 1.0,
                     width: MediaQuery.of(context).size.width,
-                    height: 70.0,
+                    decoration: new BoxDecoration(boxShadow: [
+                      new BoxShadow(
+                        color: Colors.grey[200],
+                        blurRadius: 0.5,
+
+                      ),
+                    ]),
+
+                  ),
+
+                  Container(
+//                    decoration: new BoxDecoration(
+//                        color: Colors.white,
+//                        boxShadow: [
+//                          new BoxShadow(
+//                            color: Colors.grey,
+//                            blurRadius: 5.0,
+//                          ),
+//
+//                        ]),
+                    width: MediaQuery.of(context).size.width,
+                    height: 50.0,
 //                    color: Colors.wh,
                     child: Center(
                       child: GestureDetector(onTap:(){

@@ -198,14 +198,14 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
                       Container(
                           width: 155.0,
                           //color: Colors.purple,
-                          child:AutoSizeText(Questions.incomeAnswerShow[j]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+                          child:AutoSizeText(Questions.incomeAnswerShow[i]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
                       ),
                       Row(children: <Widget>[
                         //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
                         Container(
                             width: 140.0,
                             // color:Colors.blue,
-                            child:AutoSizeText(Questions.incomeAnswerShow[j]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+                            child:AutoSizeText(Questions.incomeAnswerShow[i]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
 
                         ),
                         SizedBox(width: 5.0,),

@@ -175,14 +175,14 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
                       Container(
                           width: 155.0,
                           //color: Colors.purple,
-                          child:AutoSizeText(Questions.financeAnswerShow[j]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+                          child:AutoSizeText(Questions.financeAnswerShow[i]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
                       ),
                       Row(children: <Widget>[
                         //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
                         Container(
                             width: 140.0,
                             // color:Colors.blue,
-                            child:AutoSizeText(Questions.financeAnswerShow[j]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+                            child:AutoSizeText(Questions.financeAnswerShow[i]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
 
                         ),
                         SizedBox(width: 5.0,),

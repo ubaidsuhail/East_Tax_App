@@ -48,6 +48,7 @@ List heightList = [];
 List screenheightList = [];
 int hlength=0;
 bool a= false;
+int specificIndex = -1;
 
 
   Widget circleButton(IconData iconData){
@@ -161,25 +162,18 @@ bool a= false;
       if(Questions.answerShow[i]['identity'] == "You" || Questions.answerShow[i]['identity'] == "You & Partner" || Questions.answerShow[i]['identity'] == "Partner")
         {
           dynamicContainer.add(
-            Container(
-              margin: EdgeInsets.only(top: 10.0,left: 10.0, right: 10.0),
-              height: Questions.answerShow[i]['containerheight'],
-              width: 450.0,
-            child:Text(Questions.answerShow[i]['identity'],style: TextStyle(fontSize: 40.0)) ,
-            )
+              Container(
+                margin: EdgeInsets.only(top: 10.0,left: 10.0, right: 10.0),
+                height: Questions.answerShow[i]['containerheight'],
+                width: 450.0,
+                child:Text(Questions.answerShow[i]['identity'],style: TextStyle(fontSize: 40.0)) ,
+              )
           );
         }
      else if(Questions.answerShow[i]['details'] == "") {
+       //specificIndex++;
         dynamicContainer.add(
-            GestureDetector(
-              onTap: (){
-                print("data single");
-                Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return mainQuestions(CheckQuestion : Questions.answerShow[i-1]['question'],CheckAnswer : [Questions.answerShow[i-1]['answer'][0]]);
-                }));
-              },
-            child:Container(
+            Container(
               margin: EdgeInsets.only(top: 2.5, bottom: 2.5, left: 10.0, right: 10.0),
               height: Questions.answerShow[i]['containerheight'],
               width: 450.0,
@@ -196,14 +190,14 @@ bool a= false;
                       Container(
                           width: 155.0,
                           //color: Colors.purple,
-                          child:AutoSizeText(Questions.answerShow[j]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+                          child:AutoSizeText(Questions.answerShow[i]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
                       ),
                       Row(children: <Widget>[
                         //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
                         Container(
                             width: 140.0,
                             // color:Colors.blue,
-                            child:AutoSizeText(Questions.answerShow[j]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+                            child:AutoSizeText(Questions.answerShow[i]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
 
                         ),
                         SizedBox(width: 5.0,),
@@ -212,7 +206,7 @@ bool a= false;
                       ],)
                     ],
                   )),
-            ))
+            )
         );
       }
 
@@ -244,6 +238,7 @@ bool a= false;
           for(j=i;j<countLongContainer;j++) {
 //print("4<5");
             if(Questions.answerShow[j]['details'] == detailOption && detail == true) {
+
               dynamicContainerbig.add(
                 Container(
                     height: 55.0,
@@ -281,16 +276,9 @@ bool a= false;
             // after details data
             if(Questions.answerShow[j]['details'] == detailOption && detail == false)
               {
+                //specificIndex++;
                 dynamicContainerbig.add(
-                  GestureDetector(
-                    onTap: (){
-                      print("data employeed");
-                      Navigator.of(context).pop();
-                      Navigator.push(context, MaterialPageRoute(builder: (context) {
-                        return mainQuestions(CheckQuestion : Questions.answerShow[j-1]['question'],CheckAnswer : [Questions.answerShow[j-1]['answer'][0]]);
-                      }));
-                    },
-                  child:Container(
+                    Container(
                     color: Colors.white,
                       height: 55.0,
                       width: 450.0,
@@ -320,7 +308,7 @@ bool a= false;
                               ],)
                             ],
                           ))
-                  )),
+                  ),
 
                 );
 
@@ -422,6 +410,29 @@ bool a= false;
 
 //
                         Column(children: dynamicContainer,),
+//
+
+//                        Column(
+//                          children: dynamicContainer.asMap()
+//                              .map((i,element) =>MapEntry(i,
+//                            GestureDetector(
+//                              onTap: (() {
+//                                setState(() {
+//                                  // print("element=${element.toString()}");
+//                                  // print("element=${userBoard[element]}");
+//                                  print(i.toString());
+//                                  print(element.toString());
+//                                  print(dynamicContainer[i].toString());
+//                                });
+//                              }),
+//                              child:dynamicContainer[i],
+//                            ),
+//                          ))
+//                              .values.toList(),
+//                        ),
+
+
+
                         ChangeContainer(),
 
                       ],
@@ -441,17 +452,14 @@ bool a= false;
 
 
   }
-  void showDefaultSnackbar(BuildContext context) {
-    Scaffold.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Hello from the default snackbar'),
-        action: SnackBarAction(
-          label: 'Click Me',
-          onPressed: () {},
-        ),
-      ),
-    );
-  }
+
+
+
+
+
+
+
+
 
 
 Widget ChangeContainer()
@@ -2042,3 +2050,6 @@ Widget OccupationContainer(String identity,double anContainer)
   }
 
 }
+
+
+

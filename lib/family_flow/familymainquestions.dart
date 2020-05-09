@@ -188,14 +188,14 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
                       Container(
                           width: 155.0,
                           //color: Colors.purple,
-                          child:AutoSizeText(Questions.familyAnswerShow[j]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+                          child:AutoSizeText(Questions.familyAnswerShow[i]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
                       ),
                       Row(children: <Widget>[
                         //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
                         Container(
                             width: 140.0,
                             // color:Colors.blue,
-                            child:AutoSizeText(Questions.familyAnswerShow[j]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+                            child:AutoSizeText(Questions.familyAnswerShow[i]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
 
                         ),
                         SizedBox(width: 5.0,),
