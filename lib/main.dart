@@ -10,6 +10,7 @@ import 'package:easy_taxx/livingsituation_flow/mainQuestions.dart';
 import 'package:easy_taxx/testing.dart';
 import 'package:easy_taxx/testing2.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_taxx/allcategoryscreen.dart';
 
 void main(List<String> args) {
   runApp(MaterialApp(
@@ -24,6 +25,7 @@ void main(List<String> args) {
       'SingleScreen' : (BuildContext context) => Container2(),
       'Employed' : (BuildContext context) => Container3(),
       'DynamicContainer' : (BuildContext context) => animation(),
+      'allCategoryScreen' : (BuildContext context) => AllCategoryScreen(),
 //      'BottomBarUhasm' : (BuildContext context) => bottomBarUhasm(),
     },
   ));
