@@ -103,11 +103,14 @@ class _HomeScreenState extends State<FinishCategory> {
 
                   ),
 
-                  RaisedButton(onPressed: (){
+                  Container(
+                    width: MediaQuery.of(context).size.width *0.9,
+                  child:RaisedButton(onPressed: (){
                     Continue();
                     },
                     child:Text("Continue next category"),
-                  )
+                    color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)
+                  ))
                 ],
               ),
 
@@ -124,6 +127,11 @@ class _HomeScreenState extends State<FinishCategory> {
   {
      if(widget.currentCategory == "Living Situation Category")
        {
+
+         Questions.categoryFinish[0] = 1;
+         Questions.categoryName ="Home";
+         Questions.categoryImage = "images/colorhome.png";
+
          Questions.incomeAnswerShow = [];
          Questions.totalDomain = 0;
          Questions.domainLength = 0;
@@ -138,6 +146,10 @@ class _HomeScreenState extends State<FinishCategory> {
 
      else if(widget.currentCategory == "Income Category")
      {
+       Questions.categoryFinish[1] = 1;
+       Questions.categoryName ="Education";
+       Questions.categoryImage = "images/coloreducation.png";
+
        Questions.homeAnswerShow = [];
        Questions.utilityBillLength = 0;
        Questions.totalUtilityBill = 0;
@@ -164,6 +176,13 @@ class _HomeScreenState extends State<FinishCategory> {
 
      else if(widget.currentCategory == "Home Category")
      {
+
+       Questions.categoryName ="family";
+       Questions.categoryImage = "images/colorfamily.png";
+
+
+       Questions.categoryFinish[2] = 1;
+
        Questions.educationAnswerShow = [];
        Questions.educationOtherCosts = "";
        Questions.trainingLength = 1;
@@ -199,6 +218,12 @@ class _HomeScreenState extends State<FinishCategory> {
 
      else if(widget.currentCategory == "Education Category")
      {
+
+       Questions.categoryName ="Health";
+       Questions.categoryImage = "images/colorhealth.png";
+
+       Questions.categoryFinish[4] = 1;
+
                         Questions.familyAnswerShow = [];
                         Questions.childLength = 0;
                         Questions.totalChild = 0;
@@ -239,6 +264,12 @@ class _HomeScreenState extends State<FinishCategory> {
      }
      else if(widget.currentCategory == "Family Category")
      {
+
+       Questions.categoryName ="Finances";
+       Questions.categoryImage = "images/colorfinance.png";
+       Questions.categoryFinish[5] = 1;
+
+
                         Questions.healthAnswerShow = [];
                         Questions.healthYouIdentity = "you";
                         Questions.healthYourIdentity = "your";
@@ -252,6 +283,12 @@ class _HomeScreenState extends State<FinishCategory> {
                         Navigator.push(context, MaterialPageRoute(builder: (context) {
                           return HealthMainQuestions(CheckCompleteQuestion:"What kind of basic health insurance did ${Questions.healthYouIdentity} have in 2019?",CheckQuestion:"Kind of health insurance",CheckAnswer:[]);
                         }));
+     }
+
+     else if(widget.currentCategory == "Health Category")
+     {
+       Questions.categoryFinish[6] = 1;
+
      }
   }
 }

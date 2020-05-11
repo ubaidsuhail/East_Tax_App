@@ -199,8 +199,9 @@ class _EducationCalculationContainerState extends State<EducationCalculationCont
 
  if(widget.completeQuestion == "How many different trainings did you participate in during 2019?" && widget.questionOption == "Number of training courses")
   {
-  Questions.totalTraining = int.parse(calculations.text);
-  print("Total Training:"+Questions.totalTraining.toString());
+    Questions.trainingLength = 1;
+   Questions.totalTraining = int.parse(calculations.text);
+   print("Total Training:"+Questions.totalTraining.toString());
   }
 
  else if(widget.completeQuestion == "How much money was reimbursed?" && widget.questionOption == "Reimbursed")
@@ -218,6 +219,7 @@ class _EducationCalculationContainerState extends State<EducationCalculationCont
 
     else if(widget.completeQuestion == "How many different routes to school/university did you use?" && widget.questionOption == "Number of routes")
     {
+      Questions.schoolRouteLength = 0;
       Questions.totalSchoolRoute = int.parse(calculations.text);
       print("Total School Route:"+Questions.totalSchoolRoute.toString());
       Questions.schoolRouteLength += 1;
@@ -232,6 +234,7 @@ class _EducationCalculationContainerState extends State<EducationCalculationCont
 
     else if(widget.completeQuestion == "How many different routes did you use to travel to libraries outside your campus?" && widget.questionOption == "Number of routes")
     {
+      Questions.libraryRouteLength = 0;
       Questions.totalLibraryRoute = int.parse(calculations.text);
       print("Total School Route:"+Questions.totalLibraryRoute.toString());
       Questions.libraryRouteLength += 1;
@@ -250,6 +253,7 @@ class _EducationCalculationContainerState extends State<EducationCalculationCont
     }
  else if(widget.completeQuestion == "How many different routes did you use for travels to learning communities?" && widget.questionOption == "Number of routes")
  {
+   Questions.learningRouteLength = 0;
    Questions.totalLearningRoute = int.parse(calculations.text);
    print("Total Learning Route:"+Questions.totalLearningRoute.toString());
    Questions.learningRouteLength += 1;
@@ -269,6 +273,7 @@ class _EducationCalculationContainerState extends State<EducationCalculationCont
  }
  else if(widget.completeQuestion == "How many unpaid internships did you participate in?" && widget.questionOption == "Number of internships")
  {
+   Questions.unpaidInternLength = 0;
    Questions.totalUnpaidIntern = int.parse(calculations.text);
    print("Total Unpiad Internships:"+Questions.totalUnpaidIntern.toString());
    Questions.unpaidInternLength += 1;
@@ -295,6 +300,7 @@ class _EducationCalculationContainerState extends State<EducationCalculationCont
 
  else if(widget.completeQuestion == "To how many excursions did you go?" && widget.questionOption == "Number of excursions")
  {
+   Questions.excursionLength = 0;
    Questions.totalExcursion = int.parse(calculations.text);
    print("Total Excursion:"+Questions.totalExcursion.toString());
    Questions.excursionLength += 1;
@@ -320,6 +326,7 @@ class _EducationCalculationContainerState extends State<EducationCalculationCont
  }
  else if(widget.completeQuestion == "To how many semester abroad did you go?" && widget.questionOption == "Number of semester abroad")
  {
+   Questions.semesterLength = 0;
    Questions.totalSemester = int.parse(calculations.text);
    print("Total Semester:"+Questions.totalSemester.toString());
    Questions.semesterLength += 1;
@@ -352,6 +359,7 @@ class _EducationCalculationContainerState extends State<EducationCalculationCont
 
  else if(widget.completeQuestion == "How many pieces of furnitures cost more than 488 EUR?" && widget.questionOption == "Number")
  {
+   Questions.expFurnitureLength = 0;
    Questions.totalExpFurniture = int.parse(calculations.text);
    print("Total Expensive Furniture:"+Questions.totalExpFurniture.toString());
    Questions.expFurnitureLength += 1;
@@ -364,6 +372,7 @@ class _EducationCalculationContainerState extends State<EducationCalculationCont
  }
  else if(widget.completeQuestion == "How much other valuable items for training did you buy in previous years?" && widget.questionOption == "Quantity")
  {
+   Questions.equipmentLength = 0;
    Questions.totalEquipment = int.parse(calculations.text);
    print("Total Equipment:"+Questions.totalEquipment.toString());
    Questions.equipmentLength += 1;

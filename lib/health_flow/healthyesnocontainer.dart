@@ -96,7 +96,7 @@ class _HealthYesNoContainerScreenState extends State<HealthYesNoContainer> {
                         margin: EdgeInsets.only(left: 10.0,right: 10.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
-                          color: Questions.LivingCheck == 1 || Questions.LivingCheck == 2 ? Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF) : Colors.deepPurple[400],
+                          color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),
                         ),
                         height: 148.0,
                         width: MediaQuery.of(context).size.width,

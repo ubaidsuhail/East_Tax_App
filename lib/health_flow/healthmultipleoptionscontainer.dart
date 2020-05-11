@@ -152,7 +152,7 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
 
 
 //                                        color: Colors.red,
-                    child: ListView.builder
+                    child:  ListView.builder
                       (
                         itemCount: widget.answerOption.length,
                         itemBuilder: (BuildContext ctxt, int index) {
@@ -169,57 +169,23 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
                                         height: 1.0,
                                         thickness: 1.0,
                                       ),
-                                      GestureDetector(
-                                        onTap: (){
-                                          print("work");
-                                         if(values[index] == true)
-                                           {
-                                             setState(() {
-                                               values[index] = false;
-                                             });
-
-                                           }
-
-                                           else
-                                             {
-                                               setState(() {
-                                                 values[index] = true;
-                                               });
-
-                                             }
-                                        },
-                                      child:Opacity(
-                                          opacity: 0.8,
-                                      child:Container(
-                                        color: values[index] == true ? Colors.lightBlueAccent[100] : Colors.white,
-
-                                        padding: EdgeInsets.only(top: 10.0,bottom: 10.0),
-                                      child:Row(
+                                      Row(
                                         children: <Widget>[
 
-//                                          Checkbox(
-//
-//                                            value: this.values[index],
-//                                            onChanged: (bool value) {
-//                                              print(value);
-//
-//                                              setState(() {
-//                                                this.values[index] = value;
-//                                                //containerColor = ! containerColor;
-//
-//                                              });
-//                                            },
-//
-//                                          ),
+                                          Checkbox(
 
-                                        Padding(
-                                         padding:EdgeInsets.only(left:10.0),
-                                         child: values[index] == true ?
-                                          Image(image:AssetImage("images/checked.png"),width: 18.0,height: 18.0,)
-                                          :
-                                          Image(image:AssetImage("images/unchecked.png"),width: 18.0,height: 18.0,),
-                                        ),
-                                          SizedBox(width: 20.0,),
+                                            value: this.values[index],
+                                            onChanged: (bool value) {
+                                              print(value);
+
+                                              setState(() {
+                                                this.values[index] = value;
+                                                //containerColor = ! containerColor;
+
+                                              });
+                                            },
+
+                                          ),
 
 //                                          Icon(Icons.timer),
                                           Image(image:AssetImage(widget.answerImages[index]),width: 22.0,height: 35.0,),
@@ -233,12 +199,101 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
                                           )
 
                                         ],
-                                      ))))
+                                      )
                                     ],
                                   )
                               ));
                         }
                     ),
+
+
+               // ListView.builder
+//                      (
+//                        itemCount: widget.answerOption.length,
+//                        itemBuilder: (BuildContext ctxt, int index) {
+//                          return GestureDetector(
+//
+//                              child:
+//                              Container(
+//                                  color: Colors.white,
+//
+//                                  child:
+//                                  Column(
+//                                    children: <Widget>[
+//                                      Divider(
+//                                        height: 1.0,
+//                                        thickness: 1.0,
+//                                      ),
+//                                      GestureDetector(
+//                                        onTap: (){
+//                                          print("work");
+//                                         if(values[index] == true)
+//                                           {
+//                                             setState(() {
+//                                               values[index] = false;
+//                                             });
+//
+//                                           }
+//
+//                                           else
+//                                             {
+//                                               setState(() {
+//                                                 values[index] = true;
+//                                               });
+//
+//                                             }
+//                                        },
+//                                      child:Opacity(
+//                                          opacity: 0.8,
+//                                      child:Container(
+//                                        color: values[index] == true ? Colors.lightBlueAccent[100] : Colors.white,
+//
+//                                        padding: EdgeInsets.only(top: 10.0,bottom: 10.0),
+//                                      child:Row(
+//                                        children: <Widget>[
+//
+////                                          Checkbox(
+////
+////                                            value: this.values[index],
+////                                            onChanged: (bool value) {
+////                                              print(value);
+////
+////                                              setState(() {
+////                                                this.values[index] = value;
+////                                                //containerColor = ! containerColor;
+////
+////                                              });
+////                                            },
+////
+////                                          ),
+//
+//                                        Padding(
+//                                         padding:EdgeInsets.only(left:10.0),
+//                                         child: values[index] == true ?
+//                                          Image(image:AssetImage("images/checked.png"),width: 18.0,height: 18.0,)
+//                                          :
+//                                          Image(image:AssetImage("images/unchecked.png"),width: 18.0,height: 18.0,),
+//                                        ),
+//                                          SizedBox(width: 20.0,),
+//
+////                                          Icon(Icons.timer),
+//                                          Image(image:AssetImage(widget.answerImages[index]),width: 22.0,height: 35.0,),
+//                                          SizedBox(width: 20.0,),
+//                                          Container(
+//                                            width: MediaQuery.of(context).size.width * 0.65,
+//                                            child:AutoSizeText(widget.answerOption[index],style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),
+//                                              minFontSize: 14,
+//                                              maxLines: 1,
+//                                              overflow: TextOverflow.ellipsis,),
+//                                          )
+//
+//                                        ],
+//                                      ))))
+//                                    ],
+//                                  )
+//                              ));
+//                        }
+//                    ),
 
                   ),
 

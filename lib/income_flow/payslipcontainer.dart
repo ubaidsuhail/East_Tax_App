@@ -149,11 +149,12 @@ class _HomeScreenState extends State<PaySlipContainer> {
                     children: <Widget>[
                       Flexible(
                         flex: 1,
-                        child: Column(
+                        child:SingleChildScrollView(
+                        child:Column(
                           children: <Widget>[
                             Image(image: AssetImage("images/payslip.png")),
                           ],
-                        ),
+                        )),
                       ),
                       Flexible(
                         flex: 1,

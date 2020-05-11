@@ -199,9 +199,9 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
 //Relocation
     if(widget.completeQuestion == "How often did you move for job-related reasons in 2019?" && widget.questionOption == "Number of moves")
   {
-
+    Questions.relocationLength = 0;
     Questions.totalRelocation = int.parse(calculations.text);
-    print("Total Relocation:"+Questions.totalSecondHouseHold.toString());
+    print("Total Relocation:"+Questions.totalRelocation.toString());
     Questions.relocationLength += 1;
     Questions.relocationText ="RELOCATION "+Questions.relocationLength.toString();
 
@@ -253,7 +253,7 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
 //House hold Services
     else if(widget.completeQuestion == "How many utility statements would you like to enter?" && widget.questionOption == "Number of bills")
       {
-
+        Questions.utilityBillLength = 0;
         Questions.totalUtilityBill = int.parse(calculations.text);
         print("Total utility bills:"+Questions.totalUtilityBill.toString());
         Questions.utilityBillLength += 1;
@@ -311,6 +311,7 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
 //House hold Services
     else if(widget.completeQuestion == "How many 'WEG' statements would you like to enter?" && widget.questionOption == "Number of 'WEG' statements")
     {
+      Questions.WEGLength = 0;
       Questions.totalWEG = int.parse(calculations.text);
       print("Total WEG:"+Questions.totalUtilityBill.toString());
       Questions.WEGLength += 1;
@@ -329,6 +330,7 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
     //House hold Services
     else if(widget.completeQuestion == "How many services by craftsmen would you like to enter?" && widget.questionOption == "Craftsmen services")
     {
+      Questions.craftsmenLength = 0;
       Questions.totalCraftsmen = int.parse(calculations.text);
       print("Total SecondHouseHold:"+Questions.totalCraftsmen.toString());
       Questions.craftsmenLength += 1;
@@ -386,6 +388,7 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
     //Home
     else if(widget.completeQuestion == "How many second households would you like to enter?" && widget.questionOption == "Quantity")
     {
+      Questions.secondHouseHoldLength = 0;
       Questions.totalSecondHouseHold = int.parse(calculations.text);
       print("Total SecondHouseHold:"+Questions.totalSecondHouseHold.toString());
       Questions.secondHouseHoldLength += 1;

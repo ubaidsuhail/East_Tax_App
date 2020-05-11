@@ -195,6 +195,7 @@ class _Container7State extends State<CalculationContainer> {
     print("ddate is"+calculations.text.toString());
 
 if(widget.completeQuestion == "Have you owned 1 domain(s) for longer than a year?" &&widget.questionOption == "Number of sales") {
+  Questions.domainLength = 0;
   Questions.totalDomain= int.parse(calculations.text);
   //print("Questions domain length sis:"+Questions.domainLength.toString());
   Questions.domainLength = Questions.domainLength + 1;
@@ -215,6 +216,7 @@ if(widget.completeQuestion == "Have you owned 1 domain(s) for longer than a year
 
 
 else if(widget.completeQuestion == "How many valuable objects did you sell?" &&widget.questionOption == "Number of sales") {
+      Questions.valuableLength = 0;
       Questions.totalValuable= int.parse(calculations.text);
       Questions.valuableLength = Questions.valuableLength + 1;
 

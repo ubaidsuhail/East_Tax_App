@@ -89,7 +89,7 @@ class _FamilyDateContainerState extends State<FamilyDateContainer> {
                           borderRadius: BorderRadius.circular(10.0),
                           color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),
                         ),
-                        height: 150.0,
+                        height: 145.0,
                         width: MediaQuery.of(context).size.width,
 
                       ),
@@ -156,7 +156,7 @@ class _FamilyDateContainerState extends State<FamilyDateContainer> {
                               Container(
                                   color:Colors.white,
                                   width: MediaQuery.of(context).size.width*0.70,
-                                  height: 50.0,
+                                  height: 55.0,
 //                    color: Colors.wh,
                                   child: TextFormField(
                                     controller: dates,

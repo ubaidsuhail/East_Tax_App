@@ -1,7 +1,6 @@
 import 'package:easy_taxx/livingsituation_flow/container1.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:easy_taxx/finishcategory.dart';
 import 'package:easy_taxx/family_flow/familycalculationcontainer.dart';
@@ -15,7 +14,7 @@ import 'package:easy_taxx/family_flow/familytwooptioncontainer.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 
-//void main() => runApp(MaterialApp(home:HomeScreen()));
+
 
 class FamilyMainQuestions extends StatefulWidget {
   String CheckCompleteQuestion;
@@ -171,40 +170,42 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
       }
       else if(Questions.familyAnswerShow[i]['details'] == "") {
         dynamicContainer.add(
-            Container(
-              margin: EdgeInsets.only(top: 2.5, bottom: 2.5, left: 10.0, right: 10.0),
-              height: Questions.familyAnswerShow[i]['containerheight'],
-              width: 450.0,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(7.0),
-                  border: Border.all(width: 1.0, color: Color.fromARGB(0xFF, 0xE8, 0xE8, 0xE8))
-              ),
-              child: Padding(
-                  padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                  child: Row(crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      //Text(Questions.answerShow[i]['question']),
-                      Container(
-                          width: 155.0,
-                          //color: Colors.purple,
-                          child:AutoSizeText(Questions.familyAnswerShow[i]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
-                      ),
-                      Row(children: <Widget>[
-                        //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
-                        Container(
-                            width: 140.0,
-                            // color:Colors.blue,
-                            child:AutoSizeText(Questions.familyAnswerShow[i]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
-
-                        ),
-                        SizedBox(width: 5.0,),
-                        Icon(Icons.arrow_forward_ios, size: 12.0,
-                            color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF))
-                      ],)
-                    ],
-                  )),
-            ));
+            SingleSmallContainer(currentIndex : i)
+//            Container(
+//              margin: EdgeInsets.only(top: 2.5, bottom: 2.5, left: 10.0, right: 10.0),
+//              height: Questions.familyAnswerShow[i]['containerheight'],
+//              width: 450.0,
+//              decoration: BoxDecoration(
+//                  borderRadius: BorderRadius.circular(7.0),
+//                  border: Border.all(width: 1.0, color: Color.fromARGB(0xFF, 0xE8, 0xE8, 0xE8))
+//              ),
+//              child: Padding(
+//                  padding: EdgeInsets.only(left: 10.0, right: 10.0),
+//                  child: Row(crossAxisAlignment: CrossAxisAlignment.center,
+//                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                    children: <Widget>[
+//                      //Text(Questions.answerShow[i]['question']),
+//                      Container(
+//                          width: 155.0,
+//                          //color: Colors.purple,
+//                          child:AutoSizeText(Questions.familyAnswerShow[i]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+//                      ),
+//                      Row(children: <Widget>[
+//                        //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
+//                        Container(
+//                            width: 140.0,
+//                            // color:Colors.blue,
+//                            child:AutoSizeText(Questions.familyAnswerShow[i]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+//
+//                        ),
+//                        SizedBox(width: 5.0,),
+//                        Icon(Icons.arrow_forward_ios, size: 12.0,
+//                            color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF))
+//                      ],)
+//                    ],
+//                  )),
+//            )
+        );
       }
 
       //data that contains long container
@@ -273,37 +274,38 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
           if(Questions.familyAnswerShow[j]['details'] == detailOption && detail == false)
           {
             dynamicContainerbig.add(
-              Container(
-                  color: Colors.white,
-                  height: 55.0,
-                  width: 450.0,
-                  child: Padding(
-                      padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          //Text(Questions.answerShow[i]['question']),
-                          Container(
-                              width: 155.0,
-                              //color: Colors.purple,
-                              child:AutoSizeText(Questions.familyAnswerShow[j]['question'],style: TextStyle(color: Colors.grey),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
-                          ),
-                          Row(children: <Widget>[
-                            //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
-                            Container(
-                                width: 140.0,
-                                // color:Colors.blue,
-                                child:AutoSizeText(Questions.familyAnswerShow[j]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
-
-                            ),
-                            SizedBox(width: 5.0,),
-                            Icon(Icons.arrow_forward_ios, size: 12.0,
-                              color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),)
-                          ],)
-                        ],
-                      ))
-              ),
+                MultipleBigContainer(currentIndex : j)
+//              Container(
+//                  color: Colors.white,
+//                  height: 55.0,
+//                  width: 450.0,
+//                  child: Padding(
+//                      padding: EdgeInsets.only(left: 10.0, right: 10.0),
+//                      child: Row(
+//                        crossAxisAlignment: CrossAxisAlignment.center,
+//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                        children: <Widget>[
+//                          //Text(Questions.answerShow[i]['question']),
+//                          Container(
+//                              width: 155.0,
+//                              //color: Colors.purple,
+//                              child:AutoSizeText(Questions.familyAnswerShow[j]['question'],style: TextStyle(color: Colors.grey),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+//                          ),
+//                          Row(children: <Widget>[
+//                            //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
+//                            Container(
+//                                width: 140.0,
+//                                // color:Colors.blue,
+//                                child:AutoSizeText(Questions.familyAnswerShow[j]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+//
+//                            ),
+//                            SizedBox(width: 5.0,),
+//                            Icon(Icons.arrow_forward_ios, size: 12.0,
+//                              color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),)
+//                          ],)
+//                        ],
+//                      ))
+//              ),
 
             );
 
@@ -357,7 +359,8 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
           backgroundColor: Colors.white,
           leading: GestureDetector(
               onTap: (){
-                Navigator.pop(context);
+                Navigator.pushReplacementNamed(context, 'allCategoryScreen');
+                //  Navigator.pop(context);
               },
               child:Icon(Icons.arrow_back_ios,color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),size: 20.0)
           ),
@@ -3780,5 +3783,171 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
   {
     Questions.familyAnimatedContainer = animatedcontainer;
     return FamilyTwoOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:280.0,additionalData:AdditionalData,multipleData:MultipleData);
+  }
+}
+
+
+
+
+//For show and index of small container
+class SingleSmallContainer extends StatelessWidget {
+
+  int currentIndex;
+  List answerSubList = [];
+  SingleSmallContainer({this.currentIndex});
+
+
+  @override
+  Widget build(BuildContext context) {
+    return  GestureDetector(
+        onTap: (){
+
+          print("Small Container Current index is:"+currentIndex.toString());
+
+
+          if(currentIndex == 0)
+          {
+            Questions.familyAnswerShow = [];
+
+            Navigator.of(context).pop();
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return FamilyMainQuestions(CheckCompleteQuestion : "",CheckQuestion : "",CheckAnswer : []);
+            }));
+          }
+
+          else {
+            answerSubList = Questions.familyAnswerShow.sublist(0, currentIndex);
+            print("Answer sub list:$answerSubList");
+            Questions.familyAnswerShow = [];
+            Questions.familyAnswerShow.addAll(answerSubList);
+
+            Navigator.of(context).pop();
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return FamilyMainQuestions(CheckCompleteQuestion : Questions.familyAnswerShow[currentIndex-1]['completequestion'],CheckQuestion : Questions.familyAnswerShow[currentIndex-1]['question'],CheckAnswer : [Questions.familyAnswerShow[currentIndex-1]['answer'][0]]);
+            }));
+          }
+
+
+
+
+
+        },
+        child:Container(
+          margin: EdgeInsets.only(top: 2.5, bottom: 2.5, left: 10.0, right: 10.0),
+          height: Questions.familyAnswerShow[currentIndex]['containerheight'],
+          width: 450.0,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(7.0),
+              border: Border.all(width: 1.0, color: Color.fromARGB(0xFF, 0xE8, 0xE8, 0xE8))
+          ),
+          child: Padding(
+              padding: EdgeInsets.only(left: 10.0, right: 10.0),
+              child: Row(crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  //Text(Questions.answerShow[i]['question']),
+                  Container(
+                      width: 155.0,
+                      //color: Colors.purple,
+                      child:AutoSizeText(Questions.familyAnswerShow[currentIndex]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+                  ),
+                  Row(children: <Widget>[
+                    //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
+                    Container(
+                        width: 140.0,
+                        // color:Colors.blue,
+                        child:AutoSizeText(Questions.familyAnswerShow[currentIndex]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+
+                    ),
+                    SizedBox(width: 5.0,),
+                    Icon(Icons.arrow_forward_ios, size: 12.0,
+                        color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF))
+                  ],)
+                ],
+              )),
+        ));
+  }
+}
+
+
+
+
+
+//For show and index of big container
+class MultipleBigContainer extends StatelessWidget {
+  int currentIndex;
+  List answerSubList = [];
+  MultipleBigContainer({this.currentIndex});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: ()
+        {
+          print("Big Coontainer Current index is:"+currentIndex.toString());
+
+          if(currentIndex == 0)
+          {
+            Questions.familyAnswerShow = [];
+
+            Navigator.of(context).pop();
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return FamilyMainQuestions(CheckCompleteQuestion : "",CheckQuestion : "",CheckAnswer : []);
+            }));
+          }
+
+          else {
+            answerSubList = Questions.familyAnswerShow.sublist(0, currentIndex);
+            print("Answer sub list:$answerSubList");
+            Questions.familyAnswerShow = [];
+            Questions.familyAnswerShow.addAll(answerSubList);
+
+            Navigator.of(context).pop();
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return FamilyMainQuestions(CheckCompleteQuestion : Questions.familyAnswerShow[currentIndex-1]['completequestion'],CheckQuestion : Questions.familyAnswerShow[currentIndex-1]['question'],CheckAnswer : [Questions.familyAnswerShow[currentIndex-1]['answer'][0]]);
+            }));
+          }
+
+
+
+
+
+
+//        Navigator.of(context).pop();
+//        Navigator.push(context, MaterialPageRoute(builder: (context) {
+//          return mainQuestions(CheckQuestion : Questions.answerShow[currentIndex]['question'],CheckAnswer : [Questions.answerShow[currentIndex]['answer'][0]]);
+//        }));
+        },
+        child:Container(
+            color: Colors.white,
+            height: 55.0,
+            width: 450.0,
+            child: Padding(
+                padding: EdgeInsets.only(left: 10.0, right: 10.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    //Text(Questions.answerShow[i]['question']),
+                    Container(
+                        width: 155.0,
+                        //color: Colors.purple,
+                        child:AutoSizeText(Questions.familyAnswerShow[currentIndex]['question'],style: TextStyle(color: Colors.grey),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+                    ),
+                    Row(children: <Widget>[
+                      //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
+                      Container(
+                          width: 140.0,
+                          // color:Colors.blue,
+                          child:AutoSizeText(Questions.familyAnswerShow[currentIndex]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+
+                      ),
+                      SizedBox(width: 5.0,),
+                      Icon(Icons.arrow_forward_ios, size: 12.0,
+                        color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),)
+                    ],)
+                  ],
+                ))
+        ));
   }
 }

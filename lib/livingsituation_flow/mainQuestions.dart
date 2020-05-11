@@ -365,6 +365,7 @@ int specificIndex = -1;
         leading: GestureDetector(
           onTap: (){
           Navigator.pushReplacementNamed(context, 'allCategoryScreen');
+          //  Navigator.pop(context);
           },
             child:Icon(Icons.arrow_back_ios,color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),size: 20.0)
         ),

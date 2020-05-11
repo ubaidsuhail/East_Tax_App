@@ -86,7 +86,7 @@ class _Container7State extends State<Container7> {
                                                 borderRadius: BorderRadius.circular(10.0),
                                                 color: Questions.LivingCheck == 1 || Questions.LivingCheck == 2 ? Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF) : Colors.deepPurple[400],
                                               ),
-                                              height: 150.0,
+                                              height: 145.0,
                                               width: MediaQuery.of(context).size.width,
 
                                             ),
@@ -153,7 +153,7 @@ class _Container7State extends State<Container7> {
                                             Container(
                                                 color:Colors.white,
                                                 width: MediaQuery.of(context).size.width*0.70,
-                                                height: 50.0,
+                                                height: 55.0,
 //                    color: Colors.wh,
                                                 child: TextFormField(
                                                   controller: dates,

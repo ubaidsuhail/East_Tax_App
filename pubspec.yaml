@@ -88,6 +88,25 @@ flutter:
    - images/unchecked.png
    - images/checked.png
    - images/skip.png
+   - images/allcategoryinbox.png
+   - images/allcategoryuser.png
+   - images/righttick.png
+   - images/colorlivingsituation.png
+   - images/colorincome.png
+   - images/colorhome.png
+   - images/colorwork.png
+   - images/colorhealth.png
+   - images/colorfamily.png
+   - images/colorfinance.png
+   - images/coloreducation.png
+   - images/uncolorlivingsituation.png
+   - images/uncolorincome.png
+   - images/uncolorhome.png
+   - images/uncolorwork.png
+   - images/uncolorhealth.png
+   - images/uncolorfamily.png
+   - images/uncolorfinance.png
+   - images/uncoloreducation.png
 
 
   #  - images/a_dot_ham.jpeg

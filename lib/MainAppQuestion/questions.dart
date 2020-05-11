@@ -3,6 +3,21 @@ import 'package:flutter/material.dart';
 
 
 class Questions{
+
+
+ // ===== Other Starts ===== //
+
+ static List categoryFinish=[0,0,0,0,0,0,0,0];
+ static List categoryImageChange=[1,0,0,0,0,0,0,0];
+ static String categoryName = "Income";
+ static String categoryImage = "images/colorincome.png";
+ static int yearfirstTime = 0;
+
+ // ====== Other Ends ====== //
+
+
+
+
  // ========= Living Situation Flow work Start ========//
  static int singleQuestionsNo = 1;
  static List answerShow=[];

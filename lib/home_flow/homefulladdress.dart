@@ -32,12 +32,12 @@ class _HomeFullAddressState extends State<HomeFullAddress> {
             ),
 
             ListTile(
-              leading: Icon(Icons.arrow_back_ios,color: Colors.green,),
+              leading: Icon(Icons.arrow_back_ios,color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),),
               trailing: GestureDetector(
                 onTap: (){
                   AddData();
                 },
-                child: Text("Confirm",style: TextStyle(fontSize: 16.0,color: Colors.green),),
+                child: Text("Confirm",style: TextStyle(fontSize: 16.0,color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),),),
               ),
             ),
 
