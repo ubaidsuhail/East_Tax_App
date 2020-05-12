@@ -92,13 +92,13 @@ class _newHereState extends State<newHere> {
 
                         //Finance Flow Start
 
-//                        Questions.financeAnswerShow = [];
-//                        Questions.financeYouIdentity = "you";
-//                        Questions.financeYourIdentity = "your";
-//
-//                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-//                          return FinanceMainQuestions(CheckCompleteQuestion:"Did ${Questions.financeYouIdentity} have costs for any of the insurances listed here?",CheckQuestion:"Pensions/Life insurances",CheckAnswer:[]);
-//                        }));
+                        Questions.financeAnswerShow = [];
+                        Questions.financeYouIdentity = "you";
+                        Questions.financeYourIdentity = "your";
+
+                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return FinanceMainQuestions(CheckCompleteQuestion:"Did ${Questions.financeYouIdentity} have costs for any of the insurances listed here?",CheckQuestion:"Pensions/Life insurances",CheckAnswer:[]);
+                        }));
                         //Finance flow End
 
 
@@ -171,20 +171,20 @@ class _newHereState extends State<newHere> {
 
                         //Living Situation Flow Start //
 
-                        if(Questions.yearfirstTime == 0)
-                          {
-                            Questions.yearfirstTime = 1;
-                        Questions.answerShow = [];
-                        Questions.LivingCheck = 0;
-                        Questions.livcolContainer = 0;
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-                          return mainQuestions(CheckQuestion:"What is your official marital status in Germany?",CheckAnswer:[]);
-                        }));
-                          }
-                          else
-                            {
-                              Navigator.pushNamed(context, 'allCategoryScreen');
-                            }
+//                        if(Questions.yearfirstTime == 0)
+//                          {
+//                            Questions.yearfirstTime = 1;
+//                        Questions.answerShow = [];
+//                        Questions.LivingCheck = 0;
+//                        Questions.livcolContainer = 0;
+//                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+//                          return mainQuestions(CheckQuestion:"What is your official marital status in Germany?",CheckAnswer:[]);
+//                        }));
+//                          }
+//                          else
+//                            {
+//                              Navigator.pushNamed(context, 'allCategoryScreen');
+//                            }
                         //Living Situation Flow End //
 
                       },

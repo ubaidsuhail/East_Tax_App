@@ -9,6 +9,9 @@ import 'package:easy_taxx/finance_flow/financemultipleoptionscontainer.dart';
 import 'package:easy_taxx/finance_flow/financecalculationcontainer.dart';
 import 'package:easy_taxx/finance_flow/financeyesnocontainer.dart';
 import 'package:easy_taxx/finance_flow/financetwooptioncontainer.dart';
+import 'package:easy_taxx/finance_flow/financemultitwocontainer.dart';
+import 'package:easy_taxx/finance_flow/financedifferentoptioncontainer.dart';
+import 'package:easy_taxx/finance_flow/financedatecontainer.dart';
 
 
 
@@ -806,8 +809,259 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
       // ====== Insurances listed here Ends ====== //
 
 
+      // ====== Any Other Insurance Policies Starts ====== //
+
+        //Answer No 2
+    if(widget.CheckCompleteQuestion =="Did ${Questions.financeYouIdentity} have costs for any other insurance policies?" && widget.CheckQuestion == "Other contracts")
+    {
+
+      for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+        if(widget.CheckAnswer[m] == "Additional unemployment insurance")
+        {
+         //Question No 22
+          return financecalculationContainer("","Finances","How much did ${Questions.financeYouIdentity} pay for additional unemployment insurance?","Contribution",220.0,"calculation","",[]);
+
+        }
+
+        else if(widget.CheckAnswer[m] == "Occupational disability")
+        {
+          //Question No 24
+          return financecalculationContainer("","Finances","How much did ${Questions.financeYouIdentity} pay for disability insurance?","Contribution",220.0,"calculation","",[]);
+        }
+
+        else if(widget.CheckAnswer[m] == "Car liability insurance")
+        {
+           //Question No 25
+          return financecalculationContainer("","Finances","How much did ${Questions.financeYouIdentity} spend on liability car insurance?","Amount",220.0,"calculation","",[]);
+
+        }
+
+        else if(widget.CheckAnswer[m] == "Liability")
+        {
+          //Question No 26
+          return financecalculationContainer("","Finances","How much did ${Questions.financeYouIdentity} pay for liability insurance?","Amount",220.0,"calculation","",[]);
+        }
+
+        else if(widget.CheckAnswer[m] == "Legal protection")
+        {
+         //Question No 27
+          return financemultitwoContainer("","Finances","What risks does ${Questions.financeYourIdentity} legal expenses insurance cover?","Covered risks",["Professional risks","Other risks"],["images/disabilityoption.png","images/alimonypaidoption.png"],220.0,"","",[]);
+        }
+
+        else if(widget.CheckAnswer[m] == "Professional liability")
+        {
+          //Question No 29
+          return financecalculationContainer("","Finances","How much did ${Questions.financeYouIdentity} pay for professional liability insurance?","Amount",220.0,"calculation","",[]);
+        }
+
+        else if(widget.CheckAnswer[m] == "Accident insurance")
+        {
+         //Question No 30
+          return financecalculationContainer("","Finances","How much have ${Questions.financeYouIdentity} spent on accident insurance?","Amount accident insurance",220.0,"calculation","",[]);
+        }
+
+        else if(widget.CheckAnswer[m] == "No")
+        {
+          //Question No 23
+          return financeyesnoContainer("","Finances","Have ${Questions.financeYouIdentity} been a member of a church in 2019?","Church membership {tax_year}",220.0,"","",[]);
+        }
 
 
+      }
+    }
+
+
+   // ======  Additional unemployment insurance Starts =======
+
+
+    //Answer No 22
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.financeYouIdentity} pay for additional unemployment insurance?" && widget.CheckQuestion == "Contribution")
+    {
+      //Question No 23
+      return financeyesnoContainer("","Finances","Have ${Questions.financeYouIdentity} been a member of a church in 2019?","Church membership {tax_year}",220.0,"","",[]);
+    }
+
+
+
+  // ======  Additional unemployment insurance Ends =======
+
+
+
+   // ======  Occupational disability Starts ======
+
+   //Answer No 24
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.financeYouIdentity} pay for disability insurance?" && widget.CheckQuestion == "Contribution")
+    {
+      //Question No 23
+      return financeyesnoContainer("","Finances","Have ${Questions.financeYouIdentity} been a member of a church in 2019?","Church membership {tax_year}",220.0,"","",[]);
+    }
+
+  // ======  Occupational disability Ends ======
+
+
+
+      // ====== Car liability insurance Starts ======
+
+    //Answer No 25
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.financeYouIdentity} spend on liability car insurance?" && widget.CheckQuestion == "Amount")
+    {
+      //Question No 23
+      return financeyesnoContainer("","Finances","Have ${Questions.financeYouIdentity} been a member of a church in 2019?","Church membership {tax_year}",220.0,"","",[]);
+    }
+
+
+      // ====== Car liability insurance Ends ======
+
+
+
+      // ====== Liability Starts ======
+
+
+
+    //Answer No 26
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.financeYouIdentity} pay for liability insurance?" && widget.CheckQuestion == "Amount")
+    {
+      //Question No 23
+      return financeyesnoContainer("","Finances","Have ${Questions.financeYouIdentity} been a member of a church in 2019?","Church membership {tax_year}",220.0,"","",[]);
+    }
+
+
+      // ====== Liability Ends ======
+
+
+    // ====== Legal protection Starts ======
+
+
+      //Answer No 27
+
+    else if(widget.CheckCompleteQuestion =="What risks does ${Questions.financeYourIdentity} legal expenses insurance cover?" && widget.CheckQuestion == "Covered risks")
+    {
+
+      if(widget.CheckAnswer[0] == "Professional risks")
+      {
+       //Question No 28
+        return financecalculationContainer("","Finances","How much did ${Questions.financeYouIdentity} spend on professional liability insurance?","Professional risks",430.0,"calculation","",[]);
+      }
+
+      else if(widget.CheckAnswer[0] == "Other risks")
+      {
+        //Question No 23
+        return financeyesnoContainer("","Finances","Have ${Questions.financeYouIdentity} been a member of a church in 2019?","Church membership {tax_year}",220.0,"","",[]);
+
+      }
+
+    }
+
+
+    //Answer No 28
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.financeYouIdentity} spend on professional liability insurance?" && widget.CheckQuestion == "Professional risks")
+    {
+      //Question No 23
+      return financeyesnoContainer("","Finances","Have ${Questions.financeYouIdentity} been a member of a church in 2019?","Church membership {tax_year}",220.0,"","",[]);
+    }
+
+
+    // ====== Legal protection Ends ======
+
+
+
+
+   // ====== Professional liability Starts ======
+
+    //Answer No 29
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.financeYouIdentity} pay for professional liability insurance?" && widget.CheckQuestion == "Amount")
+    {
+      //Question No 23
+      return financeyesnoContainer("","Finances","Have ${Questions.financeYouIdentity} been a member of a church in 2019?","Church membership {tax_year}",220.0,"","",[]);
+    }
+
+
+
+      // ====== Professional liability Ends ======
+
+
+      // ====== Accident insurance Starts ======
+
+
+    //Answer No 30
+    else if(widget.CheckCompleteQuestion =="How much have ${Questions.financeYouIdentity} spent on accident insurance?" && widget.CheckQuestion == "Amount accident insurance")
+    {
+      //Question No 23
+      return financeyesnoContainer("","Finances","Have ${Questions.financeYouIdentity} been a member of a church in 2019?","Church membership {tax_year}",220.0,"","",[]);
+    }
+
+
+      // ====== Accident insurance Ends ======
+
+      // ====== Any Other Insurance Policies Ends ====== //
+
+
+
+      //Answer No 23
+    else if(widget.CheckCompleteQuestion =="Have ${Questions.financeYouIdentity} been a member of a church in 2019?" && widget.CheckQuestion == "Church membership {tax_year}")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 31
+        return financeyesnoContainer("","Finances","Have ${Questions.financeYouIdentity} ever been a member of a church?","Church membership",430.0,"","",[]);
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+       //Question No 33
+        return financedifferentoptionContainer("","Finances","What church did ${Questions.financeYouIdentity} belong to in 2019?","Church tax",["evangelisch","römisch-katholisch","altkatholisch","evangelisch-reformiert","französisch-reformiert","freie Religionsgemeinschaft Alzey","freireligiöse Gemeinde Offenbach","Kirchensteuer der Freireligiösen Landesgemeinde Baden","freireligöse Landesgemeinde Pfalz","Kirchensteuer der Israelitischen Religionsgemeinschaft Baden","Jüdische Kultusgemeinden Bad Kreuznach und Koblenz","Kirchensteur der Israelitischen Religionsgemeinschaft Württemberg","Saarland: israelitisch","Jüdische Gemeinde Frankfurt","Jüdische Gemeinde Hamburg","israelitische Kultussteuer der Kultusberechtigten Gemeinden","Landesverband der israelitischen Kultusgemeinden in Bayern","Nordrhein-Westfalen: israelitisch (jüdisch)","Evangelisch-Reformiert (Bückeberg)","Evangelisch-Reformiert (Stadthagen)","Other"],220.0,"","",[]);
+
+      }
+
+    }
+
+
+    //Answer No 31
+    else if(widget.CheckCompleteQuestion =="Have ${Questions.financeYouIdentity} ever been a member of a church?" && widget.CheckQuestion == "Church membership")
+    {
+
+      if(widget.CheckAnswer[0] == "No" || widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 32
+        return financemultipleoptionsContainer("","Donations and membership fees","Have ${Questions.financeYouIdentity} made a donation?","Donations",["National charities","Charitable institutions (EU/EEA)","Religious community","Political party","Voter group","Other tax privileged organizations","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+      }
+
+    }
+
+    //Answer No 33
+    else if(widget.CheckCompleteQuestion =="What church did ${Questions.financeYouIdentity} belong to in 2019?" && widget.CheckQuestion == "Church tax")
+    {
+      //Question No 34
+      return financeyesnoContainer("","Finances","Did anything regarding ${Questions.financeYourIdentity} church membership change in 2019?","Change of church membership",430.0,"","",[]);
+    }
+
+
+    //Answer No 34
+    else if(widget.CheckCompleteQuestion =="Did anything regarding ${Questions.financeYourIdentity} church membership change in 2019?" && widget.CheckQuestion == "Change of church membership")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 32
+        return financemultipleoptionsContainer("","Donations and membership fees","Have ${Questions.financeYouIdentity} made a donation?","Donations",["National charities","Charitable institutions (EU/EEA)","Religious community","Political party","Voter group","Other tax privileged organizations","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+         //Question No 35
+        return financedateContainer("","Finances","When did ${Questions.financeYouIdentity} change religion in 2019?","Change of religion",220.0,"","",[]);
+      }
+
+    }
+
+    //Answer No 35
+    else if(widget.CheckCompleteQuestion =="When did ${Questions.financeYouIdentity} change religion in 2019?" && widget.CheckQuestion == "Change of religion")
+    {
+      //Question No 32
+      return financemultipleoptionsContainer("","Donations and membership fees","Have ${Questions.financeYouIdentity} made a donation?","Donations",["National charities","Charitable institutions (EU/EEA)","Religious community","Political party","Voter group","Other tax privileged organizations","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+    }
 
 
   }
@@ -841,4 +1095,22 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
     return FinanceTwoOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:280.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
   }
 
+  Widget financemultitwoContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,List AnswerImages, double animatedcontainer, String AdditionalData, String MultipleData, List Suggestion)
+  {
+    Questions.financeAnimatedContainer = animatedcontainer;
+    return FinanceMultiTwoContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,answerImages:AnswerImages,containerSize:320.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
+  }
+
+  Widget financedifferentoptionContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,double animatedcontainer, String AdditionalData, String MultipleData, List Suggestion)
+  {
+    Questions.financeAnimatedContainer = animatedcontainer;
+    return FinanceDifferentOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:420.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
+  }
+
+  Widget financedateContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption, double animatedcontainer, String AdditionalData, String MultipleData, List Suggestion)
+  {
+    Questions.financeAnimatedContainer = animatedcontainer;
+    return FinanceDateContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:220.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
+
+  }
 }

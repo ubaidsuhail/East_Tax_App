@@ -200,11 +200,11 @@ class _HomeScreenState extends State<PaySlipContainer> {
                           GestureDetector(
                             onTap: (){
                               //Questions.animatedContainer = 420.0;
-                              qu.IncomeAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, ['No'], 55.0);
+                              qu.IncomeAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, ['Yes'], 55.0);
 
                               Navigator.of(context).pop();
                               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                                return IncomeMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion : widget.questionOption,CheckAnswer : ["No"]);
+                                return IncomeMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion : widget.questionOption,CheckAnswer : ["Yes"]);
                               }));
                             },
 
@@ -223,17 +223,17 @@ class _HomeScreenState extends State<PaySlipContainer> {
                                 //borderRadius: BorderRadius.circular(10.0),
                               ),
                               child: Center(
-                                child: Text('No',style: TextStyle(color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize: 16.0),),
+                                child: Text('Yes',style: TextStyle(color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize: 16.0),),
                               ),
                             ),),
                           GestureDetector(
                             onTap: (){
                               //Questions.animatedContainer = 420.0;
-                              qu.IncomeAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, ['Yes'], 55.0);
+                              qu.IncomeAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, ['No'], 55.0);
 
                               Navigator.of(context).pop();
                               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                                return IncomeMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion : widget.questionOption,CheckAnswer : ["Yes"]);
+                                return IncomeMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion : widget.questionOption,CheckAnswer : ["No"]);
                               }));
                             },
 
@@ -243,7 +243,7 @@ class _HomeScreenState extends State<PaySlipContainer> {
                               height: 42.0,
                               color: Colors.white,
                               child: Center(
-                                child: Text('Yes',style: TextStyle(color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize:16.0)),
+                                child: Text('No',style: TextStyle(color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize:16.0)),
                               ),
                             )),
                         ],

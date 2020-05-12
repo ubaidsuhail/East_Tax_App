@@ -17,7 +17,8 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        body: Column(
+        body:SingleChildScrollView(
+        child:Column(
               children: <Widget>[
                 SizedBox(
                   height:35.0,
@@ -70,14 +71,16 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
 
                 Container(
                   height: MediaQuery.of(context).size.height*0.59,
-                child:ListView(
+
+                child:SingleChildScrollView(
+                child:Column(
                   children: <Widget>[
                 GestureDetector(
                   onTap:() {
                     LivingSituation();
                   },
                 child:Container(
-                 margin: EdgeInsets.only(bottom: 16.0),
+                    padding: EdgeInsets.only(top:16.0,bottom: 16.0),
                 child:ListTile(
                   title: Row(
                     children: <Widget>[
@@ -116,7 +119,8 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                     Income();
                   },
                 child:Container(
-                    margin: EdgeInsets.only(top:16.0,bottom: 16.0),
+                    padding: EdgeInsets.only(top:16.0,bottom: 16.0),
+
                 child:ListTile(
                   title: Row(
                     children: <Widget>[
@@ -153,7 +157,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                    Home();
                  },
                 child:Container(
-                    margin: EdgeInsets.only(top:16.0,bottom: 16.0),
+                    padding: EdgeInsets.only(top:16.0,bottom: 16.0),
                 child:ListTile(
                   title: Row(
                     children: <Widget>[
@@ -191,7 +195,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                     Work();
                   },
                 child:Container(
-                    margin: EdgeInsets.only(top:16.0,bottom: 16.0),
+                padding: EdgeInsets.only(top:16.0,bottom: 16.0),
                 child:ListTile(
                   title: Row(
                     children: <Widget>[
@@ -259,7 +263,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                       Family();
                     },
                     child:Container(
-                        margin: EdgeInsets.only(top:16.0,bottom: 16.0),
+                    padding: EdgeInsets.only(top:16.0,bottom: 16.0),
                     child:ListTile(
                       title: Row(
                         children: <Widget>[
@@ -297,7 +301,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                     Health();
                   },
                 child:Container(
-                    margin: EdgeInsets.only(top:16.0,bottom: 16.0),
+                 padding: EdgeInsets.only(top:16.0,bottom: 16.0),
                 child:ListTile(
                   title: Row(
                     children: <Widget>[
@@ -334,7 +338,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                     Finance();
                   },
                 child:Container(
-                    margin: EdgeInsets.only(top:16.0,bottom: 16.0),
+                padding: EdgeInsets.only(top:16.0,bottom: 16.0),
                 child:ListTile(
                   title: Row(
                     children: <Widget>[
@@ -357,7 +361,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                   height: 10.0,
                   thickness: 1.0,
                 ),
-])),
+]))),
                 SizedBox(
                   height: 1.5,
                 ),
@@ -457,13 +461,13 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
 
               ],
             )
-        );
+        ));
   }
 
   void LivingSituation()
   {
     Questions.categoryName ="Income";
-    Questions.categoryImage = "images/colorincome.png";
+    Questions.categoryImage = "images/uncolorincome.png";
     Questions.categoryImageChange[0] = 1;
 
     if(Questions.answerShow.length == 0)
@@ -488,7 +492,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
   {
 
     Questions.categoryName ="Home";
-    Questions.categoryImage = "images/colorhome.png";
+    Questions.categoryImage = "images/uncolorhome.png";
     Questions.categoryImageChange[1] = 1;
 
     if(Questions.incomeAnswerShow.length == 0)
@@ -514,7 +518,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
   {
 
     Questions.categoryName ="Education";
-    Questions.categoryImage = "images/coloreducation.png";
+    Questions.categoryImage = "images/uncoloreducation.png";
     Questions.categoryImageChange[2] = 1;
 
 
@@ -546,7 +550,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
   {
 
     Questions.categoryName ="Family";
-    Questions.categoryImage = "images/colorfamily.png";
+    Questions.categoryImage = "images/uncolorfamily.png";
     Questions.categoryImageChange[4] = 1;
 
 
@@ -573,7 +577,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
   {
 
     Questions.categoryName ="Health";
-    Questions.categoryImage = "images/colorhealth.png";
+    Questions.categoryImage = "images/uncolorhealth.png";
     Questions.categoryImageChange[5] = 1;
 
 
@@ -599,7 +603,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
   {
 
     Questions.categoryName ="Finances";
-    Questions.categoryImage = "images/colorfinance.png";
+    Questions.categoryImage = "images/uncolorfinance.png";
     Questions.categoryImageChange[6] = 1;
 
 

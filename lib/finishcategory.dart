@@ -130,7 +130,7 @@ class _HomeScreenState extends State<FinishCategory> {
 
          Questions.categoryFinish[0] = 1;
          Questions.categoryName ="Home";
-         Questions.categoryImage = "images/colorhome.png";
+         Questions.categoryImage = "images/uncolorhome.png";
 
          Questions.incomeAnswerShow = [];
          Questions.totalDomain = 0;
@@ -148,7 +148,7 @@ class _HomeScreenState extends State<FinishCategory> {
      {
        Questions.categoryFinish[1] = 1;
        Questions.categoryName ="Education";
-       Questions.categoryImage = "images/coloreducation.png";
+       Questions.categoryImage = "images/uncoloreducation.png";
 
        Questions.homeAnswerShow = [];
        Questions.utilityBillLength = 0;
@@ -178,7 +178,7 @@ class _HomeScreenState extends State<FinishCategory> {
      {
 
        Questions.categoryName ="family";
-       Questions.categoryImage = "images/colorfamily.png";
+       Questions.categoryImage = "images/uncolorfamily.png";
 
 
        Questions.categoryFinish[2] = 1;
@@ -220,7 +220,7 @@ class _HomeScreenState extends State<FinishCategory> {
      {
 
        Questions.categoryName ="Health";
-       Questions.categoryImage = "images/colorhealth.png";
+       Questions.categoryImage = "images/uncolorhealth.png";
 
        Questions.categoryFinish[4] = 1;
 
@@ -266,7 +266,7 @@ class _HomeScreenState extends State<FinishCategory> {
      {
 
        Questions.categoryName ="Finances";
-       Questions.categoryImage = "images/colorfinance.png";
+       Questions.categoryImage = "images/uncolorfinance.png";
        Questions.categoryFinish[5] = 1;
 
 
