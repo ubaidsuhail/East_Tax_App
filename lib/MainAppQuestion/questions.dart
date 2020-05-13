@@ -268,6 +268,25 @@ static List financeAnswerShow=[];
 static double financeAnimatedContainer;
 static String financeYouIdentity = "you";
 static String financeYourIdentity = "your";
+static int financeOrganizationLength = 0;
+static int totalFinanceOrganization = 0;
+static String financeOrganizationText = "";
+static int financeEuOrganizationLength = 0;
+static int totalFinanceEuOrganization = 0;
+static String financeEuOrganizationText = "";
+static int financeReligiousLength = 0;
+static int totalFinanceReligious = 0;
+static String financeReligiousText = "";
+static int financePartyLength = 0;
+static int totalFinanceParty = 0;
+static String financePartyText = "";
+static int financeVoterLength = 0;
+static int totalFinanceVoter = 0;
+static String financeVoterText = "";
+static int financeProjectLength = 0;
+static int totalFinanceProject = 0;
+static String financeProjectText = "";
+
 
 
  void FinanceAddAnswer(String UserIdentity, String details,String completequestion,String question,List answer,double containerheight)

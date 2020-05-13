@@ -12,6 +12,7 @@ import 'package:easy_taxx/finance_flow/financetwooptioncontainer.dart';
 import 'package:easy_taxx/finance_flow/financemultitwocontainer.dart';
 import 'package:easy_taxx/finance_flow/financedifferentoptioncontainer.dart';
 import 'package:easy_taxx/finance_flow/financedatecontainer.dart';
+import 'package:easy_taxx/finance_flow/financethreeoptioncontainer.dart';
 
 
 
@@ -1064,6 +1065,532 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
     }
 
 
+    // ====== Donations and membership fees Starts ======= //
+
+
+    else if(widget.CheckCompleteQuestion =="Have ${Questions.financeYouIdentity} made a donation?" && widget.CheckQuestion == "Donations")
+    {
+
+      for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+        if(widget.CheckAnswer[m] == "National charities")
+        {
+         //Question No 36
+          //For No 340.0
+          //For Yes 220.0
+          return financeyesnoContainer("","Donations and membership fees","Did ${Questions.financeYourIdentity} donations go to multiple charitable institutions in Germany?","Multiple organizations",220.0,"","",[]);
+
+        }
+
+        else if(widget.CheckAnswer[m] == "Charitable institutions (EU/EEA)")
+        {
+         //Question No 42
+          return financeyesnoContainer("","Donations and membership fees","Did ${Questions.financeYourIdentity} donations go to multiple charitable institutions in the EU?","Multiple organizations",220.0,"","",[]);
+        }
+
+        else if(widget.CheckAnswer[m] == "Religious community")
+        {
+         //Question No 47
+          return financeyesnoContainer("","Donations and membership fees","Have ${Questions.financeYouIdentity} donated to several religious organizations?","Several religious organizations",220.0,"","",[]);
+
+        }
+
+        else if(widget.CheckAnswer[m] == "Political party")
+        {
+          //Question No 53
+          return financeyesnoContainer("","Donations and membership fees","Have ${Questions.financeYouIdentity} donated to several political parties?","Multiple parties",220.0,"","",[]);
+        }
+
+        else if(widget.CheckAnswer[m] == "Voter group")
+        {
+          //Question No 60
+          return financeyesnoContainer("","Donations and membership fees","Have ${Questions.financeYouIdentity} donated to more than one voters association?","Multiple organizations",220.0,"","",[]);
+        }
+
+        else if(widget.CheckAnswer[m] == "Other tax privileged organizations")
+        {
+          //Question No 66
+          return financeyesnoContainer("","Donations and membership fees","Have ${Questions.financeYouIdentity} donated to multiple projects?","Multiple Projects",220.0,"","",[]);
+        }
+
+        else if(widget.CheckAnswer[m] == "No")
+        {
+          return FinishCategory("Finances Category","End Categories");
+        }
+
+
+      }
+    }
+
+
+
+    // ====== National charities Starts ======
+
+      //Answer No 36
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.financeYourIdentity} donations go to multiple charitable institutions in Germany?" && widget.CheckQuestion == "Multiple organizations")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 39
+        return financethreeoptionContainer("","Donations and membership fees","What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation?","Confirmation",["Donation receipt","Account statement (in the case of donations up to 200EUR)","Information was transmitted electronically"],220.0,"","",[]);
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+       //Question No 37
+        return financecalculationContainer("","Donations and membership fees","How many tax exempt organizations in Germany did ${Questions.financeYouIdentity} donate to?","Number of organizations",340.0,"loop","",[]);
+      }
+
+    }
+
+    //Answer No 37
+    else if(widget.CheckCompleteQuestion =="How many tax exempt organizations in Germany did ${Questions.financeYouIdentity} donate to?" && widget.CheckQuestion == "Number of organizations")
+    {
+      //Question No 38
+      return financethreeoptionContainer("","Donations and membership fees","What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation?","Donation confirmation no. ${Questions.financeOrganizationLength}",["Donation receipt","Account statement (in the case of donations up to 200EUR)","Information was transmitted electronically"],220.0,"",Questions.financeOrganizationText,[]);
+    }
+
+
+    //Answer No 38 and Answer No 39
+    else if(widget.CheckCompleteQuestion =="What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation?" && (widget.CheckQuestion == "Donation confirmation no. ${Questions.financeOrganizationLength}" || widget.CheckQuestion == "Confirmation"))
+    {
+      if(widget.CheckAnswer[0] == "Donation receipt" || widget.CheckAnswer[0] == "Account statement (in the case of donations up to 200EUR)" )
+      {
+       //Question No 40
+        return financecalculationContainer("","Donations and membership fees","What is the name of this non-profit organization?","Non-profit organization",220.0,"",Questions.financeOrganizationText,[]);
+
+      }
+
+      else if(widget.CheckAnswer[0] == "Information was transmitted electronically")
+      {
+        //Question No 41
+        //mgar isma agar 40 ka baad 41 aya to wo 41 iswala 41 sa alag khulega
+        return financecalculationContainer("","Donations and membership fees","How much money did ${Questions.financeYouIdentity} donate to this non-profit organization?","Donation amount",220.0,"calculation",Questions.financeOrganizationText,[]);
+      }
+    }
+
+
+    //Answer No 40
+    else if(widget.CheckCompleteQuestion =="What is the name of this non-profit organization?" && widget.CheckQuestion == "Non-profit organization")
+    {
+      //Question No 41
+      return financecalculationContainer("","Donations and membership fees","How much money did ${Questions.financeYouIdentity} donate to this non-profit organization?","Donation amount",220.0,"calculation",Questions.financeOrganizationText,[]);
+    }
+
+
+    //Answer No 41
+    else if(widget.CheckCompleteQuestion =="How much money did ${Questions.financeYouIdentity} donate to this non-profit organization?" && widget.CheckQuestion == "Donation amount")
+    {
+
+      if(Questions.financeOrganizationLength <= Questions.totalFinanceOrganization && Questions.totalFinanceOrganization > 0)
+        {
+          //Question No 38
+          return financethreeoptionContainer("","Donations and membership fees","What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation?","Donation confirmation no. ${Questions.financeOrganizationLength}",["Donation receipt","Account statement (in the case of donations up to 200EUR)","Information was transmitted electronically"],220.0,"",Questions.financeOrganizationText,[]);
+        }
+        else
+          {
+            return FinishCategory("Finances Category","End Categories");
+          }
+
+    }
+
+
+   // ====== National charities Ends ======
+
+
+
+   // ====== Charitable institutions (EU/EEA) Starts ======
+
+
+    //Answer No 42
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.financeYourIdentity} donations go to multiple charitable institutions in the EU?" && widget.CheckQuestion == "Multiple organizations")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+//Question No 45
+        return financecalculationContainer("","Donations and membership fees","What is the name of the European organization?","EU organization name",220.0,"","",[]);
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 43
+        return financecalculationContainer("","Donations and membership fees","How many organizations did ${Questions.financeYouIdentity} donate to?","Number of organizations",220.0,"loop","",[]);
+
+      }
+
+    }
+
+    //Answer No 43
+    else if(widget.CheckCompleteQuestion =="How many organizations did ${Questions.financeYouIdentity} donate to?" && widget.CheckQuestion == "Number of organizations")
+    {
+      //Question No 44
+      return financecalculationContainer("","Donations and membership fees","What is the name of the European organization?","${Questions.financeEuOrganizationLength}. European organizations",220.0,"",Questions.financeEuOrganizationText,[]);
+    }
+
+
+    //Answer No 44 and Answer No 45
+    else if(widget.CheckCompleteQuestion =="What is the name of the European organization?" && (widget.CheckQuestion == "${Questions.financeEuOrganizationLength}. European organizations" || widget.CheckQuestion == "EU organization name"))
+    {
+     //Question No 46
+      return financecalculationContainer("","Donations and membership fees","How much money did ${Questions.financeYouIdentity} donate to this organization?","Donated amount",220.0,"calculation",Questions.financeEuOrganizationText,[]);
+    }
+
+    //Answer No 46
+    else if(widget.CheckCompleteQuestion =="How much money did ${Questions.financeYouIdentity} donate to this organization?" && widget.CheckQuestion == "Donated amount")
+    {
+
+      if(Questions.financeEuOrganizationLength <= Questions.totalFinanceEuOrganization && Questions.totalFinanceEuOrganization > 0)
+      {
+        //Question No 44
+        return financecalculationContainer("","Donations and membership fees","What is the name of the European organization?","${Questions.financeEuOrganizationLength}. European organizations",220.0,"",Questions.financeEuOrganizationText,[]);
+      }
+      else
+      {
+        return FinishCategory("Finances Category","End Categories");
+      }
+
+    }
+
+
+
+      // ====== Charitable institutions (EU/EEA) Ends ======
+
+
+      // ====== Religious community Starts ====== //
+
+      //Answer No 47
+    else if(widget.CheckCompleteQuestion =="Have ${Questions.financeYouIdentity} donated to several religious organizations?" && widget.CheckQuestion == "Several religious organizations")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+//Question No 50
+        return financethreeoptionContainer("","Donations and membership fees","What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation? ","Confirmation of donation",["Donation receipt","Account statement (in the case of donations up to 200EUR)","Information was transmitted electronically"],220.0,"","",[]);
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 48
+        return financecalculationContainer("","Donations and membership fees","How many religious organizations did ${Questions.financeYouIdentity} donate to?","Number of organizations",340.0,"loop","",[]);
+      }
+
+    }
+
+    //Answer No 48
+    else if(widget.CheckCompleteQuestion =="How many religious organizations did ${Questions.financeYouIdentity} donate to?" && widget.CheckQuestion == "Number of organizations")
+    {
+      //Question No 49
+      return financethreeoptionContainer("","Donations and membership fees","What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation? ","Donation confirmation no. ${Questions.financeReligiousLength}",["Donation receipt","Account statement (in the case of donations up to 200EUR)","Information was transmitted electronically"],220.0,"",Questions.financeReligiousText,[]);
+      }
+
+
+   //Answer No 49 and Answer No 50
+
+    else if(widget.CheckCompleteQuestion =="What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation? " && (widget.CheckQuestion == "Donation confirmation no. ${Questions.financeReligiousLength}" || widget.CheckQuestion == "Confirmation of donation"))
+    {
+      if(widget.CheckAnswer[0] == "Donation receipt" || widget.CheckAnswer[0] == "Account statement (in the case of donations up to 200EUR)" )
+      {
+        //Question No 51
+        return financecalculationContainer("","Donations and membership fees","What is the name of the religious community?","Religious community",220.0,"",Questions.financeReligiousText,[]);
+
+      }
+
+      else if(widget.CheckAnswer[0] == "Information was transmitted electronically")
+      {
+        //Question No 52
+        //mgar isma agar 51 ka baad 52 aya to wo 51 iswala 52 sa alag khulega
+        return financecalculationContainer("","Donations and membership fees","How much money did ${Questions.financeYouIdentity} donate?","Donated amount",220.0,"calculation",Questions.financeReligiousText,[]);
+
+      }
+    }
+
+    //Answer No 51
+    else if(widget.CheckCompleteQuestion =="What is the name of the religious community?" && widget.CheckQuestion == "Religious community")
+    {
+      //Question No 52
+      return financecalculationContainer("","Donations and membership fees","How much money did ${Questions.financeYouIdentity} donate?","Donated amount",220.0,"calculation",Questions.financeReligiousText,[]);
+    }
+
+
+    //Answer No 52
+    else if(widget.CheckCompleteQuestion =="How much money did ${Questions.financeYouIdentity} donate?" && widget.CheckQuestion == "Donated amount")
+    {
+
+      if(Questions.financeReligiousLength <= Questions.totalFinanceReligious && Questions.totalFinanceReligious > 0)
+      {
+        //Question No 49
+        return financethreeoptionContainer("","Donations and membership fees","What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation? ","Donation confirmation no. ${Questions.financeReligiousLength}",["Donation receipt","Account statement (in the case of donations up to 200EUR)","Information was transmitted electronically"],220.0,"",Questions.financeReligiousText,[]);
+      }
+      else
+      {
+        return FinishCategory("Finances Category","End Categories");
+      }
+
+    }
+
+
+
+
+      // ====== Religious community Ends ====== //
+
+
+
+
+      // ====== Political party Starts ====== //
+    //Answer No 53
+
+    else if(widget.CheckCompleteQuestion =="Have ${Questions.financeYouIdentity} donated to several political parties?" && widget.CheckQuestion == "Multiple parties")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+//Question No 56
+        return financethreeoptionContainer("","Donations and membership fees","What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation?  ","Confirmation of donation",["Donation receipt","Account statement (in the case of donations up to 200EUR)","Information was transmitted electronically"],220.0,"","",[]);
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 54
+        return financecalculationContainer("","Donations and membership fees","How many parties did ${Questions.financeYouIdentity} donate to?","Number of party donations",340.0,"loop","",[]);
+      }
+
+    }
+
+    //Answer No 54
+
+    else if(widget.CheckCompleteQuestion =="How many parties did ${Questions.financeYouIdentity} donate to?" && widget.CheckQuestion == "Number of party donations")
+    {
+      //Question No 55
+      return financethreeoptionContainer("","Donations and membership fees","What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation?  ","Donation confirmation no. ${Questions.financePartyLength}",["Donation receipt","Account statement (in the case of donations up to 200EUR)","Information was transmitted electronically"],220.0,"",Questions.financePartyText,[]);
+    }
+
+
+    //Answer No 55 And Answer No 56
+    else if(widget.CheckCompleteQuestion =="What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation?  " && (widget.CheckQuestion == "Donation confirmation no. ${Questions.financePartyLength}" || widget.CheckQuestion == "Confirmation of donation"))
+    {
+      if(widget.CheckAnswer[0] == "Donation receipt" || widget.CheckAnswer[0] == "Account statement (in the case of donations up to 200EUR)" )
+      {
+
+        //Question No 57
+        return financedifferentoptionContainer("","Donations and membership fees","What is the name of this party?","Name of the party",["CDU","SPD","DIE LINKE","GRÜNE","CSU","FDP","FREIE WAHLER","PIRATEN","OTHER"],220.0,"",Questions.financePartyText,[]);
+
+      }
+
+      else if(widget.CheckAnswer[0] == "Information was transmitted electronically")
+      {
+
+//Question No 59
+        return financecalculationContainer("","Donations and membership fees","How much did ${Questions.financeYouIdentity} donate to this party?","Donated amount",220.0,"calculation",Questions.financePartyText,[]);
+
+      }
+    }
+
+
+   //Answer No 57
+
+    else if(widget.CheckCompleteQuestion =="What is the name of this party?" && widget.CheckQuestion == "Name of the party")
+    {
+
+      if(widget.CheckAnswer[0] == "OTHER")
+      {
+//Question No 58
+        return financecalculationContainer("","Donations and membership fees","What is the name of the other party?","Name of the party",220.0,"",Questions.financePartyText,[]);
+
+      }
+
+      else
+      {
+        //Question No 59
+        return financecalculationContainer("","Donations and membership fees","How much did ${Questions.financeYouIdentity} donate to this party?","Donated amount",220.0,"calculation",Questions.financePartyText,[]);
+      }
+
+    }
+
+    //Answer No 58
+    else if(widget.CheckCompleteQuestion =="What is the name of the other party?" && widget.CheckQuestion == "Name of the party")
+    {
+      //Question No 59
+      return financecalculationContainer("","Donations and membership fees","How much did ${Questions.financeYouIdentity} donate to this party?","Donated amount",220.0,"calculation",Questions.financePartyText,[]);
+    }
+
+//Answer No 59
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.financeYouIdentity} donate to this party?" && widget.CheckQuestion == "Donated amount")
+    {
+
+      if(Questions.financePartyLength <= Questions.totalFinanceParty && Questions.totalFinanceParty > 0)
+      {
+        //Question No 55
+        return financethreeoptionContainer("","Donations and membership fees","What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation?  ","Donation confirmation no. ${Questions.financePartyLength}",["Donation receipt","Account statement (in the case of donations up to 200EUR)","Information was transmitted electronically"],220.0,"",Questions.financePartyText,[]);
+      }
+      else
+      {
+        return FinishCategory("Finances Category","End Categories");
+      }
+
+    }
+
+      // ====== Political party Ends ====== //
+
+      // ====== Voter Group Starts ====== //
+
+    //Answer No 60
+    else if(widget.CheckCompleteQuestion =="Have ${Questions.financeYouIdentity} donated to more than one voters association?" && widget.CheckQuestion == "Multiple organizations")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+       //Question No 63
+        return financethreeoptionContainer("","Donations and membership fees","What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation?   ","Confirmation of Donation",["Donation receipt","Account statement (in the case of donations up to 200EUR)","Information was transmitted electronically"],220.0,"","",[]);
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 61
+        return financecalculationContainer("","Donations and membership fees","How many voters' associations did ${Questions.financeYouIdentity} donate to?","Number of voter groups",340.0,"loop","",[]);
+      }
+
+    }
+
+    //Answer No 61
+    else if(widget.CheckCompleteQuestion =="How many voters' associations did ${Questions.financeYouIdentity} donate to?" && widget.CheckQuestion == "Number of voter groups")
+    {
+      //Question No 62
+      return financethreeoptionContainer("","Donations and membership fees","What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation?   ","Donation confirmation no. ${Questions.financeVoterLength}",["Donation receipt","Account statement (in the case of donations up to 200EUR)","Information was transmitted electronically"],220.0,"",Questions.financeVoterText,[]);
+    }
+
+
+    //Answer No 62 and Answer No 63
+
+    else if(widget.CheckCompleteQuestion =="What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation?   " && (widget.CheckQuestion == "Donation confirmation no. ${Questions.financeVoterLength}" || widget.CheckQuestion == "Confirmation of donation"))
+    {
+      if(widget.CheckAnswer[0] == "Donation receipt" || widget.CheckAnswer[0] == "Account statement (in the case of donations up to 200EUR)" )
+      {
+        //Question No 64
+        return financecalculationContainer("","Donations and membership fees","What is the name of the voters' association?","Name of voter group",220.0,"",Questions.financeVoterText,[]);
+
+      }
+
+      else if(widget.CheckAnswer[0] == "Information was transmitted electronically")
+      {
+        //Question No 65
+        return financecalculationContainer("","Donations and membership fees","How much did ${Questions.financeYouIdentity} donate to the voters' association?","Donated amount",220.0,"calculation",Questions.financeVoterText,[]);
+
+      }
+    }
+
+
+    //Answer No 64
+    else if(widget.CheckCompleteQuestion =="What is the name of the voters' association?" && widget.CheckQuestion == "Name of voter group" )
+    {
+      //Question No 65
+      return financecalculationContainer("","Donations and membership fees","How much did ${Questions.financeYouIdentity} donate to the voters' association?","Donated amount",220.0,"calculation",Questions.financeVoterText,[]);
+    }
+
+
+    //Answer No 65
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.financeYouIdentity} donate to the voters' association?" && widget.CheckQuestion == "Donated amount")
+    {
+
+      if(Questions.financeVoterLength <= Questions.totalFinanceVoter && Questions.totalFinanceVoter > 0)
+      {
+        //Question No 62
+        return financethreeoptionContainer("","Donations and membership fees","What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation?   ","Donation confirmation no. ${Questions.financeVoterLength}",["Donation receipt","Account statement (in the case of donations up to 200EUR)","Information was transmitted electronically"],220.0,"",Questions.financeVoterText,[]);
+      }
+      else
+      {
+        return FinishCategory("Finances Category","End Categories");
+      }
+
+    }
+
+
+      // ====== Voter Group Ends ====== //
+
+
+
+      // ====== Other tax privileged organizations Starts ====== //
+      //Answer No 66
+    else if(widget.CheckCompleteQuestion =="Have ${Questions.financeYouIdentity} donated to multiple projects?" && widget.CheckQuestion == "Multiple Projects")
+    {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+        //Question No 69
+        return financethreeoptionContainer("","Donations and membership fees","What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation?    ","Confirmation of donation",["Donation receipt","Account statement (in the case of donations up to 200EUR)","Information was transmitted electronically"],220.0,"","",[]);
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+        //Question No 67
+        return financecalculationContainer("","Donations and membership fees","How many other projects did ${Questions.financeYouIdentity} donate to?","Number of projects",340.0,"loop","",[]);
+      }
+
+    }
+
+    //Answer No 67
+    else if(widget.CheckCompleteQuestion =="How many other projects did ${Questions.financeYouIdentity} donate to?" && widget.CheckQuestion == "Number of projects")
+    {
+      //Question No 68
+      return financethreeoptionContainer("","Donations and membership fees","What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation?    ","Donation confirmation no. ${Questions.financeProjectLength}",["Donation receipt","Account statement (in the case of donations up to 200EUR)","Information was transmitted electronically"],220.0,"",Questions.financeProjectText,[]);
+    }
+
+
+
+    //Answer No 68 and Answer No 69
+    else if(widget.CheckCompleteQuestion =="What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation?    " && (widget.CheckQuestion == "Donation confirmation no. ${Questions.financeProjectLength}" || widget.CheckQuestion == "Confirmation of donation"))
+    {
+      if(widget.CheckAnswer[0] == "Donation receipt" || widget.CheckAnswer[0] == "Account statement (in the case of donations up to 200EUR)" )
+      {
+        //Question No 70
+        return financecalculationContainer("","Donations and membership fees","What is the name of this non-profit organization? ","Name of organization",220.0,"",Questions.financeProjectText,[]);
+
+      }
+
+      else if(widget.CheckAnswer[0] == "Information was transmitted electronically")
+      {
+        //Question No 71
+        return financecalculationContainer("","Donations and membership fees","How much money did ${Questions.financeYouIdentity} donate to this organization? ","Donated amount",220.0,"calculation",Questions.financeProjectText,[]);
+
+      }
+    }
+
+
+    //Answer No 70
+    else if(widget.CheckCompleteQuestion =="What is the name of this non-profit organization? " && widget.CheckQuestion == "Name of organization" )
+    {
+      //Question No 71
+      return financecalculationContainer("","Donations and membership fees","How much money did ${Questions.financeYouIdentity} donate to this organization? ","Donated amount",220.0,"calculation",Questions.financeProjectText,[]);
+    }
+
+
+    //Answer No 71
+    else if(widget.CheckCompleteQuestion =="How much money did ${Questions.financeYouIdentity} donate to this organization? " && widget.CheckQuestion == "Donated amount")
+    {
+
+      if(Questions.financeProjectLength <= Questions.totalFinanceProject && Questions.totalFinanceProject > 0)
+      {
+        //Question No 68
+        return financethreeoptionContainer("","Donations and membership fees","What evidence do ${Questions.financeYouIdentity} have for ${Questions.financeYourIdentity} donation?    ","Donation confirmation no. ${Questions.financeProjectLength}",["Donation receipt","Account statement (in the case of donations up to 200EUR)","Information was transmitted electronically"],220.0,"",Questions.financeProjectText,[]);
+      }
+      else
+      {
+        return FinishCategory("Finances Category","End Categories");
+      }
+
+    }
+
+
+      // ====== Other tax privileged organizations Ends ====== //
+
+
+
+
+
+
+      // ====== Donations and membership fees Ends ======= //
+
   }
 
 
@@ -1112,5 +1639,11 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
     Questions.financeAnimatedContainer = animatedcontainer;
     return FinanceDateContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:220.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
 
+  }
+
+  Widget financethreeoptionContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,double animatedcontainer, String AdditionalData, String MultipleData, List Suggestion )
+  {
+    Questions.financeAnimatedContainer = animatedcontainer;
+    return FinanceThreeOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:340.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
   }
 }

@@ -195,6 +195,99 @@ class _FinanceCalculationContainerState extends State<FinanceCalculationContaine
 
   void AddData()
   {
+
+    if(widget.completeQuestion == "How many tax exempt organizations in Germany did ${Questions.financeYouIdentity} donate to?" && widget.questionOption == "Number of organizations")
+    {
+      Questions.financeOrganizationLength = 0;
+      Questions.totalFinanceOrganization = int.parse(calculations.text);
+      print("Total Organization"+Questions.totalFinanceOrganization.toString());
+      Questions.financeOrganizationLength += 1;
+      Questions.financeOrganizationText ="ORGANIZATION "+Questions.financeOrganizationLength.toString();
+    }
+
+
+    else if(widget.completeQuestion == "How much money did ${Questions.financeYouIdentity} donate to this non-profit organization?" && widget.questionOption == "Donation amount" && Questions.totalFinanceOrganization > 0)
+    {
+      Questions.financeOrganizationLength += 1;
+      Questions.financeOrganizationText ="ORGANIZATION "+Questions.financeOrganizationLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How many organizations did ${Questions.financeYouIdentity} donate to?" && widget.questionOption == "Number of organizations")
+    {
+      Questions.financeEuOrganizationLength = 0;
+      Questions.totalFinanceEuOrganization = int.parse(calculations.text);
+      print("Total EU Organization"+Questions.totalFinanceEuOrganization.toString());
+      Questions.financeEuOrganizationLength += 1;
+      Questions.financeEuOrganizationText ="ORGANIZATION "+Questions.financeEuOrganizationLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How much money did ${Questions.financeYouIdentity} donate to this organization?" && widget.questionOption == "Donated amount" && Questions.totalFinanceEuOrganization > 0)
+    {
+      Questions.financeEuOrganizationLength += 1;
+      Questions.financeEuOrganizationText ="ORGANIZATION "+Questions.financeEuOrganizationLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How many religious organizations did ${Questions.financeYouIdentity} donate to?" && widget.questionOption == "Number of organizations")
+    {
+      Questions.financeReligiousLength = 0;
+      Questions.totalFinanceReligious = int.parse(calculations.text);
+      print("Total RELIGIOUS COMMUNITY"+Questions.totalFinanceReligious.toString());
+      Questions.financeReligiousLength += 1;
+      Questions.financeReligiousText ="RELIGIOUS COMMUNITY "+Questions.financeReligiousLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How much money did ${Questions.financeYouIdentity} donate?" && widget.questionOption == "Donated amount" && Questions.totalFinanceReligious > 0)
+    {
+      Questions.financeReligiousLength += 1;
+      Questions.financeReligiousText ="RELIGIOUS COMMUNITY "+Questions.financeReligiousLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How many parties did ${Questions.financeYouIdentity} donate to?" && widget.questionOption == "Number of party donations")
+    {
+      Questions.financePartyLength = 0;
+      Questions.totalFinanceParty = int.parse(calculations.text);
+      print("Total Party"+Questions.totalFinanceParty.toString());
+      Questions.financePartyLength += 1;
+      Questions.financePartyText ="PARTY "+Questions.financePartyLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How much did ${Questions.financeYouIdentity} donate to this party?" && widget.questionOption == "Donated amount" && Questions.totalFinanceParty > 0)
+    {
+      Questions.financePartyLength += 1;
+      Questions.financePartyText ="PARTY "+Questions.financePartyLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How many voters' associations did ${Questions.financeYouIdentity} donate to?" && widget.questionOption == "Number of voter groups")
+    {
+      Questions.financeVoterLength = 0;
+      Questions.totalFinanceVoter = int.parse(calculations.text);
+      print("Total Voter"+Questions.totalFinanceVoter.toString());
+      Questions.financeVoterLength += 1;
+      Questions.financeVoterText ="VOTERS' ASSOCIATION "+Questions.financeVoterLength.toString();
+    }
+
+
+    else if(widget.completeQuestion == "How much did ${Questions.financeYouIdentity} donate to the voters' association?" && widget.questionOption == "Donated amount" && Questions.totalFinanceVoter > 0)
+    {
+      Questions.financeVoterLength += 1;
+      Questions.financeVoterText ="VOTERS' ASSOCIATION "+Questions.financeVoterLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How many other projects did ${Questions.financeYouIdentity} donate to?" && widget.questionOption == "Number of projects")
+    {
+      Questions.financeProjectLength = 0;
+      Questions.totalFinanceProject = int.parse(calculations.text);
+      print("Total Project"+Questions.totalFinanceProject.toString());
+      Questions.financeProjectLength += 1;
+      Questions.financeProjectText ="ORGANIZATION "+Questions.financeProjectLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How much money did ${Questions.financeYouIdentity} donate to this organization? " && widget.questionOption == "Donated amount" && Questions.totalFinanceProject > 0)
+    {
+      Questions.financeProjectLength += 1;
+      Questions.financeProjectText ="ORGANIZATION "+Questions.financeProjectLength.toString();
+    }
+
     qu.FinanceAddAnswer(widget.identity, widget.bigQuestion, widget.completeQuestion, widget.questionOption, [calculations.text.toString()], 55.0);
 
     Navigator.of(context).pop();

@@ -95,7 +95,24 @@ class _newHereState extends State<newHere> {
                         Questions.financeAnswerShow = [];
                         Questions.financeYouIdentity = "you";
                         Questions.financeYourIdentity = "your";
-
+                        Questions.financeOrganizationLength = 0;
+                        Questions.totalFinanceOrganization = 0;
+                        Questions.financeOrganizationText = "";
+                        Questions.financeEuOrganizationLength = 0;
+                        Questions.totalFinanceEuOrganization = 0;
+                        Questions.financeEuOrganizationText = "";
+                        Questions.financeReligiousLength = 0;
+                        Questions.totalFinanceReligious = 0;
+                        Questions.financeReligiousText = "";
+                        Questions.financePartyLength = 0;
+                        Questions.totalFinanceParty = 0;
+                        Questions.financePartyText = "";
+                        Questions.financeVoterLength = 0;
+                        Questions.totalFinanceVoter = 0;
+                        Questions.financeVoterText = "";
+                        Questions.financeProjectLength = 0;
+                        Questions.totalFinanceProject = 0;
+                        Questions.financeProjectText = "";
                         Navigator.push(context, MaterialPageRoute(builder: (context) {
                           return FinanceMainQuestions(CheckCompleteQuestion:"Did ${Questions.financeYouIdentity} have costs for any of the insurances listed here?",CheckQuestion:"Pensions/Life insurances",CheckAnswer:[]);
                         }));
