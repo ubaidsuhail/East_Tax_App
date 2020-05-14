@@ -160,42 +160,44 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
       }
       else if (Questions.financeAnswerShow[i]['details'] == "") {
         dynamicContainer.add(
-            Container(
-              margin: EdgeInsets.only(
-                  top: 2.5, bottom: 2.5, left: 10.0, right: 10.0),
-              height: Questions.financeAnswerShow[i]['containerheight'],
-              width: 450.0,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(7.0),
-                  border: Border.all(
-                      width: 1.0, color: Color.fromARGB(0xFF, 0xE8, 0xE8, 0xE8))
-              ),
-              child: Padding(
-                  padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                  child: Row(crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      //Text(Questions.answerShow[i]['question']),
-                      Container(
-                          width: 155.0,
-                          //color: Colors.purple,
-                          child:AutoSizeText(Questions.financeAnswerShow[i]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
-                      ),
-                      Row(children: <Widget>[
-                        //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
-                        Container(
-                            width: 140.0,
-                            // color:Colors.blue,
-                            child:AutoSizeText(Questions.financeAnswerShow[i]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
-
-                        ),
-                        SizedBox(width: 5.0,),
-                        Icon(Icons.arrow_forward_ios, size: 12.0,
-                            color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF))
-                      ],)
-                    ],
-                  )),
-            ));
+            SingleSmallContainer(currentIndex : i)
+//            Container(
+//              margin: EdgeInsets.only(
+//                  top: 2.5, bottom: 2.5, left: 10.0, right: 10.0),
+//              height: Questions.financeAnswerShow[i]['containerheight'],
+//              width: 450.0,
+//              decoration: BoxDecoration(
+//                  borderRadius: BorderRadius.circular(7.0),
+//                  border: Border.all(
+//                      width: 1.0, color: Color.fromARGB(0xFF, 0xE8, 0xE8, 0xE8))
+//              ),
+//              child: Padding(
+//                  padding: EdgeInsets.only(left: 10.0, right: 10.0),
+//                  child: Row(crossAxisAlignment: CrossAxisAlignment.center,
+//                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                    children: <Widget>[
+//                      //Text(Questions.answerShow[i]['question']),
+//                      Container(
+//                          width: 155.0,
+//                          //color: Colors.purple,
+//                          child:AutoSizeText(Questions.financeAnswerShow[i]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+//                      ),
+//                      Row(children: <Widget>[
+//                        //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
+//                        Container(
+//                            width: 140.0,
+//                            // color:Colors.blue,
+//                            child:AutoSizeText(Questions.financeAnswerShow[i]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+//
+//                        ),
+//                        SizedBox(width: 5.0,),
+//                        Icon(Icons.arrow_forward_ios, size: 12.0,
+//                            color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF))
+//                      ],)
+//                    ],
+//                  )),
+//            )
+        );
       }
 
       //data that contains long container
@@ -264,37 +266,38 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
           if (Questions.financeAnswerShow[j]['details'] == detailOption &&
               detail == false) {
             dynamicContainerbig.add(
-              Container(
-                  color: Colors.white,
-                  height: 55.0,
-                  width: 450.0,
-                  child: Padding(
-                      padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          //Text(Questions.answerShow[i]['question']),
-                          Container(
-                              width: 155.0,
-                              //color: Colors.purple,
-                              child:AutoSizeText(Questions.financeAnswerShow[j]['question'],style: TextStyle(color: Colors.grey),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
-                          ),
-                          Row(children: <Widget>[
-                            //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
-                            Container(
-                                width: 140.0,
-                                // color:Colors.blue,
-                                child:AutoSizeText(Questions.financeAnswerShow[j]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
-
-                            ),
-                            SizedBox(width: 5.0,),
-                            Icon(Icons.arrow_forward_ios, size: 12.0,
-                              color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),)
-                          ],)
-                        ],
-                      ))
-              ),
+                MultipleBigContainer(currentIndex : j)
+//              Container(
+//                  color: Colors.white,
+//                  height: 55.0,
+//                  width: 450.0,
+//                  child: Padding(
+//                      padding: EdgeInsets.only(left: 10.0, right: 10.0),
+//                      child: Row(
+//                        crossAxisAlignment: CrossAxisAlignment.center,
+//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                        children: <Widget>[
+//                          //Text(Questions.answerShow[i]['question']),
+//                          Container(
+//                              width: 155.0,
+//                              //color: Colors.purple,
+//                              child:AutoSizeText(Questions.financeAnswerShow[j]['question'],style: TextStyle(color: Colors.grey),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+//                          ),
+//                          Row(children: <Widget>[
+//                            //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
+//                            Container(
+//                                width: 140.0,
+//                                // color:Colors.blue,
+//                                child:AutoSizeText(Questions.financeAnswerShow[j]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+//
+//                            ),
+//                            SizedBox(width: 5.0,),
+//                            Icon(Icons.arrow_forward_ios, size: 12.0,
+//                              color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),)
+//                          ],)
+//                        ],
+//                      ))
+//              ),
 
             );
 
@@ -354,7 +357,8 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
           backgroundColor: Colors.white,
           leading: GestureDetector(
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushReplacementNamed(context, 'allCategoryScreen');
+                //Navigator.pop(context);
               },
               child:Icon(Icons.arrow_back_ios,color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),size: 20.0)
           ),
@@ -1645,5 +1649,171 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
   {
     Questions.financeAnimatedContainer = animatedcontainer;
     return FinanceThreeOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:340.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
+  }
+}
+
+
+
+
+//For show and index of small container
+class SingleSmallContainer extends StatelessWidget {
+
+  int currentIndex;
+  List answerSubList = [];
+  SingleSmallContainer({this.currentIndex});
+
+
+  @override
+  Widget build(BuildContext context) {
+    return  GestureDetector(
+        onTap: (){
+
+          print("Small Container Current index is:"+currentIndex.toString());
+
+
+          if(currentIndex == 0)
+          {
+            Questions.financeAnswerShow = [];
+
+            Navigator.of(context).pop();
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return FinanceMainQuestions(CheckCompleteQuestion : "",CheckQuestion : "",CheckAnswer : []);
+            }));
+          }
+
+          else {
+            answerSubList = Questions.financeAnswerShow.sublist(0, currentIndex);
+            print("Answer sub list:$answerSubList");
+            Questions.financeAnswerShow = [];
+            Questions.financeAnswerShow.addAll(answerSubList);
+
+            Navigator.of(context).pop();
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return FinanceMainQuestions(CheckCompleteQuestion : Questions.financeAnswerShow[currentIndex-1]['completequestion'],CheckQuestion : Questions.financeAnswerShow[currentIndex-1]['question'],CheckAnswer : [Questions.financeAnswerShow[currentIndex-1]['answer'][0]]);
+            }));
+          }
+
+
+
+
+
+        },
+        child:Container(
+          margin: EdgeInsets.only(top: 2.5, bottom: 2.5, left: 10.0, right: 10.0),
+          height: Questions.financeAnswerShow[currentIndex]['containerheight'],
+          width: 450.0,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(7.0),
+              border: Border.all(width: 1.0, color: Color.fromARGB(0xFF, 0xE8, 0xE8, 0xE8))
+          ),
+          child: Padding(
+              padding: EdgeInsets.only(left: 10.0, right: 10.0),
+              child: Row(crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  //Text(Questions.answerShow[i]['question']),
+                  Container(
+                      width: 155.0,
+                      //color: Colors.purple,
+                      child:AutoSizeText(Questions.financeAnswerShow[currentIndex]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+                  ),
+                  Row(children: <Widget>[
+                    //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
+                    Container(
+                        width: 140.0,
+                        // color:Colors.blue,
+                        child:AutoSizeText(Questions.financeAnswerShow[currentIndex]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+
+                    ),
+                    SizedBox(width: 5.0,),
+                    Icon(Icons.arrow_forward_ios, size: 12.0,
+                        color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF))
+                  ],)
+                ],
+              )),
+        ));
+  }
+}
+
+
+
+
+
+//For show and index of big container
+class MultipleBigContainer extends StatelessWidget {
+  int currentIndex;
+  List answerSubList = [];
+  MultipleBigContainer({this.currentIndex});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: ()
+        {
+          print("Big Coontainer Current index is:"+currentIndex.toString());
+
+          if(currentIndex == 0)
+          {
+            Questions.financeAnswerShow = [];
+
+            Navigator.of(context).pop();
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return FinanceMainQuestions(CheckCompleteQuestion : "",CheckQuestion : "",CheckAnswer : []);
+            }));
+          }
+
+          else {
+            answerSubList = Questions.financeAnswerShow.sublist(0, currentIndex);
+            print("Answer sub list:$answerSubList");
+            Questions.financeAnswerShow = [];
+            Questions.financeAnswerShow.addAll(answerSubList);
+
+            Navigator.of(context).pop();
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return FinanceMainQuestions(CheckCompleteQuestion : Questions.financeAnswerShow[currentIndex-1]['completequestion'],CheckQuestion : Questions.financeAnswerShow[currentIndex-1]['question'],CheckAnswer : [Questions.financeAnswerShow[currentIndex-1]['answer'][0]]);
+            }));
+          }
+
+
+
+
+
+
+//        Navigator.of(context).pop();
+//        Navigator.push(context, MaterialPageRoute(builder: (context) {
+//          return mainQuestions(CheckQuestion : Questions.answerShow[currentIndex]['question'],CheckAnswer : [Questions.answerShow[currentIndex]['answer'][0]]);
+//        }));
+        },
+        child:Container(
+            color: Colors.white,
+            height: 55.0,
+            width: 450.0,
+            child: Padding(
+                padding: EdgeInsets.only(left: 10.0, right: 10.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    //Text(Questions.answerShow[i]['question']),
+                    Container(
+                        width: 155.0,
+                        //color: Colors.purple,
+                        child:AutoSizeText(Questions.financeAnswerShow[currentIndex]['question'],style: TextStyle(color: Colors.grey),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+                    ),
+                    Row(children: <Widget>[
+                      //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
+                      Container(
+                          width: 140.0,
+                          // color:Colors.blue,
+                          child:AutoSizeText(Questions.financeAnswerShow[currentIndex]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+
+                      ),
+                      SizedBox(width: 5.0,),
+                      Icon(Icons.arrow_forward_ios, size: 12.0,
+                        color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),)
+                    ],)
+                  ],
+                ))
+        ));
   }
 }

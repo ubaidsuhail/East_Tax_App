@@ -10,7 +10,7 @@ import 'package:easy_taxx/education_flow/educationmainquestions.dart';
 import 'package:easy_taxx/family_flow/familymainquestions.dart';
 import 'package:easy_taxx/health_flow/healthmainquestions.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
-import 'package:responsive_container/responsive_container.dart';
+import 'package:easy_taxx/finance_flow/financemainquestions.dart';
 //void main() => runApp(MaterialApp(home:HomeScreen()));
 
 class FinishCategory extends StatefulWidget {
@@ -127,6 +127,7 @@ class _HomeScreenState extends State<FinishCategory> {
   {
      if(widget.currentCategory == "Living Situation Category")
        {
+         Questions.categoryImageChange[1] = 1;
 
          Questions.categoryFinish[0] = 1;
          Questions.categoryName ="Home";
@@ -146,6 +147,8 @@ class _HomeScreenState extends State<FinishCategory> {
 
      else if(widget.currentCategory == "Income Category")
      {
+       Questions.categoryImageChange[2] = 1;
+
        Questions.categoryFinish[1] = 1;
        Questions.categoryName ="Education";
        Questions.categoryImage = "images/uncoloreducation.png";
@@ -176,6 +179,7 @@ class _HomeScreenState extends State<FinishCategory> {
 
      else if(widget.currentCategory == "Home Category")
      {
+       Questions.categoryImageChange[4] = 1;
 
        Questions.categoryName ="family";
        Questions.categoryImage = "images/uncolorfamily.png";
@@ -218,6 +222,7 @@ class _HomeScreenState extends State<FinishCategory> {
 
      else if(widget.currentCategory == "Education Category")
      {
+       Questions.categoryImageChange[5] = 1;
 
        Questions.categoryName ="Health";
        Questions.categoryImage = "images/uncolorhealth.png";
@@ -264,6 +269,7 @@ class _HomeScreenState extends State<FinishCategory> {
      }
      else if(widget.currentCategory == "Family Category")
      {
+       Questions.categoryImageChange[6] = 1;
 
        Questions.categoryName ="Finances";
        Questions.categoryImage = "images/uncolorfinance.png";
@@ -287,8 +293,42 @@ class _HomeScreenState extends State<FinishCategory> {
 
      else if(widget.currentCategory == "Health Category")
      {
+       Questions.categoryImageChange[7] = 1;
+
+       Questions.categoryName ="Finances";
+       Questions.categoryImage = "images/uncolorfinance.png";
        Questions.categoryFinish[6] = 1;
 
+       Questions.financeAnswerShow = [];
+       Questions.financeYouIdentity = "you";
+       Questions.financeYourIdentity = "your";
+       Questions.financeOrganizationLength = 0;
+       Questions.totalFinanceOrganization = 0;
+       Questions.financeOrganizationText = "";
+       Questions.financeEuOrganizationLength = 0;
+       Questions.totalFinanceEuOrganization = 0;
+       Questions.financeEuOrganizationText = "";
+       Questions.financeReligiousLength = 0;
+       Questions.totalFinanceReligious = 0;
+       Questions.financeReligiousText = "";
+       Questions.financePartyLength = 0;
+       Questions.totalFinanceParty = 0;
+       Questions.financePartyText = "";
+       Questions.financeVoterLength = 0;
+       Questions.totalFinanceVoter = 0;
+       Questions.financeVoterText = "";
+       Questions.financeProjectLength = 0;
+       Questions.totalFinanceProject = 0;
+       Questions.financeProjectText = "";
+       Navigator.push(context, MaterialPageRoute(builder: (context) {
+         return FinanceMainQuestions(CheckCompleteQuestion:"Did ${Questions.financeYouIdentity} have costs for any of the insurances listed here?",CheckQuestion:"Pensions/Life insurances",CheckAnswer:[]);
+       }));
+
+     }
+
+     else if(widget.currentCategory == "Finances Category")
+     {
+       Questions.categoryFinish[7] = 1;
      }
   }
 }

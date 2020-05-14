@@ -6,6 +6,7 @@ import 'package:easy_taxx/education_flow/educationmainquestions.dart';
 import 'package:easy_taxx/family_flow/familymainquestions.dart';
 import 'package:easy_taxx/health_flow/healthmainquestions.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
+import 'package:easy_taxx/finance_flow/financemainquestions.dart';
 
 class AllCategoryScreen extends StatefulWidget {
   @override
@@ -70,7 +71,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                 ),
 
                 Container(
-                  height: MediaQuery.of(context).size.height*0.59,
+                  height: MediaQuery.of(context).size.height*0.61,
 
                 child:SingleChildScrollView(
                 child:Column(
@@ -80,29 +81,46 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                     LivingSituation();
                   },
                 child:Container(
-                    padding: EdgeInsets.only(top:16.0,bottom: 16.0),
-                child:ListTile(
-                  title: Row(
-                    children: <Widget>[
-                      Questions.categoryImageChange[0] == 1 ? Image(image:AssetImage("images/colorlivingsituation.png")) :Image(image:AssetImage("images/uncolorlivingsituation.png")) ,
-                      Padding(
-                        padding: EdgeInsets.only(left: 12.0),
-                        child: Text("Living Situation",style: TextStyle(fontSize: 15.0),),
+                    padding: EdgeInsets.only(top:26.0,bottom: 26.0,left: 16.0,right: 16.0),
+                child:Row(
+                  children: <Widget>[
+                    Container(
+                      width: MediaQuery.of(context).size.width*0.75,
+
+                      child: Row(
+                        children: <Widget>[
+                          Questions.categoryImageChange[0] == 1 ? Image(image:AssetImage("images/colorlivingsituation.png")) :Image(image:AssetImage("images/uncolorlivingsituation.png")) ,
+                          Padding(
+                            padding: EdgeInsets.only(left: 12.0),
+                            child: Text("Living Situation",style: TextStyle(fontSize: 15.0),),
+                          ),
+                        ],
                       ),
-                      Padding(
-                        padding:EdgeInsets.only(left: 115.0),
-                        child:
-                        Questions.categoryFinish[0] == 1 ? Image(image:AssetImage("images/righttick.png")) : Text(""),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width*0.15,
+
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+
+                          Padding(
+                            padding:EdgeInsets.only(right: 5.0),
+                           child: Questions.categoryFinish[0] == 1 ? Image(image:AssetImage("images/righttick.png")) : Text(""),
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.grey,
+                            size: 16.0,
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios,
-                    color: Colors.grey,
-                    size: 16.0,
-                  ),
-                  // title:Text("Tax 2019",style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                ))),
+                    )
+                  ],
+                )
+
+                )
+                ),
 
                 Divider(
                   height: 10.0,
@@ -119,31 +137,47 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                     Income();
                   },
                 child:Container(
-                    padding: EdgeInsets.only(top:16.0,bottom: 16.0),
+                    padding: EdgeInsets.only(top:22.0,bottom: 22.0,left: 16.0,right: 16.0),
+                    child:Row(
+                      children: <Widget>[
+                        Container(
+                          width: MediaQuery.of(context).size.width*0.75,
 
-                child:ListTile(
-                  title: Row(
-                    children: <Widget>[
-                      Questions.categoryImageChange[1] == 1 ? Image(image:AssetImage("images/colorincome.png")) :Image(image:AssetImage("images/uncolorincome.png")) ,
-                      Padding(
-                        padding: EdgeInsets.only(left: 12.0),
-                        child: Text("Income",style: TextStyle(fontSize: 15.0),),
-                      ),
-                      Padding(
-                        padding:EdgeInsets.only(left: 165.0),
-                        child:
-                        Questions.categoryFinish[1] == 1 ? Image(image:AssetImage("images/righttick.png")) : Text(""),
-                      ),
+                          child: Row(
+                            children: <Widget>[
+                              Questions.categoryImageChange[1] == 1 ? Image(image:AssetImage("images/colorincome.png")) :Image(image:AssetImage("images/uncolorincome.png")) ,
+                              Padding(
+                                padding: EdgeInsets.only(left: 12.0),
+                                child: Text("Income",style: TextStyle(fontSize: 15.0),),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width*0.15,
 
-                    ],
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios,
-                    color: Colors.grey,
-                    size: 16.0,
-                  ),
-                  // title:Text("Tax 2019",style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                ))),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+
+                              Padding(
+                                padding:EdgeInsets.only(right: 5.0),
+                                child: Questions.categoryFinish[1] == 1 ? Image(image:AssetImage("images/righttick.png")) : Text(""),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.grey,
+                                size: 16.0,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    )
+
+                )
+
+                ),
 
                 Divider(
                   height: 10.0,
@@ -157,30 +191,46 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                    Home();
                  },
                 child:Container(
-                    padding: EdgeInsets.only(top:16.0,bottom: 16.0),
-                child:ListTile(
-                  title: Row(
-                    children: <Widget>[
-                      Questions.categoryImageChange[2] == 1 ? Image(image:AssetImage("images/colorhome.png")) :Image(image:AssetImage("images/uncolorhome.png")) ,
-                      Padding(
-                        padding: EdgeInsets.only(left: 12.0),
-                        child: Text("Home",style: TextStyle(fontSize: 15.0),),
-                      ),
+                    padding: EdgeInsets.only(top:22.0,bottom: 22.0,left: 16.0,right: 16.0),
+                    child:Row(
+                      children: <Widget>[
+                        Container(
+                          width: MediaQuery.of(context).size.width*0.75,
 
-                      Padding(
-                        padding:EdgeInsets.only(left: 175.0),
-                        child:
-                        Questions.categoryFinish[2] == 1 ? Image(image:AssetImage("images/righttick.png")) : Text(""),
-                      ),
-                    ],
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios,
-                    color: Colors.grey,
-                    size: 16.0,
-                  ),
-                  // title:Text("Tax 2019",style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                ))),
+                          child: Row(
+                            children: <Widget>[
+                              Questions.categoryImageChange[2] == 1 ? Image(image:AssetImage("images/colorhome.png")) :Image(image:AssetImage("images/uncolorhome.png")) ,
+                              Padding(
+                                padding: EdgeInsets.only(left: 12.0),
+                                child: Text("Home",style: TextStyle(fontSize: 15.0),),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width*0.15,
+
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+
+                              Padding(
+                                padding:EdgeInsets.only(right: 5.0),
+                                child: Questions.categoryFinish[2] == 1 ? Image(image:AssetImage("images/righttick.png")) : Text(""),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.grey,
+                                size: 16.0,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    )
+
+                )
+               ),
 
                 Divider(
                   height: 10.0,
@@ -195,24 +245,46 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                     Work();
                   },
                 child:Container(
-                padding: EdgeInsets.only(top:16.0,bottom: 16.0),
-                child:ListTile(
-                  title: Row(
-                    children: <Widget>[
-                      Questions.categoryImageChange[3] == 1 ? Image(image:AssetImage("images/colorwork.png")) :Image(image:AssetImage("images/uncolorwork.png")) ,
-                      Padding(
-                        padding: EdgeInsets.only(left: 12.0),
-                        child: Text("Work",style: TextStyle(fontSize: 15.0),),
-                      ),
-                    ],
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios,
-                    color: Colors.grey,
-                    size: 16.0,
-                  ),
-                  // title:Text("Tax 2019",style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                ))),
+                    padding: EdgeInsets.only(top:22.0,bottom: 22.0,left: 16.0,right: 16.0),
+                    child:Row(
+                      children: <Widget>[
+                        Container(
+                          width: MediaQuery.of(context).size.width*0.75,
+
+                          child: Row(
+                            children: <Widget>[
+                              Questions.categoryImageChange[3] == 1 ? Image(image:AssetImage("images/colorwork.png")) :Image(image:AssetImage("images/uncolorwork.png")) ,
+                              Padding(
+                                padding: EdgeInsets.only(left: 12.0),
+                                child: Text("Work",style: TextStyle(fontSize: 15.0),),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width*0.15,
+
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+
+                              Padding(
+                                padding:EdgeInsets.only(right: 5.0),
+                                child: Questions.categoryFinish[3] == 1 ? Image(image:AssetImage("images/righttick.png")) : Text(""),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.grey,
+                                size: 16.0,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    )
+
+                )
+                ),
 
                 Divider(
                   height: 10.0,
@@ -227,30 +299,46 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                     Education();
                   },
                 child:Container(
-                    margin: EdgeInsets.only(top:16.0,bottom: 16.0),
-                child:ListTile(
-                  title: Row(
-                    children: <Widget>[
-                      Questions.categoryImageChange[4] == 1 ? Image(image:AssetImage("images/coloreducation.png")) :Image(image:AssetImage("images/uncoloreducation.png")) ,
-                      Padding(
-                        padding: EdgeInsets.only(left: 12.0),
-                        child: Text("Education",style: TextStyle(fontSize: 15.0),),
-                      ),
+                    padding: EdgeInsets.only(top:22.0,bottom: 22.0,left: 16.0,right: 16.0),
+                    child:Row(
+                      children: <Widget>[
+                        Container(
+                          width: MediaQuery.of(context).size.width*0.75,
 
-                      Padding(
-                        padding:EdgeInsets.only(left: 155.0),
-                        child:
-                        Questions.categoryFinish[4] == 1 ? Image(image:AssetImage("images/righttick.png")) : Text(""),
-                      ),
-                    ],
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios,
-                    color: Colors.grey,
-                    size: 16.0,
-                  ),
-                  // title:Text("Tax 2019",style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                ))),
+                          child: Row(
+                            children: <Widget>[
+                              Questions.categoryImageChange[4] == 1 ? Image(image:AssetImage("images/coloreducation.png")) :Image(image:AssetImage("images/uncoloreducation.png")) ,
+                              Padding(
+                                padding: EdgeInsets.only(left: 12.0),
+                                child: Text("Education",style: TextStyle(fontSize: 15.0),),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width*0.15,
+
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+
+                              Padding(
+                                padding:EdgeInsets.only(right: 5.0),
+                                child: Questions.categoryFinish[4] == 1 ? Image(image:AssetImage("images/righttick.png")) : Text(""),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.grey,
+                                size: 16.0,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    )
+
+                )
+                ),
 
                 Divider(
                   height: 10.0,
@@ -263,30 +351,47 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                       Family();
                     },
                     child:Container(
-                    padding: EdgeInsets.only(top:16.0,bottom: 16.0),
-                    child:ListTile(
-                      title: Row(
-                        children: <Widget>[
-                          Questions.categoryImageChange[5] == 1 ? Image(image:AssetImage("images/colorfamily.png")) :Image(image:AssetImage("images/uncolorfamily.png")) ,
-                          Padding(
-                            padding: EdgeInsets.only(left: 12.0),
-                            child: Text("Family",style: TextStyle(fontSize: 15.0),),
-                          ),
+                        padding: EdgeInsets.only(top:22.0,bottom: 22.0,left: 16.0,right: 16.0),
+                        child:Row(
+                          children: <Widget>[
+                            Container(
+                              width: MediaQuery.of(context).size.width*0.75,
 
-                          Padding(
-                            padding:EdgeInsets.only(left: 165.0),
-                            child:
-                            Questions.categoryFinish[5] == 1 ? Image(image:AssetImage("images/righttick.png")) : Text(""),
-                          ),
-                        ],
-                      ),
-                      trailing: Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.grey,
-                        size: 16.0,
-                      ),
-                      // title:Text("Tax 2019",style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                    ))),
+                              child: Row(
+                                children: <Widget>[
+                                  Questions.categoryImageChange[5] == 1 ? Image(image:AssetImage("images/colorfamily.png")) :Image(image:AssetImage("images/uncolorfamily.png")) ,
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 12.0),
+                                    child: Text("Family",style: TextStyle(fontSize: 15.0),),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width*0.15,
+
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: <Widget>[
+
+                                  Padding(
+                                    padding:EdgeInsets.only(right: 5.0),
+                                    child: Questions.categoryFinish[5] == 1 ? Image(image:AssetImage("images/righttick.png")) : Text(""),
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Colors.grey,
+                                    size: 16.0,
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        )
+
+                    )
+
+                ),
 
                 Divider(
                   height: 10.0,
@@ -301,30 +406,46 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                     Health();
                   },
                 child:Container(
-                 padding: EdgeInsets.only(top:16.0,bottom: 16.0),
-                child:ListTile(
-                  title: Row(
-                    children: <Widget>[
-                      Questions.categoryImageChange[6] == 1 ? Image(image:AssetImage("images/colorhealth.png")) :Image(image:AssetImage("images/uncolorhealth.png")) ,
-                      Padding(
-                        padding: EdgeInsets.only(left: 20.0),
-                        child: Text("Health",style: TextStyle(fontSize: 15.0),),
-                      ),
+                    padding: EdgeInsets.only(top:22.0,bottom: 22.0,left: 16.0,right: 16.0),
+                    child:Row(
+                      children: <Widget>[
+                        Container(
+                          width: MediaQuery.of(context).size.width*0.75,
 
-                      Padding(
-                        padding:EdgeInsets.only(left: 170.0),
-                        child:
-                        Questions.categoryFinish[6] == 1 ? Image(image:AssetImage("images/righttick.png")) : Text(""),
-                      ),
-                    ],
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios,
-                    color: Colors.grey,
-                    size: 16.0,
-                  ),
-                  // title:Text("Tax 2019",style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                ))),
+                          child: Row(
+                            children: <Widget>[
+                              Questions.categoryImageChange[6] == 1 ? Image(image:AssetImage("images/colorhealth.png")) :Image(image:AssetImage("images/uncolorhealth.png")) ,
+                              Padding(
+                                padding: EdgeInsets.only(left: 12.0),
+                                child: Text("Health",style: TextStyle(fontSize: 15.0),),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width*0.15,
+
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+
+                              Padding(
+                                padding:EdgeInsets.only(right: 5.0),
+                                child: Questions.categoryFinish[6] == 1 ? Image(image:AssetImage("images/righttick.png")) : Text(""),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.grey,
+                                size: 16.0,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    )
+
+                )
+                ),
 
                 Divider(
                   height: 10.0,
@@ -338,24 +459,46 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                     Finance();
                   },
                 child:Container(
-                padding: EdgeInsets.only(top:16.0,bottom: 16.0),
-                child:ListTile(
-                  title: Row(
-                    children: <Widget>[
-                      Questions.categoryImageChange[7] == 1 ? Image(image:AssetImage("images/colorfinance.png")) :Image(image:AssetImage("images/uncolorfinance.png")) ,
-                      Padding(
-                        padding: EdgeInsets.only(left: 12.0),
-                        child: Text("Finances",style: TextStyle(fontSize: 15.0),),
-                      ),
-                    ],
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios,
-                    color: Colors.grey,
-                    size: 16.0,
-                  ),
-                  // title:Text("Tax 2019",style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                ))),
+                    padding: EdgeInsets.only(top:22.0,bottom: 22.0,left: 16.0,right: 16.0),
+                    child:Row(
+                      children: <Widget>[
+                        Container(
+                          width: MediaQuery.of(context).size.width*0.75,
+
+                          child: Row(
+                            children: <Widget>[
+                              Questions.categoryImageChange[7] == 1 ? Image(image:AssetImage("images/colorfinance.png")) :Image(image:AssetImage("images/uncolorfinance.png")) ,
+                              Padding(
+                                padding: EdgeInsets.only(left: 12.0),
+                                child: Text("Finances",style: TextStyle(fontSize: 15.0),),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width*0.15,
+
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+
+                              Padding(
+                                padding:EdgeInsets.only(right: 5.0),
+                                child: Questions.categoryFinish[4] == 1 ? Image(image:AssetImage("images/righttick.png")) : Text(""),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.grey,
+                                size: 16.0,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    )
+
+                )
+                ),
 
                 Divider(
                   height: 10.0,
@@ -405,7 +548,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                          child:Container(
                           margin: EdgeInsets.only(right: 10.0),
                             width: MediaQuery.of(context).size.width*0.25,
-                            height: 40.0,
+                            height: MediaQuery.of(context).size.height / 16,
                             decoration: BoxDecoration(
                              color: Colors.lightBlueAccent,
                              border: Border.all(
@@ -627,7 +770,27 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
 
   void Finance()
   {
+    Questions.categoryName ="Finances";
+    Questions.categoryImage = "images/uncolorfinance.png";
     Questions.categoryImageChange[7] = 1;
+
+
+    if(Questions.financeAnswerShow.length == 0)
+    {
+
+      Navigator.of(context).pop();
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return FinanceMainQuestions(CheckCompleteQuestion : "",CheckQuestion : "",CheckAnswer : []);
+      }));
+    }
+
+    else {
+
+      Navigator.of(context).pop();
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return FinanceMainQuestions(CheckCompleteQuestion : Questions.financeAnswerShow[Questions.financeAnswerShow.length-1]['completequestion'],CheckQuestion : Questions.financeAnswerShow[Questions.financeAnswerShow.length-1]['question'],CheckAnswer : [Questions.financeAnswerShow[Questions.financeAnswerShow.length-1]['answer'][0]]);
+      }));
+    }
   }
 
 
@@ -635,6 +798,8 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
   {
     if(Questions.categoryName == "Income")
       {
+        Questions.categoryImageChange[1] = 1;
+
         Navigator.of(context).pop();
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return IncomeMainQuestions(CheckCompleteQuestion : "",CheckQuestion : "",CheckAnswer : []);
@@ -642,6 +807,8 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
       }
     else if(Questions.categoryName == "Home")
     {
+      Questions.categoryImageChange[2] = 1;
+
       Navigator.of(context).pop();
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return HomeMainQuestions(CheckCompleteQuestion : "",CheckQuestion : "",CheckAnswer : []);
@@ -649,6 +816,8 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
     }
     else if(Questions.categoryName == "Education")
     {
+      Questions.categoryImageChange[4] = 1;
+
       Navigator.of(context).pop();
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return EducationMainQuestions(CheckCompleteQuestion : "",CheckQuestion : "",CheckAnswer : []);
@@ -656,16 +825,29 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
     }
     else if(Questions.categoryName == "Family")
     {
+      Questions.categoryImageChange[5] = 1;
+
       Navigator.of(context).pop();
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return FamilyMainQuestions(CheckCompleteQuestion : "",CheckQuestion : "",CheckAnswer : []);
       }));
     }
-    else if(Questions.categoryName == "health")
+    else if(Questions.categoryName == "Health")
     {
+      Questions.categoryImageChange[6] = 1;
+
       Navigator.of(context).pop();
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return HealthMainQuestions(CheckCompleteQuestion : "",CheckQuestion : "",CheckAnswer : []);
+      }));
+    }
+    else if(Questions.categoryName == "Finances")
+    {
+      Questions.categoryImageChange[7] = 1;
+
+      Navigator.of(context).pop();
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return FinanceMainQuestions(CheckCompleteQuestion : "",CheckQuestion : "",CheckAnswer : []);
       }));
     }
 
