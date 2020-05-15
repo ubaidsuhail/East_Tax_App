@@ -82,6 +82,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                   },
                 child:Container(
                     padding: EdgeInsets.only(top:26.0,bottom: 26.0,left: 16.0,right: 16.0),
+                color:Colors.white,
                 child:Row(
                   children: <Widget>[
                     Container(
@@ -138,6 +139,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                   },
                 child:Container(
                     padding: EdgeInsets.only(top:22.0,bottom: 22.0,left: 16.0,right: 16.0),
+                    color:Colors.white,
                     child:Row(
                       children: <Widget>[
                         Container(
@@ -192,6 +194,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                  },
                 child:Container(
                     padding: EdgeInsets.only(top:22.0,bottom: 22.0,left: 16.0,right: 16.0),
+                    color:Colors.white,
                     child:Row(
                       children: <Widget>[
                         Container(
@@ -246,6 +249,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                   },
                 child:Container(
                     padding: EdgeInsets.only(top:22.0,bottom: 22.0,left: 16.0,right: 16.0),
+                    color:Colors.white,
                     child:Row(
                       children: <Widget>[
                         Container(
@@ -300,6 +304,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                   },
                 child:Container(
                     padding: EdgeInsets.only(top:22.0,bottom: 22.0,left: 16.0,right: 16.0),
+                    color:Colors.white,
                     child:Row(
                       children: <Widget>[
                         Container(
@@ -352,6 +357,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                     },
                     child:Container(
                         padding: EdgeInsets.only(top:22.0,bottom: 22.0,left: 16.0,right: 16.0),
+                        color:Colors.white,
                         child:Row(
                           children: <Widget>[
                             Container(
@@ -407,6 +413,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                   },
                 child:Container(
                     padding: EdgeInsets.only(top:22.0,bottom: 22.0,left: 16.0,right: 16.0),
+                    color:Colors.white,
                     child:Row(
                       children: <Widget>[
                         Container(
@@ -460,6 +467,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                   },
                 child:Container(
                     padding: EdgeInsets.only(top:22.0,bottom: 22.0,left: 16.0,right: 16.0),
+                    color:Colors.white,
                     child:Row(
                       children: <Widget>[
                         Container(
