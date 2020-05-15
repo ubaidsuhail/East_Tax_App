@@ -82,7 +82,7 @@ class _newHereState extends State<newHere> {
 
             ListTile(
               leading: AutoSizeText(
-                '2019',style: TextStyle(fontSize: 20.0),
+                '2019',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold),
               ),
 
               trailing:
@@ -226,7 +226,7 @@ class _newHereState extends State<newHere> {
 
             ListTile(
               leading: AutoSizeText(
-                '2018',style: TextStyle(fontSize: 20.0),
+                '2018',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold),
               ),
 
               trailing: GestureDetector(
@@ -261,7 +261,7 @@ class _newHereState extends State<newHere> {
 
             ListTile(
               leading: AutoSizeText(
-                '2017',style: TextStyle(fontSize: 20.0),
+                '2017',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold),
               ),
 
               trailing: GestureDetector(
@@ -307,7 +307,7 @@ class _newHereState extends State<newHere> {
 
             ListTile(
                 leading: AutoSizeText(
-                  '2016',style: TextStyle(fontSize: 20.0),
+                  '2016',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold),
                 ),
 
                 trailing: GestureDetector(
