@@ -110,7 +110,8 @@ static String craftsmenText = "";
 // ========= Work Flow Start ========== //
 static List workAnswerShow=[];
 static double workAnimatedContainer;
-
+static String workYouIdentity = "you";
+static String workYourIdentity = "your";
 
  void WorkAddAnswer(String UserIdentity, String details,String completequestion,String question,List answer,double containerheight)
  {

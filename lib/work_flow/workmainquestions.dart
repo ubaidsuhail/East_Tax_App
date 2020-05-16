@@ -4,6 +4,9 @@ import 'dart:async';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:easy_taxx/work_flow/workcalculationcontainer.dart';
 import 'package:easy_taxx/work_flow/workyesnocontainer.dart';
+import 'package:easy_taxx/work_flow/workmultipleoptionscontainer.dart';
+import 'package:easy_taxx/work_flow/workthreeoptioncontainer.dart';
+
 
 
 //void main() => runApp(MaterialApp(home:HomeScreen()));
@@ -394,70 +397,190 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
     if(Questions.workAnswerShow.length == 0)
     {
       //Question No 1
-      return workcalculationContainer("","Work","What was your job title?","Profession",220.0,"","");
+      return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+
     }
 
     else
       {
         //Answer No 1
-        if(widget.CheckCompleteQuestion == "What was your job title?"  && widget.CheckQuestion == "Profession")
+        if(widget.CheckCompleteQuestion =="What was ${Questions.workYourIdentity} job title?" && widget.CheckQuestion == "Profession")
         {
           //Question No 2
-          return workyesnoContainer("","Work","Did you take any business trips or travel for work in 2019?","Business trips",220.0,"","");
-
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} take any business trips or travel for work in 2019?","Business trips",220.0,"","",[]);
         }
 
         //Answer No 2
-        else if(widget.CheckCompleteQuestion =="Did you take any business trips or travel for work in 2019?" && widget.CheckQuestion == "Business trips")
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} take any business trips or travel for work in 2019?" && widget.CheckQuestion == "Business trips")
         {
+
           if(widget.CheckAnswer[0] == "No")
           {
             //Question No 3
-            return workyesnoContainer("","Work","Did you have an accident during your commute in 2019?","Accident",220.0,"","");
+            //For No 220.0
+            //For Yes 430.0
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} have an accident during your commute in 2019?","Accident",220.0,"","",[]);
           }
 
           else if(widget.CheckAnswer[0] == "Yes")
           {
-          //Question No 4
-            return workyesnoContainer("","Work","Have you had costs during your business trip for which you were not reimbursed by your employer?","Costs not reimbursed",220.0,"","");
+
+
           }
+
         }
 
 
-        //Answer No 4
-        else if(widget.CheckCompleteQuestion =="Have you had costs during your business trip for which you were not reimbursed by your employer?" && widget.CheckQuestion == "Costs not reimbursed")
+        //Answer No 3
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} have an accident during your commute in 2019?" && widget.CheckQuestion == "Accident")
         {
+
           if(widget.CheckAnswer[0] == "No")
           {
-            //Question No 5
-            return workyesnoContainer("","Work","Did you receive reimbursements from your employer for daily allowances?","Reimbursement daily allowances",220.0,"","");
+            //Question No 12
+            // For No 430.0
+            // For Yes 220.0
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} work from home?","Work from home",220.0,"","",[]);
+
           }
 
           else if(widget.CheckAnswer[0] == "Yes")
           {
+            //Question No 4
+            return workmultipleoptionsContainer("","Work","What costs did ${Questions.workYouIdentity} have due to the accident?","Costs",["Repairs","Technical report","Deductible amount","Claim for damages","Rental car","Travel costs","Medical expenses","None of these"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None of these","",[]);
+          }
+
+        }
+
+        // ====== Costs due to accident Starts ====== //
+
+        //Answer No 4
+        else if(widget.CheckCompleteQuestion =="What costs did ${Questions.workYouIdentity} have due to the accident?" && widget.CheckQuestion == "Costs")
+        {
+
+          for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+            if(widget.CheckAnswer[m] == "Repairs")
+            {
+             //Question No 5
+              return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on repairs?","Repair costs",220.0,"calculation","",[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "Technical report")
+            {
+               //Question No 6
+              return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} pay for an expert?","Expert",220.0,"calculation","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Deductible amount")
+            {
+              //Question No 7
+              return workcalculationContainer("","Work","How much was ${Questions.workYourIdentity} deductible amount?","Deductible amount",220.0,"calculation","",[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "Claim for damages")
+            {
+              //Question No 8
+              return workcalculationContainer("","Work","How much compensation did ${Questions.workYouIdentity} pay?","Claim for damages",220.0,"calculation","",[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "Rental car")
+            {
+              //Question No 9
+              return workcalculationContainer("","Work","How much was the rental car?","Rental car",220.0,"calculation","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Travel costs")
+            {
+              //Question No 10
+              return workcalculationContainer("","Work","How much were ${Questions.workYourIdentity} travel costs?","Travel costs",220.0,"calculation","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Medical expenses")
+            {
+              //Question No 11
+              return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on medical expenses?","Medical expenses",220.0,"calculation","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "None of these")
+            {
+              //Question No 12
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} work from home?","Work from home",220.0,"","",[]);
+            }
+
 
           }
         }
+
 
 
         //Answer No 5
-        else if(widget.CheckCompleteQuestion =="Did you receive reimbursements from your employer for daily allowances?" && widget.CheckQuestion == "Reimbursement daily allowances")
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on repairs?" && widget.CheckQuestion == "Repair costs")
         {
-          if(widget.CheckAnswer[0] == "No")
-          {
-            //Question No 6
-            return workyesnoContainer("","Work","Did you also travel abroad?","Travelled abroad",220.0,"","");
-          }
-
-          else if(widget.CheckAnswer[0] == "Yes")
-          {
-
-          }
+          //Question No 12
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} work from home?","Work from home",220.0,"","",[]);
         }
 
         //Answer No 6
-        else if(widget.CheckCompleteQuestion =="Did you also travel abroad?" && widget.CheckQuestion == "Travelled abroad")
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} pay for an expert?" && widget.CheckQuestion == "Expert")
         {
+          //Question No 12
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} work from home?","Work from home",220.0,"","",[]);
+
+        }
+
+
+        //Answer No 7
+        else if(widget.CheckCompleteQuestion =="How much was ${Questions.workYourIdentity} deductible amount?" && widget.CheckQuestion == "Deductible amount")
+        {
+          //Question No 12
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} work from home?","Work from home",220.0,"","",[]);
+
+        }
+
+
+        //Answer No 8
+        else if(widget.CheckCompleteQuestion =="How much compensation did ${Questions.workYouIdentity} pay?" && widget.CheckQuestion == "Claim for damages")
+        {
+          //Question No 12
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} work from home?","Work from home",220.0,"","",[]);
+
+        }
+
+
+        //Answer No 9
+        else if(widget.CheckCompleteQuestion =="How much was the rental car?" && widget.CheckQuestion == "Rental car")
+        {
+          //Question No 12
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} work from home?","Work from home",220.0,"","",[]);
+        }
+
+
+        //Answer No 10
+        else if(widget.CheckCompleteQuestion =="How much were ${Questions.workYourIdentity} travel costs?" && widget.CheckQuestion == "Travel costs")
+        {
+          //Question No 12
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} work from home?","Work from home",220.0,"","",[]);
+        }
+
+        //Answer No 11
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on medical expenses?" && widget.CheckQuestion == "Medical expenses")
+        {
+          //Question No 12
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} work from home?","Work from home",220.0,"","",[]);
+        }
+
+
+
+        // ====== Costs due to accident Ends ====== //
+
+        //Answer No 12
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} work from home?" && widget.CheckQuestion == "Work from home")
+        {
+
           if(widget.CheckAnswer[0] == "No")
           {
 
@@ -465,31 +588,120 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
           else if(widget.CheckAnswer[0] == "Yes")
           {
-            //Question No 7
-            return workcalculationContainer("","Work","How many countries did you travel to due to business trips?","Number of countries",220.0,"","");
+            //Question No 13
+            // For No 430.0
+            // For Yes 220.0
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} work in a separate room?","Separate room",220.0,"","",[]);
           }
+
         }
 
+        //Answer No 13
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} work in a separate room?" && widget.CheckQuestion == "Separate room")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 14
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} have more than one home office?","Separate room",340.0,"","",[]);
+          }
+
+        }
+
+
+        //Answer No 14
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} have more than one home office?" && widget.CheckQuestion == "Separate room")
+        {
+
+          if(widget.CheckAnswer[0] == "No" || widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 15
+            return workthreeoptionContainer("","Work","Which activities did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} home office for?","Type of use",["For all occupational activities (e.g. author)","For certain tasks (e.g.teacher)","Sometimes for work (e.g. home office possibility)"],220.0,"","",[]);
+          }
+
+        }
+
+
+       //Answer No 15
+        else if(widget.CheckCompleteQuestion =="Which activities did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} home office for?" && widget.CheckQuestion == "Type of use")
+        {
+
+          if(widget.CheckAnswer[0] == "Sometimes for work (e.g. home office possibility)")
+          {
+
+          }
+
+          else
+          {
+           //Question No 16
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} have the opportunity to carry out these tasks at ${Questions.workYourIdentity} employer's office?","Possible at employer?",340.0,"","",[]);
+          }
+
+        }
+
+        //Answer No 16
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} have the opportunity to carry out these tasks at ${Questions.workYourIdentity} employer's office?" && widget.CheckQuestion == "Possible at employer?")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+           //QuestionNo 17
+            return workcalculationContainer("","Work","What is the area of ${Questions.workYourIdentity} home office in square meters?","Home office sq m",220.0,"","",[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+
+          }
+
+        }
+
+        //Answer No 17
+        else if(widget.CheckCompleteQuestion =="What is the area of ${Questions.workYourIdentity} home office in square meters?" && widget.CheckQuestion == "Home office sq m")
+        {
+           //QuestionNo 18
+          return workcalculationContainer("","Work","What is the total area of ${Questions.workYourIdentity} apartment in square meters?","Total area in sq m",220.0,"","",[]);
+        }
+
+        //Answer No 18
+        else if(widget.CheckCompleteQuestion =="What is the total area of ${Questions.workYourIdentity} apartment in square meters?" && widget.CheckQuestion == "Total area in sq m")
+        {
+          //Question No 19
+          return workcalculationContainer("","Work","What is the total monthly cost of ${Questions.workYourIdentity} entire apartment including utilities?","Total housing costs",220.0,"calculation","",[]);
+        }
 
       }
   }
 
 
-  Widget workcalculationContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption, double animatedcontainer, String AdditionalData, String MultipleData)
+  Widget workcalculationContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption, double animatedcontainer, String AdditionalData, String MultipleData, List Suggestion)
   {
     Questions.workAnimatedContainer = animatedcontainer;
-    return WorkCalculationContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:220.0,additionalData:AdditionalData,multipleData:MultipleData);
-
+    return WorkCalculationContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:220.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
   }
 
-
-
-  Widget workyesnoContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption, double animatedcontainer, String AdditionalData, String MultipleData)
+  Widget workyesnoContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption, double animatedcontainer, String AdditionalData, String MultipleData, List Suggestion)
   {
     Questions.workAnimatedContainer = animatedcontainer;
-    return WorkYesNoContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:220.0,additionalData:AdditionalData,multipleData:MultipleData);
+    return WorkYesNoContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:220.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
   }
 
+  Widget workmultipleoptionsContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,List AnswerImages, double animatedcontainer, String AdditionalData, String MultipleData, List Suggestion)
+  {
+    Questions.workAnimatedContainer = animatedcontainer;
+    return WorkMultipleOptionsContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,answerImages:AnswerImages,containerSize:430.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
+  }
+
+  Widget workthreeoptionContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,double animatedcontainer, String AdditionalData, String MultipleData, List Suggestion )
+  {
+    Questions.workAnimatedContainer = animatedcontainer;
+    return WorkThreeOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:340.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
+  }
 }
 
 

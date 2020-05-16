@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'dart:async';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:easy_taxx/work_flow/workmainquestions.dart';
@@ -12,9 +11,10 @@ class WorkCalculationContainer extends StatefulWidget {
   String bigQuestion;
   String additionalData;
   String multipleData;
+  List suggestion;
 
 
-  WorkCalculationContainer({this.identity,this.bigQuestion,this.completeQuestion,this.questionOption,this.containerSize,this.additionalData,this.multipleData});
+  WorkCalculationContainer({this.identity,this.bigQuestion,this.completeQuestion,this.questionOption,this.containerSize,this.additionalData,this.multipleData,this.suggestion});
   @override
   _WorkCalculationContainerState createState() => _WorkCalculationContainerState();
 }
@@ -63,7 +63,7 @@ class _WorkCalculationContainerState extends State<WorkCalculationContainer> {
         width: MediaQuery.of(context).size.width,
 //                    constraints: BoxConstraints(minHeight: minHeight, maxHeight: maxHeight),
         alignment: Alignment.topCenter,
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.only(top: 10.0,bottom: 10.0),
         decoration: BoxDecoration(
           //color: Colors.grey[200],
           color: Colors.white,
@@ -84,77 +84,106 @@ class _WorkCalculationContainerState extends State<WorkCalculationContainer> {
                   Stack(
                     children: <Widget>[
                       Container(
+                        margin: EdgeInsets.only(left: 10.0,right: 10.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.blueAccent,
+                          color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),
                         ),
-                        height: 140.0,
-                        width: 450.0,
+                        height: 150.0,
+                        width: MediaQuery.of(context).size.width,
 
                       ),
 
+
                       Positioned(
-                        left: 10.0,
-                        top: 13.0,
-                        child: Text(widget.multipleData,style: TextStyle(fontSize:12.5,color: Colors.black),),
+                          right: MediaQuery.of(context).size.width* 0.04 ,
+                          top: 7.0,
+                          child: GestureDetector(
+                              onTap: (){
+
+                              },
+                              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
                       ),
 
                       Positioned(
-                        top: 35.0,
-                        left: 10.0,
-                        right: 10.0,
+                          left: MediaQuery.of(context).size.width / 30.0,
+                          top: 30.0,
+                          child:Padding(
+                            padding: EdgeInsets.only(left: 10.0),
+                            child: Text(widget.multipleData,style: TextStyle(fontSize:12.5,color: Colors.black),),
+                          )),
 
-                        child: Text(widget.completeQuestion,style: TextStyle(fontSize:17.5,color: Colors.white,wordSpacing: 3.0),),
+                      Positioned(
+                        top: 52.0,
+                        left: MediaQuery.of(context).size.width / 30.0,
+                        right: MediaQuery.of(context).size.width / 30.0,
+
+                        child:Padding(
+                            padding: EdgeInsets.only(left: 10.0),
+                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+
                       )
 
                     ],
                   ),
-                  SizedBox(height: 10.0,),
+                  SizedBox(height: 8.0,),
+                  Container(
+                    //margin: EdgeInsets.only(top: 5.0),
+                    height: 2.0,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: new BoxDecoration(boxShadow: [
+                      new BoxShadow(
+                        color: Colors.grey[300],
+                        blurRadius: 0.8,
 
-                  Card(
-                      elevation: 6.0,
-                      child:Container(
-                        //margin: EdgeInsets.only(right: 60.0),
+                      ),
+                    ]),
+
+                  ),
+
+
+                  Container(
+                    //margin: EdgeInsets.only(right: 60.0),
 //                                      decoration: new BoxDecoration(boxShadow: [
 //                                        new BoxShadow(
 //                                          color: Colors.grey,
 //                                          blurRadius: 5.0,
 //                                        ),
 //                                      ]),
-                          width: MediaQuery.of(context).size.width,
-                          child:Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Container(
-                                  color:Colors.white,
-                                  width: MediaQuery.of(context).size.width*0.45,
-                                  height: 60.0,
+                      width: MediaQuery.of(context).size.width,
+                      child:Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Container(
+                              color:Colors.white,
+                              width: MediaQuery.of(context).size.width*0.70,
+                              height: 50.0,
 //                    color: Colors.wh,
-                                  child: TextFormField(
-                                    controller: calculations,
-                                    //inputFormatters: [maskTextInputFormatter],
-                                    //keyboardType: TextInputType.number,
-                                    decoration: InputDecoration(
-                                        border: InputBorder.none,
+                              child: TextFormField(
+                                controller: calculations,
+                                //inputFormatters: [maskTextInputFormatter],
+                                //keyboardType: TextInputType.number,
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
 
-                                        hintText: "0",
-                                        contentPadding: EdgeInsets.only(left: 15.0)
-                                    ),
-                                  )
-                              ),
+                                    hintText: "0",
+                                    contentPadding: EdgeInsets.only(left: 15.0)
+                                ),
+                              )
+                          ),
 
-                              Container(
-                                //margin: EdgeInsets.only(left: 20.0),
-                                // color: Colors.blue,
-                                width: MediaQuery.of(context).size.width*0.15,
-                                child:GestureDetector(
-                                  onTap: (){
-                                    AddData();
-                                  },
-                                  child: Text("Confirm",style: TextStyle(color: Colors.blueAccent)),
-                                ),)
-                            ],
-                          ))),
+                          Container(
+                            //margin: EdgeInsets.only(left: 20.0),
+                            // color: Colors.blue,
+                            width: MediaQuery.of(context).size.width*0.20,
+                            child:GestureDetector(
+                              onTap: (){
+                                AddData();
+                              },
+                              child: Text("Confirm",style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize: 16.0)),
+                            ),)
+                        ],
+                      )),
 
                 ],
               ),
@@ -166,6 +195,8 @@ class _WorkCalculationContainerState extends State<WorkCalculationContainer> {
 
   void AddData()
   {
+
+
 
     qu.WorkAddAnswer(widget.identity, widget.bigQuestion, widget.completeQuestion, widget.questionOption, [calculations.text.toString()], 55.0);
 

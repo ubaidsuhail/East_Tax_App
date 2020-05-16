@@ -817,7 +817,7 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
       // ====== Any Other Insurance Policies Starts ====== //
 
         //Answer No 2
-    if(widget.CheckCompleteQuestion =="Did ${Questions.financeYouIdentity} have costs for any other insurance policies?" && widget.CheckQuestion == "Other contracts")
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.financeYouIdentity} have costs for any other insurance policies?" && widget.CheckQuestion == "Other contracts")
     {
 
       for(int m=0;m<widget.CheckAnswer.length;m++) {

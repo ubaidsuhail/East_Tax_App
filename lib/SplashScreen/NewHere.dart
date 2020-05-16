@@ -90,6 +90,18 @@ class _newHereState extends State<newHere> {
                       onTap: (){
 
 
+                        //Work Flow Start
+
+                        Questions.workAnswerShow = [];
+                        Questions.workYouIdentity = "you";
+                        Questions.workYourIdentity = "your";
+                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return WorkMainQuestions(CheckCompleteQuestion:"What was ${Questions.workYourIdentity} job title?",CheckQuestion:"Profession",CheckAnswer:[]);
+                        }));
+
+                        //Work Flow End
+
+
                         //Finance Flow Start
 
 //                        Questions.financeAnswerShow = [];
@@ -188,20 +200,20 @@ class _newHereState extends State<newHere> {
 
                         //Living Situation Flow Start //
 
-                        if(Questions.yearfirstTime == 0)
-                          {
-                            Questions.yearfirstTime = 1;
-                        Questions.answerShow = [];
-                        Questions.LivingCheck = 0;
-                        Questions.livcolContainer = 0;
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-                          return mainQuestions(CheckQuestion:"What is your official marital status in Germany?",CheckAnswer:[]);
-                        }));
-                          }
-                          else
-                            {
-                              Navigator.pushNamed(context, 'allCategoryScreen');
-                            }
+//                        if(Questions.yearfirstTime == 0)
+//                          {
+//                            Questions.yearfirstTime = 1;
+//                        Questions.answerShow = [];
+//                        Questions.LivingCheck = 0;
+//                        Questions.livcolContainer = 0;
+//                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+//                          return mainQuestions(CheckQuestion:"What is your official marital status in Germany?",CheckAnswer:[]);
+//                        }));
+//                          }
+//                          else
+//                            {
+//                              Navigator.pushNamed(context, 'allCategoryScreen');
+//                            }
                         //Living Situation Flow End //
 
                       },
