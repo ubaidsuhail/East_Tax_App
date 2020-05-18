@@ -219,6 +219,17 @@ class _WorkYesNoContainerScreenState extends State<WorkYesNoContainer> {
 
   void NoResponse()
   {
+    if(widget.completeQuestion == "Did ${Questions.workYouIdentity} buy any furniture or equipment for ${Questions.workYourIdentity} home office? " && widget.questionOption == "Office equipment")
+    {
+      Questions.homeOfficeLength += 1;
+      Questions.homeOfficeText ="HOME OFFICE "+Questions.homeOfficeLength.toString();
+    }
+
+    else if(widget.completeQuestion == "Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?" && widget.questionOption == "< 952 EUR")
+    {
+      Questions.homeOfficeLength += 1;
+      Questions.homeOfficeText ="HOME OFFICE "+Questions.homeOfficeLength.toString();
+    }
 
     qu.WorkAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, ['No'], 55.0);
 
@@ -234,6 +245,43 @@ class _WorkYesNoContainerScreenState extends State<WorkYesNoContainer> {
 
   void YesResponse()
   {
+
+    if(widget.completeQuestion == "The desk will be depreciated over a period of 13 years. Do you agree?" && widget.questionOption == "Usual depreciation")
+    {
+      Questions.workFurnitureLength += 1;
+      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
+    }
+
+    else if(widget.completeQuestion == "The office chair will be depreciated over a period of 13 years. Do you agree?" && widget.questionOption == "Usual depreciation")
+    {
+      Questions.workFurnitureLength += 1;
+      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
+    }
+
+    else if(widget.completeQuestion == "The bookshelf will be depreciated over a period of 13 years. Do you agree?" && widget.questionOption == "Usual depreciation")
+    {
+      Questions.workFurnitureLength += 1;
+      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
+    }
+
+    else if(widget.completeQuestion == "The lamp will be depreciated over a period of 13 years. Do you agree?" && widget.questionOption == "Usual depreciation")
+    {
+      Questions.workFurnitureLength += 1;
+      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
+    }
+
+    else if(widget.completeQuestion == "The filing cabinet will be depreciated over a period of 13 years. Do you agree?" && widget.questionOption == "Usual depreciation")
+    {
+      Questions.workFurnitureLength += 1;
+      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
+    }
+
+    else if(widget.completeQuestion == "The carpet will depreciate over 8 years. Do you agree to this depreciation period?" && widget.questionOption == "Usual depreciation period")
+    {
+      Questions.workFurnitureLength += 1;
+      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
+    }
+
     qu.WorkAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, ['Yes'], 55.0);
 
     Navigator.of(context).pop();

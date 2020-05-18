@@ -6,6 +6,8 @@ import 'package:easy_taxx/work_flow/workcalculationcontainer.dart';
 import 'package:easy_taxx/work_flow/workyesnocontainer.dart';
 import 'package:easy_taxx/work_flow/workmultipleoptionscontainer.dart';
 import 'package:easy_taxx/work_flow/workthreeoptioncontainer.dart';
+import 'package:easy_taxx/work_flow/workdatecontainer.dart';
+import 'package:easy_taxx/work_flow/workdifferentoptioncontainer.dart';
 
 
 
@@ -608,14 +610,14 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
           else if(widget.CheckAnswer[0] == "Yes")
           {
             //Question No 14
-            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} have more than one home office?","Separate room",340.0,"","",[]);
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} have more than one home office?","More than one home office",340.0,"","",[]);
           }
 
         }
 
 
         //Answer No 14
-        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} have more than one home office?" && widget.CheckQuestion == "Separate room")
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} have more than one home office?" && widget.CheckQuestion == "More than one home office")
         {
 
           if(widget.CheckAnswer[0] == "No" || widget.CheckAnswer[0] == "Yes")
@@ -633,13 +635,14 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
           if(widget.CheckAnswer[0] == "Sometimes for work (e.g. home office possibility)")
           {
-
+            //Question No 23
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} buy any furniture or equipment for ${Questions.workYourIdentity} home office?","Office equipment",220.0,"","",[]);
           }
 
           else
           {
            //Question No 16
-            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} have the opportunity to carry out these tasks at ${Questions.workYourIdentity} employer's office?","Possible at employer?",340.0,"","",[]);
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} have the opportunity to carry out these tasks at ${Questions.workYourIdentity} employer's office?","Possible at employer?",220.0,"","",[]);
           }
 
         }
@@ -656,7 +659,8 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
           else if(widget.CheckAnswer[0] == "Yes")
           {
-
+            //Question No 23
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} buy any furniture or equipment for ${Questions.workYourIdentity} home office?","Office equipment",220.0,"","",[]);
           }
 
         }
@@ -673,6 +677,747 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
         {
           //Question No 19
           return workcalculationContainer("","Work","What is the total monthly cost of ${Questions.workYourIdentity} entire apartment including utilities?","Total housing costs",220.0,"calculation","",[]);
+        }
+
+        //Answer No 19
+        else if(widget.CheckCompleteQuestion =="What is the total monthly cost of ${Questions.workYourIdentity} entire apartment including utilities?" && widget.CheckQuestion == "Total housing costs")
+        {
+          //Question No 20
+          //Yaha container change hoga
+          return workdateContainer("","Work","For which period of time did ${Questions.workYouIdentity} use the home office?","Time period home office",220.0,"","",[]);
+
+        }
+
+        //Answer No 20
+        else if(widget.CheckCompleteQuestion =="For which period of time did ${Questions.workYouIdentity} use the home office?" && widget.CheckQuestion == "Time period home office")
+        {
+          //Question No 21
+          return workyesnoContainer("","Work","The cost share of ${Questions.workYourIdentity} home office in proportion to ${Questions.workYourIdentity} total housting cost was €25.00.Is this correct?","Proportional cost",220.0,"","",[]);
+        }
+
+
+        //Answer No 21
+        else if(widget.CheckCompleteQuestion =="The cost share of ${Questions.workYourIdentity} home office in proportion to ${Questions.workYourIdentity} total housting cost was €25.00.Is this correct?" && widget.CheckQuestion == "Proportional cost")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            // Question No 22
+            return workcalculationContainer("","Work","What was the proportional cost of ${Questions.workYourIdentity} home office?","Corrected proportional cost",220.0,"calculation","",[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 23
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} buy any furniture or equipment for ${Questions.workYourIdentity} home office?","Office equipment",220.0,"","",[]);
+          }
+
+        }
+
+        //Answer No 22
+        else if(widget.CheckCompleteQuestion =="What was the proportional cost of ${Questions.workYourIdentity} home office?" && widget.CheckQuestion == "Corrected proportional cost")
+        {
+          //Question No 23
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} buy any furniture or equipment for ${Questions.workYourIdentity} home office?","Office equipment",220.0,"","",[]);
+        }
+
+
+        //Answer no 23
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} buy any furniture or equipment for ${Questions.workYourIdentity} home office?" && widget.CheckQuestion == "Office equipment")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            // Question No 24
+            return workcalculationContainer("","Work","How many more home offices would ${Questions.workYouIdentity} like enter?","Number of home offices",220.0,"","",[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+
+          }
+
+        }
+
+        //Answer No 24
+        else if(widget.CheckCompleteQuestion =="How many more home offices would ${Questions.workYouIdentity} like enter?" && widget.CheckQuestion == "Number of home offices")
+        {
+          //Question no 25
+          return workthreeoptionContainer("","Work","Which activities did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} home office no. ${Questions.homeOfficeLength} for?","${Questions.homeOfficeLength}. type of usage",["For all occupational activities (e.g. author)","For certain tasks (e.g.teacher)","Sometimes for work (e.g. home office possibility)"],220.0,"",Questions.homeOfficeText,[]);
+        }
+
+        //Answer No 25
+        else if(widget.CheckCompleteQuestion =="Which activities did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} home office no. ${Questions.homeOfficeLength} for?" && widget.CheckQuestion == "${Questions.homeOfficeLength}. type of usage")
+        {
+
+          if(widget.CheckAnswer[0] == "Sometimes for work (e.g. home office possibility)")
+          {
+            //Question No 33
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} buy any furniture or equipment for ${Questions.workYourIdentity} home office? ","Office equipment",220.0,"",Questions.homeOfficeText,[]);
+          }
+
+          else
+          {
+            //Question No 26
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} have the opportunity to carry out these tasks at ${Questions.workYourIdentity} employer's office? ","Possible at employer?",220.0,"",Questions.homeOfficeText,[]);
+          }
+
+        }
+
+        //Answer No 26
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} have the opportunity to carry out these tasks at ${Questions.workYourIdentity} employer's office? " && widget.CheckQuestion == "Possible at employer?")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            //Question No 27
+            return workcalculationContainer("","Work","What is the area of ${Questions.workYourIdentity} home office in sq m?","Area home office",220.0,"",Questions.homeOfficeText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 33
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} buy any furniture or equipment for ${Questions.workYourIdentity} home office? ","Office equipment",220.0,"",Questions.homeOfficeText,[]);
+          }
+
+        }
+
+        //Answer No 27
+        else if(widget.CheckCompleteQuestion =="What is the area of ${Questions.workYourIdentity} home office in sq m?" && widget.CheckQuestion == "Area home office")
+        {
+          //QuestionNo 28
+          return workcalculationContainer("","Work","What is the total area of ${Questions.workYourIdentity} apartment in square meters?","Total area sq m",220.0,"",Questions.homeOfficeText,[]);
+        }
+
+        //Answer No 28
+        else if(widget.CheckCompleteQuestion =="What is the total area of ${Questions.workYourIdentity} apartment in square meters?" && widget.CheckQuestion == "Total area sq m")
+        {
+          //Question No 29
+          return workcalculationContainer("","Work","What is the total monthly cost of ${Questions.workYourIdentity} entire apartment including utilities? ","Total housing costs",220.0,"calculation",Questions.homeOfficeText,[]);
+        }
+
+        //Answer No 29
+        else if(widget.CheckCompleteQuestion =="What is the total monthly cost of ${Questions.workYourIdentity} entire apartment including utilities? " && widget.CheckQuestion == "Total housing costs")
+        {
+          //Question No 30
+          //Yaha container change hoga
+          return workdateContainer("","Work","For which period of time did ${Questions.workYouIdentity} use the home office?","Time period",220.0,"",Questions.homeOfficeText,[]);
+
+        }
+
+        //Answer No 30
+        else if(widget.CheckCompleteQuestion =="For which period of time did ${Questions.workYouIdentity} use the home office?" && widget.CheckQuestion == "Time period")
+        {
+          //Question No 31
+          return workyesnoContainer("","Work","The cost share of ${Questions.workYourIdentity} home office in proportion to ${Questions.workYourIdentity} total housting cost was €25.00.Is this correct? ","Proportional cost",220.0,"",Questions.homeOfficeText,[]);
+        }
+
+
+        //Answer No 31
+        else if(widget.CheckCompleteQuestion =="The cost share of ${Questions.workYourIdentity} home office in proportion to ${Questions.workYourIdentity} total housting cost was €25.00.Is this correct? " && widget.CheckQuestion == "Proportional cost")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            // Question No 32
+            return workcalculationContainer("","Work","How much was the cost share of ${Questions.workYourIdentity} home office in relation to the total housing costs of ${Questions.workYourIdentity} apartment?","Corrected proportional cost",220.0,"calculation",Questions.homeOfficeText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 33
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} buy any furniture or equipment for ${Questions.workYourIdentity} home office? ","Office equipment",220.0,"",Questions.homeOfficeText,[]);
+          }
+
+        }
+
+        //Answer No 32
+        else if(widget.CheckCompleteQuestion =="How much was the cost share of ${Questions.workYourIdentity} home office in relation to the total housing costs of ${Questions.workYourIdentity} apartment?" && widget.CheckQuestion == "Corrected proportional cost")
+        {
+          //Question No 33
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} buy any furniture or equipment for ${Questions.workYourIdentity} home office? ","Office equipment",220.0,"",Questions.homeOfficeText,[]);
+        }
+
+        //Answer No 33
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} buy any furniture or equipment for ${Questions.workYourIdentity} home office? " && widget.CheckQuestion == "Office equipment")
+        {
+          if(widget.CheckAnswer[0] == "No")
+          {
+            if(Questions.homeOfficeLength <= Questions.totalHomeOffice)
+              {
+                //Question no 25
+                return workthreeoptionContainer("","Work","Which activities did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} home office no. ${Questions.homeOfficeLength} for?","${Questions.homeOfficeLength}. type of usage",["For all occupational activities (e.g. author)","For certain tasks (e.g.teacher)","Sometimes for work (e.g. home office possibility)"],220.0,"",Questions.homeOfficeText,[]);
+              }
+              else
+                {
+                //furniture wala
+            }
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question no 34
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend more than 952 EUR on any piece of home office equipment?","< 952 EUR",220.0,"",Questions.homeOfficeText,[]);
+
+
+          }
+        }
+
+
+        //Answer No 34
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} spend more than 952 EUR on any piece of home office equipment?" && widget.CheckQuestion == "< 952 EUR")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            //Question No 41
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?","< 952 EUR",220.0,"",Questions.homeOfficeText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 35
+            return workcalculationContainer("","Work","How many items cost more than 488 EUR?","Quantity",430.0,"calculation",Questions.homeOfficeText,[]);
+          }
+
+        }
+
+        //Answer No 35
+        else if(widget.CheckCompleteQuestion =="How many items cost more than 488 EUR?" && widget.CheckQuestion == "Quantity")
+        {
+          //Question No 36
+          return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+        }
+
+        //Answer No 36
+        else if(widget.CheckCompleteQuestion =="What furniture/equipment did ${Questions.financeYouIdentity} buy?" && widget.CheckQuestion == "Piece of furniture")
+        {
+
+          if(widget.CheckAnswer[0] == "Desk")
+          {
+            //Question No 37
+            return workcalculationContainer("","Work","How much was the desk?","Amount desk",220.0,"calculation",Questions.workFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Office chair")
+          {
+             //Question No 42
+            return workcalculationContainer("","Work","How much was the office chair?","Amount chair",220.0,"calculation",Questions.workFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Bookshelf")
+          {
+            //Question No 46
+            return workcalculationContainer("","Work","How much was the bookshelf?","Amount bookshelf",220.0,"calculation",Questions.workFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Lamp")
+          {
+            //Question No 50
+            return workcalculationContainer("","Work","How much was the lamp?","Amount lamp",220.0,"calculation",Questions.workFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Filing cabinet")
+          {
+            //Question No 54
+            return workcalculationContainer("","Work","How much was the filing cabinet?","Amount",220.0,"calculation",Questions.workFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Carpet")
+          {
+            //Question No 58
+            return workcalculationContainer("","Work","How much did ${Questions.financeYouIdentity} spend on the carpet?","Amount carpet",220.0,"calculation",Questions.workFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Other")
+          {
+           //Question No 62
+            return workcalculationContainer("","Work","What kind of furniture/equipment did ${Questions.financeYouIdentity} buy?","Type",220.0,"",Questions.workFurnitureText,[]);
+          }
+
+        }
+
+        // ====== Desk Starts ====== //
+        //Answer No 37
+        else if(widget.CheckCompleteQuestion =="How much was the desk?" && widget.CheckQuestion == "Amount desk")
+        {
+          //Question No 38
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the desk?","Purchase date desk",220.0,"",Questions.workFurnitureText,[]);
+        }
+
+        //Answer No 38
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the desk?" && widget.CheckQuestion == "Purchase date desk")
+        {
+          //Question No 39
+          return workyesnoContainer("","Work","The desk will be depreciated over a period of 13 years. Do you agree?","Usual depreciation",220.0,"",Questions.workFurnitureText,[]);
+        }
+
+        //Answer No 39
+        else if(widget.CheckCompleteQuestion =="The desk will be depreciated over a period of 13 years. Do you agree?" && widget.CheckQuestion == "Usual depreciation")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            // Question No 40
+            return workcalculationContainer("","Work","How long are ${Questions.workYouIdentity} going to use the desk for?","Usage desk",220.0,"",Questions.workFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
+            {
+              //Question No 36
+              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+            }
+            else
+            {
+              //Question No 41
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?","< 952 EUR",220.0,"",Questions.homeOfficeText,[]);
+            }
+          }
+
+        }
+
+        //Answer No 40
+        else if(widget.CheckCompleteQuestion =="How long are ${Questions.workYouIdentity} going to use the desk for?" && widget.CheckQuestion == "Usage desk")
+        {
+
+          if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
+          {
+            //Question No 36
+            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+          }
+          else
+          {
+            //Question No 41
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?","< 952 EUR",220.0,"",Questions.homeOfficeText,[]);
+          }
+
+
+        }
+
+
+
+        // ====== Desk Ends ====== //
+
+
+
+        // ====== Office chair Starts ====== //
+
+
+        //Answer No 42
+        else if(widget.CheckCompleteQuestion =="How much was the office chair?" && widget.CheckQuestion == "Amount chair")
+        {
+          //Question No 43
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the chair?","Purchase date",220.0,"",Questions.workFurnitureText,[]);
+        }
+
+        //Answer No 43
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the chair?" && widget.CheckQuestion == "Purchase date")
+        {
+          //Question No 44
+          return workyesnoContainer("","Work","The office chair will be depreciated over a period of 13 years. Do you agree?","Usual depreciation",220.0,"",Questions.workFurnitureText,[]);
+        }
+
+        //Answer No 44
+        else if(widget.CheckCompleteQuestion =="The office chair will be depreciated over a period of 13 years. Do you agree?" && widget.CheckQuestion == "Usual depreciation")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            // Question No 45
+            return workcalculationContainer("","Work","How long are ${Questions.workYouIdentity} going to use the office chair for?","Usage office chair",220.0,"",Questions.workFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
+            {
+              //Question No 36
+              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+            }
+            else
+            {
+              //Question No 41
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?","< 952 EUR",220.0,"",Questions.homeOfficeText,[]);
+            }
+          }
+
+        }
+
+        //Answer No 45
+        else if(widget.CheckCompleteQuestion =="How long are ${Questions.workYouIdentity} going to use the office chair for?" && widget.CheckQuestion == "Usage office chair")
+        {
+
+          if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
+          {
+            //Question No 36
+            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+          }
+          else
+          {
+            //Question No 41
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?","< 952 EUR",220.0,"",Questions.homeOfficeText,[]);
+          }
+
+
+        }
+
+
+
+
+        // ====== Office chair Ends ====== //
+
+
+
+
+        // ====== Bookshelf Starts ====== //
+
+        //Answer No 46
+        else if(widget.CheckCompleteQuestion =="How much was the bookshelf?" && widget.CheckQuestion == "Amount bookshelf")
+        {
+          //Question No 47
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the bookshelf?","Purchase date bookshelf",220.0,"",Questions.workFurnitureText,[]);
+        }
+
+        //Answer No 47
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the bookshelf?" && widget.CheckQuestion == "Purchase date bookshelf")
+        {
+          //Question No 48
+          return workyesnoContainer("","Work","The bookshelf will be depreciated over a period of 13 years. Do you agree?","Usual depreciation",220.0,"",Questions.workFurnitureText,[]);
+        }
+
+        //Answer No 48
+        else if(widget.CheckCompleteQuestion =="The bookshelf will be depreciated over a period of 13 years. Do you agree?" && widget.CheckQuestion == "Usual depreciation")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            // Question No 49
+            return workcalculationContainer("","Work","How long are ${Questions.workYouIdentity} going to use the shelf for?","Bookshelf usage",220.0,"",Questions.workFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
+            {
+              //Question No 36
+              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+            }
+            else
+            {
+              //Question No 41
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?","< 952 EUR",220.0,"",Questions.homeOfficeText,[]);
+            }
+          }
+
+        }
+
+        //Answer No 49
+        else if(widget.CheckCompleteQuestion =="How long are ${Questions.workYouIdentity} going to use the shelf for?" && widget.CheckQuestion == "Bookshelf usage")
+        {
+
+          if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
+          {
+            //Question No 36
+            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+          }
+          else
+          {
+            //Question No 41
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?","< 952 EUR",220.0,"",Questions.homeOfficeText,[]);
+          }
+
+
+        }
+
+
+        // ====== Bookshelf Ends ====== //
+
+
+
+
+        // ====== Lamp Starts ====== //
+
+        //Answer No 50
+        else if(widget.CheckCompleteQuestion =="How much was the lamp?" && widget.CheckQuestion == "Amount lamp")
+        {
+          //Question No 51
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the lamp?","Purchase date lamp",220.0,"",Questions.workFurnitureText,[]);
+        }
+
+        //Answer No 51
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the lamp?" && widget.CheckQuestion == "Purchase date lamp")
+        {
+          //Question No 52
+          return workyesnoContainer("","Work","The lamp will be depreciated over a period of 13 years. Do you agree?","Usual depreciation",220.0,"",Questions.workFurnitureText,[]);
+        }
+
+        //Answer No 52
+        else if(widget.CheckCompleteQuestion =="The lamp will be depreciated over a period of 13 years. Do you agree?" && widget.CheckQuestion == "Usual depreciation")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            // Question No 53
+            return workcalculationContainer("","Work","How long are ${Questions.workYouIdentity} going to use the lamp for?","Usage lamp",220.0,"",Questions.workFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
+            {
+              //Question No 36
+              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+            }
+            else
+            {
+              //Question No 41
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?","< 952 EUR",220.0,"",Questions.homeOfficeText,[]);
+            }
+          }
+
+        }
+
+        //Answer No 53
+        else if(widget.CheckCompleteQuestion =="How long are ${Questions.workYouIdentity} going to use the lamp for?" && widget.CheckQuestion == "Usage lamp")
+        {
+
+          if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
+          {
+            //Question No 36
+            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+          }
+          else
+          {
+            //Question No 41
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?","< 952 EUR",220.0,"",Questions.homeOfficeText,[]);
+          }
+
+
+        }
+
+
+        // ====== Lamp Ends ====== //
+
+
+
+        // ====== Filing Cabinet Starts ====== //
+
+        //Answer No 54
+        else if(widget.CheckCompleteQuestion =="How much was the filing cabinet?" && widget.CheckQuestion == "Amount")
+        {
+          //Question No 55
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the filing cabinet?","Purchase date cabinet",220.0,"",Questions.workFurnitureText,[]);
+        }
+
+        //Answer No 55
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the filing cabinet?" && widget.CheckQuestion == "Purchase date cabinet")
+        {
+          //Question No 56
+          return workyesnoContainer("","Work","The filing cabinet will be depreciated over a period of 13 years. Do you agree?","Usual depreciation",220.0,"",Questions.workFurnitureText,[]);
+        }
+
+        //Answer No 56
+        else if(widget.CheckCompleteQuestion =="The filing cabinet will be depreciated over a period of 13 years. Do you agree?" && widget.CheckQuestion == "Usual depreciation")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            // Question No 57
+            return workcalculationContainer("","Work","How many years are ${Questions.workYouIdentity} going to use the filing cabinet for?","Usage filing cabinet",220.0,"",Questions.workFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
+            {
+              //Question No 36
+              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+            }
+            else
+            {
+              //Question No 41
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?","< 952 EUR",220.0,"",Questions.homeOfficeText,[]);
+            }
+          }
+
+        }
+
+        //Answer No 57
+        else if(widget.CheckCompleteQuestion =="How many years are ${Questions.workYouIdentity} going to use the filing cabinet for?" && widget.CheckQuestion == "Usage filing cabinet")
+        {
+
+          if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
+          {
+            //Question No 36
+            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+          }
+          else
+          {
+            //Question No 41
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?","< 952 EUR",220.0,"",Questions.homeOfficeText,[]);
+          }
+
+
+        }
+
+
+        // ====== Filing Cabinet Ends ====== //
+
+
+
+
+
+        // ====== Carpet Starts ====== //
+
+        //Answer No 58
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.financeYouIdentity} spend on the carpet?" && widget.CheckQuestion == "Amount carpet")
+        {
+          //Question No 59
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the carpet?","Purchase date",220.0,"",Questions.workFurnitureText,[]);
+        }
+
+        //Answer No 59
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the carpet?" && widget.CheckQuestion == "Purchase date")
+        {
+          //Question No 60
+          return workyesnoContainer("","Work","The carpet will depreciate over 8 years. Do you agree to this depreciation period?","Usual depreciation period",220.0,"",Questions.workFurnitureText,[]);
+        }
+
+        //Answer No 60
+        else if(widget.CheckCompleteQuestion =="The carpet will depreciate over 8 years. Do you agree to this depreciation period?" && widget.CheckQuestion == "Usual depreciation period")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            // Question No 61
+            return workcalculationContainer("","Work","For how many years will ${Questions.workYouIdentity} use the carpet?","Other depreciation period",220.0,"",Questions.workFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
+            {
+              //Question No 36
+              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+            }
+            else
+            {
+              //Question No 41
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?","< 952 EUR",220.0,"",Questions.homeOfficeText,[]);
+            }
+          }
+
+        }
+
+        //Answer No 61
+        else if(widget.CheckCompleteQuestion =="For how many years will ${Questions.workYouIdentity} use the carpet?" && widget.CheckQuestion == "Other depreciation period")
+        {
+
+          if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
+          {
+            //Question No 36
+            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+          }
+          else
+          {
+            //Question No 41
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?","< 952 EUR",220.0,"",Questions.homeOfficeText,[]);
+          }
+
+
+        }
+
+
+        // ====== Carpet Ends ====== //
+
+
+
+
+        // ====== Other Starts ====== //
+
+        //Answer No 62
+        else if(widget.CheckCompleteQuestion =="What kind of furniture/equipment did ${Questions.financeYouIdentity} buy?" && widget.CheckQuestion == "Type")
+        {
+          //Question No 63
+          return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on the ${Questions.otherFurniture}?","Amount",220.0,"calculation",Questions.workFurnitureText,[]);
+        }
+
+        //Answer No 63
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on the ${Questions.otherFurniture}?" && widget.CheckQuestion == "Amount")
+        {
+          //Question No 64
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the ${Questions.otherFurniture}?","Purchase date",220.0,"",Questions.workFurnitureText,[]);
+        }
+
+        //Answer No 64
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the ${Questions.otherFurniture}?" && widget.CheckQuestion == "Purchase date")
+        {
+          //Question No 65
+          return workcalculationContainer("","Work","For how many years will ${Questions.workYouIdentity} use the ${Questions.otherFurniture}?","Depreciation period",220.0,"",Questions.workFurnitureText,[]);
+        }
+
+        //Answer No 65
+        else if(widget.CheckCompleteQuestion =="For how many years will ${Questions.workYouIdentity} use the ${Questions.otherFurniture}?" && widget.CheckQuestion == "Depreciation period")
+        {
+
+          if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
+          {
+            //Question No 36
+            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+          }
+          else
+          {
+            //Question No 41
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?","< 952 EUR",220.0,"",Questions.homeOfficeText,[]);
+          }
+
+
+        }
+
+
+        // ====== Other Ends ====== //
+
+
+
+        //Answer No 41
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?" && widget.CheckQuestion == "< 952 EUR")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            if(Questions.homeOfficeLength <= Questions.totalHomeOffice)
+            {
+              //Question no 25
+              return workthreeoptionContainer("","Work","Which activities did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} home office no. ${Questions.homeOfficeLength} for?","${Questions.homeOfficeLength}. type of usage",["For all occupational activities (e.g. author)","For certain tasks (e.g.teacher)","Sometimes for work (e.g. home office possibility)"],220.0,"",Questions.homeOfficeText,[]);
+            }
+            else
+            {
+              //furniture wala
+            }
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+           //Question No 66
+            return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on these items in total?","Total amount",220.0,"",Questions.workFurnitureText,[]);
+          }
+
+        }
+
+       //Answer No 66
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on these items in total?" && widget.CheckQuestion == "Total amount")
+        {
+          if(Questions.homeOfficeLength <= Questions.totalHomeOffice)
+          {
+            //Question no 25
+            return workthreeoptionContainer("","Work","Which activities did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} home office no. ${Questions.homeOfficeLength} for?","${Questions.homeOfficeLength}. type of usage",["For all occupational activities (e.g. author)","For certain tasks (e.g.teacher)","Sometimes for work (e.g. home office possibility)"],220.0,"",Questions.homeOfficeText,[]);
+          }
+          else
+          {
+            //furniture wala
+          }
         }
 
       }
@@ -702,6 +1447,20 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
     Questions.workAnimatedContainer = animatedcontainer;
     return WorkThreeOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:340.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
   }
+
+  Widget workdateContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption, double animatedcontainer, String AdditionalData, String MultipleData, List Suggestion)
+  {
+    Questions.workAnimatedContainer = animatedcontainer;
+    return WorkDateContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:220.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
+
+  }
+
+  Widget workdifferentoptionContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,double animatedcontainer, String AdditionalData, String MultipleData, List Suggestion)
+  {
+    Questions.workAnimatedContainer = animatedcontainer;
+    return WorkDifferentOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:420.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
+  }
+
 }
 
 

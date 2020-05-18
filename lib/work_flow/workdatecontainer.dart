@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'dart:async';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:easy_taxx/work_flow/workmainquestions.dart';
 
-class WorkCalculationContainer extends StatefulWidget {
+class WorkDateContainer extends StatefulWidget {
   String identity;
   String completeQuestion;
   String questionOption;
@@ -14,13 +15,13 @@ class WorkCalculationContainer extends StatefulWidget {
   List suggestion;
 
 
-  WorkCalculationContainer({this.identity,this.bigQuestion,this.completeQuestion,this.questionOption,this.containerSize,this.additionalData,this.multipleData,this.suggestion});
+  WorkDateContainer({this.identity,this.bigQuestion,this.completeQuestion,this.questionOption,this.containerSize,this.additionalData,this.multipleData,this.suggestion});
   @override
-  _WorkCalculationContainerState createState() => _WorkCalculationContainerState();
+  _WorkDateContainerState createState() => _WorkDateContainerState();
 }
 
-class _WorkCalculationContainerState extends State<WorkCalculationContainer> {
-  TextEditingController calculations = TextEditingController();
+class _WorkDateContainerState extends State<WorkDateContainer> {
+  TextEditingController dates = TextEditingController();
   Questions qu =Questions();
   bool open = false;
   void timer() {
@@ -52,9 +53,9 @@ class _WorkCalculationContainerState extends State<WorkCalculationContainer> {
 //        .size
 //        .height * .3;
 
-    //double maxHeight = 210.0;
+    //double maxHeight = 220.0;
     double maxHeight = widget.containerSize;
-    // var maskTextInputFormatter = MaskTextInputFormatter(mask: "## / ## / ####");
+    var maskTextInputFormatter = MaskTextInputFormatter(mask: "## / ## / ####");
 //filter: { "#": RegExp(r'[0-9]')
 
     return AnimatedContainer(
@@ -89,7 +90,7 @@ class _WorkCalculationContainerState extends State<WorkCalculationContainer> {
                           borderRadius: BorderRadius.circular(10.0),
                           color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),
                         ),
-                        height: 150.0,
+                        height: 145.0,
                         width: MediaQuery.of(context).size.width,
 
                       ),
@@ -141,7 +142,6 @@ class _WorkCalculationContainerState extends State<WorkCalculationContainer> {
 
                   ),
 
-
                   Container(
                     //margin: EdgeInsets.only(right: 60.0),
 //                                      decoration: new BoxDecoration(boxShadow: [
@@ -157,16 +157,16 @@ class _WorkCalculationContainerState extends State<WorkCalculationContainer> {
                           Container(
                               color:Colors.white,
                               width: MediaQuery.of(context).size.width*0.70,
-                              height: 50.0,
+                              height: 55.0,
 //                    color: Colors.wh,
                               child: TextFormField(
-                                controller: calculations,
-                                //inputFormatters: [maskTextInputFormatter],
-                                //keyboardType: TextInputType.number,
+                                controller: dates,
+                                inputFormatters: [maskTextInputFormatter],
+                                keyboardType: TextInputType.number,
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
 
-                                    hintText: "0",
+                                    hintText: ('DD / MM / YYYY '),
                                     contentPadding: EdgeInsets.only(left: 15.0)
                                 ),
                               )
@@ -195,86 +195,15 @@ class _WorkCalculationContainerState extends State<WorkCalculationContainer> {
 
   void AddData()
   {
-    if(widget.completeQuestion == "How many more home offices would ${Questions.workYouIdentity} like enter?" && widget.questionOption == "Number of home offices")
-    {
-      Questions.homeOfficeLength = 0;
-      Questions.totalHomeOffice = int.parse(calculations.text);
-      print("Total Home Office"+Questions.totalHomeOffice.toString());
-      Questions.homeOfficeLength += 1;
-      Questions.homeOfficeText ="HOME OFFICE "+Questions.homeOfficeLength.toString();
-    }
 
-    else if(widget.completeQuestion == "How many items cost more than 488 EUR?" && widget.questionOption == "Quantity")
-    {
-      Questions.workFurnitureLength = 0;
-      Questions.totalWorkFurniture = int.parse(calculations.text);
-      print("Total Furniture Length"+Questions.totalWorkFurniture.toString());
-      Questions.workFurnitureLength += 1;
-      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
-    }
 
-    else if(widget.completeQuestion == "How long are ${Questions.workYouIdentity} going to use the desk for?" && widget.questionOption == "Usage desk")
-    {
-      Questions.workFurnitureLength += 1;
-      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
-    }
 
-    else if(widget.completeQuestion == "How long are ${Questions.workYouIdentity} going to use the office chair for?" && widget.questionOption == "Usage office chair")
-    {
-      Questions.workFurnitureLength += 1;
-      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
-    }
-
-    else if(widget.completeQuestion == "How long are ${Questions.workYouIdentity} going to use the shelf for?" && widget.questionOption == "Bookshelf usage")
-    {
-      Questions.workFurnitureLength += 1;
-      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
-    }
-
-    else if(widget.completeQuestion == "How long are ${Questions.workYouIdentity} going to use the lamp for?" && widget.questionOption == "Usage lamp")
-    {
-      Questions.workFurnitureLength += 1;
-      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
-    }
-
-    else if(widget.completeQuestion == "How many years are ${Questions.workYouIdentity} going to use the filing cabinet for?" && widget.questionOption == "Usage filing cabinet")
-    {
-      Questions.workFurnitureLength += 1;
-      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
-    }
-
-    else if(widget.completeQuestion == "For how many years will ${Questions.workYouIdentity} use the carpet?" && widget.questionOption == "Other depreciation period")
-    {
-      Questions.workFurnitureLength += 1;
-      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
-    }
-
-    else if(widget.completeQuestion == "What kind of furniture/equipment did ${Questions.financeYouIdentity} buy?" && widget.questionOption == "Type")
-    {
-      Questions.otherFurniture = calculations.text;
-    }
-
-    else if(widget.completeQuestion == "For how many years will ${Questions.workYouIdentity} use the ${Questions.otherFurniture}?" && widget.questionOption == "Depreciation period")
-    {
-      Questions.workFurnitureLength += 1;
-      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
-    }
-
-    else if(widget.completeQuestion == "How much did ${Questions.workYouIdentity} spend on these items in total?" && widget.questionOption == "Total amount")
-    {
-      Questions.homeOfficeLength += 1;
-      Questions.homeOfficeText ="HOME OFFICE "+Questions.homeOfficeLength.toString();
-    }
-
-    qu.WorkAddAnswer(widget.identity, widget.bigQuestion, widget.completeQuestion, widget.questionOption, [calculations.text.toString()], 55.0);
+    qu.WorkAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion, widget.questionOption, [dates.text.toString()], 55.0);
 
     Navigator.of(context).pop();
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return WorkMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion: widget.questionOption, CheckAnswer: ["ok"]);
+      return WorkMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion : widget.questionOption,CheckAnswer : ["ok"]);
     }));
-
-
-
   }
 
 

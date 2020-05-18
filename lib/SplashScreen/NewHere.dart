@@ -95,6 +95,12 @@ class _newHereState extends State<newHere> {
                         Questions.workAnswerShow = [];
                         Questions.workYouIdentity = "you";
                         Questions.workYourIdentity = "your";
+                        Questions.homeOfficeLength = 0;
+                        Questions.totalHomeOffice = 0;
+                        Questions.homeOfficeText = "";
+                        Questions.workFurnitureLength = 0;
+                        Questions.totalWorkFurniture = 0;
+                        Questions.workFurnitureText = "";
                         Navigator.push(context, MaterialPageRoute(builder: (context) {
                           return WorkMainQuestions(CheckCompleteQuestion:"What was ${Questions.workYourIdentity} job title?",CheckQuestion:"Profession",CheckAnswer:[]);
                         }));

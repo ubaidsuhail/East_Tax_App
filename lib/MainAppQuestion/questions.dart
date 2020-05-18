@@ -112,6 +112,13 @@ static List workAnswerShow=[];
 static double workAnimatedContainer;
 static String workYouIdentity = "you";
 static String workYourIdentity = "your";
+static int homeOfficeLength = 0;
+static int totalHomeOffice = 0;
+static String homeOfficeText = "";
+static int workFurnitureLength = 0;
+static int totalWorkFurniture = 0;
+static String workFurnitureText = "";
+static String otherFurniture = "";
 
  void WorkAddAnswer(String UserIdentity, String details,String completequestion,String question,List answer,double containerheight)
  {
