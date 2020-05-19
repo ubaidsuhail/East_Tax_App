@@ -626,19 +626,23 @@ Widget ChangeContainer()
               }
               else if(widget.CheckAnswer[m] == "Self-employed")
               {
-                return UnSupportedScreen();
+                //return UnSupportedScreen();
+                return Text("");
               }
               else if(widget.CheckAnswer[m] == "Own business")
               {
-                return UnSupportedScreen();
+                //return UnSupportedScreen();
+                return Text("");
               }
               else if(widget.CheckAnswer[m] == "Forestry")
               {
-                return UnSupportedScreen();
+                //return UnSupportedScreen();
+                return Text("");
               }
               else if(widget.CheckAnswer[m] == "Retired")
               {
-                return UnSupportedScreen();
+                //return UnSupportedScreen();
+                return Text("");
               }
               else if(widget.CheckAnswer[m] == "Parental Leave")
               {
@@ -705,7 +709,8 @@ Widget ChangeContainer()
           for(int m=0;m<widget.CheckAnswer.length;m++) {
             if(widget.CheckAnswer[m] == "Letting and Leasing")
               {
-                return UnSupportedScreen();
+                //return UnSupportedScreen();
+                return Text("");
               }
             else if(widget.CheckAnswer[m] == "Sale of Property") {
               //for yes 210 and for no 380.0
@@ -720,7 +725,8 @@ Widget ChangeContainer()
             else if(widget.CheckAnswer[m] == "Pensions")
             {
 
-              return UnSupportedScreen();
+              //return UnSupportedScreen();
+              return Text("");
             }
 
             else if(widget.CheckAnswer[m] == "Alimony")
@@ -742,7 +748,8 @@ Widget ChangeContainer()
         {
           if(widget.CheckAnswer[0] == "Yes")
             {
-              return UnSupportedScreen();
+              //return UnSupportedScreen();
+              return Text("");
             }
             else if(widget.CheckAnswer[0] == "No")
               {
@@ -765,7 +772,8 @@ Widget ChangeContainer()
               return ApplySources("",430.0);
             }
             else if(widget.CheckAnswer[m] == "Adult relatives") {
-              return UnSupportedScreen();
+              //return UnSupportedScreen();
+              return Text("");
             }
             else if(widget.CheckAnswer[m] == "Child")
             {
@@ -782,7 +790,8 @@ Widget ChangeContainer()
         {
           if(widget.CheckAnswer[0] == "No")
           {
-            return UnSupportedScreen();
+            //return UnSupportedScreen();
+            return Text("");
           }
           else if(widget.CheckAnswer[0] == "Yes")
           {
@@ -801,7 +810,7 @@ Widget ChangeContainer()
         {
           if(widget.CheckAnswer[0] == "No")
           {
-            return UnSupportedScreen();
+            return ReceiveCapitalGain("",430.0);
           }
           else if(widget.CheckAnswer[0] == "Yes")
           {
@@ -861,14 +870,16 @@ Widget ChangeContainer()
         {
           for(int m=0;m<widget.CheckAnswer.length;m++) {
             if(widget.CheckAnswer[m] == "Private loan") {
-              return UnSupportedScreen();
+              //return UnSupportedScreen();
+              return Text("");
             }
             else if(widget.CheckAnswer[m] == "Shareholder loan")
               {
                 return Shares10Company("",220.0);
               }
              else if(widget.CheckAnswer[m] == "Partiarisches Darlehen"){
-              return UnSupportedScreen();
+              //return UnSupportedScreen();
+              return Text("");
             }
 
           }
@@ -883,7 +894,8 @@ Widget ChangeContainer()
             }
             else if(widget.CheckAnswer[0] == "Yes")
             {
-            return UnSupportedScreen();
+              return Text("");
+            //return UnSupportedScreen();
             }
 
             }
@@ -895,7 +907,8 @@ Widget ChangeContainer()
         {
           if(widget.CheckAnswer[0] == "No")
           {
-            return UnSupportedScreen();
+            //return UnSupportedScreen();
+            return Text("");
           }
           else if(widget.CheckAnswer[0] == "Yes")
           {
@@ -923,7 +936,8 @@ Widget ChangeContainer()
               return ApplySources("",430.0);
             }
             else if(widget.CheckAnswer[m] == "Silent partnerships") {
-              return UnSupportedScreen();
+              return Text("");
+              //return UnSupportedScreen();
             }
 
           }
@@ -939,7 +953,8 @@ Widget ChangeContainer()
             }
             else if(widget.CheckAnswer[m] == "Foreign investment funds")
               {
-                return UnSupportedScreen();
+                return Text("");
+                //return UnSupportedScreen();
               }
             else if(widget.CheckAnswer[m] == "Options")
             {
@@ -992,7 +1007,8 @@ Widget ChangeContainer()
           else if(widget.CheckAnswer[0] == "Yes")
           {
 
-            return UnSupportedScreen();
+            return Text("");
+            //return UnSupportedScreen();
           }
 
         }
@@ -1007,7 +1023,8 @@ Widget ChangeContainer()
           else if(widget.CheckAnswer[0] == "Yes")
           {
 
-            return UnSupportedScreen();
+            return Text("");
+            //return UnSupportedScreen();
           }
 
         }
@@ -1028,7 +1045,8 @@ Widget ChangeContainer()
             }
             else if(widget.CheckAnswer[m] == "Survivor’s pension") {
               //question 8
-              return UnSupportedScreen();
+              return Text("");
+              //return UnSupportedScreen();
             }
             else if(widget.CheckAnswer[m] == "None") {
               //question 8
@@ -1108,7 +1126,8 @@ Widget ChangeContainer()
         else if(widget.CheckQuestion == "Living abroad")
         {
           if(widget.CheckAnswer[0] == "Yes") {
-            return UnSupportedScreen();
+            return Text("");
+            //return UnSupportedScreen();
           }
           else if(widget.CheckAnswer[0] == "No")
           {
@@ -1119,7 +1138,8 @@ Widget ChangeContainer()
         else if(widget.CheckQuestion == "Foreign Income")
         {
           if(widget.CheckAnswer[0] == "Yes") {
-            return UnSupportedScreen();
+            return Text("");
+            //return UnSupportedScreen();
           }
           else if(widget.CheckAnswer[0] == "No")
           {

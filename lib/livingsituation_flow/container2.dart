@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:easy_taxx/livingsituation_flow/mainQuestions.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
+import 'package:easy_taxx/datamodels/designfile.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:easy_taxx/livingsituation_flow/unsupportedscreen.dart';
 //void main() => runApp(MaterialApp(home:HomeScreen()));
 
 
@@ -119,7 +122,7 @@ class _HomeScreenState extends State<Container2> {
                               onTap: (){
 
                               },
-                              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+                              child:Image(image: AssetImage("images/question_mark.png"),width: questionMarkWidth,height: questionMarkHeight,))
                       ),
 
                       Positioned(
@@ -137,7 +140,7 @@ class _HomeScreenState extends State<Container2> {
 
                         child:Padding(
                             padding: EdgeInsets.only(left: 10.0),
-                            child:Text(widget.Question,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+                            child:Text(widget.Question,style: TextStyle(fontSize:questionFontSize,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
 
                       )
 
@@ -150,7 +153,54 @@ class _HomeScreenState extends State<Container2> {
 
 
 //                                        color: Colors.red,
-                    child: ListView.builder
+                    child:
+// ListView.builder
+//                      (
+//                        itemCount: widget.AnswerOption.length,
+//                        itemBuilder: (BuildContext ctxt, int index) {
+//                          return GestureDetector(
+//
+//                              child:
+//                              Container(
+//                                  color: Colors.white,
+//
+//                                  child:
+//                                  Column(
+//                                    children: <Widget>[
+//                                      Divider(
+//                                        height: 1.0,
+//                                        thickness: 1.0,
+//                                      ),
+//                                      Row(
+//                                        children: <Widget>[
+//
+//                                          Checkbox(
+//
+//                                            value: this.values[index],
+//                                            onChanged: (bool value) {
+//                                              print(value);
+//
+//                                              setState(() {
+//                                                this.values[index] = value;
+//                                                //containerColor = ! containerColor;
+//
+//                                              });
+//                                            },
+//
+//                                          ),
+//
+//                                          Image(image:AssetImage(widget.AnswerImages[index]),width: 22.0,height: 35.0,),
+//                                          SizedBox(width: 20.0,),
+//                                          Text(widget.AnswerOption[index],style: TextStyle(color:Questions.LivingCheck == 1 || Questions.LivingCheck == 2 ? Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF) : Colors.deepPurple[300]),),
+//                                        ],
+//                                      )
+//                                    ],
+//                                  )
+//                              ));
+//                        }
+//                    ),
+
+                    ListView.builder
                       (
                         itemCount: widget.AnswerOption.length,
                         itemBuilder: (BuildContext ctxt, int index) {
@@ -167,29 +217,71 @@ class _HomeScreenState extends State<Container2> {
                                         height: 1.0,
                                         thickness: 1.0,
                                       ),
-                                      Row(
-                                        children: <Widget>[
-
-                                          Checkbox(
-
-                                            value: this.values[index],
-                                            onChanged: (bool value) {
-                                              print(value);
-
+                                      GestureDetector(
+                                          onTap: (){
+                                            print("work");
+                                            if(values[index] == true)
+                                            {
                                               setState(() {
-                                                this.values[index] = value;
-                                                //containerColor = ! containerColor;
-
+                                                values[index] = false;
                                               });
-                                            },
 
-                                          ),
+                                            }
 
-                                          Image(image:AssetImage(widget.AnswerImages[index]),width: 22.0,height: 35.0,),
-                                          SizedBox(width: 20.0,),
-                                          Text(widget.AnswerOption[index],style: TextStyle(color:Questions.LivingCheck == 1 || Questions.LivingCheck == 2 ? Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF) : Colors.deepPurple[300]),),
-                                        ],
-                                      )
+                                            else
+                                            {
+                                              setState(() {
+                                                values[index] = true;
+                                              });
+
+                                            }
+                                          },
+                                          child:Opacity(
+                                              opacity: 0.8,
+                                              child:Container(
+                                                  color: values[index] == true ? Color.fromARGB(0XFF, 0XC1, 0XE7, 0XFD) : Colors.white,
+
+                                                  padding: EdgeInsets.only(top: 12.0,bottom: 12.0),
+                                                  child:Row(
+                                                    children: <Widget>[
+
+//                                          Checkbox(
+//
+//                                            value: this.values[index],
+//                                            onChanged: (bool value) {
+//                                              print(value);
+//
+//                                              setState(() {
+//                                                this.values[index] = value;
+//                                                //containerColor = ! containerColor;
+//
+//                                              });
+//                                            },
+//
+//                                          ),
+
+                                                      Padding(
+                                                        padding:EdgeInsets.only(left:10.0),
+                                                        child: values[index] == true ?
+                                                        Image(image:AssetImage("images/checked.png"),width: 20.0,height: 20.0,)
+                                                            :
+                                                        Image(image:AssetImage("images/unchecked.png"),width: 20.0,height: 20.0,),
+                                                      ),
+                                                      SizedBox(width: 20.0,),
+
+//                                          Icon(Icons.timer),
+                                                      Image(image:AssetImage(widget.AnswerImages[index]),width: 22.0,height: 35.0,),
+                                                      SizedBox(width: 20.0,),
+                                                      Container(
+                                                        width: MediaQuery.of(context).size.width * 0.65,
+                                                        child:AutoSizeText(widget.AnswerOption[index],style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),
+                                                          minFontSize: 14,
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow.ellipsis,),
+                                                      )
+
+                                                    ],
+                                                  ))))
                                     ],
                                   )
                               ));
@@ -273,12 +365,79 @@ class _HomeScreenState extends State<Container2> {
       }
 
     }
+    if(data[0] == "Self-employed" || data[0] == "Own business")
+      {
+        Navigator.of(context).pop();
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return UnSupportedScreen(textImage:"images/unsupportselfemploy.png",textTitle:"Self-employment & Owning a business",textMessage:"Being your own boss is a great step in your career and you probably understand best that taxes are not easy with that. Please be patient while we figure out a simple solution for you!");
+        }));
+      }
+
+    else if(data[0] == "Forestry")
+    {
+      Navigator.of(context).pop();
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return UnSupportedScreen(textImage:"images/unsupportforest.png",textTitle:"Forester & Farmer",textMessage:"It's a nice job being out in nature instead of sitting in an office chair. Just taxes are a bit tricky with that, so please be a bit patient.");
+      }));
+    }
+
+    else if(data[0] == "Retired" || data[0] == "Pensions")
+    {
+      Navigator.of(context).pop();
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return UnSupportedScreen(textImage:"images/unsupportretirement.png",textTitle:"Retirement & Pensions",textMessage:"You deserved your time off. We are working on an easy and stress-free solution to help you with your taxes. Give us a bit more time.");
+      }));
+    }
+
+    else if(data[0] == "Letting and Leasing")
+    {
+      Navigator.of(context).pop();
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return UnSupportedScreen(textImage:"images/unsupportletting.png",textTitle:"Letting, leasing, and sales of multiple properties",textMessage:"Being a landlord you probably know that tax declarations are very tricky in your situation.Please be patient while we figure out a simple solution for you.");
+      }));
+    }
+
+    else if(data[0] == "Adult relatives")
+    {
+      Navigator.of(context).pop();
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return UnSupportedScreen(textImage:"images/adultrelative.png",textTitle:"Support of adult relatives",textMessage:"We admire that you support your relatives and we would really like to help you with your taxes.Please be a bit patient");
+      }));
+    }
+
+    else if(data[0] == "Private loan" || data[0] == "Partiarisches Darlehen")
+    {
+      Navigator.of(context).pop();
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return UnSupportedScreen(textImage:"images/unsupportloan.png",textTitle:"Loans",textMessage:"We appreciate that you support other people and would like to help you with your taxes.Unfortunately, taxes are a bit tricky with that, so please be a bit patient.");
+      }));
+    }
+
+    else if(data[0] == "Silent partnerships")
+    {
+      Navigator.of(context).pop();
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return UnSupportedScreen(textImage:"images/unsupportsilentpartnership.png",textTitle:"Silent partnerships, Company shares, Shareholder in a company",textMessage:"Making tax declarations most profitable for you requires some more time.Please be patient while we figure out a simple solution for you!");
+      }));
+    }
+
+    else if(data[0] == "Foreign investment funds")
+    {
+      Navigator.of(context).pop();
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return UnSupportedScreen(textImage:"- images/unsupportforeign.png",textTitle:"Foreign, bank accounts, foreign investment funds",textMessage:"Foreign bank accounts and investments are a bit tricky from a tax perspective but we are of course willing to help you with your taxes. Please be a bit patient!");
+      }));
+    }
+
+
     //Questions.animatedContainer = 210.0;
+    else{
     qu.addAnswer(widget.Identity,widget.BigQuestion, widget.QuestionOption, data, 55.0);
 
     Navigator.of(context).pop();
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return mainQuestions(CheckQuestion : widget.QuestionOption,CheckAnswer : data);
     }));
+  }
   }
 }

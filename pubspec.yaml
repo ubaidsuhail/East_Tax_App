@@ -107,6 +107,20 @@ flutter:
    - images/uncolorfamily.png
    - images/uncolorfinance.png
    - images/uncoloreducation.png
+   - images/unsupportselfemploy.png
+   - images/unsupportforest.png
+   - images/unsupportretirement.png
+   - images/unsupportletting.png
+   - images/adultrelative.png
+   - images/unsupportloan.png
+   - images/unsupportsilentpartnership.png
+   - images/unsupportforeign.png
+   - images/unsupportsurvivor.png
+   - images/unsupportabroad.png
+   - images/walletpig.png
+   - images/files.png
+   - images/close.png
+   - images/forwardarrow.png
 
 
   #  - images/a_dot_ham.jpeg

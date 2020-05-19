@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:easy_taxx/income_flow/incomemainquestions.dart';
 import 'package:easy_taxx/income_flow/fulladdress.dart';
+import 'package:easy_taxx/datamodels/designfile.dart';
 
 class AddressContainer extends StatefulWidget {
   String identity;
@@ -99,7 +100,7 @@ class _Container7State extends State<AddressContainer> {
                               onTap: (){
 
                               },
-                              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+                              child:Image(image: AssetImage("images/question_mark.png"),width: questionMarkWidth,height: questionMarkHeight,))
                       ),
 
                       Positioned(
@@ -117,7 +118,7 @@ class _Container7State extends State<AddressContainer> {
 
                         child:Padding(
                             padding: EdgeInsets.only(left: 10.0),
-                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:questionFontSize,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
 
                       )
 

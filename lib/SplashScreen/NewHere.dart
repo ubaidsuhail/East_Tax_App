@@ -16,6 +16,8 @@ class newHere extends StatefulWidget {
 }
 
 class _newHereState extends State<newHere> {
+  String _valGender;
+  List _listGender = ["English", "German"];
   @override
   void initState() {
     // TODO: implement initState
@@ -37,38 +39,71 @@ class _newHereState extends State<newHere> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: 20.0,),
+            SizedBox(height: 40.0,),
             ListTile(
               leading: Icon(Icons.arrow_back_ios,color: Colors.lightBlue,size: 15.0,),
 
               trailing:
                   Container(
 //                    color: Colors.redAccent,
-                    width: 140.0,
+                  padding: EdgeInsets.only(left: 10.0),
+                    width: 200.0,
                     height: 30.0,
                     child: Row(
                       children: <Widget>[
-                        Text('Change tax country',style: TextStyle(fontSize: 13.0,color: Colors.lightBlue),),
-                        SizedBox(width: 5.0,),
-                        Icon(Icons.keyboard_arrow_down,size: 20.0,color: Colors.lightBlue,),
+                        //Text('Change tax country',style: TextStyle(fontSize: 13.0,color: Colors.lightBlue),),
+
+                        DropdownButtonHideUnderline(
+                          child: ButtonTheme(
+                            alignedDropdown: true,
+                            child:DropdownButton(
+                              hint: Text(
+                                "Choose a tax country",
+                                style: TextStyle(
+                                  decoration: TextDecoration.none,
+                                  fontSize: 15.0,
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.w700,
+                                 color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)
+                                ),
+                              ),
+                              value : _valGender,
+                              items: _listGender.map((value) {
+                                return DropdownMenuItem(
+                                  child: Text(value),
+                                  value: value,
+                                );
+                              }).toList(),
+                              onChanged: (value) {
+                                setState(() {
+                                  _valGender = value;  // To tell _valGender that the contents will be changed according to the value we selected
+                                });
+                              },
+//                    style: Theme.of(context).textTheme.headline6,
+                              iconEnabledColor: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)
+                            ),
+                          ),
+                        ),
+//                        SizedBox(width: 5.0,),
+//                        Icon(Icons.keyboard_arrow_down,size: 20.0,color: Colors.lightBlue,),
                       ],
                     )
                   )
             ),
 
             Padding(
-              padding: EdgeInsets.only(left: 20.0,top: 20.0),
+              padding: EdgeInsets.only(left: 20.0,top: 40.0),
               child:
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Text(
-                    'Choose a Tax Year',style: TextStyle(fontSize: 20.0),
+                    'Choose a tax year',style: TextStyle(fontSize: 19.0,fontWeight: FontWeight.bold),
                 )
               ],
             )),
             Padding(
-                padding: EdgeInsets.only(left: 20.0),
+                padding: EdgeInsets.only(left: 20.0,top: 14.0),
                 child:
                     Container(
                         child:
@@ -92,18 +127,18 @@ class _newHereState extends State<newHere> {
 
                         //Work Flow Start
 
-                        Questions.workAnswerShow = [];
-                        Questions.workYouIdentity = "you";
-                        Questions.workYourIdentity = "your";
-                        Questions.homeOfficeLength = 0;
-                        Questions.totalHomeOffice = 0;
-                        Questions.homeOfficeText = "";
-                        Questions.workFurnitureLength = 0;
-                        Questions.totalWorkFurniture = 0;
-                        Questions.workFurnitureText = "";
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-                          return WorkMainQuestions(CheckCompleteQuestion:"What was ${Questions.workYourIdentity} job title?",CheckQuestion:"Profession",CheckAnswer:[]);
-                        }));
+//                        Questions.workAnswerShow = [];
+//                        Questions.workYouIdentity = "you";
+//                        Questions.workYourIdentity = "your";
+//                        Questions.homeOfficeLength = 0;
+//                        Questions.totalHomeOffice = 0;
+//                        Questions.homeOfficeText = "";
+//                        Questions.workFurnitureLength = 0;
+//                        Questions.totalWorkFurniture = 0;
+//                        Questions.workFurnitureText = "";
+//                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+//                          return WorkMainQuestions(CheckCompleteQuestion:"What was ${Questions.workYourIdentity} job title?",CheckQuestion:"Profession",CheckAnswer:[]);
+//                        }));
 
                         //Work Flow End
 
@@ -206,20 +241,20 @@ class _newHereState extends State<newHere> {
 
                         //Living Situation Flow Start //
 
-//                        if(Questions.yearfirstTime == 0)
-//                          {
-//                            Questions.yearfirstTime = 1;
-//                        Questions.answerShow = [];
-//                        Questions.LivingCheck = 0;
-//                        Questions.livcolContainer = 0;
-//                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-//                          return mainQuestions(CheckQuestion:"What is your official marital status in Germany?",CheckAnswer:[]);
-//                        }));
-//                          }
-//                          else
-//                            {
-//                              Navigator.pushNamed(context, 'allCategoryScreen');
-//                            }
+                        if(Questions.yearfirstTime == 0)
+                          {
+                            Questions.yearfirstTime = 1;
+                        Questions.answerShow = [];
+                        Questions.LivingCheck = 0;
+                        Questions.livcolContainer = 0;
+                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return mainQuestions(CheckQuestion:"What is your official marital status in Germany?",CheckAnswer:[]);
+                        }));
+                          }
+                          else
+                            {
+                              Navigator.pushNamed(context, 'allCategoryScreen');
+                            }
                         //Living Situation Flow End //
 
                       },

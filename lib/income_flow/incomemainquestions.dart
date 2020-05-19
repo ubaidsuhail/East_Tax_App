@@ -533,7 +533,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
           else if(widget.CheckAnswer[0] == "Yes")
           {
             //Question No 154
-          return calculationContainer("","Income","How many annual payslips (Lohnsteuerbescheinigung) have you received for the entire year 2019?","Number",340.0);//ya check kro
+          return calculationContainer("","Income","How many annual payslips (Lohnsteuerbescheinigung) have you received for the entire year 2019?","Number",340.0,"loop");//ya check kro
           }
         }
 
@@ -599,22 +599,22 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
                    // Yes the entire time 362.0
                   // Some of the time 220.0
                  // Not at all 220.0
-              return calculationContainer("","Income","What is the size of the property in square meters?","Living area",362.0);
+              return calculationContainer("","Income","What is the size of the property in square meters?","Living area",362.0,"");
             }
             else if(widget.CheckAnswer[0] == "Yes, and also as a third-party rental")
               {
             //Question No 9
-                return calculationContainer("","Income","How many square meters did you use yourself?","Area used by self",220.0);
+                return calculationContainer("","Income","How many square meters did you use yourself?","Area used by self",220.0,"");
               }
           else if(widget.CheckAnswer[0] == "Some of the time")
           {
              //Question No 8
-            return calculationContainer("","Income","What is the size of the property in square meters?","Living area",362.0);
+            return calculationContainer("","Income","What is the size of the property in square meters?","Living area",362.0,"");
           }
           else if(widget.CheckAnswer[0] == "Not at all")
           {
               //Question No 8
-            return calculationContainer("","Income","What is the size of the property in square meters?","Living area",362.0);
+            return calculationContainer("","Income","What is the size of the property in square meters?","Living area",362.0,"");
           }
 
            }
@@ -692,7 +692,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
               {
                   //Question No 15(value)
 
-                return calculationContainer("","Income","Have you owned 1 domain(s) for longer than a year?","Number of sales",220.0);
+                return calculationContainer("","Income","Have you owned 1 domain(s) for longer than a year?","Number of sales",220.0,"loop");
 
               }
           }
@@ -744,14 +744,14 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
           {
 
             //Question No 22
-            return calculationContainer("","Income","What did you sell?","Valuables",220.0);
+            return calculationContainer("","Income","What did you sell?","Valuables",220.0,"");
 
           }
           else if(widget.CheckAnswer[0] == "Yes")
           {
             //Question No 23
 
-            return calculationContainer("","Income","How many valuable objects did you sell?","Number of sales",220.0);
+            return calculationContainer("","Income","How many valuable objects did you sell?","Number of sales",220.0,"loop");
 
           }
         }
@@ -1000,54 +1000,54 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
           for(int m=0;m<widget.CheckAnswer.length;m++) {
             if(widget.CheckAnswer[m] == "Trainer") {
               //Question 28 will come
-              return calculationContainer("","Income","How much did you make as a trainer?","Income trainer",220.0);
+              return calculationContainer("","Income","How much did you make as a trainer?","Income trainer",220.0,"calculation");
 
             }
 
             else if(widget.CheckAnswer[m] == "Supervisor") {
              //Question 30 will come
-              return calculationContainer("","Income","How much did you make as a care worker?","Income care worker",220.0);
+              return calculationContainer("","Income","How much did you make as a care worker?","Income care worker",220.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Instructor / lecturer") {
             //Question 41 will come
-              return calculationContainer("","Income","How much did you make as an instructor?","Income instructor",220.0);
+              return calculationContainer("","Income","How much did you make as an instructor?","Income instructor",220.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Conductor") {
               //Question 43 will come
-              return calculationContainer("","Income","How much did you make as a conductor?","Income conductor",220.0);
+              return calculationContainer("","Income","How much did you make as a conductor?","Income conductor",220.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Organist") {
               //Question 45 will come
-              return calculationContainer("","Income","How much did you make as an organist?","Income organist",220.0);
+              return calculationContainer("","Income","How much did you make as an organist?","Income organist",220.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Tour guide") {
               //Question 47 will come
-              return calculationContainer("","Income","How much did you make as a tour guide?","Income tour guide",220.0);
+              return calculationContainer("","Income","How much did you make as a tour guide?","Income tour guide",220.0,"calculation");
 
             }
 
             else if(widget.CheckAnswer[m] == "Referee") {
               //Question 49 will come
-              return calculationContainer("","Income","How much did you make as a referee?","Income as referee",220.0);
+              return calculationContainer("","Income","How much did you make as a referee?","Income as referee",220.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Paramedic") {
               //Question 51 will come
-              return calculationContainer("","Income","How much did you make as a paramedic?","Income paramedic",220.0);
+              return calculationContainer("","Income","How much did you make as a paramedic?","Income paramedic",220.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Amateur musician") {
               //Question 53 will come
-              return calculationContainer("","Income","How much did you make as a musician?","Income musician",220.0);
+              return calculationContainer("","Income","How much did you make as a musician?","Income musician",220.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Other activities for associations") {
               //Question 55 will come
-              return calculationContainer("","Income","What kind of voluntary work did you participate in?","Kind of work",220.0);
+              return calculationContainer("","Income","What kind of voluntary work did you participate in?","Kind of work",220.0,"");
             }
 
             else if(widget.CheckAnswer[m] == "No") {
@@ -1075,7 +1075,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         {
 
           //Question No 29
-          return calculationContainer("","Income","What costs did you have due to your work as a trainer?","Costs trainer",430.0);
+          return calculationContainer("","Income","What costs did you have due to your work as a trainer?","Costs trainer",430.0,"calculation");
         }
 
         //Answer No 29
@@ -1096,7 +1096,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         {
 
           //Question No 40
-          return calculationContainer("","Income","What costs did you have due to your work as a care worker?","Costs care worker",430.0);
+          return calculationContainer("","Income","What costs did you have due to your work as a care worker?","Costs care worker",430.0,"calculation");
         }
 
 
@@ -1118,7 +1118,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         {
 
           //Question No 42
-          return calculationContainer("","Income","What costs did you incur as an instructor?","Costs instructor",430.0);
+          return calculationContainer("","Income","What costs did you incur as an instructor?","Costs instructor",430.0,"calculation");
         }
 
 
@@ -1140,7 +1140,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
     {
 
     //Question No 44
-    return calculationContainer("","Income","What costs did you have due to our work as a conductor?","Costs conductor",430.0);
+    return calculationContainer("","Income","What costs did you have due to our work as a conductor?","Costs conductor",430.0,"calculation");
     }
 
 
@@ -1162,7 +1162,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         {
 
           //Question No 46
-          return calculationContainer("","Income","What costs did you have due to your work as an organist?","Costs organist",430.0);
+          return calculationContainer("","Income","What costs did you have due to your work as an organist?","Costs organist",430.0,"calculation");
         }
 
 
@@ -1185,7 +1185,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
                 {
 
                   //Question No 48
-                  return calculationContainer("","Income","What costs did you have due to your work as a tour guide?","Costs tour guide",430.0);
+                  return calculationContainer("","Income","What costs did you have due to your work as a tour guide?","Costs tour guide",430.0,"calculation");
                 }
 
 
@@ -1207,7 +1207,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         {
 
           //Question No 50
-          return calculationContainer("","Income","What costs did you have due to your work as a referee?","Costs referee",430.0);
+          return calculationContainer("","Income","What costs did you have due to your work as a referee?","Costs referee",430.0,"calculation");
         }
 
 
@@ -1229,7 +1229,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         {
 
           //Question No 52
-          return calculationContainer("","Income","What costs did you have due to your work as a paramedic?","Costs paramedic",430.0);
+          return calculationContainer("","Income","What costs did you have due to your work as a paramedic?","Costs paramedic",430.0,"calculation");
         }
 
 
@@ -1252,7 +1252,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
     {
 
     //Question No 54
-    return calculationContainer("","Income","What costs did you have due to your work as a musician?","Costs musician",430.0);
+    return calculationContainer("","Income","What costs did you have due to your work as a musician?","Costs musician",430.0,"calculation");
     }
 
 
@@ -1274,7 +1274,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         {
 
           //Question No 56
-          return calculationContainer("","Income","How much did you make from voluntary work?","Amount",220.0);
+          return calculationContainer("","Income","How much did you make from voluntary work?","Amount",220.0,"calculation");
         }
 
          //Answer No 56
@@ -1282,7 +1282,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         {
 
           //Question No 57
-          return calculationContainer("","Income","What costs did you have due to voluntary work?","Costs voluntary work",430.0);
+          return calculationContainer("","Income","What costs did you have due to voluntary work?","Costs voluntary work",430.0,"calculation");
         }
 
 
@@ -1306,22 +1306,22 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
 
             if(widget.CheckAnswer[m] == "Commission") {
             //Question No 58
-              return calculationContainer("","Income","How much did you make from commissions?","Income commission",220.0);
+              return calculationContainer("","Income","How much did you make from commissions?","Income commission",220.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Rental of movable assets") {
               //Question No 60
-              return calculationContainer("","Income","How much did you make from movable assets (leasing)?","Income leasing",220.0);
+              return calculationContainer("","Income","How much did you make from movable assets (leasing)?","Income leasing",220.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Post-contractual restraint") {
               //Question No 62
-              return calculationContainer("","Income","How much compensation did you receive due to a restraint or non-competition clause?","Amount",220.0);
+              return calculationContainer("","Income","How much compensation did you receive due to a restraint or non-competition clause?","Amount",220.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Other services") {
 //Question No 62
-              return calculationContainer("","Income","What kind of other services did you receive?","Kind of other services",220.0);
+              return calculationContainer("","Income","What kind of other services did you receive?","Kind of other services",220.0,"");
             }
 
             else if(widget.CheckAnswer[m] == "No") {
@@ -1339,7 +1339,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         {
 
           //Question No 59
-          return calculationContainer("","Income","What costs did you have related to earnings from the commission?","Costs commission",430.0);
+          return calculationContainer("","Income","What costs did you have related to earnings from the commission?","Costs commission",430.0,"calculation");
         }
 
 
@@ -1361,7 +1361,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         {
 
           //Question No 61
-          return calculationContainer("","Income","What costs did you have related to the movable assets (leasing)?","Costs leasing",430.0);
+          return calculationContainer("","Income","What costs did you have related to the movable assets (leasing)?","Costs leasing",430.0,"calculation");
         }
 
 
@@ -1384,7 +1384,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         {
 
           //Question No 63
-          return calculationContainer("","Income","What costs did you have due to post-contractual restraint?","Costs",430.0);
+          return calculationContainer("","Income","What costs did you have due to post-contractual restraint?","Costs",430.0,"calculation");
         }
 
 
@@ -1407,7 +1407,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         {
 
           //Question No 65
-          return calculationContainer("","Income","How much money did you receive from ${Questions.serviceName}?","Amount earnings",220.0);
+          return calculationContainer("","Income","How much money did you receive from ${Questions.serviceName}?","Amount earnings",220.0,"calculation");
         }
 
         //Answer No 65
@@ -1415,7 +1415,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         {
 
           //Question No 66
-          return calculationContainer("","Income","What costs did you have due to ${Questions.serviceName}?","Costs",430.0);
+          return calculationContainer("","Income","What costs did you have due to ${Questions.serviceName}?","Costs",430.0,"calculation");
         }
 
 
@@ -1438,7 +1438,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         {
 
           //Question No 127
-          return calculationContainer("","Income","How many square meters were used for other purposes?","Area used by others",220.0);
+          return calculationContainer("","Income","How many square meters were used for other purposes?","Area used by others",220.0,"");
         }
 
 
@@ -1484,7 +1484,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
           //Question No 132
           if(Questions.residence == "Yes, and also as a third-party rental"){
             //Question No 132
-            return calculationContainer("","Income","At what price did you sell the property?","Sale price",220.0);
+            return calculationContainer("","Income","At what price did you sell the property?","Sale price",220.0,"calculation");
           }
           else
             {
@@ -1500,7 +1500,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         {
 
           //Question No 133
-          return calculationContainer("","Income","What were the manufacturing or acquisition costs of the property?","Purchase price",280.0);
+          return calculationContainer("","Income","What were the manufacturing or acquisition costs of the property?","Purchase price",280.0,"calculation");
         }
 
 
@@ -1539,7 +1539,7 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         {
           if(widget.CheckAnswer[0] == "No") {
             //Question No 136
-            return calculationContainer("", "Income", "How much depreciation did you declare?","Depreciation amount",430.0);
+            return calculationContainer("", "Income", "How much depreciation did you declare?","Depreciation amount",430.0,"calculation");
           }
           else if(widget.CheckAnswer[0] == "Yes") {
            //Question No 137
@@ -1569,31 +1569,31 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
 
             if(widget.CheckAnswer[m] == "Notary costs") {
               //Question No 138
-              return calculationContainer("","Income","How much did you spend on notaries?","Notary costs",362.0);
+              return calculationContainer("","Income","How much did you spend on notaries?","Notary costs",362.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Real estate transfer tax") {
              //Question No 139
-              return calculationContainer("","Income","How much did you spend on real estate transfer tax?","Real estate transfer tax costs",362.0);
+              return calculationContainer("","Income","How much did you spend on real estate transfer tax?","Real estate transfer tax costs",362.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Advertising costs") {
             //Question No 140
-              return calculationContainer("","Income","How much did you spend on advertising?","Advertising costs",362.0);
+              return calculationContainer("","Income","How much did you spend on advertising?","Advertising costs",362.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Bank costs") {
                //Question No 141
-              return calculationContainer("","Income","How much dd you spend on bank costs?","Bank costs",362.0);
+              return calculationContainer("","Income","How much dd you spend on bank costs?","Bank costs",362.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Broker fees") {
              //Question No 142
-              return calculationContainer("","Income","How much did you spend on broker fees?","Broker fees",362.0);
+              return calculationContainer("","Income","How much did you spend on broker fees?","Broker fees",362.0,"calculation");
             }
             else if(widget.CheckAnswer[m] == "Loan interest") {
               //Question No 143
-              return calculationContainer("","Income","How much did you spend on loan interest?","Loan interest",362.0);
+              return calculationContainer("","Income","How much did you spend on loan interest?","Loan interest",362.0,"calculation");
             }
             else if(widget.CheckAnswer[m] == "None") {
               //Question No 10
@@ -1666,49 +1666,49 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
           for(int m=0;m<widget.CheckAnswer.length;m++) {
             if(widget.CheckAnswer[m] == "Unemployment benefits") {
               //Question 71 will come
-              return calculationContainer("","Income","How much did you receive in unemployment benefits?","Unemployment benefits",220.0);
+              return calculationContainer("","Income","How much did you receive in unemployment benefits?","Unemployment benefits",220.0,"calculation");
 
             }
 
             else if(widget.CheckAnswer[m] == "Parental allowance") {
               //Question 120 will come
-              return calculationContainer("","Income","How much parental allowance did you get?","Parental allowance",220.0);
+              return calculationContainer("","Income","How much parental allowance did you get?","Parental allowance",220.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Sick pay") {
               //Question 83 will come
-              return calculationContainer("","Income","How much sick pay did you receive?","Sick pay",220.0);
+              return calculationContainer("","Income","How much sick pay did you receive?","Sick pay",220.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Sick pay for children") {
               //Question 89 will come
-              return calculationContainer("","Income","How much sick pay did you get for your child?","Sick pay for children",220.0);
+              return calculationContainer("","Income","How much sick pay did you get for your child?","Sick pay for children",220.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Maternity pay") {
               //Question 96 will come
-              return calculationContainer("","Income","How much maternity pay did you receive?","Maternity pay",220.0);
+              return calculationContainer("","Income","How much maternity pay did you receive?","Maternity pay",220.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Unemployment assistance") {
               //Question 100 will come
-              return calculationContainer("","Income","How much employment assistance did you receive?","Unemployment assistance",220.0);
+              return calculationContainer("","Income","How much employment assistance did you receive?","Unemployment assistance",220.0,"calculation");
 
             }
 
             else if(widget.CheckAnswer[m] == "Insolvency allowance") {
               //Question 74 will come
-              return calculationContainer("","Income","How much insolvency allowance did you receive?","Amount",220.0);
+              return calculationContainer("","Income","How much insolvency allowance did you receive?","Amount",220.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Pension about benefits related to 'Bundesversogungsgesetz'") {
               //Question 110 will come
-              return calculationContainer("","Income","How much compensation did you receive?","Amount",220.0);
+              return calculationContainer("","Income","How much compensation did you receive?","Amount",220.0,"calculation");
             }
 
             else if(widget.CheckAnswer[m] == "Payments related to 'Infektionsschutzgesetz'") {
               //Question 106 will come
-              return calculationContainer("","Income","How much did you receive in compensation for Infektionsschutzgesetz?","Amount",220.0);
+              return calculationContainer("","Income","How much did you receive in compensation for Infektionsschutzgesetz?","Amount",220.0,"calculation");
             }
             else if(widget.CheckAnswer[m] == "No") {
 
@@ -1830,10 +1830,10 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
   }
 
 
-  Widget calculationContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption, double animatedcontainer )
+  Widget calculationContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption, double animatedcontainer,String AdditionalData )
   {
     Questions.incomeAnimatedContainer = animatedcontainer;
-    return CalculationContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:220.0);
+    return CalculationContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:220.0,additionalData:AdditionalData);
 
   }
 

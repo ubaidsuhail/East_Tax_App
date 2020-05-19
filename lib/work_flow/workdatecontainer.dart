@@ -3,6 +3,7 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'dart:async';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:easy_taxx/work_flow/workmainquestions.dart';
+import 'package:easy_taxx/datamodels/designfile.dart';
 
 class WorkDateContainer extends StatefulWidget {
   String identity;
@@ -103,7 +104,7 @@ class _WorkDateContainerState extends State<WorkDateContainer> {
                               onTap: (){
 
                               },
-                              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+                              child:Image(image: AssetImage("images/question_mark.png"),width: questionMarkWidth,height: questionMarkHeight,))
                       ),
 
                       Positioned(
@@ -121,7 +122,7 @@ class _WorkDateContainerState extends State<WorkDateContainer> {
 
                         child:Padding(
                             padding: EdgeInsets.only(left: 10.0),
-                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:questionFontSize,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
 
                       )
 

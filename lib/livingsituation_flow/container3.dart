@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:easy_taxx/livingsituation_flow/mainQuestions.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
+import 'package:easy_taxx/datamodels/designfile.dart';
+import 'package:easy_taxx/livingsituation_flow/unsupportedscreen.dart';
 import 'package:responsive_container/responsive_container.dart';
 //void main() => runApp(MaterialApp(home:HomeScreen()));
 
@@ -108,7 +110,7 @@ class _HomeScreenState extends State<Container3> {
                                             onTap: (){
 
                                             },
-                                            child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+                                            child:Image(image: AssetImage("images/question_mark.png"),width: questionMarkWidth,height: questionMarkHeight,))
                                     ),
 
                                     Positioned(
@@ -126,7 +128,7 @@ class _HomeScreenState extends State<Container3> {
 
                                       child:Padding(
                                         padding: EdgeInsets.only(left: 10.0),
-                                      child:Text(widget.Question,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+                                      child:Text(widget.Question,style: TextStyle(fontSize:questionFontSize,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
 
                                       )
 
@@ -164,12 +166,60 @@ class _HomeScreenState extends State<Container3> {
                                         GestureDetector(
                                           onTap: (){
                                             //Questions.animatedContainer = 420.0;
+                                            if(widget.QuestionOption == "More than one property")
+                                              {
+                                                Navigator.of(context).pop();
+                                                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                                  return UnSupportedScreen(textImage:"images/unsupportletting.png",textTitle:"Letting, leasing, and sales of multiple properties",textMessage:"Being a landlord you probably know that tax declarations are very tricky in your situation.Please be patient while we figure out a simple solution for you.");
+                                                }));
+                                              }
+                                            else if(widget.QuestionOption == "> 10% of shares")
+                                            {
+                                              Navigator.of(context).pop();
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                                return UnSupportedScreen(textImage:"images/adultrelative.png",textTitle:"Support of adult relatives",textMessage:"We admire that you support your relatives and we would really like to help you with your taxes.Please be a bit patient");
+                                              }));
+                                            }
+
+                                            else if(widget.QuestionOption == "> 25% of shares")
+                                            {
+                                              Navigator.of(context).pop();
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                                return UnSupportedScreen(textImage:"images/unsupportsilentpartnership.png",textTitle:"Silent partnerships, Company shares, Shareholder in a company",textMessage:"Making tax declarations most profitable for you requires some more time.Please be patient while we figure out a simple solution for you!");
+                                              }));
+                                            }
+
+                                            else if(widget.QuestionOption == "> 1% of shares")
+                                            {
+                                              Navigator.of(context).pop();
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                                return UnSupportedScreen(textImage:"images/unsupportsilentpartnership.png",textTitle:"Silent partnerships, Company shares, Shareholder in a company",textMessage:"Making tax declarations most profitable for you requires some more time.Please be patient while we figure out a simple solution for you!");
+                                              }));
+                                            }
+
+                                            else if(widget.QuestionOption == "Living abroad")
+                                            {
+                                              Navigator.of(context).pop();
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                                return UnSupportedScreen(textImage:"images/unsupportabroad.png",textTitle:"Living abroad & income from abroad",textMessage:"Living in a different country opens perspectives! However, it makes things tricky with taxes. Please be patient while we figure out a simple solution for you.");
+                                              }));
+                                            }
+
+                                            else if(widget.QuestionOption == "Foreign Income")
+                                            {
+                                              Navigator.of(context).pop();
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                                return UnSupportedScreen(textImage:"images/unsupportabroad.png",textTitle:"Living abroad & income from abroad",textMessage:"Living in a different country opens perspectives! However, it makes things tricky with taxes. Please be patient while we figure out a simple solution for you.");
+                                              }));
+                                            }
+                                              else{
                                             qu.addAnswer(widget.Identity,widget.BigQuestion, widget.QuestionOption, ['Yes'], 55.0);
 
                                             Navigator.of(context).pop();
                                             Navigator.push(context, MaterialPageRoute(builder: (context) {
                                               return mainQuestions(CheckQuestion : widget.QuestionOption,CheckAnswer : ["Yes"]);
                                             }));
+                                          }
                                           },
 
                                           child:
@@ -193,13 +243,32 @@ class _HomeScreenState extends State<Container3> {
                                         ),
                                         GestureDetector(
                                           onTap: (){
+
+                                            if(widget.QuestionOption == "Child benefits")
+                                            {
+                                              Navigator.of(context).pop();
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                                return UnSupportedScreen(textImage:"images/adultrelative.png",textTitle:"Support of adult relatives",textMessage:"We admire that you support your relatives and we would really like to help you with your taxes.Please be a bit patient");
+                                              }));
+                                            }
+
+                                            else if(widget.QuestionOption == "Certificate for old shares")
+                                            {
+                                              Navigator.of(context).pop();
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                                return UnSupportedScreen(textImage:"images/unsupportloan.png",textTitle:"Bank certificate",textMessage:"In order for the sale of old shares to be recorded in the tax return, a confirmation from the bank must be submitted. If this is not available, the tax case cannot be supported. The bank confirmation can be requested from the bank.");
+                                              }));
+                                            }
+
+                                            else{
                                             //Questions.animatedContainer = 420.0;
                                             qu.addAnswer(widget.Identity,widget.BigQuestion, widget.QuestionOption, ['No'], 55.0);
 
                                             Navigator.of(context).pop();
                                             Navigator.push(context, MaterialPageRoute(builder: (context) {
-                                              return mainQuestions(CheckQuestion : widget.QuestionOption,CheckAnswer : ["No"]);
+                                            return mainQuestions(CheckQuestion : widget.QuestionOption,CheckAnswer : ["No"]);
                                             }));
+                                            }
                                             },
                                           child:
                                           Container(

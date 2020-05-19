@@ -3,7 +3,7 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'dart:async';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:easy_taxx/livingsituation_flow/mainQuestions.dart';
-
+import 'package:easy_taxx/datamodels/designfile.dart';
 class Container7 extends StatefulWidget {
   String Identity;
   String Question;
@@ -99,7 +99,7 @@ class _Container7State extends State<Container7> {
                                                     onTap: (){
 
                                                     },
-                                                    child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+                                                    child:Image(image: AssetImage("images/question_mark.png"),width: questionMarkWidth,height: questionMarkHeight,))
                                             ),
 
                                             Positioned(
@@ -117,7 +117,7 @@ class _Container7State extends State<Container7> {
 
                                               child:Padding(
                                                   padding: EdgeInsets.only(left: 10.0),
-                                                  child:Text(widget.Question,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+                                                  child:Text(widget.Question,style: TextStyle(fontSize:questionFontSize,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
 
                                             )
 

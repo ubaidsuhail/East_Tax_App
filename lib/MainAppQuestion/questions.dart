@@ -12,6 +12,7 @@ class Questions{
  static String categoryName = "Income";
  static String categoryImage = "images/uncolorincome.png";
  static int yearfirstTime = 0;
+ static bool afterAllCategoryFinish = false;
 
  // ====== Other Ends ====== //
 

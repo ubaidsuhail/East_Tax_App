@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:easy_taxx/finance_flow/financemainquestions.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-
+import 'package:easy_taxx/datamodels/designfile.dart';
 
 class FinanceThreeOptionContainer extends StatefulWidget {
   String identity;
@@ -118,7 +118,7 @@ class _FinanceThreeOptionContainerState extends State<FinanceThreeOptionContaine
                               onTap: (){
 
                               },
-                              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+                              child:Image(image: AssetImage("images/question_mark.png"),width: questionMarkWidth,height: questionMarkHeight,))
                       ),
 
                       Positioned(
@@ -136,7 +136,7 @@ class _FinanceThreeOptionContainerState extends State<FinanceThreeOptionContaine
 
                         child:Padding(
                             padding: EdgeInsets.only(left: 10.0),
-                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:questionFontSize,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
 
                       )
 
@@ -169,7 +169,7 @@ class _FinanceThreeOptionContainerState extends State<FinanceThreeOptionContaine
                                   children: <Widget>[
 
                                     ListTile(
-                                      title:AutoSizeText(widget.answerOption[index],style:TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontSize: 14.0),
+                                      title:AutoSizeText(widget.answerOption[index],style:TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontSize: 14.0,fontWeight: FontWeight.bold),
                                         minFontSize: 14,
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,),

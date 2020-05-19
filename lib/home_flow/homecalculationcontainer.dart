@@ -3,6 +3,7 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'dart:async';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:easy_taxx/home_flow/homemainquestions.dart';
+import 'package:easy_taxx/datamodels/designfile.dart';
 
 class HomeCalculationContainer extends StatefulWidget {
   String identity;
@@ -12,6 +13,7 @@ class HomeCalculationContainer extends StatefulWidget {
   String bigQuestion;
   String additionalData;
   String multipleData;
+
 
 
   HomeCalculationContainer({this.identity,this.bigQuestion,this.completeQuestion,this.questionOption,this.containerSize,this.additionalData,this.multipleData});
@@ -102,7 +104,7 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
                               onTap: (){
 
                               },
-                              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+                              child:Image(image: AssetImage("images/question_mark.png"),width: questionMarkWidth,height: questionMarkHeight,))
                       ),
 
                       Positioned(
@@ -120,7 +122,7 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
 
                         child:Padding(
                             padding: EdgeInsets.only(left: 10.0),
-                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:questionFontSize,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
 
                       )
 
@@ -167,9 +169,10 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
                                     decoration: InputDecoration(
                                         border: InputBorder.none,
 
-                                        hintText: "0",
+                                        hintText: widget.additionalData == "calculation" ? "€0" : "example" ,
                                         contentPadding: EdgeInsets.only(left: 15.0)
                                     ),
+                                    keyboardType:widget.additionalData == "calculation" ? TextInputType.number : TextInputType.emailAddress ,
                                   )
                               ),
 

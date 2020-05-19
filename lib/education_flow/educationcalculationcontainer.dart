@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:easy_taxx/education_flow/educationmainquestions.dart';
+import 'package:easy_taxx/datamodels/designfile.dart';
 
 class EducationCalculationContainer extends StatefulWidget {
   String identity;
@@ -101,7 +102,7 @@ class _EducationCalculationContainerState extends State<EducationCalculationCont
                               onTap: (){
 
                               },
-                              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+                              child:Image(image: AssetImage("images/question_mark.png"),width: questionMarkWidth,height: questionMarkHeight,))
                       ),
 
                       Positioned(
@@ -119,7 +120,7 @@ class _EducationCalculationContainerState extends State<EducationCalculationCont
 
                         child:Padding(
                             padding: EdgeInsets.only(left: 10.0),
-                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:questionFontSize,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
 
                       )
 
@@ -167,9 +168,10 @@ class _EducationCalculationContainerState extends State<EducationCalculationCont
                                     decoration: InputDecoration(
                                         border: InputBorder.none,
 
-                                        hintText: "0",
+                                        hintText: widget.additionalData == "calculation" ? "€0" : "example" ,
                                         contentPadding: EdgeInsets.only(left: 15.0)
                                     ),
+                                    keyboardType:widget.additionalData == "calculation" ? TextInputType.number : TextInputType.emailAddress ,
                                   )
                               ),
 

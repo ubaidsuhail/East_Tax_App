@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:easy_taxx/home_flow/homemainquestions.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
-
+import 'package:easy_taxx/datamodels/designfile.dart';
 
 
 class HomeYesNoContainer extends StatefulWidget {
@@ -110,7 +110,7 @@ class _HomeYesNoContainerScreenState extends State<HomeYesNoContainer> {
                               onTap: (){
 
                               },
-                              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+                              child:Image(image: AssetImage("images/question_mark.png"),width: questionMarkWidth,height: questionMarkHeight,))
                       ),
 
                       Positioned(
@@ -128,7 +128,7 @@ class _HomeYesNoContainerScreenState extends State<HomeYesNoContainer> {
 
                         child:Padding(
                             padding: EdgeInsets.only(left: 10.0),
-                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:questionFontSize,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
 
                       )
 

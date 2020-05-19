@@ -11,6 +11,7 @@ import 'package:easy_taxx/family_flow/familymainquestions.dart';
 import 'package:easy_taxx/health_flow/healthmainquestions.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:easy_taxx/finance_flow/financemainquestions.dart';
+import 'package:easy_taxx/categoryfinishedscreens/totaltaxamount.dart';
 //void main() => runApp(MaterialApp(home:HomeScreen()));
 
 class FinishCategory extends StatefulWidget {
@@ -328,7 +329,11 @@ class _HomeScreenState extends State<FinishCategory> {
 
      else if(widget.currentCategory == "Finances Category")
      {
+       Questions.afterAllCategoryFinish = true;
+       Questions.categoryName ="574.663,00€";
+
        Questions.categoryFinish[7] = 1;
+       Navigator.pushReplacementNamed(context, 'allCategoryScreen');
      }
   }
 }

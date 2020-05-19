@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:easy_taxx/finance_flow/financemainquestions.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
-
+import 'package:easy_taxx/datamodels/designfile.dart';
 
 
 
@@ -120,7 +120,7 @@ class _FinanceTwoOptionContainerState extends State<FinanceTwoOptionContainer> {
                               onTap: (){
 
                               },
-                              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+                              child:Image(image: AssetImage("images/question_mark.png"),width: questionMarkWidth,height: questionMarkHeight,))
                       ),
 
                       Positioned(
@@ -138,7 +138,7 @@ class _FinanceTwoOptionContainerState extends State<FinanceTwoOptionContainer> {
 
                         child:Padding(
                             padding: EdgeInsets.only(left: 10.0),
-                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:questionFontSize,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
 
                       )
 
@@ -173,7 +173,7 @@ class _FinanceTwoOptionContainerState extends State<FinanceTwoOptionContainer> {
                                   children: <Widget>[
 
                                     ListTile(
-                                      leading:Text(widget.answerOption[index],style:TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),) ),
+                                      leading:Text(widget.answerOption[index],style:TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.bold) ),
                                     ),
 
                                     Divider(thickness: 1.0,height: 1.0,),

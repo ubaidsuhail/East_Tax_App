@@ -3,6 +3,7 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'dart:async';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:easy_taxx/income_flow/incomemainquestions.dart';
+import 'package:easy_taxx/datamodels/designfile.dart';
 
 class CalculationContainer extends StatefulWidget {
   String identity;
@@ -10,9 +11,10 @@ class CalculationContainer extends StatefulWidget {
   String questionOption;
   double containerSize;
   String bigQuestion;
+  String additionalData;
 
 
-  CalculationContainer({this.identity,this.bigQuestion,this.completeQuestion,this.questionOption,this.containerSize});
+  CalculationContainer({this.identity,this.bigQuestion,this.completeQuestion,this.questionOption,this.containerSize,this.additionalData});
   @override
   _Container7State createState() => _Container7State();
 }
@@ -100,7 +102,7 @@ class _Container7State extends State<CalculationContainer> {
                               onTap: (){
 
                               },
-                              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+                              child:Image(image: AssetImage("images/question_mark.png"),width: questionMarkWidth,height: questionMarkHeight,))
                       ),
 
                       Positioned(
@@ -118,7 +120,7 @@ class _Container7State extends State<CalculationContainer> {
 
                         child:Padding(
                             padding: EdgeInsets.only(left: 10.0),
-                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:questionFontSize,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
 
                       )
 
@@ -163,9 +165,10 @@ class _Container7State extends State<CalculationContainer> {
                                     decoration: InputDecoration(
                                         border: InputBorder.none,
 
-                                        hintText: "0",
+                                        hintText: widget.additionalData == "calculation" ? "€0" : "example" ,
                                         contentPadding: EdgeInsets.only(left: 15.0)
                                     ),
+                                    keyboardType:widget.additionalData == "calculation" ? TextInputType.number : TextInputType.emailAddress ,
                                   )
                               ),
 

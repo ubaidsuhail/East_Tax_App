@@ -4,7 +4,8 @@ import 'dart:async';
 import 'package:easy_taxx/home_flow/homemainquestions.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-
+import 'package:easy_taxx/datamodels/designfile.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 
 
@@ -119,7 +120,7 @@ class _HomeMultiTwoOptionContainerState extends State<HomeMultiTwoOptionContaine
                               onTap: (){
 
                               },
-                              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+                              child:Image(image: AssetImage("images/question_mark.png"),width: questionMarkWidth,height: questionMarkHeight,))
                       ),
 
                       Positioned(
@@ -137,7 +138,7 @@ class _HomeMultiTwoOptionContainerState extends State<HomeMultiTwoOptionContaine
 
                         child:Padding(
                             padding: EdgeInsets.only(left: 10.0),
-                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:questionFontSize,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
 
                       )
 
@@ -150,7 +151,59 @@ class _HomeMultiTwoOptionContainerState extends State<HomeMultiTwoOptionContaine
 
 
 //                                        color: Colors.red,
-                    child: ListView.builder
+                    child:
+//                    ListView.builder
+//                      (
+//                        itemCount: widget.answerOption.length,
+//                        itemBuilder: (BuildContext ctxt, int index) {
+//                          return GestureDetector(
+//
+//                              child:
+//                              Container(
+//                                  color: Colors.white,
+//
+//                                  child:
+//                                  Column(
+//                                    children: <Widget>[
+//                                      Divider(
+//                                        height: 1.0,
+//                                        thickness: 1.0,
+//                                      ),
+//                                      Row(
+//                                        children: <Widget>[
+//
+//                                          Checkbox(
+//
+//                                            value: this.values[index],
+//                                            onChanged: (bool value) {
+//                                              print(value);
+//
+//                                              setState(() {
+//                                                this.values[index] = value;
+//                                                //containerColor = ! containerColor;
+//
+//                                              });
+//                                            },
+//
+//                                          ),
+//
+////                                          Icon(Icons.timer),
+//                                          Image(image:AssetImage(widget.answerImages[index]),width: 22.0,height: 35.0,),
+//                                          SizedBox(width: 20.0,),
+//                                          AutoSizeText(widget.answerOption[index],style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),
+//                                            minFontSize: 14,
+//                                            maxLines: 1,
+//                                            overflow: TextOverflow.ellipsis,),
+//                                        ],
+//                                      )
+//                                    ],
+//                                  )
+//                              ));
+//                        }
+//                    ),
+
+
+                    ListView.builder
                       (
                         itemCount: widget.answerOption.length,
                         itemBuilder: (BuildContext ctxt, int index) {
@@ -167,33 +220,71 @@ class _HomeMultiTwoOptionContainerState extends State<HomeMultiTwoOptionContaine
                                         height: 1.0,
                                         thickness: 1.0,
                                       ),
-                                      Row(
-                                        children: <Widget>[
-
-                                          Checkbox(
-
-                                            value: this.values[index],
-                                            onChanged: (bool value) {
-                                              print(value);
-
+                                      GestureDetector(
+                                          onTap: (){
+                                            print("work");
+                                            if(values[index] == true)
+                                            {
                                               setState(() {
-                                                this.values[index] = value;
-                                                //containerColor = ! containerColor;
-
+                                                values[index] = false;
                                               });
-                                            },
 
-                                          ),
+                                            }
+
+                                            else
+                                            {
+                                              setState(() {
+                                                values[index] = true;
+                                              });
+
+                                            }
+                                          },
+                                          child:Opacity(
+                                              opacity: 0.8,
+                                              child:Container(
+                                                  color: values[index] == true ? Color.fromARGB(0XFF, 0XC1, 0XE7, 0XFD) : Colors.white,
+
+                                                  padding: EdgeInsets.only(top: 12.0,bottom: 12.0),
+                                                  child:Row(
+                                                    children: <Widget>[
+
+//                                          Checkbox(
+//
+//                                            value: this.values[index],
+//                                            onChanged: (bool value) {
+//                                              print(value);
+//
+//                                              setState(() {
+//                                                this.values[index] = value;
+//                                                //containerColor = ! containerColor;
+//
+//                                              });
+//                                            },
+//
+//                                          ),
+
+                                                      Padding(
+                                                        padding:EdgeInsets.only(left:10.0),
+                                                        child: values[index] == true ?
+                                                        Image(image:AssetImage("images/checked.png"),width: 20.0,height: 20.0,)
+                                                            :
+                                                        Image(image:AssetImage("images/unchecked.png"),width: 20.0,height: 20.0,),
+                                                      ),
+                                                      SizedBox(width: 20.0,),
 
 //                                          Icon(Icons.timer),
-                                          Image(image:AssetImage(widget.answerImages[index]),width: 22.0,height: 35.0,),
-                                          SizedBox(width: 20.0,),
-                                          AutoSizeText(widget.answerOption[index],style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),
-                                            minFontSize: 14,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,),
-                                        ],
-                                      )
+                                                      Image(image:AssetImage(widget.answerImages[index]),width: 22.0,height: 35.0,),
+                                                      SizedBox(width: 20.0,),
+                                                      Container(
+                                                        width: MediaQuery.of(context).size.width * 0.65,
+                                                        child:AutoSizeText(widget.answerOption[index],style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),
+                                                          minFontSize: 14,
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow.ellipsis,),
+                                                      )
+
+                                                    ],
+                                                  ))))
                                     ],
                                   )
                               ));

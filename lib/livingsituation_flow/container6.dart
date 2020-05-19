@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:easy_taxx/livingsituation_flow/mainQuestions.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
+import 'package:easy_taxx/datamodels/designfile.dart';
 class Container6 extends StatefulWidget {
   String Identity;
   String BigQuestion = "";
@@ -96,7 +97,7 @@ class _testing3State extends State<Container6> {
                               onTap: (){
 
                               },
-                              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+                              child:Image(image: AssetImage("images/question_mark.png"),width: questionMarkWidth,height: questionMarkHeight,))
                       ),
 
                       Positioned(
@@ -114,7 +115,7 @@ class _testing3State extends State<Container6> {
 
                         child:Padding(
                             padding: EdgeInsets.only(left: 10.0),
-                            child:Text(widget.Question,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+                            child:Text(widget.Question,style: TextStyle(fontSize:questionFontSize,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
 
                       )
 
@@ -142,7 +143,7 @@ class _testing3State extends State<Container6> {
                                 children: <Widget>[
 
                                   ListTile(
-                                      leading:Text(widget.AnswerOption[index],style: TextStyle(color:Questions.LivingCheck == 1 || Questions.LivingCheck == 2 ? Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF) : Colors.deepPurple[300])),
+                                      leading:Text(widget.AnswerOption[index],style: TextStyle(color:Questions.LivingCheck == 1 || Questions.LivingCheck == 2 ? Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF) : Colors.deepPurple[300],fontWeight: FontWeight.bold)),
                                       ),
 
 

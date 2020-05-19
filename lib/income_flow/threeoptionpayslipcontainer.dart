@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:easy_taxx/income_flow//incomemainquestions.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
+import 'package:easy_taxx/datamodels/designfile.dart';
+
 class ThreeOptionPaySlipContainer extends StatefulWidget {
   String identity;
   String completeQuestion;
@@ -97,7 +99,7 @@ class _testing3State extends State<ThreeOptionPaySlipContainer> {
                               onTap: (){
 
                               },
-                              child:Image(image: AssetImage("images/question_mark.png"),width: 23.0,height: 23.0,))
+                              child:Image(image: AssetImage("images/question_mark.png"),width: questionMarkWidth,height: questionMarkHeight,))
                       ),
 
                       Positioned(
@@ -115,7 +117,7 @@ class _testing3State extends State<ThreeOptionPaySlipContainer> {
 
                         child:Padding(
                             padding: EdgeInsets.only(left: 10.0),
-                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:19.0,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
+                            child:Text(widget.completeQuestion,style: TextStyle(fontSize:questionFontSize,color: Colors.white,wordSpacing: 3.0,fontWeight: FontWeight.w600),)),
 
                       )
 
@@ -143,7 +145,7 @@ class _testing3State extends State<ThreeOptionPaySlipContainer> {
                                   children: <Widget>[
 
                                     ListTile(
-                                      title:Text(widget.answerOption[index],style:TextStyle(color: Colors.lightBlue),textAlign: TextAlign.center, ),
+                                      title:Text(widget.answerOption[index],style:TextStyle(color: Colors.lightBlue,fontWeight: FontWeight.bold),textAlign: TextAlign.center, ),
                                     ),
 
 

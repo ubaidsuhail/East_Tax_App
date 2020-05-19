@@ -7,6 +7,7 @@ import 'package:easy_taxx/family_flow/familymainquestions.dart';
 import 'package:easy_taxx/health_flow/healthmainquestions.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:easy_taxx/finance_flow/financemainquestions.dart';
+import 'package:easy_taxx/categoryfinishedscreens/totaltaxamount.dart';
 
 class AllCategoryScreen extends StatefulWidget {
   @override
@@ -39,8 +40,12 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                   title: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      Image(image: AssetImage("images/allcategoryuser.png"),width: 22.0,height: 22.0,)
-                    ],
+                      GestureDetector(
+                       onTap: (){
+                       },
+                     child: Image(image: AssetImage("images/allcategoryuser.png"),width: 22.0,height: 22.0,)
+                      )
+              ],
                   ),
                   trailing: Image(image: AssetImage("images/allcategoryinbox.png"),width: 25.0,height: 25.0,)
                 ),
@@ -492,7 +497,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
 
                               Padding(
                                 padding:EdgeInsets.only(right: 5.0),
-                                child: Questions.categoryFinish[4] == 1 ? Image(image:AssetImage("images/righttick.png")) : Text(""),
+                                child: Questions.categoryFinish[7] == 1 ? Image(image:AssetImage("images/righttick.png")) : Text(""),
                               ),
                               Icon(
                                 Icons.arrow_forward_ios,
@@ -535,13 +540,18 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                      children: <Widget>[
                        Row(
                          children: <Widget>[
+                           Questions.afterAllCategoryFinish == true ?
+                               Text("")
+                           :
                            Image(image:AssetImage(Questions.categoryImage)),
 
                            Padding(
                                padding: EdgeInsets.only(left: 10.0),
                                child:Column(
                                  children: <Widget>[
-                                   Text("Next",style: TextStyle(fontSize: 11.0),),
+                                   Questions.afterAllCategoryFinish == true ?
+                                 Text("Loss carryforward",style: TextStyle(fontSize: 11.0),)
+                                       :Text("Next",style: TextStyle(fontSize: 11.0),),
                                    Text(Questions.categoryName,style: TextStyle(fontWeight: FontWeight.bold),),
                                  ],
                                )),
@@ -566,7 +576,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                               borderRadius: BorderRadius.circular(6.0),
                            ),
                             child:Center(
-                              child:Text("Continue",style: TextStyle(fontSize: 14.0,color: Colors.white,),),
+                              child:Text(Questions.afterAllCategoryFinish == true ? "see result":"Continue",style: TextStyle(fontSize: 14.0,color: Colors.white,),),
                             ))),
 
 
@@ -857,6 +867,13 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return FinanceMainQuestions(CheckCompleteQuestion : "",CheckQuestion : "",CheckAnswer : []);
       }));
+    }
+
+    else if(Questions.categoryName == "574.663,00€")
+    {
+
+      Navigator.pop(context);
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>TotalTaxAmount()));
     }
 
   }
