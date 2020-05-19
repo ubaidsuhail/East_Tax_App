@@ -57,13 +57,14 @@ class _newHereState extends State<newHere> {
                           child: ButtonTheme(
                             alignedDropdown: true,
                             child:DropdownButton(
+                              style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontSize: 15.0),
                               hint: Text(
                                 "Choose a tax country",
                                 style: TextStyle(
                                   decoration: TextDecoration.none,
                                   fontSize: 15.0,
                                   fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.w700,
+                                  //fontWeight: FontWeight.w700,
                                  color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)
                                 ),
                               ),
@@ -82,8 +83,8 @@ class _newHereState extends State<newHere> {
 //                    style: Theme.of(context).textTheme.headline6,
                               iconEnabledColor: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)
                             ),
-                          ),
-                        ),
+
+                        )),
 //                        SizedBox(width: 5.0,),
 //                        Icon(Icons.keyboard_arrow_down,size: 20.0,color: Colors.lightBlue,),
                       ],
