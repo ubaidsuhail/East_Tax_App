@@ -274,7 +274,7 @@ class _HomeScreenState extends State<MultiOptionsContainer> {
                                                       SizedBox(width: 20.0,),
                                                       Container(
                                                         width: MediaQuery.of(context).size.width * 0.65,
-                                                        child:AutoSizeText(widget.answerOption[index],style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),
+                                                        child:AutoSizeText(widget.answerOption[index],style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.bold),
                                                           minFontSize: 14,
                                                           maxLines: 1,
                                                           overflow: TextOverflow.ellipsis,),
