@@ -8,8 +8,7 @@ import 'package:easy_taxx/datamodels/designfile.dart';
 
 
 
-
-class WorkMultipleOptionsContainer extends StatefulWidget {
+class WorkMultiThreeContainer extends StatefulWidget {
   String identity;
   String completeQuestion;
   String questionOption;
@@ -22,12 +21,12 @@ class WorkMultipleOptionsContainer extends StatefulWidget {
   List suggestion;
 
 
-  WorkMultipleOptionsContainer({this.identity,this.bigQuestion,this.completeQuestion,this.questionOption,this.answerOption,this.answerImages,this.containerSize,this.additionalData,this.multipleData,this.suggestion});
+  WorkMultiThreeContainer({this.identity,this.bigQuestion,this.completeQuestion,this.questionOption,this.answerOption,this.answerImages,this.containerSize,this.additionalData,this.multipleData,this.suggestion});
   @override
-  _WorkMultipleOptionsContainerState createState() => _WorkMultipleOptionsContainerState();
+  _WorkMultiThreeContainerState createState() => _WorkMultiThreeContainerState();
 }
 
-class _WorkMultipleOptionsContainerState extends State<WorkMultipleOptionsContainer> {
+class _WorkMultiThreeContainerState extends State<WorkMultiThreeContainer> {
   bool open = false;
   bool v3 = false;
   Questions qu =Questions();
@@ -75,6 +74,7 @@ class _WorkMultipleOptionsContainerState extends State<WorkMultipleOptionsContai
   Widget build(BuildContext context) {
     double minHeight = MediaQuery.of(context).size.height * .008;
     //double maxHeight = MediaQuery.of(context).size.height * .59;
+    //double maxHeight = 370.0;
     double maxHeight = widget.containerSize;
     return AnimatedContainer(
 
@@ -148,7 +148,7 @@ class _WorkMultipleOptionsContainerState extends State<WorkMultipleOptionsContai
                   ),
                   SizedBox(height: 9.0,),
                   Container(
-                    height: 200.0,
+                    height: 140.0,
                     width: 450.0,
 
 
@@ -313,6 +313,7 @@ class _WorkMultipleOptionsContainerState extends State<WorkMultipleOptionsContai
 
                   ),
 
+
                   Container(
 //                    decoration: new BoxDecoration(
 //                        color: Colors.white,
@@ -365,15 +366,41 @@ class _WorkMultipleOptionsContainerState extends State<WorkMultipleOptionsContai
 
     }
 
+    if(widget.completeQuestion == "Do any of these kind of absences apply to ${Questions.workYouIdentity} while ${Questions.workYouIdentity} on business trip no. ${Questions.workBusTripLength}?" && widget.questionOption == "Absence ${Questions.workBusTripLength}" && (data[0] == "24 hours due to overnight stay" || data[0] == "No"))
+    {
+      print("work businesss trip");
+      Questions.workBusTripLength += 1;
+      Questions.workBusTripText ="BUSINESS TRIP "+Questions.workBusTripLength.toString();
 
+      qu.WorkAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, data, 55.0);
 
+      Navigator.of(context).pop();
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return WorkMainQuestions(CheckCompleteQuestion : "Do any of these kind of absences apply to ${Questions.workYouIdentity} while ${Questions.workYouIdentity} on business trip no. ${Questions.workBusTripLength}?",CheckQuestion : "Absence ${Questions.workBusTripLength}",CheckAnswer : data);
+      }));
+    }
 
+    else if(widget.completeQuestion == "Have ${Questions.workYouIdentity} received any free meals? " && widget.questionOption == "Complimentary meals" && data[0] == "No")
+    {
+      Questions.workBusTripLength += 1;
+      Questions.workBusTripText ="BUSINESS TRIP "+Questions.workBusTripLength.toString();
+
+      qu.WorkAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, data, 55.0);
+
+      Navigator.of(context).pop();
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return WorkMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion : widget.questionOption,CheckAnswer : data);
+      }));
+    }
+
+    else{
     qu.WorkAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, data, 55.0);
 
     Navigator.of(context).pop();
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return WorkMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion : widget.questionOption,CheckAnswer : data);
     }));
+    }
 
 
 

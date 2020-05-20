@@ -128,18 +128,23 @@ class _newHereState extends State<newHere> {
 
                         //Work Flow Start
 
-//                        Questions.workAnswerShow = [];
-//                        Questions.workYouIdentity = "you";
-//                        Questions.workYourIdentity = "your";
-//                        Questions.homeOfficeLength = 0;
-//                        Questions.totalHomeOffice = 0;
-//                        Questions.homeOfficeText = "";
-//                        Questions.workFurnitureLength = 0;
-//                        Questions.totalWorkFurniture = 0;
-//                        Questions.workFurnitureText = "";
-//                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-//                          return WorkMainQuestions(CheckCompleteQuestion:"What was ${Questions.workYourIdentity} job title?",CheckQuestion:"Profession",CheckAnswer:[]);
-//                        }));
+                        Questions.workAnswerShow = [];
+                        Questions.workYouIdentity = "you";
+                        Questions.workYourIdentity = "your";
+                        Questions.homeOfficeLength = 0;
+                        Questions.totalHomeOffice = 0;
+                        Questions.homeOfficeText = "";
+                        Questions.workFurnitureLength = 0;
+                        Questions.totalWorkFurniture = 0;
+                        Questions.workFurnitureText = "";
+                        Questions.otherFurniture = "";
+                        Questions.homeOfficeFurniture = false;
+                        Questions.workBusTripLength = 0;
+                        Questions.totalWorkBusTrip = 0;
+                        Questions.workBusTripText = "";
+                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return WorkMainQuestions(CheckCompleteQuestion:"What was ${Questions.workYourIdentity} job title?",CheckQuestion:"Profession",CheckAnswer:[]);
+                        }));
 
                         //Work Flow End
 
@@ -242,20 +247,20 @@ class _newHereState extends State<newHere> {
 
                         //Living Situation Flow Start //
 
-                        if(Questions.yearfirstTime == 0)
-                          {
-                            Questions.yearfirstTime = 1;
-                        Questions.answerShow = [];
-                        Questions.LivingCheck = 0;
-                        Questions.livcolContainer = 0;
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-                          return mainQuestions(CheckQuestion:"What is your official marital status in Germany?",CheckAnswer:[]);
-                        }));
-                          }
-                          else
-                            {
-                              Navigator.pushNamed(context, 'allCategoryScreen');
-                            }
+//                        if(Questions.yearfirstTime == 0)
+//                          {
+//                            Questions.yearfirstTime = 1;
+//                        Questions.answerShow = [];
+//                        Questions.LivingCheck = 0;
+//                        Questions.livcolContainer = 0;
+//                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+//                          return mainQuestions(CheckQuestion:"What is your official marital status in Germany?",CheckAnswer:[]);
+//                        }));
+//                          }
+//                          else
+//                            {
+//                              Navigator.pushNamed(context, 'allCategoryScreen');
+//                            }
                         //Living Situation Flow End //
 
                       },

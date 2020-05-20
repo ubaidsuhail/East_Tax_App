@@ -8,6 +8,9 @@ import 'package:easy_taxx/work_flow/workmultipleoptionscontainer.dart';
 import 'package:easy_taxx/work_flow/workthreeoptioncontainer.dart';
 import 'package:easy_taxx/work_flow/workdatecontainer.dart';
 import 'package:easy_taxx/work_flow/workdifferentoptioncontainer.dart';
+import 'package:easy_taxx/work_flow/workmultithreecontainer.dart';
+import 'package:easy_taxx/work_flow/workcalculationbigcontainer.dart';
+import 'package:easy_taxx/work_flow/worktwooptioncontainer.dart';
 
 
 
@@ -426,8 +429,8 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
           else if(widget.CheckAnswer[0] == "Yes")
           {
-
-
+            //Question No 68
+            return workyesnoContainer("","Work","Have ${Questions.workYouIdentity} had costs during ${Questions.workYourIdentity} business trip for which ${Questions.workYouIdentity} were not reimbursed by ${Questions.workYourIdentity} employer?","Costs not reimbursed",220.0,"","",[]);
           }
 
         }
@@ -585,7 +588,8 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
           if(widget.CheckAnswer[0] == "No")
           {
-
+            //Question No 67
+            return workmultipleoptionsContainer("","Work","Have ${Questions.workYouIdentity} bought any of the following work equipment items for ${Questions.workYourIdentity} job(s) in 2019?","Purchases in the tax year",["Office furniture","Computer / laptop","Computer accessories","Mobile phone / Smartphone","Document shredder","Tools","Clothing","Briefcase","Specialist literature","Stationery","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
           }
 
           else if(widget.CheckAnswer[0] == "Yes")
@@ -604,7 +608,8 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
           if(widget.CheckAnswer[0] == "No")
           {
-
+            //Question No 67
+            return workmultipleoptionsContainer("","Work","Have ${Questions.workYouIdentity} bought any of the following work equipment items for ${Questions.workYourIdentity} job(s) in 2019?","Purchases in the tax year",["Office furniture","Computer / laptop","Computer accessories","Mobile phone / Smartphone","Document shredder","Tools","Clothing","Briefcase","Specialist literature","Stationery","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
           }
 
           else if(widget.CheckAnswer[0] == "Yes")
@@ -728,13 +733,16 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
           if(widget.CheckAnswer[0] == "No")
           {
+            Questions.homeOfficeFurniture = false;
             // Question No 24
             return workcalculationContainer("","Work","How many more home offices would ${Questions.workYouIdentity} like enter?","Number of home offices",220.0,"","",[]);
           }
 
           else if(widget.CheckAnswer[0] == "Yes")
           {
-
+            Questions.homeOfficeFurniture = true;
+            //Question no 34
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend more than 952 EUR on any piece of home office equipment?","< 952 EUR",220.0,"",Questions.homeOfficeText,[]);
           }
 
         }
@@ -742,6 +750,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
         //Answer No 24
         else if(widget.CheckCompleteQuestion =="How many more home offices would ${Questions.workYouIdentity} like enter?" && widget.CheckQuestion == "Number of home offices")
         {
+          Questions.homeOfficeFurniture = false;
           //Question no 25
           return workthreeoptionContainer("","Work","Which activities did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} home office no. ${Questions.homeOfficeLength} for?","${Questions.homeOfficeLength}. type of usage",["For all occupational activities (e.g. author)","For certain tasks (e.g.teacher)","Sometimes for work (e.g. home office possibility)"],220.0,"",Questions.homeOfficeText,[]);
         }
@@ -851,6 +860,8 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
               else
                 {
                 //furniture wala
+                  //Question No 67
+                  return workmultipleoptionsContainer("","Work","Have ${Questions.workYouIdentity} bought any of the following work equipment items for ${Questions.workYourIdentity} job(s) in 2019?","Purchases in the tax year",["Office furniture","Computer / laptop","Computer accessories","Mobile phone / Smartphone","Document shredder","Tools","Clothing","Briefcase","Specialist literature","Stationery","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
             }
           }
 
@@ -1387,14 +1398,22 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
           if(widget.CheckAnswer[0] == "No")
           {
-            if(Questions.homeOfficeLength <= Questions.totalHomeOffice)
+            if(Questions.homeOfficeLength <= Questions.totalHomeOffice && Questions.totalWorkFurniture > 0)
             {
               //Question no 25
               return workthreeoptionContainer("","Work","Which activities did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} home office no. ${Questions.homeOfficeLength} for?","${Questions.homeOfficeLength}. type of usage",["For all occupational activities (e.g. author)","For certain tasks (e.g.teacher)","Sometimes for work (e.g. home office possibility)"],220.0,"",Questions.homeOfficeText,[]);
             }
+
+            else if(Questions.homeOfficeFurniture == true)
+              {
+                // Question No 24
+                return workcalculationContainer("","Work","How many more home offices would ${Questions.workYouIdentity} like enter?","Number of home offices",220.0,"","",[]);
+              }
+
             else
             {
-              //furniture wala
+              //Question No 67
+              return workmultipleoptionsContainer("","Work","Have ${Questions.workYouIdentity} bought any of the following work equipment items for ${Questions.workYourIdentity} job(s) in 2019?","Purchases in the tax year",["Office furniture","Computer / laptop","Computer accessories","Mobile phone / Smartphone","Document shredder","Tools","Clothing","Briefcase","Specialist literature","Stationery","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
             }
           }
 
@@ -1409,16 +1428,498 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
        //Answer No 66
         else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on these items in total?" && widget.CheckQuestion == "Total amount")
         {
-          if(Questions.homeOfficeLength <= Questions.totalHomeOffice)
+          if(Questions.homeOfficeLength <= Questions.totalHomeOffice && Questions.totalWorkFurniture > 0)
           {
             //Question no 25
             return workthreeoptionContainer("","Work","Which activities did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} home office no. ${Questions.homeOfficeLength} for?","${Questions.homeOfficeLength}. type of usage",["For all occupational activities (e.g. author)","For certain tasks (e.g.teacher)","Sometimes for work (e.g. home office possibility)"],220.0,"",Questions.homeOfficeText,[]);
           }
+
+          else if(Questions.homeOfficeFurniture == true)
+          {
+            // Question No 24
+            return workcalculationContainer("","Work","How many more home offices would ${Questions.workYouIdentity} like enter?","Number of home offices",220.0,"","",[]);
+          }
+
           else
           {
             //furniture wala
+            //Question No 67
+            return workmultipleoptionsContainer("","Work","Have ${Questions.workYouIdentity} bought any of the following work equipment items for ${Questions.workYourIdentity} job(s) in 2019?","Purchases in the tax year",["Office furniture","Computer / laptop","Computer accessories","Mobile phone / Smartphone","Document shredder","Tools","Clothing","Briefcase","Specialist literature","Stationery","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
           }
         }
+
+
+        // Business trips Starts
+
+        //Answer No 68
+    else if(widget.CheckCompleteQuestion == "Have ${Questions.workYouIdentity} had costs during ${Questions.workYourIdentity} business trip for which ${Questions.workYouIdentity} were not reimbursed by ${Questions.workYourIdentity} employer?" && widget.CheckQuestion == "Costs not reimbursed")
+    {
+
+
+    if(widget.CheckAnswer[0] == "No")
+    {
+    //Question No 69
+      return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} receive reimbursements from ${Questions.workYourIdentity} employer for daily allowances?","Reimbursement daily allowances",220.0,"","",[]);
+    }
+
+    else if(widget.CheckAnswer[0] == "Yes")
+    {
+  //Looping
+    }
+
+    }
+
+
+    //Answer No 69
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} receive reimbursements from ${Questions.workYourIdentity} employer for daily allowances?" && widget.CheckQuestion == "Reimbursement daily allowances")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            //Question No 70
+           return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} also travel abroad?","Travelled abroad",220.0,"","",[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question no 89
+            return workyesnoContainer("","Work","Were ${Questions.workYouIdentity} fully reimbursed for daily allowances?","Fully reimbursed",220.0,"","",[]);
+          }
+
+        }
+
+
+        //Answer No 70
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} also travel abroad?" && widget.CheckQuestion == "Travelled abroad")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            //Question No 71
+            //For No  and 24 hours 370.0
+            //For Rest 270.0
+            return workmultithreeContainer("","Work","Do any of the mentioned absences apply to ${Questions.workYouIdentity} while ${Questions.workYouIdentity} were on a business trip?","Absence business trips",["More than 8 hours","24 hours due to overnight stays","Arrival/departure due to overnight stays","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+           //Question No 80
+            return workcalculationContainer("","Work","How many countries did ${Questions.workYouIdentity} travel to due to business trips?","Number of countries",280.0,"loop","",[]);
+          }
+
+        }
+
+
+        // Travel Abroad No Starts
+
+        //Answer No 71
+        else if(widget.CheckCompleteQuestion =="Do any of the mentioned absences apply to ${Questions.workYouIdentity} while ${Questions.workYouIdentity} were on a business trip?" && widget.CheckQuestion == "Absence business trips")
+        {
+
+          for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+            if(widget.CheckAnswer[m] == "More than 8 hours")
+            {
+              //Question No 72
+              return workcalculationbigContainer("","Work","How many day trips did ${Questions.workYouIdentity} take? (exclude those already stated in external activities)","One day trips",370.0,"","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "24 hours due to overnight stays")
+            {
+              //Question No 74
+              return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} received any free meals?","Complimentary meals",["Free breakfast","Free lunch","Free dinner","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "Arrival/departure due to overnight stays")
+            {
+              //Question No 73
+
+              return workcalculationbigContainer("","Work","How many departure and arrival days did ${Questions.workYouIdentity} have for business trips with overnight stays? (exclude those already stated in external activities)?","Departure / arrival days",370.0,"","",[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "No")
+            {
+              //Question No 74
+              return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} received any free meals?","Complimentary meals",["Free breakfast","Free lunch","Free dinner","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+
+            }
+
+          }
+        }
+
+
+        //Answer No 72
+        else if(widget.CheckCompleteQuestion =="How many day trips did ${Questions.workYouIdentity} take? (exclude those already stated in external activities)" && widget.CheckQuestion == "One day trips")
+        {
+          //Question No 74
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} received any free meals?","Complimentary meals",["Free breakfast","Free lunch","Free dinner","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+
+        //Answer No 73
+        else if(widget.CheckCompleteQuestion =="How many departure and arrival days did ${Questions.workYouIdentity} have for business trips with overnight stays? (exclude those already stated in external activities)?" && widget.CheckQuestion == "Departure / arrival days")
+        {
+          //Question No 74
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} received any free meals?","Complimentary meals",["Free breakfast","Free lunch","Free dinner","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+
+        //Answer No 74
+        else if(widget.CheckCompleteQuestion =="Have ${Questions.workYouIdentity} received any free meals?" && widget.CheckQuestion == "Complimentary meals")
+        {
+
+          for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+            if(widget.CheckAnswer[m] == "Free breakfast")
+            {
+              //Question No 75
+              return workcalculationContainer("","Work","How often did ${Questions.workYouIdentity} receive complimentary breakfast?","Complimentary breakfast",220.0,"","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Free lunch")
+            {
+
+              //Question No 76
+              return workcalculationContainer("","Work","How often did ${Questions.workYouIdentity} get complimentary lunch?","Free lunch",220.0,"","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Free dinner")
+            {
+              //Question No 77
+              return workcalculationContainer("","Work","How often did ${Questions.workYouIdentity} get complimentary dinner?","Free dinner",220.0,"","",[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "No")
+            {
+             //Question No 78
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} apply for a passport or visa for a business trip?","Passport or visa",220.0,"","",[]);
+
+            }
+
+          }
+        }
+
+
+        //Answer No 75
+        else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} receive complimentary breakfast?" && widget.CheckQuestion == "Complimentary breakfast")
+        {
+          //Question No 78
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} apply for a passport or visa for a business trip?","Passport or visa",220.0,"","",[]);
+        }
+
+        //Answer No 76
+        else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} get complimentary lunch?" && widget.CheckQuestion == "Free lunch")
+        {
+           //Question No 78
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} apply for a passport or visa for a business trip?","Passport or visa",220.0,"","",[]);
+        }
+
+
+        //Answer No 77
+        else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} get complimentary dinner?" && widget.CheckQuestion == "Free dinner")
+        {
+          //Question No 78
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} apply for a passport or visa for a business trip?","Passport or visa",220.0,"","",[]);
+        }
+
+
+        //Answer No 78
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} apply for a passport or visa for a business trip?" && widget.CheckQuestion == "Passport or visa")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            //Question No 3
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} have an accident during your commute in 2019?","Accident",220.0,"","",[]);
+
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 79
+            return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on that?","Passport & visa costs",220.0,"calculation","",[]);
+          }
+
+        }
+
+
+        //Answer No 79
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on that?" && widget.CheckQuestion == "Passport & visa costs")
+        {
+          //Question No 3
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} have an accident during your commute in 2019?","Accident",220.0,"","",[]);
+        }
+
+
+
+        // Travel Abroad No Ends
+
+
+
+        //Travel Abroad Yes Starts
+
+        //Answer No 80
+        else if(widget.CheckCompleteQuestion == "How many countries did ${Questions.workYouIdentity} travel to due to business trips?" && widget.CheckQuestion == "Number of countries")
+        {
+          //Question No 81
+          return worktwooptionContainer("","Work","What was ${Questions.healthYourIdentity} destination?","Destination ${Questions.workBusTripLength}",["Germany","Abroad"],370.0,"",Questions.workBusTripText,[]);
+        }
+
+
+        //Answer No 81
+        else if(widget.CheckCompleteQuestion =="What was ${Questions.healthYourIdentity} destination?" && widget.CheckQuestion == "Destination ${Questions.workBusTripLength}")
+        {
+
+          if(widget.CheckAnswer[0] == "Germany")
+          {
+            //Question No 82
+            //For No  and 24 hours 370.0
+            //For Rest 270.0
+            return workmultithreeContainer("","Work","Do any of these kind of absences apply to ${Questions.workYouIdentity} while ${Questions.workYouIdentity} on business trip no. ${Questions.workBusTripLength}?","Absence ${Questions.workBusTripLength}",["More than 8 hours","24 hours due to overnight stay","Arrival/departure due to overnight stay","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No",Questions.workBusTripText,[]);
+
+          }
+
+          else if(widget.CheckAnswer[0] == "Abroad")
+          {
+            //Question No 82
+            //For No  and 24 hours 370.0
+            //For Rest 270.0
+            return workmultithreeContainer("","Work","Do any of these kind of absences apply to ${Questions.workYouIdentity} while ${Questions.workYouIdentity} on business trip no. ${Questions.workBusTripLength}?","Absence ${Questions.workBusTripLength}",["More than 8 hours","24 hours due to overnight stay","Arrival/departure due to overnight stay","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No",Questions.workBusTripText,[]);
+          }
+
+        }
+
+
+        //Answer No 82
+        else if(widget.CheckCompleteQuestion =="Do any of these kind of absences apply to ${Questions.workYouIdentity} while ${Questions.workYouIdentity} on business trip no. ${Questions.workBusTripLength}?" && widget.CheckQuestion == "Absence ${Questions.workBusTripLength}")
+        {
+
+          for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+            if(widget.CheckAnswer[m] == "More than 8 hours")
+            {
+              //Question No 83
+              return workcalculationContainer("","Work","How many days have ${Questions.workYouIdentity} been away for more than 8 hours for destination ${Questions.workBusTripLength}?","Days >8h",370.0,"",Questions.workBusTripText,[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "24 hours due to overnight stay")
+            {
+              if(Questions.workBusTripLength <= Questions.totalWorkBusTrip)
+              {
+                //Question No 81
+                return worktwooptionContainer("","Work","What was ${Questions.healthYourIdentity} destination?","Destination ${Questions.workBusTripLength}",["Germany","Abroad"],370.0,"",Questions.workBusTripText,[]);
+              }
+              else
+              {
+                //Question No 3
+                return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} have an accident during your commute in 2019?","Accident",220.0,"","",[]);
+              }
+
+            }
+
+            else if(widget.CheckAnswer[m] == "Arrival/departure due to overnight stay")
+            {
+              //Question No 84
+              return workcalculationContainer("","Work","How many days did ${Questions.workYouIdentity} depart or arrive due to overnight stays to destination no. ${Questions.workBusTripLength}?","Departure / arrival days",370.0,"",Questions.workBusTripText,[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "No")
+            {
+
+              if(Questions.workBusTripLength <= Questions.totalWorkBusTrip)
+              {
+                //Question No 81
+                return worktwooptionContainer("","Work","What was ${Questions.healthYourIdentity} destination?","Destination ${Questions.workBusTripLength}",["Germany","Abroad"],370.0,"",Questions.workBusTripText,[]);
+              }
+              else
+              {
+                //Question No 3
+                return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} have an accident during your commute in 2019?","Accident",220.0,"","",[]);
+              }
+
+            }
+
+          }
+        }
+
+
+        //Answer No 83
+        else if(widget.CheckCompleteQuestion =="How many days have ${Questions.workYouIdentity} been away for more than 8 hours for destination ${Questions.workBusTripLength}?" && widget.CheckQuestion == "Days >8h")
+        {
+            //Question No 85
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} received any free meals? ","Complimentary meals",["Free breakfast","Free Lunch","Free Dinner","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No",Questions.workBusTripText,[]);
+
+        }
+
+
+        //Answer No 84
+        else if(widget.CheckCompleteQuestion =="How many days did ${Questions.workYouIdentity} depart or arrive due to overnight stays to destination no. ${Questions.workBusTripLength}?" && widget.CheckQuestion == "Departure / arrival days")
+        {
+          //Question No 85
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} received any free meals? ","Complimentary meals",["Free breakfast","Free Lunch","Free Dinner","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No",Questions.workBusTripText,[]);
+        }
+
+        //Answer No 85
+        else if(widget.CheckCompleteQuestion =="Have ${Questions.workYouIdentity} received any free meals? " && widget.CheckQuestion == "Complimentary meals")
+        {
+
+          for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+            if(widget.CheckAnswer[m] == "Free breakfast")
+            {
+              //Question No 86
+              return workcalculationContainer("","Work","How often did ${Questions.workYouIdentity} receive complimentary breakfast? ","Complimentary breakfast",220.0,"",Questions.workBusTripText,[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Free Lunch")
+            {
+
+              //Question No 87
+              return workcalculationContainer("","Work","How often did ${Questions.workYouIdentity} get complimentary lunch? ","Free lunch",220.0,"",Questions.workBusTripText,[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Free Dinner")
+            {
+              //Question No 88
+              return workcalculationContainer("","Work","How often did ${Questions.workYouIdentity} get complimentary dinner? ","Free dinner",220.0,"",Questions.workBusTripText,[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "No")
+            {
+              if(Questions.workBusTripLength <= Questions.totalWorkBusTrip)
+              {
+                //Question No 81
+                return worktwooptionContainer("","Work","What was ${Questions.healthYourIdentity} destination?","Destination ${Questions.workBusTripLength}",["Germany","Abroad"],370.0,"",Questions.workBusTripText,[]);
+              }
+              else
+              {
+                //Question No 3
+                return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} have an accident during your commute in 2019?","Accident",220.0,"","",[]);
+              }
+            }
+
+          }
+        }
+
+
+        //Answer No 86
+        else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} receive complimentary breakfast? " && widget.CheckQuestion == "Complimentary breakfast")
+        {
+
+          if(Questions.workBusTripLength <= Questions.totalWorkBusTrip)
+            {
+              //Question No 81
+              return worktwooptionContainer("","Work","What was ${Questions.healthYourIdentity} destination?","Destination ${Questions.workBusTripLength}",["Germany","Abroad"],370.0,"",Questions.workBusTripText,[]);
+            }
+            else
+              {
+                //Question No 3
+                return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} have an accident during your commute in 2019?","Accident",220.0,"","",[]);
+              }
+
+
+        }
+
+        //Answer No 87
+        else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} get complimentary lunch? " && widget.CheckQuestion == "Free lunch")
+        {
+          if(Questions.workBusTripLength <= Questions.totalWorkBusTrip)
+          {
+            //Question No 81
+            return worktwooptionContainer("","Work","What was ${Questions.healthYourIdentity} destination?","Destination ${Questions.workBusTripLength}",["Germany","Abroad"],370.0,"",Questions.workBusTripText,[]);
+          }
+          else
+          {
+            //Question No 3
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} have an accident during your commute in 2019?","Accident",220.0,"","",[]);
+          }
+
+        }
+
+
+        //Answer No 88
+        else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} get complimentary dinner? " && widget.CheckQuestion == "Free dinner")
+        {
+          if(Questions.workBusTripLength <= Questions.totalWorkBusTrip)
+          {
+            //Question No 81
+            return worktwooptionContainer("","Work","What was ${Questions.healthYourIdentity} destination?","Destination ${Questions.workBusTripLength}",["Germany","Abroad"],370.0,"",Questions.workBusTripText,[]);
+          }
+          else
+          {
+            //Question No 3
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} have an accident during your commute in 2019?","Accident",220.0,"","",[]);
+          }
+
+        }
+
+
+        //Travel Abroad Yes Ends
+
+
+
+       // ====== Receive Reimbursements Yes Starts ===== //
+
+
+
+        //Answer No 89
+        else if(widget.CheckCompleteQuestion =="Were ${Questions.workYouIdentity} fully reimbursed for daily allowances?" && widget.CheckQuestion == "Fully reimbursed")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            //Question No 90
+            return workcalculationbigContainer("","Work","What was the total reimbursement for daily allowances ${Questions.workYouIdentity} received from ${Questions.workYourIdentity} employer (not included in your payslip) in 2019?","Reimbursement daily allowances",220.0,"calculation","",[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+                //Question No 91
+            return workyesnoContainer("","Work","Is this reimbursement shown in ${Questions.workYourIdentity} payslip in line 20?","In payslip",220.0,"","",[]);
+          }
+
+        }
+
+        //Answer No 90
+        else if(widget.CheckCompleteQuestion =="What was the total reimbursement for daily allowances ${Questions.workYouIdentity} received from ${Questions.workYourIdentity} employer (not included in your payslip) in 2019?" && widget.CheckQuestion == "Reimbursement daily allowances")
+        {
+          //Question No 70
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} also travel abroad?","Travelled abroad",220.0,"","",[]);
+        }
+
+
+        //Answer No 91
+        else if(widget.CheckCompleteQuestion =="Is this reimbursement shown in ${Questions.workYourIdentity} payslip in line 20?" && widget.CheckQuestion == "In payslip")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            //Question No 78
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} apply for a passport or visa for a business trip?","Passport or visa",220.0,"","",[]);
+
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 70
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} also travel abroad?","Travelled abroad",220.0,"","",[]);
+          }
+
+        }
+
+        // ====== Receive Reimbursements Yes Ends ===== //
+
+        // Business trips Ends
+
+
+
+
 
       }
   }
@@ -1459,6 +1960,24 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
   {
     Questions.workAnimatedContainer = animatedcontainer;
     return WorkDifferentOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:420.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
+  }
+
+  Widget workmultithreeContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,List AnswerImages, double animatedcontainer, String AdditionalData, String MultipleData , List Suggestion)
+  {
+    Questions.workAnimatedContainer = animatedcontainer;
+    return WorkMultiThreeContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,answerImages:AnswerImages,containerSize:370.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
+  }
+
+  Widget workcalculationbigContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption, double animatedcontainer, String AdditionalData, String MultipleData, List Suggestion)
+  {
+    Questions.workAnimatedContainer = animatedcontainer;
+    return WorkCalculationBigContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,containerSize:270.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
+  }
+
+  Widget worktwooptionContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,double animatedcontainer, String AdditionalData, String MultipleData,  List Suggestion )
+  {
+    Questions.healthAnimatedContainer = animatedcontainer;
+    return WorkTwoOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:280.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
   }
 
 }

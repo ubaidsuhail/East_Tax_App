@@ -4,7 +4,7 @@ import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:easy_taxx/work_flow/workmainquestions.dart';
 import 'package:easy_taxx/datamodels/designfile.dart';
 
-class WorkCalculationContainer extends StatefulWidget {
+class WorkCalculationBigContainer extends StatefulWidget {
   String identity;
   String completeQuestion;
   String questionOption;
@@ -15,12 +15,12 @@ class WorkCalculationContainer extends StatefulWidget {
   List suggestion;
 
 
-  WorkCalculationContainer({this.identity,this.bigQuestion,this.completeQuestion,this.questionOption,this.containerSize,this.additionalData,this.multipleData,this.suggestion});
+  WorkCalculationBigContainer({this.identity,this.bigQuestion,this.completeQuestion,this.questionOption,this.containerSize,this.additionalData,this.multipleData,this.suggestion});
   @override
-  _WorkCalculationContainerState createState() => _WorkCalculationContainerState();
+  _WorkCalculationBigContainerState createState() => _WorkCalculationBigContainerState();
 }
 
-class _WorkCalculationContainerState extends State<WorkCalculationContainer> {
+class _WorkCalculationBigContainerState extends State<WorkCalculationBigContainer> {
   TextEditingController calculations = TextEditingController();
   Questions qu =Questions();
   bool open = false;
@@ -90,7 +90,7 @@ class _WorkCalculationContainerState extends State<WorkCalculationContainer> {
                           borderRadius: BorderRadius.circular(10.0),
                           color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),
                         ),
-                        height: 150.0,
+                        height: 200.0,
                         width: MediaQuery.of(context).size.width,
 
                       ),
@@ -197,104 +197,6 @@ class _WorkCalculationContainerState extends State<WorkCalculationContainer> {
 
   void AddData()
   {
-    if(widget.completeQuestion == "How many more home offices would ${Questions.workYouIdentity} like enter?" && widget.questionOption == "Number of home offices")
-    {
-      Questions.homeOfficeLength = 0;
-      Questions.totalHomeOffice = int.parse(calculations.text);
-      print("Total Home Office"+Questions.totalHomeOffice.toString());
-      Questions.homeOfficeLength += 1;
-      Questions.homeOfficeText ="HOME OFFICE "+Questions.homeOfficeLength.toString();
-    }
-
-    else if(widget.completeQuestion == "How many items cost more than 488 EUR?" && widget.questionOption == "Quantity")
-    {
-      Questions.workFurnitureLength = 0;
-      Questions.totalWorkFurniture = int.parse(calculations.text);
-      print("Total Furniture Length"+Questions.totalWorkFurniture.toString());
-      Questions.workFurnitureLength += 1;
-      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
-    }
-
-    else if(widget.completeQuestion == "How long are ${Questions.workYouIdentity} going to use the desk for?" && widget.questionOption == "Usage desk")
-    {
-      Questions.workFurnitureLength += 1;
-      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
-    }
-
-    else if(widget.completeQuestion == "How long are ${Questions.workYouIdentity} going to use the office chair for?" && widget.questionOption == "Usage office chair")
-    {
-      Questions.workFurnitureLength += 1;
-      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
-    }
-
-    else if(widget.completeQuestion == "How long are ${Questions.workYouIdentity} going to use the shelf for?" && widget.questionOption == "Bookshelf usage")
-    {
-      Questions.workFurnitureLength += 1;
-      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
-    }
-
-    else if(widget.completeQuestion == "How long are ${Questions.workYouIdentity} going to use the lamp for?" && widget.questionOption == "Usage lamp")
-    {
-      Questions.workFurnitureLength += 1;
-      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
-    }
-
-    else if(widget.completeQuestion == "How many years are ${Questions.workYouIdentity} going to use the filing cabinet for?" && widget.questionOption == "Usage filing cabinet")
-    {
-      Questions.workFurnitureLength += 1;
-      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
-    }
-
-    else if(widget.completeQuestion == "For how many years will ${Questions.workYouIdentity} use the carpet?" && widget.questionOption == "Other depreciation period")
-    {
-      Questions.workFurnitureLength += 1;
-      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
-    }
-
-    else if(widget.completeQuestion == "What kind of furniture/equipment did ${Questions.financeYouIdentity} buy?" && widget.questionOption == "Type")
-    {
-      Questions.otherFurniture = calculations.text;
-    }
-
-    else if(widget.completeQuestion == "For how many years will ${Questions.workYouIdentity} use the ${Questions.otherFurniture}?" && widget.questionOption == "Depreciation period")
-    {
-      Questions.workFurnitureLength += 1;
-      Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
-    }
-
-    else if(widget.completeQuestion == "How much did ${Questions.workYouIdentity} spend on these items in total?" && widget.questionOption == "Total amount" && Questions.totalWorkFurniture > 0)
-    {
-      Questions.homeOfficeLength += 1;
-      Questions.homeOfficeText ="HOME OFFICE "+Questions.homeOfficeLength.toString();
-    }
-
-
-    else if(widget.completeQuestion == "How many countries did ${Questions.workYouIdentity} travel to due to business trips?" && widget.questionOption == "Number of countries")
-    {
-      Questions.workBusTripLength = 0;
-      Questions.totalWorkBusTrip = int.parse(calculations.text);
-      print("Total Business Trip"+Questions.totalWorkBusTrip.toString());
-      Questions.workBusTripLength += 1;
-      Questions.workBusTripText ="BUSINESS TRIP "+Questions.workBusTripLength.toString();
-    }
-
-    else if(widget.completeQuestion == "How often did ${Questions.workYouIdentity} receive complimentary breakfast? " && widget.questionOption == "Complimentary breakfast")
-    {
-      Questions.workBusTripLength += 1;
-      Questions.workBusTripText ="BUSINESS TRIP "+Questions.workBusTripLength.toString();
-    }
-
-    else if(widget.completeQuestion == "How often did ${Questions.workYouIdentity} get complimentary lunch? " && widget.questionOption == "Free lunch")
-    {
-      Questions.workBusTripLength += 1;
-      Questions.workBusTripText ="BUSINESS TRIP "+Questions.workBusTripLength.toString();
-    }
-
-    else if(widget.completeQuestion == "How often did ${Questions.workYouIdentity} get complimentary dinner? " && widget.questionOption == "Free dinner")
-    {
-      Questions.workBusTripLength += 1;
-      Questions.workBusTripText ="BUSINESS TRIP "+Questions.workBusTripLength.toString();
-    }
 
     qu.WorkAddAnswer(widget.identity, widget.bigQuestion, widget.completeQuestion, widget.questionOption, [calculations.text.toString()], 55.0);
 

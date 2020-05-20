@@ -120,6 +120,10 @@ static int workFurnitureLength = 0;
 static int totalWorkFurniture = 0;
 static String workFurnitureText = "";
 static String otherFurniture = "";
+static bool homeOfficeFurniture = false;
+static int workBusTripLength = 0;
+static int totalWorkBusTrip = 0;
+static String workBusTripText = "";
 
  void WorkAddAnswer(String UserIdentity, String details,String completequestion,String question,List answer,double containerheight)
  {

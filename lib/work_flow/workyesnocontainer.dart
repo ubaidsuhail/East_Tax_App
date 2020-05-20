@@ -225,7 +225,7 @@ class _WorkYesNoContainerScreenState extends State<WorkYesNoContainer> {
       Questions.homeOfficeText ="HOME OFFICE "+Questions.homeOfficeLength.toString();
     }
 
-    else if(widget.completeQuestion == "Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?" && widget.questionOption == "< 952 EUR")
+    else if(widget.completeQuestion == "Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of home office equipment?" && widget.questionOption == "< 952 EUR" && Questions.totalWorkFurniture > 0)
     {
       Questions.homeOfficeLength += 1;
       Questions.homeOfficeText ="HOME OFFICE "+Questions.homeOfficeLength.toString();
