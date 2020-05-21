@@ -124,6 +124,17 @@ static bool homeOfficeFurniture = false;
 static int workBusTripLength = 0;
 static int totalWorkBusTrip = 0;
 static String workBusTripText = "";
+static int workBusCostLength = 0;
+static int totalWorkBusCost = 0;
+static String workBusCostText = "";
+static int officeFurnitureLength = 0;
+static int totalOfficeFurniture = 0;
+static String officeFurnitureText = "";
+static String otherOfficeFurniture = "";
+static int otherItemsLength = 0;
+static int totalOtherItems = 0;
+static String otherItemsText = "";
+static String otherItems ="";
 
  void WorkAddAnswer(String UserIdentity, String details,String completequestion,String question,List answer,double containerheight)
  {

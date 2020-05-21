@@ -8,7 +8,7 @@ import 'package:easy_taxx/datamodels/designfile.dart';
 
 
 
-class WorkMultiThreeContainer extends StatefulWidget {
+class WorkMultiTwoContainer extends StatefulWidget {
   String identity;
   String completeQuestion;
   String questionOption;
@@ -21,12 +21,13 @@ class WorkMultiThreeContainer extends StatefulWidget {
   List suggestion;
 
 
-  WorkMultiThreeContainer({this.identity,this.bigQuestion,this.completeQuestion,this.questionOption,this.answerOption,this.answerImages,this.containerSize,this.additionalData,this.multipleData,this.suggestion});
+
+  WorkMultiTwoContainer({this.identity,this.bigQuestion,this.completeQuestion,this.questionOption,this.answerOption,this.answerImages,this.containerSize,this.additionalData,this.multipleData,this.suggestion});
   @override
-  _WorkMultiThreeContainerState createState() => _WorkMultiThreeContainerState();
+  _WorkMultiTwoContainerState createState() => _WorkMultiTwoContainerState();
 }
 
-class _WorkMultiThreeContainerState extends State<WorkMultiThreeContainer> {
+class _WorkMultiTwoContainerState extends State<WorkMultiTwoContainer> {
   bool open = false;
   bool v3 = false;
   Questions qu =Questions();
@@ -74,7 +75,7 @@ class _WorkMultiThreeContainerState extends State<WorkMultiThreeContainer> {
   Widget build(BuildContext context) {
     double minHeight = MediaQuery.of(context).size.height * .008;
     //double maxHeight = MediaQuery.of(context).size.height * .59;
-    //double maxHeight = 370.0;
+    //double maxHeight = 320.0;
     double maxHeight = widget.containerSize;
     return AnimatedContainer(
 
@@ -148,7 +149,7 @@ class _WorkMultiThreeContainerState extends State<WorkMultiThreeContainer> {
                   ),
                   SizedBox(height: 9.0,),
                   Container(
-                    height: 140.0,
+                    height: 90.0,
                     width: 450.0,
 
 
@@ -314,6 +315,9 @@ class _WorkMultiThreeContainerState extends State<WorkMultiThreeContainer> {
                   ),
 
 
+
+
+
                   Container(
 //                    decoration: new BoxDecoration(
 //                        color: Colors.white,
@@ -331,7 +335,7 @@ class _WorkMultiThreeContainerState extends State<WorkMultiThreeContainer> {
                       child: GestureDetector(onTap:(){
                         Confirm();
                       },
-                          child:Text('Confirm',style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize: 16.0,))
+                          child:Text('Confirm',style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize: 16.0))
                       ),
 
                     ),
@@ -366,54 +370,12 @@ class _WorkMultiThreeContainerState extends State<WorkMultiThreeContainer> {
 
     }
 
-    if(widget.completeQuestion == "Do any of these kind of absences apply to ${Questions.workYouIdentity} while ${Questions.workYouIdentity} on business trip no. ${Questions.workBusTripLength}?" && widget.questionOption == "Absence ${Questions.workBusTripLength}" && (data[0] == "24 hours due to overnight stay" || data[0] == "No"))
-    {
-      print("work businesss trip");
-      Questions.workBusTripLength += 1;
-      Questions.workBusTripText ="BUSINESS TRIP "+Questions.workBusTripLength.toString();
-
-      qu.WorkAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, data, 55.0);
-
-      Navigator.of(context).pop();
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return WorkMainQuestions(CheckCompleteQuestion : "Do any of these kind of absences apply to ${Questions.workYouIdentity} while ${Questions.workYouIdentity} on business trip no. ${Questions.workBusTripLength}?",CheckQuestion : "Absence ${Questions.workBusTripLength}",CheckAnswer : data);
-      }));
-    }
-
-    else if(widget.completeQuestion == "Have ${Questions.workYouIdentity} received any free meals? " && widget.questionOption == "Complimentary meals" && data[0] == "No")
-    {
-      Questions.workBusTripLength += 1;
-      Questions.workBusTripText ="BUSINESS TRIP "+Questions.workBusTripLength.toString();
-
-      qu.WorkAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, data, 55.0);
-
-      Navigator.of(context).pop();
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return WorkMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion : widget.questionOption,CheckAnswer : data);
-      }));
-    }
-
-    else if(widget.completeQuestion == "What costs were you reimbursed for on business trip no. ${Questions.workBusCostLength}?" && widget.questionOption == "Reimbursement ${Questions.workBusCostLength}" && data[0] == "None")
-    {
-      Questions.workBusCostLength += 1;
-      Questions.workBusCostText ="BUSINESS TRIP "+Questions.workBusCostLength.toString();
-
-      qu.WorkAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, data, 55.0);
-
-      Navigator.of(context).pop();
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return WorkMainQuestions(CheckCompleteQuestion : "What costs were you reimbursed for on business trip no. ${Questions.workBusCostLength}?",CheckQuestion : "Reimbursement ${Questions.workBusCostLength}",CheckAnswer : data);
-      }));
-    }
-
-    else{
     qu.WorkAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, data, 55.0);
 
     Navigator.of(context).pop();
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return WorkMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion : widget.questionOption,CheckAnswer : data);
     }));
-    }
 
 
 

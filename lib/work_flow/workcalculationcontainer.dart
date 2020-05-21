@@ -296,6 +296,104 @@ class _WorkCalculationContainerState extends State<WorkCalculationContainer> {
       Questions.workBusTripText ="BUSINESS TRIP "+Questions.workBusTripLength.toString();
     }
 
+    else if(widget.completeQuestion == "How many business trips did ${Questions.workYouIdentity} take in 2019?" && widget.questionOption == "Number of business trips")
+    {
+      Questions.workBusCostLength = 0;
+      Questions.totalWorkBusCost = int.parse(calculations.text);
+      print("Total Business Trip Cost"+Questions.totalWorkBusCost.toString());
+      Questions.workBusCostLength += 1;
+      Questions.workBusCostText ="BUSINESS TRIP "+Questions.workBusCostLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How much of the travel expenses from ${Questions.workYourIdentity} business trip were ${Questions.workYouIdentity} reimbursed by ${Questions.workYourIdentity} employer?" && widget.questionOption == "Reimbursement travel costs")
+    {
+      Questions.workBusCostLength += 1;
+      Questions.workBusCostText ="BUSINESS TRIP "+Questions.workBusCostLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How much was reimbursed for accommodation by ${Questions.workYourIdentity} employer?" && widget.questionOption == "Reimbursement accommodation")
+    {
+      Questions.workBusCostLength += 1;
+      Questions.workBusCostText ="BUSINESS TRIP "+Questions.workBusCostLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How much was the total amount reimbursed for meals and expenses during ${Questions.workYourIdentity} business trip?" && widget.questionOption == "Reimbursement amount")
+    {
+      Questions.workBusCostLength += 1;
+      Questions.workBusCostText ="BUSINESS TRIP "+Questions.workBusCostLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How many pieces of furniture ${Questions.workYouIdentity} bought were over 488 EUR?" && widget.questionOption == "Quantity")
+    {
+      Questions.officeFurnitureLength = 0;
+      Questions.totalOfficeFurniture = int.parse(calculations.text);
+      print("Total Office Furniture Length"+Questions.totalOfficeFurniture.toString());
+      Questions.officeFurnitureLength += 1;
+      Questions.officeFurnitureText ="FURNITURE "+Questions.officeFurnitureLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How long are ${Questions.workYouIdentity} going to use the desk for? " && widget.questionOption == "Usage desk")
+    {
+      Questions.officeFurnitureLength += 1;
+      Questions.officeFurnitureText ="FURNITURE "+Questions.officeFurnitureLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How long are ${Questions.workYouIdentity} going to use the office chair for? " && widget.questionOption == "Usage office chair")
+    {
+      Questions.officeFurnitureLength += 1;
+      Questions.officeFurnitureText ="FURNITURE "+Questions.officeFurnitureLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How long are ${Questions.workYouIdentity} going to use the shelf for? " && widget.questionOption == "Usage Bookshelf")
+    {
+      Questions.officeFurnitureLength += 1;
+      Questions.officeFurnitureText ="FURNITURE "+Questions.officeFurnitureLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How long are ${Questions.workYouIdentity} going to use the lamp for? " && widget.questionOption == "Usage lamp")
+    {
+      Questions.officeFurnitureLength += 1;
+      Questions.officeFurnitureText ="FURNITURE "+Questions.officeFurnitureLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How many years are ${Questions.workYouIdentity} going to use the filing cabinet for? " && widget.questionOption == "Amount")
+    {
+      Questions.officeFurnitureLength += 1;
+      Questions.officeFurnitureText ="FURNITURE "+Questions.officeFurnitureLength.toString();
+    }
+
+    else if(widget.completeQuestion == "What kind of furniture did you buy? " && widget.questionOption == "Type")
+    {
+      Questions.otherOfficeFurniture = calculations.text;
+    }
+
+    else if(widget.completeQuestion == "For how many years will ${Questions.workYouIdentity} use the ${Questions.otherOfficeFurniture}? " && widget.questionOption == "Depreciation period")
+    {
+      Questions.officeFurnitureLength += 1;
+      Questions.officeFurnitureText ="FURNITURE "+Questions.officeFurnitureLength.toString();
+    }
+
+
+    else if(widget.completeQuestion == "How many items did ${Questions.workYouIdentity} buy?" && widget.questionOption == "Quantity")
+    {
+      Questions.otherItemsLength = 0;
+      Questions.totalOtherItems = int.parse(calculations.text);
+      print("Total Other Items"+Questions.totalOtherItems.toString());
+      Questions.otherItemsLength += 1;
+      Questions.otherItemsText ="EQUIPMENT "+Questions.otherItemsLength.toString();
+    }
+
+    else if(widget.completeQuestion == "What kind of item is item no. ${Questions.otherItemsLength}?" && widget.questionOption == "Item no. ${Questions.otherItemsLength}")
+    {
+      Questions.otherItems = calculations.text;
+    }
+
+    else if(widget.completeQuestion == "How much can ${Questions.workYouIdentity} depreciate for the item ${Questions.otherItems} in 2019?" && widget.questionOption == "Depreciation amount")
+    {
+      Questions.otherItemsLength += 1;
+      Questions.otherItemsText ="EQUIPMENT "+Questions.otherItemsLength.toString();
+    }
+
     qu.WorkAddAnswer(widget.identity, widget.bigQuestion, widget.completeQuestion, widget.questionOption, [calculations.text.toString()], 55.0);
 
     Navigator.of(context).pop();

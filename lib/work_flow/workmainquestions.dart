@@ -11,6 +11,7 @@ import 'package:easy_taxx/work_flow/workdifferentoptioncontainer.dart';
 import 'package:easy_taxx/work_flow/workmultithreecontainer.dart';
 import 'package:easy_taxx/work_flow/workcalculationbigcontainer.dart';
 import 'package:easy_taxx/work_flow/worktwooptioncontainer.dart';
+import 'package:easy_taxx/work_flow/workmultitwocontainer.dart';
 
 
 
@@ -897,11 +898,11 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
         else if(widget.CheckCompleteQuestion =="How many items cost more than 488 EUR?" && widget.CheckQuestion == "Quantity")
         {
           //Question No 36
-          return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+          return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.workYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
         }
 
         //Answer No 36
-        else if(widget.CheckCompleteQuestion =="What furniture/equipment did ${Questions.financeYouIdentity} buy?" && widget.CheckQuestion == "Piece of furniture")
+        else if(widget.CheckCompleteQuestion =="What furniture/equipment did ${Questions.workYouIdentity} buy?" && widget.CheckQuestion == "Piece of furniture")
         {
 
           if(widget.CheckAnswer[0] == "Desk")
@@ -1464,7 +1465,9 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
     else if(widget.CheckAnswer[0] == "Yes")
     {
-  //Looping
+          //Question No 92
+      return workcalculationContainer("","Work","How many business trips did ${Questions.workYouIdentity} take in 2019?","Number of business trips",280.0,"","",[]);
+
     }
 
     }
@@ -1915,9 +1918,1478 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
         // ====== Receive Reimbursements Yes Ends ===== //
 
+
+        // ====== Costs During Business trips Starts ====== //
+
+          //Answer No 92
+        else if(widget.CheckCompleteQuestion =="How many business trips did ${Questions.workYouIdentity} take in 2019?" && widget.CheckQuestion == "Number of business trips")
+        {
+          //Question No 93
+          return worktwooptionContainer("","Work","Where have ${Questions.workYouIdentity} travelled to on this trip?","Destination trip ${Questions.workBusCostLength}",["Germany","Abroad"],430.0,"",Questions.workBusCostText,[]);
+        }
+
+        //Answer No 93
+        else if(widget.CheckCompleteQuestion =="Where have ${Questions.workYouIdentity} travelled to on this trip?" && widget.CheckQuestion == "Destination trip ${Questions.workBusCostLength}")
+        {
+
+          if(widget.CheckAnswer[0] == "Germany")
+          {
+          //Question No 94
+            return workmultipleoptionsContainer("","Work","Which modes of transport did ${Questions.workYouIdentity} use for this business trip?","Means of transport",["By car","Bus / train","Airplane","Company car","Company transport"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],220.0,"",Questions.workBusCostText,[]);
+
+          }
+
+          else if(widget.CheckAnswer[0] == "Abroad")
+          {
+//Question No 94
+            return workmultipleoptionsContainer("","Work","Which modes of transport did ${Questions.workYouIdentity} use for this business trip?","Means of transport",["By car","Bus / train","Airplane","Company car","Company transport"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],220.0,"",Questions.workBusCostText,[]);
+          }
+
+        }
+
+
+        //Answer No 94
+        else if(widget.CheckCompleteQuestion =="Which modes of transport did ${Questions.workYouIdentity} use for this business trip?" && widget.CheckQuestion == "Means of transport")
+        {
+
+          for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+            if(widget.CheckAnswer[m] == "By car")
+            {
+              //Question No 95
+              //Ya container change hoga
+              return workcalculationContainer("","Work","From where to where did ${Questions.workYouIdentity} go by car for trip no. ${Questions.workBusCostLength}?","Distance ${Questions.workBusCostLength}",220.0,"",Questions.workBusCostText,[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "Bus / train")
+            {
+             //Question No 109
+              return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} pay in total for travels by train on business trip no. ${Questions.workBusCostLength}?","Travel costs",220.0,"calculation",Questions.workBusCostText,[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Airplane")
+            {
+             //Question No 111
+              return workcalculationContainer("","Work","How much have ${Questions.workYouIdentity} spent on flight tickets?","Air fares",220.0,"calculation",Questions.workBusCostText,[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Company car")
+            {
+               //Question No 110
+              return workdateContainer("","Work","From when to when did ${Questions.workYouIdentity} travel for business trip no. ${Questions.workBusCostLength}?","Period ${Questions.workBusCostLength}",220.0,"",Questions.workBusCostText,[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Company transport")
+            {
+              //Question No 110
+              return workdateContainer("","Work","From when to when did ${Questions.workYouIdentity} travel for business trip no. ${Questions.workBusCostLength}?","Period ${Questions.workBusCostLength}",220.0,"",Questions.workBusCostText,[]);
+            }
+
+          }
+        }
+
+
+        //Car starts
+
+
+        //Answer No 95
+        else if(widget.CheckCompleteQuestion =="From where to where did ${Questions.workYouIdentity} go by car for trip no. ${Questions.workBusCostLength}?" && widget.CheckQuestion == "Distance ${Questions.workBusCostLength}")
+        {
+          //Question No 96
+          return workcalculationContainer("","Work","How often did ${Questions.workYouIdentity} take this route?","Number of drives",370.0,"loop",Questions.workBusCostText,[]);
+
+        }
+
+
+
+        //Answer No 96
+        else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} take this route?" && widget.CheckQuestion == "Number of drives")
+        {
+          //Question No 97
+          return workmultithreeContainer("","Work","Do any of the following absences apply to the trip no. ${Questions.workBusCostLength}?","Absence",["More than 8 hours","Arrival/departure due to overnight stay","Full days","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+
+        }
+        //Car ends
+
+
+      //Bus/Train Starts
+//Answer No 109
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} pay in total for travels by train on business trip no. ${Questions.workBusCostLength}?" && widget.CheckQuestion == "Travel costs")
+        {
+          //Question No 110
+          return workdateContainer("","Work","From when to when did ${Questions.workYouIdentity} travel for business trip no. ${Questions.workBusCostLength}?","Period ${Questions.workBusCostLength}",220.0,"",Questions.workBusCostText,[]);
+
+        }
+        //Bus/Train Ends
+
+
+        // Airplane Starts
+
+        //Answer No 111
+        else if(widget.CheckCompleteQuestion =="How much have ${Questions.workYouIdentity} spent on flight tickets?" && widget.CheckQuestion == "Air fares")
+        {
+          //Question No 110
+          return workdateContainer("","Work","From when to when did ${Questions.workYouIdentity} travel for business trip no. ${Questions.workBusCostLength}?","Period ${Questions.workBusCostLength}",220.0,"",Questions.workBusCostText,[]);
+
+        }
+
+
+        //Airplane ends
+
+
+
+        //Answer No 110
+        else if(widget.CheckCompleteQuestion =="From when to when did ${Questions.workYouIdentity} travel for business trip no. ${Questions.workBusCostLength}?" && widget.CheckQuestion == "Period ${Questions.workBusCostLength}")
+        {
+          //Question No 101
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} received free meals?  ","Complimentary meals",["Breakfast","Lunch","Dinner","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+
+        }
+
+
+
+
+
+
+        //Answer No 97
+        else if(widget.CheckCompleteQuestion =="Do any of the following absences apply to the trip no. ${Questions.workBusCostLength}?" && widget.CheckQuestion == "Absence")
+        {
+
+          for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+            if(widget.CheckAnswer[m] == "More than 8 hours")
+            {
+             //Question No 99
+              return workcalculationContainer("","Work","How often have ${Questions.workYouIdentity} been away for more than 8 hours on business trip no. ${Questions.workBusCostLength}?","Days >8 hours",370.0,"",Questions.workBusCostText,[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Arrival/departure due to overnight stay")
+            {
+               //Question No 100
+              return workcalculationContainer("","Work","How many days did ${Questions.workYouIdentity} arrive and depart on trip no. ${Questions.workBusCostLength}?","Arrival/Departure days",370.0,"",Questions.workBusCostText,[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Full days")
+            {
+              //Question No 98
+              return workmultithreeContainer("","Work","What costs were you reimbursed for on business trip no. ${Questions.workBusCostLength}?","Reimbursement ${Questions.workBusCostLength}",["Travel costs","Accommodation costs","Daily allowances","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"None",Questions.workBusCostText,[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "No")
+            {
+
+              //Question No 98
+              return workmultithreeContainer("","Work","What costs were you reimbursed for on business trip no. ${Questions.workBusCostLength}?","Reimbursement ${Questions.workBusCostLength}",["Travel costs","Accommodation costs","Daily allowances","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"None",Questions.workBusCostText,[]);
+            }
+
+          }
+        }
+
+
+        //Answer No 99
+        else if(widget.CheckCompleteQuestion =="How often have ${Questions.workYouIdentity} been away for more than 8 hours on business trip no. ${Questions.workBusCostLength}?" && widget.CheckQuestion == "Days >8 hours")
+        {
+          //Question No 101
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} received free meals?  ","Complimentary meals",["Breakfast","Lunch","Dinner","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+        //Answer No 100
+        else if(widget.CheckCompleteQuestion =="How many days did ${Questions.workYouIdentity} arrive and depart on trip no. ${Questions.workBusCostLength}?" && widget.CheckQuestion == "Arrival/Departure days")
+        {
+         //Question No 101
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} received free meals?  ","Complimentary meals",["Breakfast","Lunch","Dinner","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+
+        //Answer No 101
+
+        else if(widget.CheckCompleteQuestion =="Have ${Questions.workYouIdentity} received free meals?  " && widget.CheckQuestion == "Complimentary meals")
+        {
+
+          for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+            if(widget.CheckAnswer[m] == "Breakfast")
+            {
+              //Question No 102
+              return workcalculationContainer("","Work","How often did ${Questions.workYouIdentity} receive complimentary breakfast?  ","Complimentary breakfast",370.0,"",Questions.workBusCostText,[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Lunch")
+            {
+              //Question No 103
+              return workcalculationContainer("","Work","How often did ${Questions.workYouIdentity} get complimentary lunch?  ","Free Lunch",370.0,"",Questions.workBusCostText,[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "Dinner")
+            {
+              //Question No 104
+              return workcalculationContainer("","Work","How often did ${Questions.workYouIdentity} get complimentary dinner?  ","Free Dinner",370.0,"",Questions.workBusCostText,[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "No")
+            {
+              //Question No 98
+              return workmultithreeContainer("","Work","What costs were you reimbursed for on business trip no. ${Questions.workBusCostLength}?","Reimbursement ${Questions.workBusCostLength}",["Travel costs","Accommodation costs","Daily allowances","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"None",Questions.workBusCostText,[]);
+            }
+
+          }
+        }
+
+
+        //Answer No 102
+        else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} receive complimentary breakfast?  " && widget.CheckQuestion == "Complimentary breakfast")
+        {
+          //Question No 98
+          return workmultithreeContainer("","Work","What costs were you reimbursed for on business trip no. ${Questions.workBusCostLength}?","Reimbursement ${Questions.workBusCostLength}",["Travel costs","Accommodation costs","Daily allowances","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"None",Questions.workBusCostText,[]);
+        }
+
+
+        //Answer No 103
+        else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} get complimentary lunch?  " && widget.CheckQuestion == "Free Lunch")
+        {
+//Question No 98
+          return workmultithreeContainer("","Work","What costs were you reimbursed for on business trip no. ${Questions.workBusCostLength}?","Reimbursement ${Questions.workBusCostLength}",["Travel costs","Accommodation costs","Daily allowances","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"None",Questions.workBusCostText,[]);
+        }
+
+
+
+    //Answer No 104
+        else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} get complimentary dinner?  " && widget.CheckQuestion == "Free Dinner")
+        {
+//Question No 98
+          return workmultithreeContainer("","Work","What costs were you reimbursed for on business trip no. ${Questions.workBusCostLength}?","Reimbursement ${Questions.workBusCostLength}",["Travel costs","Accommodation costs","Daily allowances","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"None",Questions.workBusCostText,[]);
+        }
+
+
+        //Answer No 98
+        else if(widget.CheckCompleteQuestion =="What costs were you reimbursed for on business trip no. ${Questions.workBusCostLength}?" && widget.CheckQuestion == "Reimbursement ${Questions.workBusCostLength}")
+        {
+
+          for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+            if(widget.CheckAnswer[m] == "Travel costs")
+            {
+             //Question No 105
+              return workcalculationContainer("","Work","How much of the travel expenses from ${Questions.workYourIdentity} business trip were ${Questions.workYouIdentity} reimbursed by ${Questions.workYourIdentity} employer?","Reimbursement travel costs",220.0,"calculation",Questions.workBusCostText,[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Accommodation costs")
+            {
+             //Question No 106
+              return workcalculationContainer("","Work","How much was reimbursed for accommodation by ${Questions.workYourIdentity} employer?","Reimbursement accommodation",220.0,"calculation",Questions.workBusCostText,[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "Daily allowances")
+            {
+            //Question No 107
+              return workcalculationContainer("","Work","How much was the total amount reimbursed for meals and expenses during ${Questions.workYourIdentity} business trip?","Reimbursement amount",220.0,"calculation",Questions.workBusCostText,[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "None")
+            {
+              if(Questions.workBusCostLength <= Questions.totalWorkBusCost)
+              {
+                //Question No 93
+                return worktwooptionContainer("","Work","Where have ${Questions.workYouIdentity} travelled to on this trip?","Destination trip ${Questions.workBusCostLength}",["Germany","Abroad"],430.0,"",Questions.workBusCostText,[]);
+              }
+              else{
+                //Question No 108
+                return workmultipleoptionsContainer("","Work","Did ${Questions.workYouIdentity} have any further costs during ${Questions.workYourIdentity} business trip?","Additional travel costs",["Baggage fees","Business calls","Toll charges","Parking fees","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+              }
+            }
+
+          }
+        }
+
+
+        //Answer No 105
+        else if(widget.CheckCompleteQuestion =="How much of the travel expenses from ${Questions.workYourIdentity} business trip were ${Questions.workYouIdentity} reimbursed by ${Questions.workYourIdentity} employer?" && widget.CheckQuestion == "Reimbursement travel costs")
+        {
+          if(Questions.workBusCostLength <= Questions.totalWorkBusCost)
+            {
+              //Question No 93
+              return worktwooptionContainer("","Work","Where have ${Questions.workYouIdentity} travelled to on this trip?","Destination trip ${Questions.workBusCostLength}",["Germany","Abroad"],430.0,"",Questions.workBusCostText,[]);
+            }
+            else{
+              //Question No 108
+            return workmultipleoptionsContainer("","Work","Did ${Questions.workYouIdentity} have any further costs during ${Questions.workYourIdentity} business trip?","Additional travel costs",["Baggage fees","Business calls","Toll charges","Parking fees","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+          }
+        }
+
+
+        //Answer No 106
+        else if(widget.CheckCompleteQuestion =="How much was reimbursed for accommodation by ${Questions.workYourIdentity} employer?" && widget.CheckQuestion == "Reimbursement accommodation")
+        {
+          if(Questions.workBusCostLength <= Questions.totalWorkBusCost)
+          {
+            //Question No 93
+            return worktwooptionContainer("","Work","Where have ${Questions.workYouIdentity} travelled to on this trip?","Destination trip ${Questions.workBusCostLength}",["Germany","Abroad"],430.0,"",Questions.workBusCostText,[]);
+          }
+          else{
+            //Question No 108
+            return workmultipleoptionsContainer("","Work","Did ${Questions.workYouIdentity} have any further costs during ${Questions.workYourIdentity} business trip?","Additional travel costs",["Baggage fees","Business calls","Toll charges","Parking fees","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+          }
+        }
+
+        //Answer No 107
+        else if(widget.CheckCompleteQuestion =="How much was the total amount reimbursed for meals and expenses during ${Questions.workYourIdentity} business trip?" && widget.CheckQuestion == "Reimbursement amount")
+        {
+          if(Questions.workBusCostLength <= Questions.totalWorkBusCost)
+          {
+            //Question No 93
+            return worktwooptionContainer("","Work","Where have ${Questions.workYouIdentity} travelled to on this trip?","Destination trip ${Questions.workBusCostLength}",["Germany","Abroad"],430.0,"",Questions.workBusCostText,[]);
+          }
+          else{
+            //Question No 108
+            return workmultipleoptionsContainer("","Work","Did ${Questions.workYouIdentity} have any further costs during ${Questions.workYourIdentity} business trip?","Additional travel costs",["Baggage fees","Business calls","Toll charges","Parking fees","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+          }
+        }
+        // ====== Costs During Business trips Ends ====== //
+
+
+        // ====== Additional Travel Costs Starts ====== //
+        //Answer No 108
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} have any further costs during ${Questions.workYourIdentity} business trip?" && widget.CheckQuestion == "Additional travel costs")
+        {
+
+          for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+            if(widget.CheckAnswer[m] == "Baggage fees")
+            {
+              //Question No 112
+              return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on baggage storage?","Baggage fees",220.0,"calculation","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Business calls")
+            {
+              //Question No 113
+              return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on business calls?","Business calls",220.0,"calculation","",[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "Toll charges")
+            {
+              //Question No 114
+              return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on toll charges?","Toll charges",220.0,"calculation","",[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "Parking fees")
+            {
+              //Question No 115
+              return workcalculationContainer("","Work","How much have ${Questions.workYouIdentity} spent on parking fees?","Parking fees",220.0,"calculation","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Other costs")
+            {
+              //Question No 116
+              return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on other travel expenses?","Other travel expenses",220.0,"calculation","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "No")
+            {
+             //Question No 78
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} apply for a passport or visa for a business trip?","Passport or visa",220.0,"","",[]);
+            }
+
+          }
+        }
+
+        //Answer No 112
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on baggage storage?" && widget.CheckQuestion == "Baggage fees")
+        {
+          //Question No 78
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} apply for a passport or visa for a business trip?","Passport or visa",220.0,"","",[]);
+        }
+
+        //Answer No 113
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on business calls?" && widget.CheckQuestion == "Business calls")
+        {
+          //Question No 78
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} apply for a passport or visa for a business trip?","Passport or visa",220.0,"","",[]);
+        }
+
+        //Answer No 114
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on toll charges?" && widget.CheckQuestion == "Toll charges")
+        {
+          //Question No 78
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} apply for a passport or visa for a business trip?","Passport or visa",220.0,"","",[]);
+        }
+
+        //Answer No 115
+        else if(widget.CheckCompleteQuestion =="How much have ${Questions.workYouIdentity} spent on parking fees?" && widget.CheckQuestion == "Parking fees")
+        {
+          //Question No 78
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} apply for a passport or visa for a business trip?","Passport or visa",220.0,"","",[]);
+        }
+
+
+        //Answer No 116
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on other travel expenses?" && widget.CheckQuestion == "Other travel expenses")
+        {
+          //Question No 78
+          return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} apply for a passport or visa for a business trip?","Passport or visa",220.0,"","",[]);
+        }
+
+
+
+        // ====== Additional Travel Costs Ends ====== //
+
         // Business trips Ends
 
 
+        // ====== Work Equipment Items Starts ====== //
+
+        //Answer No 67
+
+
+        else if(widget.CheckCompleteQuestion =="Have ${Questions.workYouIdentity} bought any of the following work equipment items for ${Questions.workYourIdentity} job(s) in 2019?" && widget.CheckQuestion == "Purchases in the tax year")
+        {
+
+          for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+            if(widget.CheckAnswer[m] == "Office furniture")
+            {
+              //Question No 149
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend more than 952 EUR on any piece of office furniture?","> 952 EUR",220.0,"","",[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "Computer / laptop")
+            {
+
+              //Question No 118
+              return workcalculationContainer("","Work","How much was the computer?","Amount computer",370.0,"calculation","",[]);
+
+
+            }
+
+            else if(widget.CheckAnswer[m] == "Computer accessories")
+            {
+             //Question No 119
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend more than 952 EUR on any computer accessory?","Accessory over 952 EUR",220.0,"","",[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "Mobile phone / Smartphone")
+            {
+             //Question No 123
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend more than 952 EUR on a mobile phone?","Mobile phone over 952 EUR",220.0,"","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Document shredder")
+            {
+              //Question No 127
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend more than 952 EUR on a paper shredder?","Shredder over 952 EUR",220.0,"","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Tools")
+            {
+              //Question no 131
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend more than 952 EUR on any work tool?","Tools over 952 EUR",220.0,"","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Clothing")
+            {
+              //Question no 137
+              return workmultipleoptionsContainer("","Work","Which kind of work clothes did ${Questions.workYouIdentity} buy?","Kind of clothes",["Protective clothing (e.g. helmet, coat)","Uniform (e.g. police)","Clothing with permanent company logo","Official robes (e.g. as a judge)","White clothes (e.g. for medical professions)","Other that excludes a private usage","None of them"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None of them","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Briefcase")
+            {
+               //Question No 141
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend more than 952 EUR on a briefcase?","Briefcase over 952 EUR",220.0,"","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Specialist literature")
+            {
+              //Question no 147
+              return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on specialist literature?","Amount literature",370.0,"calculation","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Stationery")
+            {
+              //Question no 148
+              return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on stationery?","Amount stationery",370.0,"calculation","",[]);
+            }
+
+
+
+            else if(widget.CheckAnswer[m] == "No")
+            {
+              //Question No 117
+              return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+            }
+
+          }
+        }
+
+
+        // ===== Office furniture Starts ======
+
+        //Answer No 149
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} spend more than 952 EUR on any piece of office furniture?" && widget.CheckQuestion == "> 952 EUR")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            //Question No 156
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of office furniture?","< 952 EUR",220.0,"","",[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+           //Question No 150
+            return workcalculationContainer("","Work","How many pieces of furniture ${Questions.workYouIdentity} bought were over 488 EUR?","Quantity",430.0,"","",[]);
+
+          }
+
+        }
+
+        //Answer No 150
+        else if(widget.CheckCompleteQuestion =="How many pieces of furniture ${Questions.workYouIdentity} bought were over 488 EUR?" && widget.CheckQuestion == "Quantity")
+        {
+          //Question No 151
+          return workdifferentoptionContainer("","Work","What furniture did ${Questions.workYouIdentity} buy?","Furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Other"],220.0,"",Questions.officeFurnitureText,[]);
+        }
+
+        //Answer No 151
+        else if(widget.CheckCompleteQuestion =="What furniture did ${Questions.workYouIdentity} buy?" && widget.CheckQuestion == "Furniture")
+        {
+
+          if(widget.CheckAnswer[0] == "Desk")
+          {
+           //Question No 152
+            return workcalculationContainer("","Work","How much was the desk? ","Amount desk",220.0,"calculation",Questions.officeFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Office chair")
+          {
+           //Question No 157
+            return workcalculationContainer("","Work","How much was the office chair? ","Amount office chair",220.0,"calculation",Questions.officeFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Bookshelf")
+          {
+//Question No 161
+            return workcalculationContainer("","Work","How much was the bookshelf? ","Amount Bookshelf",220.0,"calculation",Questions.officeFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Lamp")
+          {
+   //Question No 165
+            return workcalculationContainer("","Work","How much was the lamp? ","Amount lamp",220.0,"calculation",Questions.officeFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Filing cabinet")
+          {
+       //Question No 169
+            return workcalculationContainer("","Work","How much was the filing cabinet? ","Amount",220.0,"calculation",Questions.officeFurnitureText,[]);
+          }
+
+
+          else if(widget.CheckAnswer[0] == "Other")
+          {
+           //Question No 173
+            return workcalculationContainer("","Work","What kind of furniture did you buy? ","Type",220.0,"",Questions.officeFurnitureText,[]);
+          }
+
+        }
+
+
+
+        // ====== Desk Starts ======
+
+         //Answer No 152
+        else if(widget.CheckCompleteQuestion =="How much was the desk? " && widget.CheckQuestion == "Amount desk")
+        {
+          //Question No 153
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the desk? ","Purchase date desk",220.0,"",Questions.officeFurnitureText,[]);
+        }
+
+        //Answer No 153
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the desk? " && widget.CheckQuestion == "Purchase date desk")
+        {
+          //Question No 154
+          return workyesnoContainer("","Work","The desk will be depreciated over a period of 13 years. Do you agree? ","Usual depreciation",220.0,"",Questions.officeFurnitureText,[]);
+        }
+
+        //Answer No 154
+        else if(widget.CheckCompleteQuestion =="The desk will be depreciated over a period of 13 years. Do you agree? " && widget.CheckQuestion == "Usual depreciation")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            // Question No 155
+            return workcalculationContainer("","Work","How long are ${Questions.workYouIdentity} going to use the desk for? ","Usage desk",220.0,"",Questions.officeFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            if(Questions.officeFurnitureLength <= Questions.totalOfficeFurniture)
+            {
+              //Question No 151
+              return workdifferentoptionContainer("","Work","What furniture did ${Questions.workYouIdentity} buy?","Furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Other"],220.0,"",Questions.officeFurnitureText,[]);
+            }
+            else
+            {
+              //Question No 156
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of office furniture?","< 952 EUR",220.0,"","",[]);
+            }
+          }
+
+        }
+
+        //Answer No 155
+        else if(widget.CheckCompleteQuestion =="How long are ${Questions.workYouIdentity} going to use the desk for? " && widget.CheckQuestion == "Usage desk")
+        {
+
+          if(Questions.officeFurnitureLength <= Questions.totalOfficeFurniture)
+          {
+            //Question No 151
+            return workdifferentoptionContainer("","Work","What furniture did ${Questions.workYouIdentity} buy?","Furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Other"],220.0,"",Questions.officeFurnitureText,[]);
+          }
+          else
+          {
+            //Question No 156
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of office furniture?","< 952 EUR",220.0,"","",[]);
+          }
+
+
+        }
+
+        // ====== Desk Ends ======
+
+
+
+       // ======= Office chair Starts ====== //
+
+
+        //Answer No 157
+        else if(widget.CheckCompleteQuestion =="How much was the office chair? " && widget.CheckQuestion == "Amount office chair")
+        {
+          //Question No 158
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the office chair? ","Purchase date office chair",220.0,"",Questions.officeFurnitureText,[]);
+        }
+
+        //Answer No 158
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the office chair? " && widget.CheckQuestion == "Purchase date office chair")
+        {
+          //Question No 159
+          return workyesnoContainer("","Work","The office chair will be depreciated over a period of 13 years. Do you agree? ","Usual depreciation",220.0,"",Questions.officeFurnitureText,[]);
+        }
+
+        //Answer No 159
+        else if(widget.CheckCompleteQuestion =="The office chair will be depreciated over a period of 13 years. Do you agree? " && widget.CheckQuestion == "Usual depreciation")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            // Question No 160
+            return workcalculationContainer("","Work","How long are ${Questions.workYouIdentity} going to use the office chair for? ","Usage office chair",220.0,"",Questions.officeFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            if(Questions.officeFurnitureLength <= Questions.totalOfficeFurniture)
+            {
+              //Question No 151
+              return workdifferentoptionContainer("","Work","What furniture did ${Questions.workYouIdentity} buy?","Furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Other"],220.0,"",Questions.officeFurnitureText,[]);
+            }
+            else
+            {
+              //Question No 156
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of office furniture?","< 952 EUR",220.0,"","",[]);
+            }
+          }
+
+        }
+
+        //Answer No 160
+        else if(widget.CheckCompleteQuestion =="How long are ${Questions.workYouIdentity} going to use the office chair for? " && widget.CheckQuestion == "Usage office chair")
+        {
+
+          if(Questions.officeFurnitureLength <= Questions.totalOfficeFurniture)
+          {
+            //Question No 151
+            return workdifferentoptionContainer("","Work","What furniture did ${Questions.workYouIdentity} buy?","Furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Other"],220.0,"",Questions.officeFurnitureText,[]);
+          }
+          else
+          {
+            //Question No 156
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of office furniture?","< 952 EUR",220.0,"","",[]);
+          }
+
+
+        }
+
+
+        // ====== Office chair Ends ======= //
+
+          // ======= Bookshelf Starts ====== //
+
+        //Answer No 161
+        else if(widget.CheckCompleteQuestion =="How much was the bookshelf? " && widget.CheckQuestion == "Amount Bookshelf")
+        {
+          //Question No 162
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the bookshelf? ","Purchase date bookshelf",220.0,"",Questions.officeFurnitureText,[]);
+        }
+
+        //Answer No 162
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the bookshelf? " && widget.CheckQuestion == "Purchase date bookshelf")
+        {
+          //Question No 163
+          return workyesnoContainer("","Work","The bookshelf will be depreciated over a period of 13 years. Do you agree? ","Usual depreciation",220.0,"",Questions.officeFurnitureText,[]);
+        }
+
+        //Answer No 163
+        else if(widget.CheckCompleteQuestion =="The bookshelf will be depreciated over a period of 13 years. Do you agree? " && widget.CheckQuestion == "Usual depreciation")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            // Question No 164
+            return workcalculationContainer("","Work","How long are ${Questions.workYouIdentity} going to use the shelf for? ","Usage Bookshelf",220.0,"",Questions.officeFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            if(Questions.officeFurnitureLength <= Questions.totalOfficeFurniture)
+            {
+              //Question No 151
+              return workdifferentoptionContainer("","Work","What furniture did ${Questions.workYouIdentity} buy?","Furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Other"],220.0,"",Questions.officeFurnitureText,[]);
+            }
+            else
+            {
+              //Question No 156
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of office furniture?","< 952 EUR",220.0,"","",[]);
+            }
+          }
+
+        }
+
+        //Answer No 164
+        else if(widget.CheckCompleteQuestion =="How long are ${Questions.workYouIdentity} going to use the shelf for? " && widget.CheckQuestion == "Usage Bookshelf")
+        {
+
+          if(Questions.officeFurnitureLength <= Questions.totalOfficeFurniture)
+          {
+            //Question No 151
+            return workdifferentoptionContainer("","Work","What furniture did ${Questions.workYouIdentity} buy?","Furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Other"],220.0,"",Questions.officeFurnitureText,[]);
+          }
+          else
+          {
+            //Question No 156
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of office furniture?","< 952 EUR",220.0,"","",[]);
+          }
+
+
+        }
+
+        // ======= Bookshelf Ends ====== //
+
+
+        // ===== Lamp Starts ===== //
+
+        //Answer No 165
+        else if(widget.CheckCompleteQuestion =="How much was the lamp? " && widget.CheckQuestion == "Amount lamp")
+        {
+          //Question No 166
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the lamp? ","Purchase date lamp",220.0,"",Questions.officeFurnitureText,[]);
+        }
+
+        //Answer No 166
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the lamp? " && widget.CheckQuestion == "Purchase date lamp")
+        {
+          //Question No 167
+          return workyesnoContainer("","Work","The lamp will be depreciated over a period of 13 years. Do you agree? ","Usual depreciation",220.0,"",Questions.officeFurnitureText,[]);
+        }
+
+        //Answer No 167
+        else if(widget.CheckCompleteQuestion =="The lamp will be depreciated over a period of 13 years. Do you agree? " && widget.CheckQuestion == "Usual depreciation")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            // Question No 168
+            return workcalculationContainer("","Work","How long are ${Questions.workYouIdentity} going to use the lamp for? ","Usage lamp",220.0,"",Questions.officeFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            if(Questions.officeFurnitureLength <= Questions.totalOfficeFurniture)
+            {
+              //Question No 151
+              return workdifferentoptionContainer("","Work","What furniture did ${Questions.workYouIdentity} buy?","Furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Other"],220.0,"",Questions.officeFurnitureText,[]);
+            }
+            else
+            {
+              //Question No 156
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of office furniture?","< 952 EUR",220.0,"","",[]);
+            }
+          }
+
+        }
+
+        //Answer No 168
+        else if(widget.CheckCompleteQuestion =="How long are ${Questions.workYouIdentity} going to use the lamp for? " && widget.CheckQuestion == "Usage lamp")
+        {
+
+          if(Questions.officeFurnitureLength <= Questions.totalOfficeFurniture)
+          {
+            //Question No 151
+            return workdifferentoptionContainer("","Work","What furniture did ${Questions.workYouIdentity} buy?","Furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Other"],220.0,"",Questions.officeFurnitureText,[]);
+          }
+          else
+          {
+            //Question No 156
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of office furniture?","< 952 EUR",220.0,"","",[]);
+          }
+
+
+        }
+
+
+
+
+        // ===== Lamp Ends ===== //
+
+
+
+        // ====== Filing cabinet Starts ====== //
+
+        //Answer No 169
+        else if(widget.CheckCompleteQuestion =="How much was the filing cabinet? " && widget.CheckQuestion == "Amount")
+        {
+          //Question No 170
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the filing cabinet? ","Purchase date",220.0,"",Questions.officeFurnitureText,[]);
+        }
+
+        //Answer No 170
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the filing cabinet? " && widget.CheckQuestion == "Purchase date")
+        {
+          //Question No 171
+          return workyesnoContainer("","Work","The filing cabinet will be depreciated over a period of 13 years. Do you agree? ","Usual depreciation",220.0,"",Questions.officeFurnitureText,[]);
+        }
+
+        //Answer No 171
+        else if(widget.CheckCompleteQuestion =="The filing cabinet will be depreciated over a period of 13 years. Do you agree? " && widget.CheckQuestion == "Usual depreciation")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            // Question No 172
+            return workcalculationContainer("","Work","How many years are ${Questions.workYouIdentity} going to use the filing cabinet for? ","Amount",220.0,"",Questions.officeFurnitureText,[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            if(Questions.officeFurnitureLength <= Questions.totalOfficeFurniture)
+            {
+              //Question No 151
+              return workdifferentoptionContainer("","Work","What furniture did ${Questions.workYouIdentity} buy?","Furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Other"],220.0,"",Questions.officeFurnitureText,[]);
+            }
+            else
+            {
+              //Question No 156
+              return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of office furniture?","< 952 EUR",220.0,"","",[]);
+            }
+          }
+
+        }
+
+        //Answer No 172
+        else if(widget.CheckCompleteQuestion =="How many years are ${Questions.workYouIdentity} going to use the filing cabinet for? " && widget.CheckQuestion == "Amount")
+        {
+
+          if(Questions.officeFurnitureLength <= Questions.totalOfficeFurniture)
+          {
+            //Question No 151
+            return workdifferentoptionContainer("","Work","What furniture did ${Questions.workYouIdentity} buy?","Furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Other"],220.0,"",Questions.officeFurnitureText,[]);
+          }
+          else
+          {
+            //Question No 156
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of office furniture?","< 952 EUR",220.0,"","",[]);
+          }
+
+
+        }
+        // ====== Filing cabinet Ends ====== //
+
+
+        // ===== Other Starts ===== //
+
+        //Answer No 173
+        else if(widget.CheckCompleteQuestion =="What kind of furniture did you buy? " && widget.CheckQuestion == "Type")
+        {
+          //Question No 174
+          return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on the ${Questions.otherOfficeFurniture}? ","Amount",220.0,"calculation",Questions.officeFurnitureText,[]);
+        }
+
+//Answer No 174
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on the ${Questions.otherOfficeFurniture}? " && widget.CheckQuestion == "Amount")
+        {
+          //Question No 175
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the ${Questions.otherOfficeFurniture}? ","Purchase date",220.0,"",Questions.officeFurnitureText,[]);
+        }
+
+
+        //Answer No 175
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the ${Questions.otherOfficeFurniture}? " && widget.CheckQuestion == "Purchase date")
+        {
+          // Question No 176
+          return workcalculationContainer("","Work","For how many years will ${Questions.workYouIdentity} use the ${Questions.otherOfficeFurniture}? ","Depreciation period",220.0,"",Questions.officeFurnitureText,[]);
+        }
+
+
+        //Answer No 176
+        else if(widget.CheckCompleteQuestion =="For how many years will ${Questions.workYouIdentity} use the ${Questions.otherOfficeFurniture}? " && widget.CheckQuestion == "Depreciation period")
+        {
+
+          if(Questions.officeFurnitureLength <= Questions.totalOfficeFurniture)
+          {
+            //Question No 151
+            return workdifferentoptionContainer("","Work","What furniture did ${Questions.workYouIdentity} buy?","Furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Other"],220.0,"",Questions.officeFurnitureText,[]);
+          }
+          else
+          {
+            //Question No 156
+            return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of office furniture?","< 952 EUR",220.0,"","",[]);
+          }
+
+
+        }
+
+
+        // ===== Other Ends ===== //
+
+
+        //Answer No 156
+
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} spend less than 952 EUR on any piece of office furniture?" && widget.CheckQuestion == "< 952 EUR")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            //Question No 117
+            return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 177
+            return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on these items in total?","Amount office furniture",220.0,"calculation","",[]);
+
+          }
+
+        }
+
+        //Answer No 177
+
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on these items in total?" && widget.CheckQuestion == "Amount office furniture")
+        {
+          //Question No 117
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+
+        // ===== Office furniture Ends ======
+
+
+
+
+        // ====== Computer / laptop Starts ====== //
+
+         //Answer no 118
+        else if(widget.CheckCompleteQuestion =="How much was the computer?" && widget.CheckQuestion == "Amount computer")
+        {
+          //Question No 117
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+
+
+        // ====== Computer / laptop Ends ====== //
+
+
+        // ====== Computer accessories Starts ===== //
+
+        //Answer No 119
+
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} spend more than 952 EUR on any computer accessory?" && widget.CheckQuestion == "Accessory over 952 EUR")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            //Question No 120
+            return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on computer accessories?","Amount accessories",370.0,"calculation","",[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 121
+            return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on computer accessories? ","Amount accessories",220.0,"calculation","",[]);
+          }
+
+        }
+
+
+        //Answer No 120
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on computer accessories?" && widget.CheckQuestion == "Amount accessories")
+        {
+          //Question No 117
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+        //Answer No 121
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on computer accessories? " && widget.CheckQuestion == "Amount accessories")
+        {
+          //Question No 122
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the computer accessories?","Purchase date of accessories",220.0,"","",[]);
+        }
+
+        //Answer No 122
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the computer accessories?" && widget.CheckQuestion == "Purchase date of accessories")
+        {
+          //Question No 117
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+
+        // ====== Computer accessories Ends ===== //
+
+
+
+
+
+        // ====== Mobile phone / Smartphone Starts ======= //
+
+    //Answer No 123
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} spend more than 952 EUR on a mobile phone?" && widget.CheckQuestion == "Mobile phone over 952 EUR")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            //Question No 124
+            return workcalculationContainer("","Work","How much was the mobile?","Amount mobile",370.0,"calculation","",[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 125
+            return workcalculationContainer("","Work","How much was the phone?","Amount phone",220.0,"calculation","",[]);
+          }
+
+        }
+
+
+        //Answer No 124
+        else if(widget.CheckCompleteQuestion =="How much was the mobile?" && widget.CheckQuestion == "Amount mobile")
+        {
+          //Question No 117
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+        //Answer No 125
+        else if(widget.CheckCompleteQuestion =="How much was the phone?" && widget.CheckQuestion == "Amount phone")
+        {
+          //Question No 126
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the phone?","Purchase date phone",220.0,"","",[]);
+        }
+
+        //Answer No 126
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the phone?" && widget.CheckQuestion == "Purchase date phone")
+        {
+          //Question No 117
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+
+
+        // ====== Mobile phone / Smartphone Ends ======= //
+
+
+
+          // ====== Document shredder Starts ====== //
+
+        //Answer No 127
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} spend more than 952 EUR on a paper shredder?" && widget.CheckQuestion == "Shredder over 952 EUR")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            //Question No 128
+            return workcalculationContainer("","Work","How much was the document shredder?","Amount shredder",370.0,"calculation","",[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 129
+            return workcalculationContainer("","Work","How much was the document shredder? ","Amount shredder",220.0,"calculation","",[]);
+          }
+
+        }
+
+
+        //Answer No 128
+        else if(widget.CheckCompleteQuestion =="How much was the document shredder?" && widget.CheckQuestion == "Amount shredder")
+        {
+          //Question No 117
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+        //Answer No 129
+        else if(widget.CheckCompleteQuestion =="How much was the document shredder? " && widget.CheckQuestion == "Amount shredder")
+        {
+          //Question No 130
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the document shredder?","Purchase date shredder",220.0,"","",[]);
+        }
+
+        //Answer No 130
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the document shredder?" && widget.CheckQuestion == "Purchase date shredder")
+        {
+          //Question No 117
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+
+
+        // ====== Document shredder Ends ====== //
+
+
+        // ====== Tools Starts ======
+
+        //Answer No 131
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} spend more than 952 EUR on any work tool?" && widget.CheckQuestion == "Tools over 952 EUR")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            //Question No 132
+            return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} pay for other tools?","Amount tool",370.0,"calculation","",[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 133
+            return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} pay for this tool?","Amount tools",220.0,"calculation","",[]);
+          }
+
+        }
+
+
+        //Answer No 132
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} pay for other tools?" && widget.CheckQuestion == "Amount tool")
+        {
+          //Question No 117
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+        //Answer No 133
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} pay for this tool?" && widget.CheckQuestion == "Amount tools")
+        {
+          //Question No 134
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the tool?","Purchase date tool",220.0,"","",[]);
+        }
+
+        //Answer No 134
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the tool?" && widget.CheckQuestion == "Purchase date tool")
+        {
+          //Question No 135
+          return workyesnoContainer("","Work","The tool will be depreciated over a period of 8 years. Do you agree?","Usual depreciation",220.0,"","",[]);
+
+        }
+
+
+         //Answer No 135
+        else if(widget.CheckCompleteQuestion =="The tool will be depreciated over a period of 8 years. Do you agree?" && widget.CheckQuestion == "Usual depreciation")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            //Question No 136
+            return workcalculationContainer("","Work","How long are ${Questions.workYouIdentity} going to use the tool for?","Usage tool",370.0,"","",[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 117
+            return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+          }
+
+        }
+
+        //Answer No 136
+        else if(widget.CheckCompleteQuestion =="How long are ${Questions.workYouIdentity} going to use the tool for?" && widget.CheckQuestion == "Usage tool")
+        {
+          //Question No 117
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+
+        // ====== Tools Ends ======
+
+
+         // ====== Clothing Starts ====== //
+
+        //Answer No 137
+        else if(widget.CheckCompleteQuestion =="Which kind of work clothes did ${Questions.workYouIdentity} buy?" && widget.CheckQuestion == "Kind of clothes")
+        {
+
+          for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+            if(widget.CheckAnswer[m] == "None of them")
+            {
+              //Question No 117
+              return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+            }
+
+            else
+              {
+                //Question No 138
+                return workcalculationContainer("","Work","How much have ${Questions.workYouIdentity} spent on workwear?","Amount workwear",220.0,"calculation","",[]);
+            }
+          }
+        }
+
+        //Answer No 138
+        else if(widget.CheckCompleteQuestion =="How much have ${Questions.workYouIdentity} spent on workwear?" && widget.CheckQuestion == "Amount workwear")
+        {
+          //Question No 139
+          return workyesnoContainer("","Work","Did ${Questions.workYourIdentity} employer reimburse ${Questions.workYourIdentity} workwear expenses?","Reimbursement workwear",220.0,"","",[]);
+        }
+
+        //Answer No 139
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYourIdentity} employer reimburse ${Questions.workYourIdentity} workwear expenses?" && widget.CheckQuestion == "Reimbursement workwear")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            //Question No 117
+            return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 140
+            return workcalculationContainer("","Work","How much reimbursement did ${Questions.workYouIdentity} receive?","Amount reimbursed",220.0,"calculation","",[]);
+          }
+
+        }
+
+        //Answer No 140
+        else if(widget.CheckCompleteQuestion =="How much reimbursement did ${Questions.workYouIdentity} receive?" && widget.CheckQuestion == "Amount reimbursed")
+        {
+          //Question No 117
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+
+        // ====== Clothing Ends ====== //
+
+
+        // ===== Briefcase starts ======
+
+        //Answer No 141
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} spend more than 952 EUR on a briefcase?" && widget.CheckQuestion == "Briefcase over 952 EUR")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            //Question No 142
+            return workcalculationContainer("","Work","How much was the briefcase?","Amount briefcase",370.0,"calculation","",[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 143
+            return workcalculationContainer("","Work","How much was the briefcase? ","Amount briefcase",220.0,"calculation","",[]);
+          }
+
+        }
+
+
+        //Answer No 142
+        else if(widget.CheckCompleteQuestion =="How much was the briefcase?" && widget.CheckQuestion == "Amount briefcase")
+        {
+          //Question No 117
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+        //Answer No 143
+        else if(widget.CheckCompleteQuestion =="How much was the briefcase? " && widget.CheckQuestion == "Amount briefcase")
+        {
+          //Question No 144
+          return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the briefcase?","Purchase date briefcase",220.0,"","",[]);
+        }
+
+        //Answer No 144
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy the briefcase?" && widget.CheckQuestion == "Purchase date briefcase")
+        {
+          //Question No 145
+          return workyesnoContainer("","Work","The briefcase will be depreciated over a period of 5 years. Do you agree?","Usual depreciation",220.0,"","",[]);
+
+        }
+
+
+        //Answer No 145
+        else if(widget.CheckCompleteQuestion =="The briefcase will be depreciated over a period of 5 years. Do you agree?" && widget.CheckQuestion == "Usual depreciation")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            //Question No 146
+            return workcalculationContainer("","Work","How long are ${Questions.workYouIdentity} going to use the briefcase for?","Usage briefcase",370.0,"","",[]);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 117
+            return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+          }
+
+        }
+
+        //Answer No 146
+        else if(widget.CheckCompleteQuestion =="How long are ${Questions.workYouIdentity} going to use the briefcase for?" && widget.CheckQuestion == "Usage briefcase")
+        {
+          //Question No 117
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+
+        // ====== Briefcase ends ====== //
+
+        // ====== Specialist literature Starts ===== //
+
+        //Answer No 147
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on specialist literature?" && widget.CheckQuestion == "Amount literature")
+        {
+          //Question No 117
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+
+        // ====== Specialist literature Ends ===== //
+
+
+
+        // ====== Stationery Starts ===== //
+
+        //Answer No 148
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on stationery?" && widget.CheckQuestion == "Amount stationery")
+        {
+          //Question No 117
+          return workmultithreeContainer("","Work","Have ${Questions.workYouIdentity} bought any of those items in prior years?","Items bought in previous years",["Computer / laptop","Mobile phone","Other work items","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No","",[]);
+        }
+
+
+        // ====== Stationery Ends ===== //
+
+
+
+        // ====== Work Equipment Items Ends ====== //
+
+
+
+        // ====== Items in prior years Starts ====== //
+
+        //Answer No 117
+        else if(widget.CheckCompleteQuestion =="Have ${Questions.workYouIdentity} bought any of those items in prior years?" && widget.CheckQuestion == "Items bought in previous years")
+        {
+
+          for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+            if(widget.CheckAnswer[m] == "Computer / laptop")
+            {
+              //Question No 179
+              return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy ${Questions.workYourIdentity} computer?","Purchase date",320.0,"","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Mobile phone")
+            {
+              //Question No 181
+              return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy ${Questions.workYourIdentity} mobile phone?","Purchase date",320.0,"","",[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "Other work items")
+            {
+               //Question no 182
+              return workcalculationContainer("","Work","How many items did ${Questions.workYouIdentity} buy?","Quantity",220.0,"","",[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "No")
+            {
+              //Question No 178
+              return workmultitwoContainer("","Work","Did ${Questions.workYouIdentity} have any care or maintenance costs for work clothes or equipment?","Maintenance costs",["Repairs","Cleaning","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/disabilityoption.png"],220.0,"None","",[]);
+
+            }
+
+          }
+        }
+
+
+
+
+        //Answer No 179
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy ${Questions.workYourIdentity} computer?" && widget.CheckQuestion == "Purchase date")
+        {
+          //Question No 178
+          return workmultitwoContainer("","Work","Did ${Questions.workYouIdentity} have any care or maintenance costs for work clothes or equipment?","Maintenance costs",["Repairs","Cleaning","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/disabilityoption.png"],220.0,"None","",[]);
+        }
+
+        //Answer No 181
+        else if(widget.CheckCompleteQuestion =="When did ${Questions.workYouIdentity} buy ${Questions.workYourIdentity} mobile phone?" && widget.CheckQuestion == "Purchase date")
+        {
+          //Question No 178
+          return workmultitwoContainer("","Work","Did ${Questions.workYouIdentity} have any care or maintenance costs for work clothes or equipment?","Maintenance costs",["Repairs","Cleaning","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/disabilityoption.png"],220.0,"None","",[]);
+        }
+
+
+        //Answer No 182
+        else if(widget.CheckCompleteQuestion =="How many items did ${Questions.workYouIdentity} buy?" && widget.CheckQuestion == "Quantity")
+        {
+          //Question No 183
+          return workcalculationContainer("","Work","What kind of item is item no. ${Questions.otherItemsLength}?","Item no. ${Questions.otherItemsLength}",220.0,"",Questions.otherItemsText,[]);
+
+        }
+
+        //Answer No 183
+        else if(widget.CheckCompleteQuestion =="What kind of item is item no. ${Questions.otherItemsLength}?" && widget.CheckQuestion == "Item no. ${Questions.otherItemsLength}")
+        {
+          //Question No 184
+          return workcalculationContainer("","Work","How much can ${Questions.workYouIdentity} depreciate for the item ${Questions.otherItems} in 2019?","Depreciation amount",220.0,"calculation",Questions.otherItemsText,[]);
+
+        }
+
+
+        //Answer No 184
+        else if(widget.CheckCompleteQuestion =="How much can ${Questions.workYouIdentity} depreciate for the item ${Questions.otherItems} in 2019?" && widget.CheckQuestion == "Depreciation amount")
+        {
+          if(Questions.otherItemsLength <= Questions.totalOtherItems )
+            {
+              //Question No 183
+              return workcalculationContainer("","Work","What kind of item is item no. ${Questions.otherItemsLength}?","Item no. ${Questions.otherItemsLength}",220.0,"",Questions.otherItemsText,[]);
+            }
+            else
+              {
+                //Question No 178
+                return workmultitwoContainer("","Work","Did ${Questions.workYouIdentity} have any care or maintenance costs for work clothes or equipment?","Maintenance costs",["Repairs","Cleaning","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/disabilityoption.png"],220.0,"None","",[]);
+          }
+
+        }
+
+
+        // ====== Items in prior years Ends ====== //
 
 
 
@@ -1976,8 +3448,14 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
   Widget worktwooptionContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,double animatedcontainer, String AdditionalData, String MultipleData,  List Suggestion )
   {
-    Questions.healthAnimatedContainer = animatedcontainer;
+    Questions.workAnimatedContainer = animatedcontainer;
     return WorkTwoOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:280.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
+  }
+
+  Widget workmultitwoContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,List AnswerImages, double animatedcontainer, String AdditionalData, String MultipleData, List Suggestion)
+  {
+    Questions.workAnimatedContainer = animatedcontainer;
+    return WorkMultiTwoContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,answerImages:AnswerImages,containerSize:320.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
   }
 
 }

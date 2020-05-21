@@ -142,6 +142,9 @@ class _newHereState extends State<newHere> {
                         Questions.workBusTripLength = 0;
                         Questions.totalWorkBusTrip = 0;
                         Questions.workBusTripText = "";
+                        Questions.workBusCostLength = 0;
+                        Questions.totalWorkBusCost = 0;
+                        Questions.workBusCostText = "";
                         Navigator.push(context, MaterialPageRoute(builder: (context) {
                           return WorkMainQuestions(CheckCompleteQuestion:"What was ${Questions.workYourIdentity} job title?",CheckQuestion:"Profession",CheckAnswer:[]);
                         }));
