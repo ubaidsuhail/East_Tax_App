@@ -12,6 +12,7 @@ import 'package:easy_taxx/work_flow/workmultithreecontainer.dart';
 import 'package:easy_taxx/work_flow/workcalculationbigcontainer.dart';
 import 'package:easy_taxx/work_flow/worktwooptioncontainer.dart';
 import 'package:easy_taxx/work_flow/workmultitwocontainer.dart';
+import 'package:easy_taxx/finishcategory.dart';
 
 
 
@@ -3391,6 +3392,922 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
         // ====== Items in prior years Ends ====== //
 
+        // ====== Maintenance Costs for work Clothes Starts ======//
+
+        //Answer No 178
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} have any care or maintenance costs for work clothes or equipment?" && widget.CheckQuestion == "Maintenance costs")
+        {
+
+          for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+            if(widget.CheckAnswer[m] == "Repairs")
+            {
+              //Question No 186
+              return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on repairs?","Repair costs",220.0,"calculation","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "Cleaning")
+            {
+             //Question No 187
+              return workmultitwoContainer("","Work","Where did ${Questions.workYouIdentity} clean ${Questions.workYourIdentity} work clothes?","Cleaning locations",["Outside of home","At home"],["images/disabilityoption.png","images/alimonypaidoption.png"],220.0,"","",[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "None")
+            {
+              //Question No 185
+              return workmultipleoptionsContainer("","Work","Did ${Questions.workYouIdentity} have any other work-related expenses in 2019?","Work expenses",["Telephone costs","Internet costs","Applications","Job interviews","Professional association fees","Legal expenses","Business meals","Gift for customers and business associates","Driving license","Pension allowance (Versorgungszuschlag)","Winter allowance contribution","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+
+            }
+
+          }
+        }
+
+        // === Repairs Starts ====== //
+
+        //Answer No 186
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on repairs?" && widget.CheckQuestion == "Repair costs")
+        {
+          //Question No 185
+          return workmultipleoptionsContainer("","Work","Did ${Questions.workYouIdentity} have any other work-related expenses in 2019?","Work expenses",["Telephone costs","Internet costs","Applications","Job interviews","Professional association fees","Legal expenses","Business meals","Gift for customers and business associates","Driving license","Pension allowance (Versorgungszuschlag)","Winter allowance contribution","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+        }
+
+        // === Repairs Ends ====== //
+
+
+    // ====== Cleaning Starts ===== //
+
+    //Answer No 187
+        else if(widget.CheckCompleteQuestion =="Where did ${Questions.workYouIdentity} clean ${Questions.workYourIdentity} work clothes?" && widget.CheckQuestion == "Cleaning locations")
+        {
+
+          for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+            if(widget.CheckAnswer[m] == "Outside of home")
+            {
+              //Question No 188
+              return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on cleaning?","Cleaning costs",220.0,"calculation","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "At home")
+            {
+              //Question No 189
+              return workmultithreeContainer("","Work","How did ${Questions.workYouIdentity} clean ${Questions.workYourIdentity} work clothes?","Cleaning Method",["In the washing machine","In the dryer","By iron"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png"],220.0,"","",[]);
+
+            }
+
+
+          }
+        }
+
+        //Answer No 188
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on cleaning?" && widget.CheckQuestion == "Cleaning costs")
+        {
+          //Question No 185
+          return workmultipleoptionsContainer("","Work","Did ${Questions.workYouIdentity} have any other work-related expenses in 2019?","Work expenses",["Telephone costs","Internet costs","Applications","Job interviews","Professional association fees","Legal expenses","Business meals","Gift for customers and business associates","Driving license","Pension allowance (Versorgungszuschlag)","Winter allowance contribution","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+        }
+
+
+
+        //Answer No 189
+
+        else if(widget.CheckCompleteQuestion =="How did ${Questions.workYouIdentity} clean ${Questions.workYourIdentity} work clothes?" && widget.CheckQuestion == "Cleaning Method")
+        {
+
+          for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+            if(widget.CheckAnswer[m] == "In the washing machine")
+            {
+              //Question No 190
+              return workthreeoptionContainer("","Work","Which washing machine setting did ${Questions.workYouIdentity} use for cleaning ${Questions.workYourIdentity} work clothes?","Washing Machine Setting",["Cook wash 90 degrees","Colour wash at 60 degrees","Easy-care wash"],220.0,"","",[]);
+            }
+
+            else if(widget.CheckAnswer[m] == "In the dryer")
+            {
+
+              //Question no 193
+              return worktwooptionContainer("","Work","Which kind of dryer did ${Questions.workYouIdentity} use for ${Questions.workYourIdentity} work clothes?","Kind of dryer",["Exhaust air dryer","Condense dryer"],220.0,"","",[]);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "By iron")
+            {
+              //Question No 196
+              return workcalculationContainer("","Work","How often did ${Questions.workYouIdentity} iron ${Questions.workYourIdentity} work clothes, on average, per week?","Weekly iron processes",220.0,"","",[]);
+
+            }
+
+
+          }
+        }
+
+
+        //Answer No 190
+        else if(widget.CheckCompleteQuestion =="Which washing machine setting did ${Questions.workYouIdentity} use for cleaning ${Questions.workYourIdentity} work clothes?" && widget.CheckQuestion == "Washing Machine Setting")
+        {
+          //Question No 191
+          return workcalculationContainer("","Work","How often did ${Questions.workYouIdentity} wash ${Questions.workYourIdentity} work clothes, on average, per week?","Weekly wash processes",220.0,"","",[]);
+        }
+
+        //Answer No 191
+        else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} wash ${Questions.workYourIdentity} work clothes, on average, per week?" && widget.CheckQuestion == "Weekly wash processes")
+        {
+          //Question No 192
+          return workcalculationContainer("","Work","How much kilo of work clothes did one wash contain?","Weight per wash",220.0,"","",[]);
+        }
+
+
+        //Answer No 192
+        else if(widget.CheckCompleteQuestion =="How much kilo of work clothes did one wash contain?" && widget.CheckQuestion == "Weight per wash")
+        {
+          //Question No 185
+          return workmultipleoptionsContainer("","Work","Did ${Questions.workYouIdentity} have any other work-related expenses in 2019?","Work expenses",["Telephone costs","Internet costs","Applications","Job interviews","Professional association fees","Legal expenses","Business meals","Gift for customers and business associates","Driving license","Pension allowance (Versorgungszuschlag)","Winter allowance contribution","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+        }
+
+
+        //Answer No 193
+        else if(widget.CheckCompleteQuestion =="Which kind of dryer did ${Questions.workYouIdentity} use for ${Questions.workYourIdentity} work clothes?" && widget.CheckQuestion == "Kind of dryer")
+        {
+          //Question No 194
+          return workcalculationContainer("","Work","How often did ${Questions.workYouIdentity} dry ${Questions.workYourIdentity} work clothes, on average, per week?","Weekly dryer processes",220.0,"","",[]);
+        }
+
+        //Answer No 194
+        else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} dry ${Questions.workYourIdentity} work clothes, on average, per week?" && widget.CheckQuestion == "Weekly dryer processes")
+        {
+          //Question No 195
+          return workcalculationContainer("","Work","How much kilo of work clothes did one dry process contain?","Weight per dry process",220.0,"","",[]);
+        }
+
+
+        //Answer No 195
+        else if(widget.CheckCompleteQuestion =="How much kilo of work clothes did one dry process contain?" && widget.CheckQuestion == "Weight per dry process")
+        {
+          //Question No 185
+          return workmultipleoptionsContainer("","Work","Did ${Questions.workYouIdentity} have any other work-related expenses in 2019?","Work expenses",["Telephone costs","Internet costs","Applications","Job interviews","Professional association fees","Legal expenses","Business meals","Gift for customers and business associates","Driving license","Pension allowance (Versorgungszuschlag)","Winter allowance contribution","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+          }
+
+
+       //Answer No 196
+       else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} iron ${Questions.workYourIdentity} work clothes, on average, per week?" && widget.CheckQuestion == "Weekly iron processes")
+    {
+    //Question No 197
+    return workcalculationContainer("","Work","How much kilo of work clothes did ${Questions.workYouIdentity} iron at once?","Weight per iron process",220.0,"","",[]);
+    }
+
+
+  //Answer No 197
+  else if(widget.CheckCompleteQuestion =="How much kilo of work clothes did ${Questions.workYouIdentity} iron at once?" && widget.CheckQuestion == "Weight per iron process")
+    {
+    //Question No 185
+    return workmultipleoptionsContainer("","Work","Did ${Questions.workYouIdentity} have any other work-related expenses in 2019?","Work expenses",["Telephone costs","Internet costs","Applications","Job interviews","Professional association fees","Legal expenses","Business meals","Gift for customers and business associates","Driving license","Pension allowance (Versorgungszuschlag)","Winter allowance contribution","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+    }
+
+
+
+
+        // ====== Cleaning Ends ===== //
+
+
+        // ====== Maintenance Costs for work Clothes Ends ======//
+
+
+    // ====== Work-related expenses Starts ====== //
+
+    //Answer no 185
+        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} have any other work-related expenses in 2019?" && widget.CheckQuestion == "Work expenses")
+    {
+
+    for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+    if(widget.CheckAnswer[m] == "Telephone costs")
+    {
+      //Question No 198
+      return workthreeoptionContainer("","Work","How often did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} private cell/smartphone for business purposes?","Share private mobile",["Only for some calls and checking emails","Often","Always"],220.0,"","",[]);
+
+    }
+
+    else if(widget.CheckAnswer[m] == "Internet costs")
+    {
+
+     //Question No 201
+     return workthreeoptionContainer("","Work","How often did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} private internet connection for work purposes?","Share private internet",["Occasional browsing and checking emails","Very often","I work from home"],220.0,"","",[]);
+
+
+    }
+
+    else if(widget.CheckAnswer[m] == "Applications")
+    {
+      //Question No 204
+      return workmultithreeContainer("","Work","How did ${Questions.workYouIdentity} send ${Questions.workYourIdentity} job applications?","Type of job applications",["By email / online form","Complete portfolio by mail","Simple cover letter"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png"],220.0,"","",[]);
+
+    }
+
+    else if(widget.CheckAnswer[m] == "Job interviews")
+    {
+      //Question No 210
+      return workcalculationContainer("","Work","How many places did ${Questions.workYouIdentity} travel to for job interviews?","Journeys to interviews",320.0,"loop","",[]);
+    }
+
+    else if(widget.CheckAnswer[m] == "Professional association fees")
+    {
+     //Question No 230
+     return workcalculationContainer("","Work","To which professional association did ${Questions.workYouIdentity} pay fees?","Professional association",220.0,"","",[]);
+    }
+
+    else if(widget.CheckAnswer[m] == "Legal expenses")
+    {
+      //Question No 232
+      return workcalculationContainer("","Work","How much were ${Questions.workYourIdentity} work-related legal expenses?","Legal expenses",220.0,"","",[]);
+    }
+
+    else if(widget.CheckAnswer[m] == "Business meals")
+    {
+     //Question No 233
+     return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} have any expenses due to work-related business meals?","Business meals",220.0,"","",[]);
+    }
+
+    else if(widget.CheckAnswer[m] == "Gift for customers and business associates")
+    {
+    //Question No 235
+    return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on gifts for customers and business partners?","Total spent on gifts",220.0,"","",[]);
+
+    }
+
+    else if(widget.CheckAnswer[m] == "Driving license")
+    {
+    //Question No 236
+    return workmultipleoptionsContainer("","Work","What is the driver's license for?","Reason for driver's license",["Driving a truck","Driving public transport","Driving a taxi","Driving a special vehicle","Being a chauffeur","On employer's request","None of this"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None of this","",[]);
+    }
+
+    else if(widget.CheckAnswer[m] == "Pension allowance (Versorgungszuschlag)")
+    {
+     //Question No 238
+     return workcalculationContainer("","Work","How much pension allowance did ${Questions.workYouIdentity} pay?","Total pension allowance",220.0,"","",[]);
+    }
+
+    else if(widget.CheckAnswer[m] == "Winter allowance contribution")
+    {
+    //Question No 239
+    return workcalculationContainer("","Work","How much winter allowance contribution did ${Questions.workYouIdentity} pay?","Total winter allowance contribution",220.0,"","",[]);
+    }
+
+    else if(widget.CheckAnswer[m] == "Other costs")
+    {
+     //Question No 240
+     return workcalculationContainer("","Work","What kind of other costs did ${Questions.workYouIdentity} have (except daily allowances)?","Kind other",220.0,"","",[]);
+    }
+
+
+
+    else if(widget.CheckAnswer[m] == "No")
+    {
+    return FinishCategory("Work Category","Education Category");
+    }
+
+    }
+    }
+
+    // ====== Telephone costs Starts ====== //
+
+    //Answer No 198
+    else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} private cell/smartphone for business purposes?" && widget.CheckQuestion == "Share private mobile")
+      {
+
+      if(widget.CheckAnswer[0] == "Only for some calls and checking emails")
+      {
+      return FinishCategory("Work Category","Education Category");
+      }
+
+      else if(widget.CheckAnswer[0] == "Often")
+      {
+       //Question No 199
+       return workcalculationContainer("","Work","We recommend that ${Questions.workYouIdentity} enter 20% of ${Questions.workYourIdentity} phone costs. How much is that?","Amount 20%",220.0,"calculation","",[]);
+      }
+
+      else if(widget.CheckAnswer[0] == "Always")
+      {
+//Question No 200
+      return workcalculationContainer("","Work","We recommend that ${Questions.workYouIdentity} enter 50% of ${Questions.workYourIdentity} phone costs. How much is that?","Amount 50%",220.0,"calculation","",[]);
+      }
+
+      }
+
+      //Answer No 199
+      else if(widget.CheckCompleteQuestion =="We recommend that ${Questions.workYouIdentity} enter 20% of ${Questions.workYourIdentity} phone costs. How much is that?" && widget.CheckQuestion == "Amount 20%")
+      {
+      return FinishCategory("Work Category","Education Category");
+      }
+
+  //Answer No 200
+  else if(widget.CheckCompleteQuestion =="We recommend that ${Questions.workYouIdentity} enter 50% of ${Questions.workYourIdentity} phone costs. How much is that?" && widget.CheckQuestion == "Amount 50%")
+    {
+    return FinishCategory("Work Category","Education Category");
+    }
+
+
+    // ====== Telephone costs Ends ====== //
+
+
+    // ====== Internet costs Starts ====== //
+
+    //Answer No 201
+    else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} private internet connection for work purposes?" && widget.CheckQuestion == "Share private internet")
+    {
+
+    if(widget.CheckAnswer[0] == "Occasional browsing and checking emails")
+    {
+    return FinishCategory("Work Category","Education Category");
+    }
+
+    else if(widget.CheckAnswer[0] == "Very often")
+    {
+    //Question No 202
+    return workcalculationContainer("","Work","We recommend that ${Questions.workYouIdentity} enter 20% of ${Questions.workYourIdentity} internet costs. How much is that?","Amount 20%",220.0,"calculation","",[]);
+    }
+
+    else if(widget.CheckAnswer[0] == "I work from home")
+    {
+//Question No 203
+    return workcalculationContainer("","Work","We recommend that ${Questions.workYouIdentity} enter 50% of ${Questions.workYourIdentity} internet costs. How much is that?","Amount 50%",220.0,"calculation","",[]);
+    }
+
+    }
+
+
+  //Answer No 202
+  else if(widget.CheckCompleteQuestion =="We recommend that ${Questions.workYouIdentity} enter 20% of ${Questions.workYourIdentity} internet costs. How much is that?" && widget.CheckQuestion == "Amount 20%")
+    {
+    return FinishCategory("Work Category","Education Category");
+    }
+
+    //Answer No 203
+    else if(widget.CheckCompleteQuestion =="We recommend that ${Questions.workYouIdentity} enter 50% of ${Questions.workYourIdentity} internet costs. How much is that?" && widget.CheckQuestion == "Amount 50%")
+    {
+    return FinishCategory("Work Category","Education Category");
+    }
+
+    // ====== Internet costs Ends ====== //
+
+
+      // ======= Applications Starts ======= //
+
+    //Answer No 204
+    else if(widget.CheckCompleteQuestion =="How did ${Questions.workYouIdentity} send ${Questions.workYourIdentity} job applications?" && widget.CheckQuestion == "Type of job applications")
+    {
+
+    for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+    if(widget.CheckAnswer[m] == "By email / online form")
+    {
+      Questions.applicationExpense =5.00;
+     //Question No 205
+     return workcalculationContainer("","Work","How often did ${Questions.workYouIdentity} apply for jobs via e-mail or online application form?","Online applications",220.0,"","",[]);
+
+    }
+
+    else if(widget.CheckAnswer[m] == "Complete portfolio by mail")
+    {
+    Questions.applicationExpense =17.00;
+      //Question No 208
+      return workcalculationContainer("","Work","How many portfolios did ${Questions.workYouIdentity} send?","Portfolio",220.0,"","",[]);
+    }
+
+    else if(widget.CheckAnswer[m] == "Simple cover letter")
+    {
+    Questions.applicationExpense =5.00;
+     //Question No 209
+     return workcalculationContainer("","Work","How many application letters have ${Questions.workYouIdentity} sent off?","Application letters",220.0,"","",[]);
+    }
+
+
+    }
+    }
+
+    // By email / online form Starts
+
+    //Answer no 205
+    else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} apply for jobs via e-mail or online application form?" && widget.CheckQuestion == "Online applications")
+    {
+      //Question No 206
+      return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend more than €${Questions.applicationExpense} in total on job applications?","Application expenses",220.0,"","",[]);
+    }
+
+    // By email / online form Ends
+
+
+    // Complete portfolio by mail Starts
+
+    //Answer no 208
+    else if(widget.CheckCompleteQuestion =="How many portfolios did ${Questions.workYouIdentity} send?" && widget.CheckQuestion == "Portfolio")
+  {
+  //Question No 206
+  return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend more than €${Questions.applicationExpense} in total on job applications?","Application expenses",220.0,"","",[]);
+  }
+
+    // Complete portfolio by mail Ends
+
+    // Simple cover letter Starts
+//Answer no 209
+    else if(widget.CheckCompleteQuestion =="How many application letters have ${Questions.workYouIdentity} sent off?" && widget.CheckQuestion == "Application letters")
+    {
+    //Question No 206
+    return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} spend more than €${Questions.applicationExpense} in total on job applications?","Application expenses",220.0,"","",[]);
+    }
+
+    // Simple cover letter Ends
+
+    //Answer No 206
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} spend more than €${Questions.applicationExpense} in total on job applications?" && widget.CheckQuestion == "Application expenses")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+        return FinishCategory("Work Category","Education Category");
+        }
+
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+        //Question No 207
+        return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on job applications?","Expenses for job applications",220.0,"calculation","",[]);
+        }
+
+      }
+
+      //Answer No 207
+      else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on job applications?" && widget.CheckQuestion == "Expenses for job applications")
+      {
+      return FinishCategory("Work Category","Education Category");
+      }
+
+      // ======= Applications Ends ======= //
+
+
+       // ======== Job interviews Starts ======= //
+
+      //Answer No 210
+      else if(widget.CheckCompleteQuestion =="How many places did ${Questions.workYouIdentity} travel to for job interviews?" && widget.CheckQuestion == "Journeys to interviews")
+    {
+     //Question No 211
+     return worktwooptionContainer("","Work","Where have ${Questions.workYouIdentity} traveled to for ${Questions.workYourIdentity} interview?","Place ${Questions.jobInterviewLength}. job interview",["Germany","Abroad"],430.0,"",Questions.jobInterviewText,[]);
+    }
+
+
+    //Answer No 211
+    else if(widget.CheckCompleteQuestion =="Where have ${Questions.workYouIdentity} traveled to for ${Questions.workYourIdentity} interview?" && widget.CheckQuestion == "Place ${Questions.jobInterviewLength}. job interview")
+    {
+
+    if(widget.CheckAnswer[0] == "Germany")
+    {
+     //Question No 212
+     return workmultipleoptionsContainer("","Work","How did ${Questions.workYouIdentity} travel to this job interview?","Means of transport",["By car","Bus and train","Airplane","Bicycle","On foot"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],220.0,"",Questions.jobInterviewText,[]);
+    }
+
+    else if(widget.CheckAnswer[0] == "Abroad")
+    {
+//Question No 212
+    return workmultipleoptionsContainer("","Work","How did ${Questions.workYouIdentity} travel to this job interview?","Means of transport",["By car","Bus and train","Airplane","Bicycle","On foot"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png"],220.0,"",Questions.jobInterviewText,[]);
+    }
+
+    }
+
+    //Answer No 212
+    else if(widget.CheckCompleteQuestion =="How did ${Questions.workYouIdentity} travel to this job interview?" && widget.CheckQuestion == "Means of transport")
+    {
+
+        for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+        if(widget.CheckAnswer[m] == "By car")
+        {
+        //Question No 213
+        return workcalculationContainer("","Work","Please enter the start and end point of ${Questions.workYourIdentity} route ${Questions.workYouIdentity} went by car.","Distance by car",220.0,"",Questions.jobInterviewText,[]);
+
+        }
+
+        else if(widget.CheckAnswer[m] == "Bus and train")
+        {
+        //Question No 215
+        return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on going there?","Travel costs",220.0,"calculation",Questions.jobInterviewText,[]);
+        }
+
+        else if(widget.CheckAnswer[m] == "Airplane")
+        {
+         //Question No 215
+        return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on going there?","Travel costs",220.0,"calculation",Questions.jobInterviewText,[]);
+        }
+
+        else if(widget.CheckAnswer[m] == "Bicycle")
+        {
+         //Question No 214
+        return workdateContainer("","Work","How long were ${Questions.workYouIdentity} away for this trip?","Period",220.0,"",Questions.jobInterviewText,[]);
+        }
+        else if(widget.CheckAnswer[m] == "On foot")
+        {
+         //Question No 214
+        return workdateContainer("","Work","How long were ${Questions.workYouIdentity} away for this trip?","Period",220.0,"",Questions.jobInterviewText,[]);
+        }
+
+
+        }
+    }
+
+    // By car starts
+
+    //Answer No 213
+    else if(widget.CheckCompleteQuestion =="Please enter the start and end point of ${Questions.workYourIdentity} route ${Questions.workYouIdentity} went by car." && widget.CheckQuestion == "Distance by car")
+  {
+  //Question No 214
+  return workdateContainer("","Work","How long were ${Questions.workYouIdentity} away for this trip?","Period",220.0,"",Questions.jobInterviewText,[]);
+  }
+
+    //By card ends
+
+
+    // Bus and train Starts
+
+    //Answer No 215
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on going there?" && widget.CheckQuestion == "Travel costs")
+    {
+    //Question No 214
+    return workdateContainer("","Work","How long were ${Questions.workYouIdentity} away for this trip?","Period",220.0,"",Questions.jobInterviewText,[]);
+    }
+
+    // Bus and train Ends
+
+    // Answer No 214
+    else if(widget.CheckCompleteQuestion =="How long were ${Questions.workYouIdentity} away for this trip?" && widget.CheckQuestion == "Period")
+    {
+      //Question No 216
+      return workmultithreeContainer("","Work","Where did ${Questions.workYouIdentity} stay overnight?","Accommodation cost",["Hotel","Guest house","Friends and family"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png"],220.0,"",Questions.jobInterviewText,[]);
+    }
+
+    //Answer No 216
+    else if(widget.CheckCompleteQuestion =="Where did ${Questions.workYouIdentity} stay overnight?" && widget.CheckQuestion == "Accommodation cost")
+    {
+
+    for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+    if(widget.CheckAnswer[m] == "Hotel")
+    {
+    //Question No 217
+    return workcalculationContainer("","Work","How much have ${Questions.workYouIdentity} spent on the accommodation?","Cost accommodation",220.0,"calculation","",[]);
+    }
+
+    else if(widget.CheckAnswer[m] == "Guest house")
+    {
+//Question No 217
+    return workcalculationContainer("","Work","How much have ${Questions.workYouIdentity} spent on the accommodation?","Cost accommodation",220.0,"calculation","",[]);
+
+    }
+
+    else if(widget.CheckAnswer[m] == "Friends and family")
+    {
+    //Question No 218
+    return workmultithreeContainer("","Work","Did ${Questions.workYouIdentity} receive any complimentary meals?","Complimentary meals",["Breakfast","Lunch","Dinner","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No",Questions.jobInterviewText,[]);
+
+    }
+
+
+
+    }
+    }
+
+    //Answer No 217
+    else if(widget.CheckCompleteQuestion =="How much have ${Questions.workYouIdentity} spent on the accommodation?" && widget.CheckQuestion == "Cost accommodation")
+  {
+    //Question No 218
+    return workmultithreeContainer("","Work","Did ${Questions.workYouIdentity} receive any complimentary meals?","Complimentary meals",["Breakfast","Lunch","Dinner","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"No",Questions.jobInterviewText,[]);
+  }
+
+
+  //Answer No 218
+
+  else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} receive any complimentary meals?" && widget.CheckQuestion == "Complimentary meals")
+  {
+
+  for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+  if(widget.CheckAnswer[m] == "Breakfast")
+  {
+  //Question No 220
+  return workcalculationContainer("","Work","How often did ${Questions.workYouIdentity} receive free breakfast?","Free breakfast",420.0,"",Questions.jobInterviewText,[]);
+  }
+
+  else if(widget.CheckAnswer[m] == "Lunch")
+  {
+  //Question No 221
+  return workcalculationContainer("","Work","How often did ${Questions.workYouIdentity} get complimentary lunch?","Free lunch",420.0,"",Questions.jobInterviewText,[]);
+
+  }
+
+  else if(widget.CheckAnswer[m] == "Dinner")
+  {
+  //Question No 222
+  return workcalculationContainer("","Work","How often did ${Questions.workYouIdentity} get free dinner?","Free Dinner",420.0,"",Questions.jobInterviewText,[]);
+
+  }
+
+  else if(widget.CheckAnswer[m] == "No")
+  {
+ //Question No 219
+ return workmultipleoptionsContainer("","Work","Have ${Questions.workYouIdentity} had any further costs on ${Questions.workYourIdentity} way to the interview?","Other expenses",["Baggage fees","Telephone charges","Toll charges","Parking fees","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],220.0,"No",Questions.jobInterviewText,[]);
+  }
+
+  }
+  }
+
+  //Answer No 220
+  else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} receive free breakfast?" && widget.CheckQuestion == "Free breakfast")
+  {
+  //Question No 219
+  return workmultipleoptionsContainer("","Work","Have ${Questions.workYouIdentity} had any further costs on ${Questions.workYourIdentity} way to the interview?","Other expenses",["Baggage fees","Telephone charges","Toll charges","Parking fees","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],220.0,"No",Questions.jobInterviewText,[]);
+  }
+
+  //Answer No 221
+  else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} get complimentary lunch?" && widget.CheckQuestion == "Free lunch")
+    {
+//Question No 219
+    return workmultipleoptionsContainer("","Work","Have ${Questions.workYouIdentity} had any further costs on ${Questions.workYourIdentity} way to the interview?","Other expenses",["Baggage fees","Telephone charges","Toll charges","Parking fees","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],220.0,"No",Questions.jobInterviewText,[]);
+    }
+
+  //Answer No 222
+  else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} get free dinner?" && widget.CheckQuestion == "Free Dinner")
+    {
+//Question No 219
+    return workmultipleoptionsContainer("","Work","Have ${Questions.workYouIdentity} had any further costs on ${Questions.workYourIdentity} way to the interview?","Other expenses",["Baggage fees","Telephone charges","Toll charges","Parking fees","Other costs","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png"],220.0,"No",Questions.jobInterviewText,[]);
+    }
+
+
+    //Answer No 219
+    else if(widget.CheckCompleteQuestion =="Have ${Questions.workYouIdentity} had any further costs on ${Questions.workYourIdentity} way to the interview?" && widget.CheckQuestion == "Other expenses")
+    {
+
+    for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+    if(widget.CheckAnswer[m] == "Baggage fees")
+    {
+    //Question No 224
+    return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on baggage storage? ","Baggage fees",220.0,"calculation",Questions.jobInterviewText,[]);
+    }
+
+    else if(widget.CheckAnswer[m] == "Telephone charges")
+    {
+    //Question No 225
+    return workcalculationContainer("","Work","How much have ${Questions.workYouIdentity} spent on business calls? ","Business calls",220.0,"calculation",Questions.jobInterviewText,[]);
+
+    }
+
+    else if(widget.CheckAnswer[m] == "Toll charges")
+    {
+    //Question No 226
+    return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on toll charges? ","Toll charges",220.0,"calculation",Questions.jobInterviewText,[]);
+
+    }
+
+    else if(widget.CheckAnswer[m] == "Parking fees")
+    {
+    //Question No 227
+    return workcalculationContainer("","Work","How much have ${Questions.workYouIdentity} spent on parking fees? ","Parking fees",220.0,"calculation",Questions.jobInterviewText,[]);
+    }
+
+    else if(widget.CheckAnswer[m] == "Other costs")
+    {
+    //Question No 228
+    return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on other travel expenses? ","Other travel expenses",220.0,"calculation",Questions.jobInterviewText,[]);
+    }
+
+    else if(widget.CheckAnswer[m] == "No")
+    {
+    //Question No 223
+    return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} receive any reimbursements for the trip to the interview?","Amount of reimbursement",220.0,"",Questions.jobInterviewText,[]);
+    }
+
+    }
+    }
+
+
+    //Answer No 224
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on baggage storage? " && widget.CheckQuestion == "Baggage fees")
+  {
+  //Question No 223
+  return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} receive any reimbursements for the trip to the interview?","Amount of reimbursement",220.0,"",Questions.jobInterviewText,[]);
+  }
+
+    //Answer No 225
+    else if(widget.CheckCompleteQuestion =="How much have ${Questions.workYouIdentity} spent on business calls? " && widget.CheckQuestion == "Business calls")
+    {
+    //Question No 223
+    return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} receive any reimbursements for the trip to the interview?","Amount of reimbursement",220.0,"",Questions.jobInterviewText,[]);
+    }
+
+    //Answer No 226
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on toll charges? " && widget.CheckQuestion == "Toll charges")
+    {
+    //Question No 223
+    return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} receive any reimbursements for the trip to the interview?","Amount of reimbursement",220.0,"",Questions.jobInterviewText,[]);
+    }
+
+  //Answer No 227
+  else if(widget.CheckCompleteQuestion =="How much have ${Questions.workYouIdentity} spent on parking fees? " && widget.CheckQuestion == "Parking fees")
+    {
+    //Question No 223
+    return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} receive any reimbursements for the trip to the interview?","Amount of reimbursement",220.0,"",Questions.jobInterviewText,[]);
+    }
+
+    //Answer No 228
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on other travel expenses? " && widget.CheckQuestion == "Other travel expenses")
+    {
+    //Question No 223
+    return workyesnoContainer("","Work","Did ${Questions.workYouIdentity} receive any reimbursements for the trip to the interview?","Amount of reimbursement",220.0,"",Questions.jobInterviewText,[]);
+    }
+
+
+    //Answer No 223
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} receive any reimbursements for the trip to the interview?" && widget.CheckQuestion == "Amount of reimbursement")
+  {
+
+  if(widget.CheckAnswer[0] == "No")
+  {
+     if(Questions.jobInterviewLength <= Questions.totalJobInterview)
+       {
+       //Question No 211
+       return worktwooptionContainer("","Work","Where have ${Questions.workYouIdentity} traveled to for ${Questions.workYourIdentity} interview?","Place ${Questions.jobInterviewLength}. job interview",["Germany","Abroad"],430.0,"",Questions.jobInterviewText,[]);
+       }
+       else{
+         return FinishCategory("Work Category","Education Category");
+      }
+  }
+
+  else if(widget.CheckAnswer[0] == "Yes")
+  {
+  //Question No 229
+  return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} receive?","Amount",220.0,"calculation",Questions.jobInterviewText,[]);
+
+  }
+
+  }
+
+  //Answer No 229
+  else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} receive?" && widget.CheckQuestion == "Amount")
+  {
+  if(Questions.jobInterviewLength <= Questions.totalJobInterview)
+  {
+  //Question No 211
+  return worktwooptionContainer("","Work","Where have ${Questions.workYouIdentity} traveled to for ${Questions.workYourIdentity} interview?","Place ${Questions.jobInterviewLength}. job interview",["Germany","Abroad"],430.0,"",Questions.jobInterviewText,[]);
+  }
+  else{
+  return FinishCategory("Work Category","Education Category");
+  }
+  }
+
+
+    // ======== Job interviews Ends ======= //
+
+       // ======= Professional association fees Starts ====== //
+
+    //Answer No 230
+    else if(widget.CheckCompleteQuestion =="To which professional association did ${Questions.workYouIdentity} pay fees?" && widget.CheckQuestion == "Professional association")
+  {
+    //Question No 231
+    return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on that?","Amount professional association",220.0,"calculation","",[]);
+  }
+
+  //Answer No 231
+  else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on that?" && widget.CheckQuestion == "Amount professional association")
+    {
+    return FinishCategory("Work Category","Education Category");
+    }
+
+
+    // ======= Professional association fees Ends ====== //
+
+   // ======= Legal expenses Starts ===== //
+
+//Answer No 232
+    else if(widget.CheckCompleteQuestion =="How much were ${Questions.workYourIdentity} work-related legal expenses?" && widget.CheckQuestion == "Legal expenses")
+    {
+    return FinishCategory("Work Category","Education Category");
+    }
+
+    // ======= Legal expenses Ends ===== //
+
+
+  // ======== Business meals Starts ===== //
+
+    //Answer No 233
+    else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} have any expenses due to work-related business meals?" && widget.CheckQuestion == "Business meals")
+  {
+
+      if(widget.CheckAnswer[0] == "No")
+      {
+      return FinishCategory("Work Category","Education Category");
+      }
+
+      else if(widget.CheckAnswer[0] == "Yes")
+      {
+      //Question No 234
+      return workcalculationContainer("","Work","How much have ${Questions.workYouIdentity} spent?","Total cost of business meals",220.0,"calculation","",[]);
+
+      }
+
+  }
+
+
+    //Answer No 234
+    else if(widget.CheckCompleteQuestion =="How much have ${Questions.workYouIdentity} spent?" && widget.CheckQuestion == "Total cost of business meals")
+    {
+    return FinishCategory("Work Category","Education Category");
+    }
+
+    // ======== Business meals Ends ===== //
+
+    // ======= Gift for customers and business associates Starts ======= //
+
+    //Answer No 235
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on gifts for customers and business partners?" && widget.CheckQuestion == "Total spent on gifts")
+    {
+    return FinishCategory("Work Category","Education Category");
+    }
+
+
+    // ======= Gift for customers and business associates Ends ======= //
+
+
+    // ======= Driving license Starts ======= //
+
+    //Answer No 236
+    else if(widget.CheckCompleteQuestion =="What is the driver's license for?" && widget.CheckQuestion == "Reason for driver's license")
+    {
+
+    for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+    if(widget.CheckAnswer[m] == "None of this")
+    {
+    return FinishCategory("Work Category","Education Category");
+    }
+
+    else
+      {
+        //Question No 237
+        return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on ${Questions.workYourIdentity} driving license?","Total spent on driving license",220.0,"calculation","",[]);
+      }
+
+
+    }
+    }
+
+    //Answer No 237
+   else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on ${Questions.workYourIdentity} driving license?" && widget.CheckQuestion == "Total spent on driving license")
+  {
+  return FinishCategory("Work Category","Education Category");
+  }
+
+
+    // ======= Driving license Ends ======= //
+
+
+
+   // ======== Pension allowance (Versorgungszuschlag) Starts ======== //
+
+//Answer No 238
+  else if(widget.CheckCompleteQuestion =="How much pension allowance did ${Questions.workYouIdentity} pay?" && widget.CheckQuestion == "Total pension allowance")
+  {
+  return FinishCategory("Work Category","Education Category");
+  }
+
+
+    // ======== Pension allowance (Versorgungszuschlag) Ends ======== //
+
+    // ========= Winter allowance contribution Starts ========= //
+
+//Answer No 239
+    else if(widget.CheckCompleteQuestion =="How much winter allowance contribution did ${Questions.workYouIdentity} pay?" && widget.CheckQuestion == "Total winter allowance contribution")
+    {
+    return FinishCategory("Work Category","Education Category");
+    }
+
+    // ========= Winter allowance contribution Ends ========= //
+
+
+    // ======= Other Costs Starts ====== //
+
+    //Answer No 240
+    else if(widget.CheckCompleteQuestion =="What kind of other costs did ${Questions.workYouIdentity} have (except daily allowances)?" && widget.CheckQuestion == "Kind other")
+    {
+    //Question No 241
+    return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on ${Questions.otherCostExpense}?","Amount other costs",220.0,"calculation","",[]);
+    }
+
+    //Answer No 241
+    else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on ${Questions.otherCostExpense}?" && widget.CheckQuestion == "Amount other costs")
+  {
+  return FinishCategory("Work Category","Education Category");
+  }
+
+
+    // ======= Other Costs Ends ====== //
+
+    // ====== Work-related expenses Ends ====== //
 
 
       }

@@ -394,6 +394,26 @@ class _WorkCalculationContainerState extends State<WorkCalculationContainer> {
       Questions.otherItemsText ="EQUIPMENT "+Questions.otherItemsLength.toString();
     }
 
+    else if(widget.completeQuestion == "How many places did ${Questions.workYouIdentity} travel to for job interviews?" && widget.questionOption == "Journeys to interviews")
+    {
+      Questions.jobInterviewLength = 0;
+      Questions.totalJobInterview = int.parse(calculations.text);
+      print("Total Job Interview"+Questions.totalJobInterview.toString());
+      Questions.jobInterviewLength += 1;
+      Questions.jobInterviewText ="TRIP "+Questions.jobInterviewLength.toString();
+    }
+
+    else if(widget.completeQuestion == "How much did ${Questions.workYouIdentity} receive?" && widget.questionOption == "Amount")
+    {
+      Questions.jobInterviewLength += 1;
+      Questions.jobInterviewText ="TRIP "+Questions.jobInterviewLength.toString();
+    }
+
+    else if(widget.completeQuestion == "What kind of other costs did ${Questions.workYouIdentity} have (except daily allowances)?" && widget.questionOption == "Kind other")
+    {
+      Questions.otherCostExpense = calculations.text;
+    }
+
     qu.WorkAddAnswer(widget.identity, widget.bigQuestion, widget.completeQuestion, widget.questionOption, [calculations.text.toString()], 55.0);
 
     Navigator.of(context).pop();

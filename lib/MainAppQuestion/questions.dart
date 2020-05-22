@@ -135,6 +135,11 @@ static int otherItemsLength = 0;
 static int totalOtherItems = 0;
 static String otherItemsText = "";
 static String otherItems ="";
+static double applicationExpense;
+static int jobInterviewLength = 0;
+static int totalJobInterview = 0;
+static String jobInterviewText = "";
+static String otherCostExpense = "";
 
  void WorkAddAnswer(String UserIdentity, String details,String completequestion,String question,List answer,double containerheight)
  {

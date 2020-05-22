@@ -231,6 +231,12 @@ class _WorkYesNoContainerScreenState extends State<WorkYesNoContainer> {
       Questions.homeOfficeText ="HOME OFFICE "+Questions.homeOfficeLength.toString();
     }
 
+    else if(widget.completeQuestion == "Did ${Questions.workYouIdentity} receive any reimbursements for the trip to the interview?" && widget.questionOption == "Amount of reimbursement")
+    {
+    Questions.jobInterviewLength += 1;
+    Questions.jobInterviewText ="TRIP "+Questions.jobInterviewLength.toString();
+    }
+
     qu.WorkAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, ['No'], 55.0);
 
     Navigator.of(context).pop();

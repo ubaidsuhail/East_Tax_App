@@ -145,6 +145,19 @@ class _newHereState extends State<newHere> {
                         Questions.workBusCostLength = 0;
                         Questions.totalWorkBusCost = 0;
                         Questions.workBusCostText = "";
+                        Questions.officeFurnitureLength = 0;
+                        Questions.totalOfficeFurniture = 0;
+                        Questions.officeFurnitureText = "";
+                        Questions.otherOfficeFurniture = "";
+                        Questions.otherItemsLength = 0;
+                        Questions.totalOtherItems = 0;
+                        Questions.otherItemsText = "";
+                        Questions.otherItems ="";
+                        Questions.applicationExpense;
+                        Questions.jobInterviewLength = 0;
+                        Questions.totalJobInterview = 0;
+                        Questions.jobInterviewText = "";
+                        Questions.otherCostExpense = "";
                         Navigator.push(context, MaterialPageRoute(builder: (context) {
                           return WorkMainQuestions(CheckCompleteQuestion:"What was ${Questions.workYourIdentity} job title?",CheckQuestion:"Profession",CheckAnswer:[]);
                         }));
