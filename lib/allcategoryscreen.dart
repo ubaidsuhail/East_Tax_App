@@ -7,6 +7,7 @@ import 'package:easy_taxx/family_flow/familymainquestions.dart';
 import 'package:easy_taxx/health_flow/healthmainquestions.dart';
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
 import 'package:easy_taxx/finance_flow/financemainquestions.dart';
+import 'package:easy_taxx/work_flow/workmainquestions.dart';
 import 'package:easy_taxx/categoryfinishedscreens/totaltaxamount.dart';
 
 class AllCategoryScreen extends StatefulWidget {
@@ -705,6 +706,25 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
   void Work()
   {
     Questions.categoryImageChange[3] = 1;
+
+
+
+    if(Questions.workAnswerShow.length == 0)
+    {
+
+      Navigator.of(context).pop();
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return WorkMainQuestions(CheckCompleteQuestion : "",CheckQuestion : "",CheckAnswer : []);
+      }));
+    }
+
+    else {
+
+      Navigator.of(context).pop();
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return WorkMainQuestions(CheckCompleteQuestion : Questions.workAnswerShow[Questions.workAnswerShow.length-1]['completequestion'],CheckQuestion : Questions.workAnswerShow[Questions.workAnswerShow.length-1]['question'],CheckAnswer : [Questions.workAnswerShow[Questions.workAnswerShow.length-1]['answer'][0]]);
+      }));
+    }
   }
 
   void Education()

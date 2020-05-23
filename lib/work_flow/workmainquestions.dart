@@ -13,6 +13,7 @@ import 'package:easy_taxx/work_flow/workcalculationbigcontainer.dart';
 import 'package:easy_taxx/work_flow/worktwooptioncontainer.dart';
 import 'package:easy_taxx/work_flow/workmultitwocontainer.dart';
 import 'package:easy_taxx/finishcategory.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 
 
@@ -161,32 +162,34 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
       }
       else if (Questions.workAnswerShow[i]['details'] == "") {
         dynamicContainer.add(
-            Container(
-              margin: EdgeInsets.only(
-                  top: 2.5, bottom: 2.5, left: 10.0, right: 10.0),
-              height: Questions.workAnswerShow[i]['containerheight'],
-              width: 450.0,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  border: Border.all(width: 1.0, color: Colors.lightBlue)
-              ),
-              child: Padding(
-                  padding: EdgeInsets.only(left: 15.0, right: 15.0),
-                  child: Row(crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      //Text(Questions.answerShow[i]['question']),
-                      Text(Questions.workAnswerShow[i]['question'],
-                        style: TextStyle(fontWeight: FontWeight.bold),),
-                      Row(children: <Widget>[
-                        //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
-                        Text(Questions.workAnswerShow[i]['answer'][0]),
-                        SizedBox(width: 10.0,),
-                        Icon(Icons.arrow_forward_ios, size: 12.0,
-                          color: Colors.lightBlue,)
-                      ],)
-                    ],)),
-            ));
+            SingleSmallContainer(currentIndex : i)
+//            Container(
+//              margin: EdgeInsets.only(
+//                  top: 2.5, bottom: 2.5, left: 10.0, right: 10.0),
+//              height: Questions.workAnswerShow[i]['containerheight'],
+//              width: 450.0,
+//              decoration: BoxDecoration(
+//                  borderRadius: BorderRadius.circular(10.0),
+//                  border: Border.all(width: 1.0, color: Colors.lightBlue)
+//              ),
+//              child: Padding(
+//                  padding: EdgeInsets.only(left: 15.0, right: 15.0),
+//                  child: Row(crossAxisAlignment: CrossAxisAlignment.center,
+//                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                    children: <Widget>[
+//                      //Text(Questions.answerShow[i]['question']),
+//                      Text(Questions.workAnswerShow[i]['question'],
+//                        style: TextStyle(fontWeight: FontWeight.bold),),
+//                      Row(children: <Widget>[
+//                        //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
+//                        Text(Questions.workAnswerShow[i]['answer'][0]),
+//                        SizedBox(width: 10.0,),
+//                        Icon(Icons.arrow_forward_ios, size: 12.0,
+//                          color: Colors.lightBlue,)
+//                      ],)
+//                    ],)),
+//            )
+         );
       }
 
       //data that contains long container
@@ -255,27 +258,29 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
           if (Questions.workAnswerShow[j]['details'] == detailOption &&
               detail == false) {
             dynamicContainerbig.add(
-              Container(
-                  color: Colors.white,
-                  height: 55.0,
-                  width: 450.0,
-                  child: Padding(
-                      padding: EdgeInsets.only(left: 15.0, right: 15.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          //Text(Questions.answerShow[i]['question']),
-                          Text(Questions.workAnswerShow[j]['question'],
-                            style: TextStyle(color: Colors.grey),),
-                          Row(children: <Widget>[
-                            //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
-                            Text(Questions.workAnswerShow[j]['answer'][0]),
-                            SizedBox(width: 10.0,),
-                            Icon(Icons.arrow_forward_ios, size: 12.0,
-                              color: Colors.lightBlue,)
-                          ],)
-                        ],))),
+                MultipleBigContainer(currentIndex : j)
+//              Container(
+//                  color: Colors.white,
+//                  height: 55.0,
+//                  width: 450.0,
+//                  child: Padding(
+//                      padding: EdgeInsets.only(left: 15.0, right: 15.0),
+//                      child: Row(
+//                        crossAxisAlignment: CrossAxisAlignment.center,
+//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                        children: <Widget>[
+//                          //Text(Questions.answerShow[i]['question']),
+//                          Text(Questions.workAnswerShow[j]['question'],
+//                            style: TextStyle(color: Colors.grey),),
+//                          Row(children: <Widget>[
+//                            //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
+//                            Text(Questions.workAnswerShow[j]['answer'][0]),
+//                            SizedBox(width: 10.0,),
+//                            Icon(Icons.arrow_forward_ios, size: 12.0,
+//                              color: Colors.lightBlue,)
+//                          ],)
+//                        ],))
+//              ),
 
             );
 
@@ -284,7 +289,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
                     padding: EdgeInsets.only(left: 20.0),
                     child: Container(
                       margin: EdgeInsets.only(top: 2.0, bottom: 2.0),
-                      height: 1.0,
+                      height: j == countLongContainer-1 ? 0.0 :1.0,
                       color: Colors.grey[200],
 
                     )));
@@ -298,7 +303,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
                     bottom: 2.5, top: 2.5, left: 10.0, right: 10.0),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
-                    border: Border.all(width: 1.0, color: Colors.lightBlue)
+                    border: Border.all(width: 1.0, color: Color.fromARGB(0xFF, 0xE8, 0xE8, 0xE8))
                 ),
                 child: Column(
                   children: dynamicContainerbig,
@@ -332,7 +337,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
           backgroundColor: Colors.white,
           leading: GestureDetector(
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushReplacementNamed(context, 'allCategoryScreen');
               },
               child: Icon(
                 Icons.arrow_back, color: Colors.lightBlue, size: 18.0,)
@@ -4376,5 +4381,173 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
   }
 
 }
+
+
+//For show and index of small container
+class SingleSmallContainer extends StatelessWidget {
+
+  int currentIndex;
+  List answerSubList = [];
+  SingleSmallContainer({this.currentIndex});
+
+
+  @override
+  Widget build(BuildContext context) {
+    return  GestureDetector(
+        onTap: (){
+
+          print("Small Container Current index is:"+currentIndex.toString());
+
+
+          if(currentIndex == 0)
+          {
+            Questions.workAnswerShow = [];
+
+            Navigator.of(context).pop();
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return WorkMainQuestions(CheckCompleteQuestion : "",CheckQuestion : "",CheckAnswer : []);
+            }));
+          }
+
+          else {
+            answerSubList = Questions.workAnswerShow.sublist(0, currentIndex);
+            print("Answer sub list:$answerSubList");
+            Questions.workAnswerShow = [];
+            Questions.workAnswerShow.addAll(answerSubList);
+
+            Navigator.of(context).pop();
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return WorkMainQuestions(CheckCompleteQuestion : Questions.workAnswerShow[currentIndex-1]['completequestion'],CheckQuestion : Questions.workAnswerShow[currentIndex-1]['question'],CheckAnswer : [Questions.workAnswerShow[currentIndex-1]['answer'][0]]);
+            }));
+          }
+
+
+
+
+
+        },
+        child:Container(
+          margin: EdgeInsets.only(top: 2.5, bottom: 2.5, left: 10.0, right: 10.0),
+          height: Questions.workAnswerShow[currentIndex]['containerheight'],
+          width: 450.0,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(7.0),
+              border: Border.all(width: 1.0, color: Color.fromARGB(0xFF, 0xE8, 0xE8, 0xE8))
+          ),
+          child: Padding(
+              padding: EdgeInsets.only(left: 10.0, right: 10.0),
+              child: Row(crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  //Text(Questions.answerShow[i]['question']),
+                  Container(
+                      width: 155.0,
+                      //color: Colors.purple,
+                      child:AutoSizeText(Questions.workAnswerShow[currentIndex]['question'],style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+                  ),
+                  Row(children: <Widget>[
+                    //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
+                    Container(
+                        width: 140.0,
+                        // color:Colors.blue,
+                        child:AutoSizeText(Questions.workAnswerShow[currentIndex]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+
+                    ),
+                    SizedBox(width: 5.0,),
+                    Icon(Icons.arrow_forward_ios, size: 12.0,
+                        color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF))
+                  ],)
+                ],
+              )),
+        ));
+  }
+}
+
+
+
+
+
+//For show and index of big container
+class MultipleBigContainer extends StatelessWidget {
+  int currentIndex;
+  List answerSubList = [];
+  MultipleBigContainer({this.currentIndex});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: ()
+        {
+          print("Big Coontainer Current index is:"+currentIndex.toString());
+
+          if(currentIndex == 0)
+          {
+            Questions.workAnswerShow = [];
+
+            Navigator.of(context).pop();
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return WorkMainQuestions(CheckCompleteQuestion : "",CheckQuestion : "",CheckAnswer : []);
+            }));
+          }
+
+          else {
+            answerSubList = Questions.workAnswerShow.sublist(0, currentIndex);
+            print("Answer sub list:$answerSubList");
+            Questions.workAnswerShow = [];
+            Questions.workAnswerShow.addAll(answerSubList);
+
+            Navigator.of(context).pop();
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return WorkMainQuestions(CheckCompleteQuestion : Questions.workAnswerShow[currentIndex-1]['completequestion'],CheckQuestion : Questions.workAnswerShow[currentIndex-1]['question'],CheckAnswer : [Questions.workAnswerShow[currentIndex-1]['answer'][0]]);
+            }));
+          }
+
+
+
+
+
+
+//        Navigator.of(context).pop();
+//        Navigator.push(context, MaterialPageRoute(builder: (context) {
+//          return mainQuestions(CheckQuestion : Questions.answerShow[currentIndex]['question'],CheckAnswer : [Questions.answerShow[currentIndex]['answer'][0]]);
+//        }));
+        },
+        child:Container(
+            color: Colors.white,
+            height: 55.0,
+            width: 450.0,
+            child: Padding(
+                padding: EdgeInsets.only(left: 10.0, right: 10.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    //Text(Questions.answerShow[i]['question']),
+                    Container(
+                        width: 155.0,
+                        //color: Colors.purple,
+                        child:AutoSizeText(Questions.workAnswerShow[currentIndex]['question'],style: TextStyle(color: Colors.grey),minFontSize:14.0,maxLines: 1,overflow: TextOverflow.ellipsis,)
+                    ),
+                    Row(children: <Widget>[
+                      //Text(Questions.answerShow[i]['answer'],style: TextStyle(color: Colors.lightBlue)),
+                      Container(
+                          width: 140.0,
+                          // color:Colors.blue,
+                          child:AutoSizeText(Questions.workAnswerShow[currentIndex]['answer'][0],textAlign: TextAlign.end,minFontSize: 14.0,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF)),)
+
+                      ),
+                      SizedBox(width: 5.0,),
+                      Icon(Icons.arrow_forward_ios, size: 12.0,
+                        color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),)
+                    ],)
+                  ],
+                ))
+        ));
+  }
+}
+
+
+
+
 
 
