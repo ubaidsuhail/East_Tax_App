@@ -30,6 +30,8 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
   bool open = false;
   bool v3 = false;
   Questions qu =Questions();
+  String noOption = "";
+  bool noOptionCheck = true;
   Widget circleButton(IconData iconData){
     return Container(
       width: 50,
@@ -46,8 +48,8 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
   void initState() {
     // TODO: implement initState
     super.initState();
-    timer();
     addBoolValue();
+    timer();
   }
 
 
@@ -212,9 +214,11 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
                       (
                         itemCount: widget.answerOption.length,
                         itemBuilder: (BuildContext ctxt, int index) {
-                          return GestureDetector(
+                         return  widget.answerOption[index] == "No" || widget.answerOption[index] == "None" ||widget.answerOption[index] == "None of this applies" || widget.answerOption[index] == "None of them" || widget.answerOption[index] == "None of these" || widget.answerOption[index] == "None of this" ?
 
-                              child:
+                          Container()
+                          :
+
                               Container(
                                   color: Colors.white,
 
@@ -227,22 +231,8 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
                                       ),
                                       GestureDetector(
                                         onTap: (){
-                                          print("work");
-                                         if(values[index] == true)
-                                           {
-                                             setState(() {
-                                               values[index] = false;
-                                             });
+                                          ChangeCheckbox(index);
 
-                                           }
-
-                                           else
-                                             {
-                                               setState(() {
-                                                 values[index] = true;
-                                               });
-
-                                             }
                                         },
                                       child:Opacity(
                                           opacity: 0.8,
@@ -292,7 +282,7 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
                                       ))))
                                     ],
                                   )
-                              ));
+                              );
                         }
                     ),
 
@@ -313,7 +303,19 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
 
                   ),
 
-                  Container(
+                  GestureDetector(
+                    onTap:(){
+                      if( !( noOption == "No" || noOption == "None" || noOption == "None of this applies" || noOption == "None of them" || noOption == "None of these" || noOption == "None of this") && (noOptionCheck == true) )
+                      {
+                        print("no option select");
+                      }
+                      else{
+                        Confirm();
+                      }
+
+                    },
+                    child:Container(
+                      color:Colors.white,
 //                    decoration: new BoxDecoration(
 //                        color: Colors.white,
 //                        boxShadow: [
@@ -323,14 +325,19 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
 //                          ),
 //
 //                        ]),
-                    width: MediaQuery.of(context).size.width,
-                    height: 50.0,
+
+                      width: MediaQuery.of(context).size.width,
+                      height: 50.0,
 //                    color: Colors.wh,
-                    child: Center(
-                      child: GestureDetector(onTap:(){
-                        Confirm();
-                      },
-                          child:Text('Confirm',style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize: 16.0))
+                      child: Center(
+
+                          child:(noOption == "No" || noOption == "None" || noOption == "None of this applies" || noOption == "None of them" || noOption == "None of these" || noOption == "None of this") && noOptionCheck == true ?
+                          Text(noOption,style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize: 16.0))
+                              :
+                          noOptionCheck == true ?
+                          Text('Confirm',style: TextStyle(color: Colors.grey[300],fontWeight: FontWeight.w600,fontSize: 16.0))
+                              :
+                          Text('Confirm',style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize: 16.0))
                       ),
 
                     ),
@@ -345,6 +352,10 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
 
 
   void addBoolValue(){
+
+    // last index ma agar no wagera ha to
+    noOption = widget.answerOption[widget.answerOption.length - 1];
+
     for(int i = 0 ; i < widget.answerOption.length; i++)
     {
       values.add(false);
@@ -356,6 +367,15 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
   void Confirm()
   {
     List data = [];
+
+    //no wagera ka liya
+    if(( noOption == "No" || noOption == "None" || noOption == "None of this applies" || noOption == "None of them" || noOption == "None of these" || noOption == "None of this") && noOptionCheck == true )
+    {
+      data.add(noOption);
+    }
+
+    else
+      {
     for(int i = 0 ; i < widget.answerOption.length; i++)
     {
       if(values[i] == true)
@@ -363,6 +383,7 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
         data.add(widget.answerOption[i]);
       }
 
+    }
     }
 
     if(widget.completeQuestion == "How did ${Questions.healthYouIdentity} get there?" && widget.questionOption == "Means of transport" && (data[0] == "Bicycle" || data[0] == "On foot"))
@@ -382,4 +403,46 @@ class _HealthMultipleOptionsContainerState extends State<HealthMultipleOptionsCo
 
 
   }
+
+
+  void ChangeCheckbox(int index)
+  {
+    print("work");
+    if(values[index] == true)
+    {
+      setState(() {
+        values[index] = false;
+      });
+
+    }
+
+    else
+    {
+      setState(() {
+        values[index] = true;
+      });
+
+    }
+
+
+    for(int j = 0 ; j < widget.answerOption.length; j++)
+    {
+      if(values[j] == true)
+      {
+        noOptionCheck = false;
+        break;
+      }
+      else
+      {
+        noOptionCheck = true;
+      }
+
+    }
+
+    setState(() {
+      noOptionCheck;
+    });
+
+  }
+
 }

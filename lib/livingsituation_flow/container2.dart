@@ -32,6 +32,8 @@ class _HomeScreenState extends State<Container2> {
   bool open = false;
   bool v3 = false;
   Questions qu =Questions();
+  String noOption = "";
+  bool noOptionCheck = true;
   Widget circleButton(IconData iconData){
     return Container(
       width: 50,
@@ -48,8 +50,8 @@ class _HomeScreenState extends State<Container2> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    timer();
     addBoolValue();
+    timer();
   }
 
 
@@ -204,9 +206,11 @@ class _HomeScreenState extends State<Container2> {
                       (
                         itemCount: widget.AnswerOption.length,
                         itemBuilder: (BuildContext ctxt, int index) {
-                          return GestureDetector(
+                          return  widget.AnswerOption[index] == "No" || widget.AnswerOption[index] == "None" ||widget.AnswerOption[index] == "None of this applies" || widget.AnswerOption[index] == "None of them" || widget.AnswerOption[index] == "None of these" || widget.AnswerOption[index] == "None of this" ?
 
-                              child:
+                          Container()
+                              :
+
                               Container(
                                   color: Colors.white,
 
@@ -219,22 +223,8 @@ class _HomeScreenState extends State<Container2> {
                                       ),
                                       GestureDetector(
                                           onTap: (){
-                                            print("work");
-                                            if(values[index] == true)
-                                            {
-                                              setState(() {
-                                                values[index] = false;
-                                              });
+                                            ChangeCheckbox(index);
 
-                                            }
-
-                                            else
-                                            {
-                                              setState(() {
-                                                values[index] = true;
-                                              });
-
-                                            }
                                           },
                                           child:Opacity(
                                               opacity: 0.8,
@@ -284,7 +274,7 @@ class _HomeScreenState extends State<Container2> {
                                                   ))))
                                     ],
                                   )
-                              ));
+                              );
                         }
                     ),
 
@@ -304,7 +294,19 @@ class _HomeScreenState extends State<Container2> {
 
                   ),
 
-                  Container(
+                GestureDetector(
+                    onTap:(){
+                      if( !( noOption == "No" || noOption == "None" || noOption == "None of this applies" || noOption == "None of them" || noOption == "None of these" || noOption == "None of this") && (noOptionCheck == true) )
+                        {
+                        print("no option select");
+                        }
+                        else{
+                        Confirm();
+                      }
+
+                    },
+                  child:Container(
+                  color:Colors.white,
 //                    decoration: new BoxDecoration(
 //                        color: Colors.white,
 //                        boxShadow: [
@@ -314,14 +316,19 @@ class _HomeScreenState extends State<Container2> {
 //                          ),
 //
 //                        ]),
+
                     width: MediaQuery.of(context).size.width,
                     height: 50.0,
 //                    color: Colors.wh,
-                    child: Center(
-                      child: GestureDetector(onTap:(){
-                        Confirm();
-                      },
-                          child:Text('Confirm',style: TextStyle(color:Questions.LivingCheck == 1 || Questions.LivingCheck == 2 ? Colors.lightBlue : Colors.deepPurple[300],fontWeight: FontWeight.w600,fontSize: 16.0))
+                      child: Center(
+
+                          child:(noOption == "No" || noOption == "None" || noOption == "None of this applies" || noOption == "None of them" || noOption == "None of these" || noOption == "None of this") && noOptionCheck == true ?
+                          Text(noOption,style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize: 16.0))
+                              :
+                          noOptionCheck == true ?
+                          Text('Confirm',style: TextStyle(color: Colors.grey[300],fontWeight: FontWeight.w600,fontSize: 16.0))
+                              :
+                          Text('Confirm',style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize: 16.0))
                       ),
 
                     ),
@@ -346,6 +353,10 @@ class _HomeScreenState extends State<Container2> {
   }
 
   void addBoolValue(){
+
+    // last index ma agar no wagera ha to
+    noOption = widget.AnswerOption[widget.AnswerOption.length - 1];
+
     for(int i = 0 ; i < widget.AnswerOption.length; i++)
     {
       values.add(false);
@@ -357,6 +368,16 @@ class _HomeScreenState extends State<Container2> {
   void Confirm()
   {
     List data = [];
+
+
+    //no wagera ka liya
+    if(( noOption == "No" || noOption == "None" || noOption == "None of this applies" || noOption == "None of them" || noOption == "None of these" || noOption == "None of this") && noOptionCheck == true )
+    {
+      data.add(noOption);
+    }
+
+    else
+      {
     for(int i = 0 ; i < widget.AnswerOption.length; i++)
     {
       if(values[i] == true)
@@ -365,6 +386,10 @@ class _HomeScreenState extends State<Container2> {
       }
 
     }
+    }
+
+
+
     if(data[0] == "Self-employed" || data[0] == "Own business")
       {
         Navigator.of(context).pop();
@@ -439,5 +464,45 @@ class _HomeScreenState extends State<Container2> {
       return mainQuestions(CheckQuestion : widget.QuestionOption,CheckAnswer : data);
     }));
   }
+  }
+
+  void ChangeCheckbox(int index)
+  {
+    print("work");
+    if(values[index] == true)
+    {
+      setState(() {
+        values[index] = false;
+      });
+
+    }
+
+    else
+    {
+      setState(() {
+        values[index] = true;
+      });
+
+    }
+
+
+    for(int j = 0 ; j < widget.AnswerOption.length; j++)
+    {
+      if(values[j] == true)
+      {
+        noOptionCheck = false;
+        break;
+      }
+      else
+      {
+        noOptionCheck = true;
+      }
+
+    }
+
+    setState(() {
+      noOptionCheck;
+    });
+
   }
 }

@@ -28,6 +28,8 @@ class _HomeScreenState extends State<MultiThreeContainer> {
   bool open = false;
   bool v3 = false;
   Questions qu =Questions();
+  String noOption = "";
+  bool noOptionCheck = true;
   Widget circleButton(IconData iconData){
     return Container(
       width: 50,
@@ -44,8 +46,8 @@ class _HomeScreenState extends State<MultiThreeContainer> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    timer();
     addBoolValue();
+    timer();
   }
 
 
@@ -202,46 +204,34 @@ class _HomeScreenState extends State<MultiThreeContainer> {
                       (
                         itemCount: widget.answerOption.length,
                         itemBuilder: (BuildContext ctxt, int index) {
-                          return GestureDetector(
+                          return  widget.answerOption[index] == "No" || widget.answerOption[index] == "None" ||widget.answerOption[index] == "None of this applies" || widget.answerOption[index] == "None of them" || widget.answerOption[index] == "None of these" || widget.answerOption[index] == "None of this" ?
+
+                          Container()
+                              :
+
+                          Container(
+                              color: Colors.white,
 
                               child:
-                              Container(
-                                  color: Colors.white,
+                              Column(
+                                children: <Widget>[
+                                  Divider(
+                                    height: 1.0,
+                                    thickness: 1.0,
+                                  ),
+                                  GestureDetector(
+                                      onTap: (){
+                                        ChangeCheckbox(index);
 
-                                  child:
-                                  Column(
-                                    children: <Widget>[
-                                      Divider(
-                                        height: 1.0,
-                                        thickness: 1.0,
-                                      ),
-                                      GestureDetector(
-                                          onTap: (){
-                                            print("work");
-                                            if(values[index] == true)
-                                            {
-                                              setState(() {
-                                                values[index] = false;
-                                              });
+                                      },
+                                      child:Opacity(
+                                          opacity: 0.8,
+                                          child:Container(
+                                              color: values[index] == true ? Color.fromARGB(0XFF, 0XC1, 0XE7, 0XFD) : Colors.white,
 
-                                            }
-
-                                            else
-                                            {
-                                              setState(() {
-                                                values[index] = true;
-                                              });
-
-                                            }
-                                          },
-                                          child:Opacity(
-                                              opacity: 0.8,
-                                              child:Container(
-                                                  color: values[index] == true ? Color.fromARGB(0XFF, 0XC1, 0XE7, 0XFD) : Colors.white,
-
-                                                  padding: EdgeInsets.only(top: 12.0,bottom: 12.0),
-                                                  child:Row(
-                                                    children: <Widget>[
+                                              padding: EdgeInsets.only(top: 12.0,bottom: 12.0),
+                                              child:Row(
+                                                children: <Widget>[
 
 //                                          Checkbox(
 //
@@ -258,31 +248,31 @@ class _HomeScreenState extends State<MultiThreeContainer> {
 //
 //                                          ),
 
-                                                      Padding(
-                                                        padding:EdgeInsets.only(left:10.0),
-                                                        child: values[index] == true ?
-                                                        Image(image:AssetImage("images/checked.png"),width: 20.0,height: 20.0,)
-                                                            :
-                                                        Image(image:AssetImage("images/unchecked.png"),width: 20.0,height: 20.0,),
-                                                      ),
-                                                      SizedBox(width: 20.0,),
+                                                  Padding(
+                                                    padding:EdgeInsets.only(left:10.0),
+                                                    child: values[index] == true ?
+                                                    Image(image:AssetImage("images/checked.png"),width: 20.0,height: 20.0,)
+                                                        :
+                                                    Image(image:AssetImage("images/unchecked.png"),width: 20.0,height: 20.0,),
+                                                  ),
+                                                  SizedBox(width: 20.0,),
 
 //                                          Icon(Icons.timer),
-                                                      Image(image:AssetImage(widget.answerImages[index]),width: 22.0,height: 35.0,),
-                                                      SizedBox(width: 20.0,),
-                                                      Container(
-                                                        width: MediaQuery.of(context).size.width * 0.65,
-                                                        child:AutoSizeText(widget.answerOption[index],style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.bold),
-                                                          minFontSize: 14,
-                                                          maxLines: 1,
-                                                          overflow: TextOverflow.ellipsis,),
-                                                      )
+                                                  Image(image:AssetImage(widget.answerImages[index]),width: 22.0,height: 35.0,),
+                                                  SizedBox(width: 20.0,),
+                                                  Container(
+                                                    width: MediaQuery.of(context).size.width * 0.65,
+                                                    child:AutoSizeText(widget.answerOption[index],style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.bold),
+                                                      minFontSize: 14,
+                                                      maxLines: 1,
+                                                      overflow: TextOverflow.ellipsis,),
+                                                  )
 
-                                                    ],
-                                                  ))))
-                                    ],
-                                  )
-                              ));
+                                                ],
+                                              ))))
+                                ],
+                              )
+                          );
                         }
                     ),
 
@@ -303,7 +293,19 @@ class _HomeScreenState extends State<MultiThreeContainer> {
 
                   ),
 
-                  Container(
+                  GestureDetector(
+                    onTap:(){
+                      if( !( noOption == "No" || noOption == "None" || noOption == "None of this applies" || noOption == "None of them" || noOption == "None of these" || noOption == "None of this") && (noOptionCheck == true) )
+                      {
+                        print("no option select");
+                      }
+                      else{
+                        Confirm();
+                      }
+
+                    },
+                    child:Container(
+                      color:Colors.white,
 //                    decoration: new BoxDecoration(
 //                        color: Colors.white,
 //                        boxShadow: [
@@ -313,14 +315,19 @@ class _HomeScreenState extends State<MultiThreeContainer> {
 //                          ),
 //
 //                        ]),
-                    width: MediaQuery.of(context).size.width,
-                    height: 50.0,
+
+                      width: MediaQuery.of(context).size.width,
+                      height: 50.0,
 //                    color: Colors.wh,
-                    child: Center(
-                      child: GestureDetector(onTap:(){
-                        Confirm();
-                      },
-                          child:Text('Confirm',style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize: 16.0))
+                      child: Center(
+
+                          child:(noOption == "No" || noOption == "None" || noOption == "None of this applies" || noOption == "None of them" || noOption == "None of these" || noOption == "None of this") && noOptionCheck == true ?
+                          Text(noOption,style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize: 16.0))
+                              :
+                          noOptionCheck == true ?
+                          Text('Confirm',style: TextStyle(color: Colors.grey[300],fontWeight: FontWeight.w600,fontSize: 16.0))
+                              :
+                          Text('Confirm',style: TextStyle(color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),fontWeight: FontWeight.w600,fontSize: 16.0))
                       ),
 
                     ),
@@ -345,6 +352,11 @@ class _HomeScreenState extends State<MultiThreeContainer> {
   }
 
   void addBoolValue(){
+
+    // last index ma agar no wagera ha to
+    noOption = widget.answerOption[widget.answerOption.length - 1];
+
+
     for(int i = 0 ; i < widget.answerOption.length; i++)
     {
       values.add(false);
@@ -356,13 +368,23 @@ class _HomeScreenState extends State<MultiThreeContainer> {
   void Confirm()
   {
     List data = [];
-    for(int i = 0 ; i < widget.answerOption.length; i++)
-    {
-      if(values[i] == true)
-      {
-        data.add(widget.answerOption[i]);
-      }
 
+    //no wagera ka liya
+    if(( noOption == "No" || noOption == "None" || noOption == "None of this applies" || noOption == "None of them" || noOption == "None of these" || noOption == "None of this") && noOptionCheck == true )
+    {
+      data.add(noOption);
+    }
+
+    else
+    {
+      for(int i = 0 ; i < widget.answerOption.length; i++)
+      {
+        if(values[i] == true)
+        {
+          data.add(widget.answerOption[i]);
+        }
+
+      }
     }
     //Questions.animatedContainer = 210.0;
     qu.IncomeAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, data, 55.0);
@@ -372,4 +394,45 @@ class _HomeScreenState extends State<MultiThreeContainer> {
       return IncomeMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion : widget.questionOption,CheckAnswer : data);
     }));
   }
+
+  void ChangeCheckbox(int index)
+  {
+    print("work");
+    if(values[index] == true)
+    {
+      setState(() {
+        values[index] = false;
+      });
+
+    }
+
+    else
+    {
+      setState(() {
+        values[index] = true;
+      });
+
+    }
+
+
+    for(int j = 0 ; j < widget.answerOption.length; j++)
+    {
+      if(values[j] == true)
+      {
+        noOptionCheck = false;
+        break;
+      }
+      else
+      {
+        noOptionCheck = true;
+      }
+
+    }
+
+    setState(() {
+      noOptionCheck;
+    });
+
+  }
+
 }
