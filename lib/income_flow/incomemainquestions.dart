@@ -1712,7 +1712,18 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
             }
             else if(widget.CheckAnswer[m] == "No") {
 
-              return FinishCategory("Income Category","Home Category");
+              if(Questions.alimonyReceivedIncome == "Alimony received")
+              {
+                //Question No 144
+                return multithreeContainer("", "Income", "What type of alimony pay did you receive?", "Type of alimony pay", ["Alimony payments", "Compensation payments to prevent a pension rights adjustment", "Payments as part of a pension rights adjustment"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 340.0);
+              }
+              else
+              {
+                return FinishCategory("Income Category","Home Category");
+              }
+
+
+
             }
 
 
@@ -1726,48 +1737,104 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         //Answer No 71
         else if(widget.CheckCompleteQuestion == "How much did you receive in unemployment benefits?" && widget.CheckQuestion == "Unemployment benefits")
         {
-          return FinishCategory("Income Category","Home Category");
+          if(Questions.alimonyReceivedIncome == "Alimony received")
+          {
+            //Question No 144
+            return multithreeContainer("", "Income", "What type of alimony pay did you receive?", "Type of alimony pay", ["Alimony payments", "Compensation payments to prevent a pension rights adjustment", "Payments as part of a pension rights adjustment"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 340.0);
+          }
+          else
+          {
+            return FinishCategory("Income Category","Home Category");
+          }
         }
 
 
         //Answer No 120
         else if(widget.CheckCompleteQuestion == "How much parental allowance did you get?" && widget.CheckQuestion == "Parental allowance")
         {
-          return FinishCategory("Income Category","Home Category");
+          if(Questions.alimonyReceivedIncome == "Alimony received")
+          {
+            //Question No 144
+            return multithreeContainer("", "Income", "What type of alimony pay did you receive?", "Type of alimony pay", ["Alimony payments", "Compensation payments to prevent a pension rights adjustment", "Payments as part of a pension rights adjustment"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 340.0);
+          }
+          else
+          {
+            return FinishCategory("Income Category","Home Category");
+          }
         }
 
 
         //Answer No 83
         else if(widget.CheckCompleteQuestion == "How much sick pay did you receive?" && widget.CheckQuestion == "Sick pay")
         {
-          return FinishCategory("Income Category","Home Category");
+          if(Questions.alimonyReceivedIncome == "Alimony received")
+          {
+            //Question No 144
+            return multithreeContainer("", "Income", "What type of alimony pay did you receive?", "Type of alimony pay", ["Alimony payments", "Compensation payments to prevent a pension rights adjustment", "Payments as part of a pension rights adjustment"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 340.0);
+          }
+          else
+          {
+            return FinishCategory("Income Category","Home Category");
+          }
         }
 
 
         //Answer No 89
         else if(widget.CheckCompleteQuestion == "How much sick pay did you get for your child?" && widget.CheckQuestion == "Sick pay for children")
         {
-          return FinishCategory("Income Category","Home Category");
+          if(Questions.alimonyReceivedIncome == "Alimony received")
+          {
+            //Question No 144
+            return multithreeContainer("", "Income", "What type of alimony pay did you receive?", "Type of alimony pay", ["Alimony payments", "Compensation payments to prevent a pension rights adjustment", "Payments as part of a pension rights adjustment"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 340.0);
+          }
+          else
+          {
+            return FinishCategory("Income Category","Home Category");
+          }
         }
 
 
         //Answer No 96
         else if(widget.CheckCompleteQuestion == "How much maternity pay did you receive?" && widget.CheckQuestion == "Maternity pay")
         {
-          return FinishCategory("Income Category","Home Category");
+          if(Questions.alimonyReceivedIncome == "Alimony received")
+          {
+            //Question No 144
+            return multithreeContainer("", "Income", "What type of alimony pay did you receive?", "Type of alimony pay", ["Alimony payments", "Compensation payments to prevent a pension rights adjustment", "Payments as part of a pension rights adjustment"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 340.0);
+          }
+          else
+          {
+            return FinishCategory("Income Category","Home Category");
+          }
         }
 
 
         //Answer No 100
         else if(widget.CheckCompleteQuestion == "How much employment assistance did you receive?" && widget.CheckQuestion == "Unemployment assistance")
         {
-          return FinishCategory("Income Category","Home Category");
+          if(Questions.alimonyReceivedIncome == "Alimony received")
+          {
+            //Question No 144
+            return multithreeContainer("", "Income", "What type of alimony pay did you receive?", "Type of alimony pay", ["Alimony payments", "Compensation payments to prevent a pension rights adjustment", "Payments as part of a pension rights adjustment"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 340.0);
+          }
+          else
+          {
+            return FinishCategory("Income Category","Home Category");
+          }
         }
 
         //Answer No 74
         else if(widget.CheckCompleteQuestion == "How much insolvency allowance did you receive?" && widget.CheckQuestion == "Amount")
        {
-         return FinishCategory("Income Category","Home Category");
+         if(Questions.alimonyReceivedIncome == "Alimony received")
+         {
+           //Question No 144
+           return multithreeContainer("", "Income", "What type of alimony pay did you receive?", "Type of alimony pay", ["Alimony payments", "Compensation payments to prevent a pension rights adjustment", "Payments as part of a pension rights adjustment"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 340.0);
+         }
+         else
+         {
+           return FinishCategory("Income Category","Home Category");
+         }
        }
 
 
@@ -1775,15 +1842,237 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
         //Answer No 110
         else if(widget.CheckCompleteQuestion == "How much compensation did you receive?" && widget.CheckQuestion == "Amount")
         {
-          return FinishCategory("Income Category","Home Category");
+          if(Questions.alimonyReceivedIncome == "Alimony received")
+          {
+            //Question No 144
+            return multithreeContainer("", "Income", "What type of alimony pay did you receive?", "Type of alimony pay", ["Alimony payments", "Compensation payments to prevent a pension rights adjustment", "Payments as part of a pension rights adjustment"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 340.0);
+          }
+          else
+          {
+            return FinishCategory("Income Category","Home Category");
+          }
         }
 
 
         //Answer No 106
         else if(widget.CheckCompleteQuestion == "How much did you receive in compensation for Infektionsschutzgesetz?" && widget.CheckQuestion == "Amount")
         {
+          if(Questions.alimonyReceivedIncome == "Alimony received")
+          {
+            //Question No 144
+            return multithreeContainer("", "Income", "What type of alimony pay did you receive?", "Type of alimony pay", ["Alimony payments", "Compensation payments to prevent a pension rights adjustment", "Payments as part of a pension rights adjustment"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 340.0);
+          }
+          else
+          {
+            return FinishCategory("Income Category","Home Category");
+          }
+        }
+
+
+
+        // ====== Alimony Received Starts (Relation) ====== //
+        //Answer No 144
+        else if(widget.CheckCompleteQuestion == "What type of alimony pay did you receive?" && widget.CheckQuestion == "Type of alimony pay")
+        {
+          for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+            if(widget.CheckAnswer[m] == "Alimony payments")
+            {
+              Questions.typeAlimonyPay = "Alimony payments";
+            //Question No 145
+              return threeoptionContainer("","Income","Is the paying party deducting these payments as special expenses?","Deductible",["Yes, in full","Yes, in part","No"],220.0);
+            }
+
+            else if(widget.CheckAnswer[m] == "Compensation payments to prevent a pension rights adjustment")
+            {
+              Questions.typeAlimonyPay = "Compensation payments to prevent a pension rights adjustment";
+             //Question No 145
+              return threeoptionContainer("","Income","Is the paying party deducting these payments as special expenses?","Deductible",["Yes, in full","Yes, in part","No"],220.0);
+
+            }
+
+            else if(widget.CheckAnswer[m] == "Payments as part of a pension rights adjustment")
+            {
+              Questions.typeAlimonyPay = "Payments as part of a pension rights adjustment";
+              //Question No 145
+              return threeoptionContainer("","Income","Is the paying party deducting these payments as special expenses?","Deductible",["Yes, in full","Yes, in part","No"],220.0);
+            }
+          }
+        }
+
+
+
+        //Answer No 145
+
+         // Alimony payments Starts
+        else if(widget.CheckCompleteQuestion == "Is the paying party deducting these payments as special expenses?" && widget.CheckQuestion == "Deductible")
+        {
+          if(Questions.typeAlimonyPay == "Alimony payments")
+          {
+            if (widget.CheckAnswer[0] == "Yes, in full")
+            {
+              Questions.alimonyIncomePayment = "Yes, in full";
+              //Question No 146
+              return calculationContainer("", "Income", "How much alimony did you receive?", "Amount alimony payments", 220.0, "calculation");
+            }
+
+            else if (widget.CheckAnswer[0] == "Yes, in part")
+            {
+              Questions.alimonyIncomePayment = "Yes, in part";
+              //Question No 146
+              return calculationContainer("", "Income", "How much alimony did you receive?", "Amount alimony payments", 220.0, "calculation");
+            }
+            else if (widget.CheckAnswer[0] == "No") {
+              return FinishCategory("Income Category", "Home Category");
+            }
+          }
+
+         else if(Questions.typeAlimonyPay == "Compensation payments to prevent a pension rights adjustment")
+          {
+            if (widget.CheckAnswer[0] == "Yes, in full")
+            {
+              Questions.alimonyIncomePayment = "Yes, in full";
+              //Question No 150
+              return calculationContainer("", "Income", "How much compensation did you receive?", "Compensation amount", 220.0, "calculation");
+
+            }
+
+            else if (widget.CheckAnswer[0] == "Yes, in part")
+            {
+              Questions.alimonyIncomePayment = "Yes, in part";
+              //Question No 150
+              return calculationContainer("", "Income", "How much compensation did you receive?", "Compensation amount", 220.0, "calculation");
+
+            }
+            else if (widget.CheckAnswer[0] == "No") {
+              return FinishCategory("Income Category", "Home Category");
+            }
+          }
+
+
+          else if(Questions.typeAlimonyPay == "Payments as part of a pension rights adjustment")
+          {
+            if (widget.CheckAnswer[0] == "Yes, in full" || widget.CheckAnswer[0] == "Yes, in part")
+            {
+              //Question No 153
+              return calculationContainer("","Income","How much did you receive as part of a pension rights adjustment?","Adjustment amount",220.0,"calculation");
+
+            }
+
+            else if (widget.CheckAnswer[0] == "No") {
+              return FinishCategory("Income Category", "Home Category");
+            }
+          }
+
+        }
+
+        //Answer No 146
+        else if(widget.CheckCompleteQuestion == "How much alimony did you receive?" && widget.CheckQuestion == "Amount alimony payments")
+        {
+          if(Questions.alimonyIncomePayment == "Yes, in full")
+            {
+          //Question no 147
+          return yesnoContainer("", "Income", "Did you have any costs related to receiving these payments?","Related expenses",220.0,"");
+            }
+
+           else if(Questions.alimonyIncomePayment == "Yes, in part")
+             {
+               //Question No 149
+               return calculationContainer("","Income","What share of the payments you received was deducted by the other party?","Deductible share",220.0,"calculation");
+             }
+            }
+
+        //Answer No 149
+        else if(widget.CheckCompleteQuestion == "What share of the payments you received was deducted by the other party?" && widget.CheckQuestion == "Deductible share")
+        {
+          //Question no 147
+          return yesnoContainer("", "Income", "Did you have any costs related to receiving these payments?","Related expenses",220.0,"");
+        }
+
+        // Alimony payments Ends
+
+
+
+
+        // compensation payments to prevent a pension rights adjustment Starts
+
+        //Answer No 150
+        else if(widget.CheckCompleteQuestion == "How much compensation did you receive?" && widget.CheckQuestion == "Compensation amount")
+        {
+          if(Questions.alimonyIncomePayment== "Yes, in full")
+          {
+            //Question no 147
+            return yesnoContainer("", "Income", "Did you have any costs related to receiving these payments?","Related expenses",220.0,"");
+          }
+
+          else if(Questions.alimonyIncomePayment == "Yes, in part")
+          {
+            //Question No 151
+            return calculationContainer("","Income","What share of the payments you received was deducted by the other party? ","Deductible share",220.0,"calculation");
+          }
+        }
+
+
+    //Answer No 151
+    else if(widget.CheckCompleteQuestion == "What share of the payments you received was deducted by the other party? " && widget.CheckQuestion == "Deductible share")
+    {
+    //Question no 152
+      return calculationContainer("","Income","What share of the payments you received was deducted by the other party?  ","Deductible share",220.0,"calculation");
+    }
+
+   //Answer No 152
+    else if(widget.CheckCompleteQuestion == "What share of the payments you received was deducted by the other party?  " && widget.CheckQuestion == "Deductible share")
+     {
+       //Question no 147
+       return yesnoContainer("", "Income", "Did you have any costs related to receiving these payments?","Related expenses",220.0,"");
+     }
+
+
+     // compensation payments to prevent a pension rights adjustment Ends
+
+
+      // Payments as part of a pension rights adjustment Starts
+
+        //Answer No 153
+        else if(widget.CheckCompleteQuestion == "How much did you receive as part of a pension rights adjustment?" && widget.CheckQuestion == "Adjustment amount")
+        {
+          //Question no 147
+          return yesnoContainer("", "Income", "Did you have any costs related to receiving these payments?","Related expenses",220.0,"");
+        }
+
+        // Payments as part of a pension rights adjustment Ends
+
+
+        //Answer No 147
+        else if(widget.CheckCompleteQuestion == "Did you have any costs related to receiving these payments?" && widget.CheckQuestion == "Related expenses")
+        {
+
+          if(widget.CheckAnswer[0] == "No")
+          {
+            return FinishCategory("Income Category","Home Category");
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes")
+          {
+            //Question No 148
+            return calculationContainer("","Income","How much did you spend related to receiving the alimony payments?","Amount alimony",220.0,"calculation");
+          }
+
+        }
+
+        //Answer No 148
+        else if(widget.CheckCompleteQuestion == "How much did you spend related to receiving the alimony payments?" && widget.CheckQuestion == "Amount alimony")
+        {
           return FinishCategory("Income Category","Home Category");
         }
+
+
+
+
+
+
+        // ====== Alimony Received Ends (Relation) ====== //
+
 
 
       }

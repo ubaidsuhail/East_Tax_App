@@ -12,6 +12,7 @@ import 'package:easy_taxx/family_flow/familydifferentoptioncontainer.dart';
 import 'package:easy_taxx/family_flow/familyaddresscontainer.dart';
 import 'package:easy_taxx/family_flow/familytwooptioncontainer.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:easy_taxx/family_flow/familymultithreecontainer.dart';
 
 
 
@@ -3259,7 +3260,16 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
             }
             else
               {
-                return FinishCategory("Family Category","Health Category");
+                //Agar Alimony Paid ka Option select hoa ha Living Situation ma
+                if(Questions.alimonyPaidFamily == "Alimony paid")
+                {
+                  //Question No 162
+                  return familymultithreeContainer("","Alimony","What kind of alimony have you paid?","Kind of alimony payments",["Pension rights adjustment","Prevention of an adjustment","Alimony to ex"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png"],220.0,"","");
+                }
+                else
+                {
+                  return FinishCategory("Family Category","Health Category");
+                }
               }
           }
       }
@@ -3275,12 +3285,209 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
         }
         else
         {
-          return FinishCategory("Family Category","Health Category");
+          //Agar Alimony Paid ka Option select hoa ha Living Situation ma
+          if(Questions.alimonyPaidFamily == "Alimony paid")
+            {
+              //Question No 162
+              return familymultithreeContainer("","Alimony","What kind of alimony have you paid?","Kind of alimony payments",["Pension rights adjustment","Prevention of an adjustment","Alimony to ex"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png"],220.0,"","");
+            }
+            else
+              {
+                return FinishCategory("Family Category","Health Category");
+             }
+
         }
       }
 
 
 
+       // ====== Alimony Paid Starts (Relation) ======= //
+
+      //Answer No 162
+      else if(widget.CheckCompleteQuestion =="What kind of alimony have you paid?" && widget.CheckQuestion == "Kind of alimony payments")
+      {
+
+        for(int m=0;m<widget.CheckAnswer.length;m++) {
+
+          if(widget.CheckAnswer[m] == "Pension rights adjustment")
+          {
+            Questions.alimonyFamily = "Pension rights adjustment";
+           //Question No 163
+            return familyyesnoContainer("","Alimony","Does the recipient of the alimony payments declare them on their tax return?","Alimony taxed",220.0,"","");
+          }
+
+          else if(widget.CheckAnswer[m] == "Prevention of an adjustment")
+          {
+            Questions.alimonyFamily = "Prevention of an adjustment";
+            //Question No 163
+            return familyyesnoContainer("","Alimony","Does the recipient of the alimony payments declare them on their tax return?","Alimony taxed",220.0,"","");
+
+          }
+
+          else if(widget.CheckAnswer[m] == "Alimony to ex")
+          {
+            Questions.alimonyFamily = "Alimony to ex";
+            //Question No 163
+            return familyyesnoContainer("","Alimony","Does the recipient of the alimony payments declare them on their tax return?","Alimony taxed",220.0,"","");
+          }
+
+
+
+        }
+      }
+
+      // Pension rights adjustment Starts
+
+      //Answer No 163
+      else if(widget.CheckCompleteQuestion =="Does the recipient of the alimony payments declare them on their tax return?" && widget.CheckQuestion == "Alimony taxed")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+          return FinishCategory("Family Category","Health Category");
+        }
+
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+
+          if( Questions.alimonyFamily == "Pension rights adjustment"){
+          //Question No 164
+          return familycalculationContainer("","Alimony","What was the reason for payments as part of a contractual pension rights adjustment?","Reason contractural adjustment",220.0,"","");
+        }
+
+          else if( Questions.alimonyFamily == "Prevention of an adjustment"){
+           //Question No 169
+            return familycalculationContainer("","Alimony","How much have you paid to prevent a pension rights adjustment?","Amount paid",220.0,"","");
+
+          }
+
+          else if( Questions.alimonyFamily == "Alimony to ex"){
+            //Question No 170
+            return familycalculationContainer("","Alimony","How much alimony have you paid?","Amount alimony payments",220.0,"calculation","");
+
+          }
+
+          }
+
+      }
+
+      //Answer No 164
+      else if(widget.CheckCompleteQuestion =="What was the reason for payments as part of a contractual pension rights adjustment?" && widget.CheckQuestion == "Reason contractural adjustment")
+      {
+        //Question No 165
+        return familydateContainer("","Alimony","When did you make the first payment?","First payout",220.0,"","");
+      }
+
+
+      //Answer No 165
+      else if(widget.CheckCompleteQuestion =="When did you make the first payment?" && widget.CheckQuestion == "First payout")
+      {
+        //Question No 166
+        return familycalculationContainer("","Alimony","How much have you paid as part of the contractual pension rights adjustment?","Amount contractual adjustment",220.0,"calculation","");
+      }
+
+      //Answer No 166
+      else if(widget.CheckCompleteQuestion =="How much have you paid as part of the contractual pension rights adjustment?" && widget.CheckQuestion == "Amount contractual adjustment")
+      {
+        //Question No 167
+        return familycalculationContainer("","Alimony","What is the full name of the person who received the payments under the debt settlement agreement?","Recipient name",220.0,"","");
+      }
+
+
+      //Answer No 167
+      else if(widget.CheckCompleteQuestion =="What is the full name of the person who received the payments under the debt settlement agreement?" && widget.CheckQuestion == "Recipient name")
+      {
+        //Question No 168
+        return familycalculationContainer("","Alimony","What is the tax ID of the person who received your payments under the debt settlement agreement?","Recipient tax ID",220.0,"tax","");
+      }
+
+
+      //Answer No 168
+      else if(widget.CheckCompleteQuestion =="What is the tax ID of the person who received your payments under the debt settlement agreement?" && widget.CheckQuestion == "Recipient tax ID")
+      {
+        return FinishCategory("Family Category","Health Category");
+      }
+
+
+      //Pension rights adjustment Ends
+
+
+      //Prevention of an adjustment Starts
+
+      //Answer No 169
+      else if(widget.CheckCompleteQuestion =="How much have you paid to prevent a pension rights adjustment?" && widget.CheckQuestion == "Amount paid")
+      {
+        return FinishCategory("Family Category","Health Category");
+      }
+
+
+      //Prevention of an adjustment Ends
+
+
+      // Alimony to ex Starts
+
+      //Answer No 170
+      else if(widget.CheckCompleteQuestion =="How much alimony have you paid?" && widget.CheckQuestion == "Amount alimony payments")
+      {
+        //Question No 171
+        return familycalculationContainer("","Alimony","How much thereof were premiums for health and nursing care insurance?","Share health- / nursing care insurance",220.0,"calculation","");
+      }
+
+
+      //Answer No 171
+      else if(widget.CheckCompleteQuestion =="How much thereof were premiums for health and nursing care insurance?" && widget.CheckQuestion == "Share health- / nursing care insurance")
+      {
+        //Question No 172
+        return familyyesnoContainer("","Alimony","Have you received any reimbursements from your health or nursing care insurance?","Reimbursement health / nursing care insurance",220.0,"","");
+      }
+
+      //Answer No 172
+      else if(widget.CheckCompleteQuestion =="Have you received any reimbursements from your health or nursing care insurance?" && widget.CheckQuestion == "Reimbursement health / nursing care insurance")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+          //Question No 174
+          return familycalculationContainer("","Alimony","What share of the premiums for health and nursing care insurance entitled you to sick pay?","Share entitling to sick pay",220.0,"calculation","");
+        }
+
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+        //Question No 173
+          return familycalculationContainer("","Alimony","How much have you been reimbursed?","Refunded amount",220.0,"calculation","");
+
+        }
+
+      }
+
+      //Answer No 173
+      else if(widget.CheckCompleteQuestion =="How much have you been reimbursed?" && widget.CheckQuestion == "Refunded amount")
+      {
+        //Question No 174
+        return familycalculationContainer("","Alimony","What share of the premiums for health and nursing care insurance entitled you to sick pay?","Share entitling to sick pay",220.0,"calculation","");
+      }
+
+
+      //Answer No 174
+      else if(widget.CheckCompleteQuestion =="What share of the premiums for health and nursing care insurance entitled you to sick pay?" && widget.CheckQuestion == "Share entitling to sick pay")
+      {
+        //Question No 175
+        return familycalculationContainer("","Alimony","What is the tax identification number of the person receiving the alimony payments?","Tax ID of the payee",220.0,"tax","");
+      }
+
+
+      //Answer No 175
+      else if(widget.CheckCompleteQuestion =="What is the tax identification number of the person receiving the alimony payments?" && widget.CheckQuestion == "Tax ID of the payee")
+      {
+        return FinishCategory("Family Category","Health Category");
+
+      }
+
+
+
+      // Alimony to ex Ends
+
+      // ====== Alimony Paid Ends (Relation) ======= //
 
 
 
@@ -3783,6 +3990,12 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
   {
     Questions.familyAnimatedContainer = animatedcontainer;
     return FamilyTwoOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:280.0,additionalData:AdditionalData,multipleData:MultipleData);
+  }
+
+  Widget familymultithreeContainer(String Identity,String BigQuestion,String CompleteQuestion,String QuestionOption,List AnswerOption,List AnswerImages, double animatedcontainer, String AdditionalData, String MultipleData)
+  {
+    Questions.familyAnimatedContainer = animatedcontainer;
+    return FamilyMultiThreeContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,answerImages:AnswerImages,containerSize:370.0,additionalData:AdditionalData,multipleData:MultipleData);
   }
 }
 

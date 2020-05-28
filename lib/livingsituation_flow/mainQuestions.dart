@@ -1037,18 +1037,47 @@ Widget ChangeContainer()
         {
           for(int m=0;m<widget.CheckAnswer.length;m++) {
             if(widget.CheckAnswer[m] == "Have a disability") {
+
+              //For relation in health
+              Questions.haveDisabilityHealth = "Have a disability";
+
+              //For relation in Family
+              Questions.alimonyPaidFamily = "";
+
               return TaxReturn("",220.0);
             }
             else if(widget.CheckAnswer[m] == "Alimony paid") {
+
+              //For relation in health
+              Questions.haveDisabilityHealth = "";
+
+              //For relation in Family
+              Questions.alimonyPaidFamily = "Alimony paid";
+
               //question 8
               return PayAlimony("",220.0);
             }
             else if(widget.CheckAnswer[m] == "Survivor’s pension") {
+
+              //For relation in health
+              Questions.haveDisabilityHealth = "";
+
+              //For relation in Family
+              Questions.alimonyPaidFamily = "";
+
+
               //question 8
               return Text("");
               //return UnSupportedScreen();
             }
             else if(widget.CheckAnswer[m] == "None") {
+
+              //For relation in health
+              Questions.haveDisabilityHealth = "";
+
+              //For relation in Family
+              Questions.alimonyPaidFamily = "";
+
               //question 8
               //for Questions. LivingCheck=1 220.0
               //for Questions. LivingCheck=2 430.0

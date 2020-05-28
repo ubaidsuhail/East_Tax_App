@@ -330,4 +330,18 @@ static String financeProjectText = "";
 
 // ========= Finance Flow End ========= //
 
+
+// ===== Relations Start ======= //
+
+static String haveDisabilityHealth = "";
+static String alimonyPaidFamily = "";
+static String alimonyFamily = "";
+static String alimonyReceivedIncome = "Alimony received";
+static String alimonyIncomePayment = "";
+static String typeAlimonyPay = "";
+
+
+
+// ===== Relations End ======= //
+
 }
