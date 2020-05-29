@@ -473,9 +473,18 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
 
         else if(widget.CheckAnswer[0] == "Yes")
         {
+          //Agar living situation ka occupation ma minijob ai to phir ya sawal ai ga wrna flow wasa hi rhega
+          if(Questions.occupationMiniJobHome == "Minijob")
+            {
+              //Question No 175
+              return homeyesnoContainer("","Relocation","Have the costs for your relocation been reimbursed?","Costs reimbursed",220.0,"","");
+            }
+
+            else
+              {
           //Question No 63
           return homeyesnoContainer("","Relocation","Did you move for job-related reasons?","Due to work",220.0,"","");
-
+              }
         }
       }
 
@@ -3476,7 +3485,7 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       else if(widget.CheckCompleteQuestion =="What type of other costs did you had?" && widget.CheckQuestion == "Kind of costs")
       {
         //Question No 174
-        return homecalculationContainer("","Home","How much did you spend on that?","Amount other",220.0,"",Questions.secondHouseHoldText);
+        return homecalculationContainer("","Home","How much did you spend on that?","Amount other",220.0,"calculation",Questions.secondHouseHoldText);
 
       }
 
@@ -3497,10 +3506,6 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
 
 
 
-
-
-
-
       //Double housekeeping end
 
 
@@ -3510,6 +3515,44 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
 
       //============= Big Detail (Home End) =========================
 
+
+        //Minijob Relocation (Relation) Starts
+
+        //Answer No 175
+      else if(widget.CheckCompleteQuestion =="Have the costs for your relocation been reimbursed?" && widget.CheckQuestion == "Costs reimbursed")
+      {
+        //Question No 176
+        return homeyesnoContainer("","Relocation","Did you hire a moving company? ","Moving company",220.0,"","");
+      }
+
+      //Answer No 176
+      else if(widget.CheckCompleteQuestion =="Did you hire a moving company? " && widget.CheckQuestion == "Moving company")
+      {
+        if(widget.CheckAnswer[0] == "No")
+        {
+          //Question No 3
+          return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 430.0,"None","");
+        }
+
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+          //Question No 177
+          return homecalculationContainer("","Relocation","How much was the moving company? ","Amount moving company",220.0,"calculation",Questions.secondHouseHoldText);
+
+        }
+      }
+
+      //Answer No 177
+      else if(widget.CheckCompleteQuestion =="How much was the moving company? " && widget.CheckQuestion == "Amount moving company")
+      {
+        //Question No 3
+        return homemultitwooptionContainer("", "Household services", "Did you receive any of the following bills for your home?", "Utility bill, 'WEG' statement", ["Utility Bill", "Home owner statement ('WEG')", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png"], 430.0,"None","");
+      }
+
+
+
+
+      //Minijob Relocation (Relation) Ends
 
     }
   }

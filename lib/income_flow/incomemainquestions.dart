@@ -491,13 +491,43 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
           {
             if(widget.CheckAnswer[0] == "Had a mini job")
               {
-                 //Question No 4
-                return dateContainer("","Income","When did you sell the property?","Sale date",220.0);
+                //Agar sale of property select hoga living situation ma to phir ya sale date  wala sawal aiga wrna sales wala sawal aiga
+
+                if(Questions.salePropertyIncome == "Sale of property")
+                {
+                  //Question No 4
+                  return dateContainer("","Income","When did you sell the property?","Sale date",220.0);
+
+                }
+                else
+                {
+                  //Question No 10
+                  //For web domains 220.0
+                  //For Bitcoins 220.0
+                  //For other valuables 220.0
+                  // For None 430.0
+                  return multithreeContainer("", "Income", "Have you sold any assets?", "Sales", ["Web domains", "Bitcoins", "Other valuables", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png", "images/check.png"], 430.0);
+                }
+
               }
             else if(widget.CheckAnswer[0] == "I had no employer")
             {
-               //Question No 4
-              return dateContainer("","Income","When did you sell the property?","Sale date",220.0);
+              if(Questions.salePropertyIncome == "Sale of property")
+              {
+                //Question No 4
+                return dateContainer("","Income","When did you sell the property?","Sale date",220.0);
+
+              }
+              else
+              {
+                //Question No 10
+                //For web domains 220.0
+                //For Bitcoins 220.0
+                //For other valuables 220.0
+                // For None 430.0
+                return multithreeContainer("", "Income", "Have you sold any assets?", "Sales", ["Web domains", "Bitcoins", "Other valuables", "None"], ["images/disabilityoption.png", "images/alimonypaidoption.png", "images/survivorspension.png", "images/check.png"], 430.0);
+              }
+
             }
             else if(widget.CheckAnswer[0] == "I don't know")
             {

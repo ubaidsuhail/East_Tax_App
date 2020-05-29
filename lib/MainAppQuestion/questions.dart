@@ -274,7 +274,7 @@ static String peopleCareText = "";
 static int doctorTripLength = 0;
 static int totalDoctorTrip = 0;
 static String doctorTripText = "";
-static String livingChildrenRelation = "";
+
 
  void HealthAddAnswer(String UserIdentity, String details,String completequestion,String question,List answer,double containerheight)
  {
@@ -336,9 +336,16 @@ static String financeProjectText = "";
 static String haveDisabilityHealth = "";
 static String alimonyPaidFamily = "";
 static String alimonyFamily = "";
-static String alimonyReceivedIncome = "Alimony received";
+static String alimonyReceivedIncome = "";  //Alimony received
 static String alimonyIncomePayment = "";
 static String typeAlimonyPay = "";
+static String salePropertyIncome = "";   //Sale of property
+static String occupationStudyingFinance =""; //Studying
+static String childrenYesHealth = ""; // Childrenyes
+static String occupationMiniJobHome = "";  // Minijob
+
+
+
 
 
 

@@ -602,54 +602,145 @@ Widget ChangeContainer()
         else if(widget.CheckQuestion == "Occupation")
           {
             for(int m=0;m<widget.CheckAnswer.length;m++) {
+
               if(widget.CheckAnswer[m] == "Employed") {
+
+                // For Relation in Finance
+                Questions.occupationStudyingFinance ="";
+
+                //For Relation in Home
+                Questions.occupationMiniJobHome = "";
+
+//                // For relation in Finance
+//                Questions.occupationMiniJobFinance == "";
+
                 return ProfessionalCourseTraining("",430.0);
               }
 
               else if(widget.CheckAnswer[m] == "Minijob (e.g. 450€ basis)")
                 {
+                  // For Relation in Finance
+                  Questions.occupationStudyingFinance ="";
+
+                  //For Relation in Home
+                  Questions.occupationMiniJobHome = "Minijob";
+
+//                  // For relation in Finance
+//                  Questions.occupationMiniJobFinance == "Minijob";
+
                   return IncomeSources("",430.0);
                 }
               else if(widget.CheckAnswer[m] == "Studying")
               {
-                //For Part-time degree 430.0
-                //For Distance learning 430.0
-                //For Postgraduate studies 430.0
-                //For None 220.0
 
-                return ApplyStudies("",430.0);
+                // For Relation in Finance
+                Questions.occupationStudyingFinance ="Studying";
+
+                //For Relation in Home
+                Questions.occupationMiniJobHome = "";
+
+//                // For relation in Finance
+//                Questions.occupationMiniJobFinance == "";
+
+
+                //return ApplyStudies("",430.0);
+                return EarnMoney("",430.0);
               }
 
               else if(widget.CheckAnswer[m] == "Training")
               {
-                return KindOfTraining("",430.0);
+                // For Relation in Finance
+                Questions.occupationStudyingFinance ="";
+
+                //For Relation in Home
+                Questions.occupationMiniJobHome = "";
+
+//                // For relation in Finance
+//                Questions.occupationMiniJobFinance == "";
+
+                //return KindOfTraining("",430.0);
+                return EarnMoney("",430.0);
               }
               else if(widget.CheckAnswer[m] == "Self-employed")
               {
+                // For Relation in Finance
+                Questions.occupationStudyingFinance ="";
+
+                //For Relation in Home
+                Questions.occupationMiniJobHome = "";
+
+//                // For relation in Finance
+//                Questions.occupationMiniJobFinance == "";
+
                 //return UnSupportedScreen();
                 return Text("");
               }
               else if(widget.CheckAnswer[m] == "Own business")
               {
+                // For Relation in Finance
+                Questions.occupationStudyingFinance ="";
+
+                //For Relation in Home
+                Questions.occupationMiniJobHome = "";
+
+//                // For relation in Finance
+//                Questions.occupationMiniJobFinance == "";
+
                 //return UnSupportedScreen();
                 return Text("");
               }
               else if(widget.CheckAnswer[m] == "Forestry")
               {
+                // For Relation in Finance
+                Questions.occupationStudyingFinance ="";
+
+                //For Relation in Home
+                Questions.occupationMiniJobHome = "";
+
+//                // For relation in Finance
+//                Questions.occupationMiniJobFinance == "";
+
                 //return UnSupportedScreen();
                 return Text("");
               }
               else if(widget.CheckAnswer[m] == "Retired")
               {
+                // For Relation in Finance
+                Questions.occupationStudyingFinance ="";
+
+                //For Relation in Home
+                Questions.occupationMiniJobHome = "";
+
+//                // For relation in Finance
+//                Questions.occupationMiniJobFinance == "";
+
                 //return UnSupportedScreen();
                 return Text("");
               }
               else if(widget.CheckAnswer[m] == "Parental Leave")
               {
+                // For Relation in Finance
+                Questions.occupationStudyingFinance ="";
+
+                //For Relation in Home
+                Questions.occupationMiniJobHome = "";
+
+//                // For relation in Finance
+//                Questions.occupationMiniJobFinance == "";
+
                 return IncomeSources("",430.0);
               }
               else if(widget.CheckAnswer[m] == "Not working")
               {
+                // For Relation in Finance
+                Questions.occupationStudyingFinance ="";
+
+                //For Relation in Home
+                Questions.occupationMiniJobHome = "";
+
+//                // For relation in Finance
+//                Questions.occupationMiniJobFinance == "";
+
                 return IncomeSources("",430.0);
               }
             }
@@ -666,29 +757,57 @@ Widget ChangeContainer()
             }
 
 
-            // studying
-        else if(widget.CheckQuestion == "Type of study")
-        {
-          for(int m=0;m<widget.CheckAnswer.length;m++) {
-            if(widget.CheckAnswer[m] == "Part-time degree")
-            {
-              return IncomeSources("",430.0);
-            }
-            else if(widget.CheckAnswer[m] == "Distance learning") {
-              return IncomeSources("",430.0);
-            }
-            else if(widget.CheckAnswer[m] == "Postgraduate studies")
-            {
-              return IncomeSources("",430.0);
-            }
-            else if(widget.CheckAnswer[m] == "None")
-            {
-              return PreviousCompletedDegree("",430.0);
-            }
+            // studying and training(Earn Money)
+
+    else if(widget.CheckQuestion == "Income from")
+    {
+      return IncomeSources("",430.0);
+//      for(int m=0;m<widget.CheckAnswer.length;m++) {
+//        if(widget.CheckAnswer[m] == "Part-time degree")
+//        {
+//          return IncomeSources("",430.0);
+//        }
+//        else if(widget.CheckAnswer[m] == "Distance learning") {
+//          return IncomeSources("",430.0);
+//        }
+//        else if(widget.CheckAnswer[m] == "Postgraduate studies")
+//        {
+//          return IncomeSources("",430.0);
+//        }
+//        else if(widget.CheckAnswer[m] == "None")
+//        {
+//          return PreviousCompletedDegree("",430.0);
+//        }
+//
+//
+//      }
+    }
 
 
-          }
-        }
+
+
+//        else if(widget.CheckQuestion == "Type of study")
+//        {
+//          for(int m=0;m<widget.CheckAnswer.length;m++) {
+//            if(widget.CheckAnswer[m] == "Part-time degree")
+//            {
+//              return IncomeSources("",430.0);
+//            }
+//            else if(widget.CheckAnswer[m] == "Distance learning") {
+//              return IncomeSources("",430.0);
+//            }
+//            else if(widget.CheckAnswer[m] == "Postgraduate studies")
+//            {
+//              return IncomeSources("",430.0);
+//            }
+//            else if(widget.CheckAnswer[m] == "None")
+//            {
+//              return PreviousCompletedDegree("",430.0);
+//            }
+//
+//
+//          }
+//        }
 
         //previouslydegreecompleted
         else if(widget.CheckQuestion == "Previous degree" && (widget.CheckAnswer[0] == "Yes" || widget.CheckAnswer[0] == "No" ))
@@ -709,21 +828,46 @@ Widget ChangeContainer()
           for(int m=0;m<widget.CheckAnswer.length;m++) {
             if(widget.CheckAnswer[m] == "Letting and Leasing")
               {
+                //For relations with income
+                Questions.alimonyReceivedIncome = "";
+
+
+                //For relations with income
+                Questions.salePropertyIncome = "";
+
                 //return UnSupportedScreen();
                 return Text("");
               }
             else if(widget.CheckAnswer[m] == "Sale of Property") {
+
+              //For relations with income
+              Questions.alimonyReceivedIncome = "";
+
+              //For relations with income
+              Questions.salePropertyIncome = "Sale of property";
+
               //for yes 210 and for no 380.0
               return SaleProperty("",380.0);
             }
             else if(widget.CheckAnswer[m] == "Capital gains")
               {
+                //For relations with income
+                Questions.alimonyReceivedIncome = "";
+
+                //For relations with income
+                Questions.salePropertyIncome = "";
+
                 //for no 210 and for yes 430.0
                 return CapitalGain("",430.0);
               }
 
             else if(widget.CheckAnswer[m] == "Pensions")
             {
+              //For relations with income
+              Questions.alimonyReceivedIncome = "";
+
+              //For relations with income
+              Questions.salePropertyIncome = "";
 
               //return UnSupportedScreen();
               return Text("");
@@ -731,6 +875,15 @@ Widget ChangeContainer()
 
             else if(widget.CheckAnswer[m] == "Alimony")
             {
+
+              //For relations with income
+              Questions.alimonyReceivedIncome = "Alimony received";
+
+
+              //For relations with income
+              Questions.salePropertyIncome = "";
+
+
               //for Separated spouse 220.0
               // for Adult relatives 220.0
               //for child 220.0
@@ -1101,12 +1254,29 @@ Widget ChangeContainer()
               }
           }
 
-        else if(widget.CheckQuestion == "Children" && (widget.CheckAnswer[0] == "No" || widget.CheckAnswer[0] == "Yes"))
+        else if(widget.CheckQuestion == "Children")
         {
-          //For yes 220.0
-          //For living abroad no :420
-          //yaha last ma at home ka kaam bhi krna ha
-          return LiveAlone("",430.0);
+          if(widget.CheckAnswer[0] == "No") {
+
+            //For relation with health
+            Questions.childrenYesHealth = "";
+
+            //For yes 220.0
+            //For living abroad no :420
+            //yaha last ma at home ka kaam bhi krna ha
+            return LiveAlone("", 430.0);
+          }
+
+          else if(widget.CheckAnswer[0] == "Yes") {
+
+            //For relation with health
+            Questions.childrenYesHealth = "Childrenyes";
+
+            //For yes 220.0
+            //For living abroad no :420
+            //yaha last ma at home ka kaam bhi krna ha
+            return LiveAlone("", 430.0);
+          }
         }
         else if(widget.CheckQuestion == "Living alone")
         {
@@ -1188,50 +1358,72 @@ Widget ChangeContainer()
         if(widget.CheckQuestion == "Occupation")
   {
     for(int m=0;m<widget.CheckAnswer.length;m++) {
+
       if(widget.CheckAnswer[m] == "Employed") {
+
+
         return PartnerProfessionalCourseTraining("",430.0);
       }
 
       else if(widget.CheckAnswer[m] == "Minijob (e.g. 450€ basis)")
       {
+
         return PartnerIncomeSources("",430.0);
       }
       else if(widget.CheckAnswer[m] == "Studying")
       {
+
+
         //For Part-time degree 430.0
         //For Distance learning 430.0
         //For Postgraduate studies 430.0
         //For None 220.0
 
-        return PartnerApplyStudies("",430.0);
+        //return PartnerApplyStudies("",430.0);
+        return PartnerEarnMoney("",430.0);
       }
 
       else if(widget.CheckAnswer[m] == "Training")
       {
-        return PartnerKindOfTraining("",430.0);
+
+
+        return PartnerEarnMoney("",430.0);
+        //return PartnerKindOfTraining("",430.0);
       }
       else if(widget.CheckAnswer[m] == "Self-employed")
       {
+
+
         return UnSupportedScreen();
       }
       else if(widget.CheckAnswer[m] == "Own business")
       {
+
+
         return UnSupportedScreen();
       }
       else if(widget.CheckAnswer[m] == "Forestry")
       {
+
+
         return UnSupportedScreen();
       }
       else if(widget.CheckAnswer[m] == "Retired")
       {
+
+
         return UnSupportedScreen();
       }
       else if(widget.CheckAnswer[m] == "Parental Leave")
       {
+
+
         return PartnerIncomeSources("",430.0);
       }
       else if(widget.CheckAnswer[m] == "Not working")
       {
+
+
         return PartnerIncomeSources("",430.0);
       }
     }
@@ -1248,29 +1440,36 @@ Widget ChangeContainer()
   }
 
 
-  // studying
-  else if(widget.CheckQuestion == "Type of study")
-  {
-    for(int m=0;m<widget.CheckAnswer.length;m++) {
-      if(widget.CheckAnswer[m] == "Part-time degree")
-      {
-        return PartnerIncomeSources("",430.0);
-      }
-      else if(widget.CheckAnswer[m] == "Distance learning") {
-        return PartnerIncomeSources("",430.0);
-      }
-      else if(widget.CheckAnswer[m] == "Postgraduate studies")
-      {
-        return PartnerIncomeSources("",430.0);
-      }
-      else if(widget.CheckAnswer[m] == "None")
-      {
-        return PartnerPreviousCompletedDegree("",430.0);
-      }
+  // studying and training(Partner Earn money)
+        else if(widget.CheckQuestion == "Income from")
+        {
+          return PartnerIncomeSources("",430.0);
 
 
-    }
-  }
+        }
+
+//  else if(widget.CheckQuestion == "Type of study")
+//  {
+//    for(int m=0;m<widget.CheckAnswer.length;m++) {
+//      if(widget.CheckAnswer[m] == "Part-time degree")
+//      {
+//        return PartnerIncomeSources("",430.0);
+//      }
+//      else if(widget.CheckAnswer[m] == "Distance learning") {
+//        return PartnerIncomeSources("",430.0);
+//      }
+//      else if(widget.CheckAnswer[m] == "Postgraduate studies")
+//      {
+//        return PartnerIncomeSources("",430.0);
+//      }
+//      else if(widget.CheckAnswer[m] == "None")
+//      {
+//        return PartnerPreviousCompletedDegree("",430.0);
+//      }
+//
+//
+//    }
+//  }
 
   //previouslydegreecompleted
   else if(widget.CheckQuestion == "Previous degree" && (widget.CheckAnswer[0] == "Yes" || widget.CheckAnswer[0] == "No" ))
@@ -1843,10 +2042,18 @@ Widget OccupationContainer(String identity,double anContainer)
 
 
 
-  Widget ApplyStudies(String identity,double anContainer)
+//  Widget ApplyStudies(String identity,double anContainer)
+//  {
+//    Questions.animatedContainer = anContainer;
+//    return Container5(Identity:identity,BigQuestion:"Personal Details",Question:"Which of these apply to your studies?",QuestionOption:"Type of study",AnswerOption:["Part-time degree","Distance learning","Postgraduate studies","None"],Containersize:380.0);
+//  }
+
+  Widget EarnMoney(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container5(Identity:identity,BigQuestion:"Personal Details",Question:"Which of these apply to your studies?",QuestionOption:"Type of study",AnswerOption:["Part-time degree","Distance learning","Postgraduate studies","None"],Containersize:380.0);
+    //return Container5(Identity:identity,BigQuestion:"Personal Details",Question:"In 2019, did you earn money during any of the following?",QuestionOption:"Income from",AnswerOption:["In the course of a training","With dual studies","As a working student","With a part-time job","During an internship","with a minijob","No"],Containersize:380.0);
+    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"In 2019, did you earn money during any of the following?",QuestionOption:"Income from",AnswerOption:["In the course of a training","With dual studies","As a working student","With a part-time job","During an internship","with a minijob","No"],AnswerImages:["images/withspouseoption.png","images/withpartneroption.png","images/withchildren.png","images/flatshareoption.png","images/withparent.png","images/withparent.png","images/withparent.png"],Containersize:430.0);
+
   }
 
 
@@ -2052,10 +2259,18 @@ Widget OccupationContainer(String identity,double anContainer)
 
 
 
-  Widget PartnerApplyStudies(String identity,double anContainer)
+//  Widget PartnerApplyStudies(String identity,double anContainer)
+//  {
+//    Questions.animatedContainer = anContainer;
+//    return Container5(Identity:identity,BigQuestion:"Personal Details",Question:"Which of these apply to your partner’s studies?",QuestionOption:"Type of study",AnswerOption:["Part-time degree","Distance learning","Postgraduate studies","None"],Containersize:380.0);
+//  }
+
+  Widget PartnerEarnMoney(String identity,double anContainer)
   {
     Questions.animatedContainer = anContainer;
-    return Container5(Identity:identity,BigQuestion:"Personal Details",Question:"Which of these apply to your partner’s studies?",QuestionOption:"Type of study",AnswerOption:["Part-time degree","Distance learning","Postgraduate studies","None"],Containersize:380.0);
+    //return Container5(Identity:identity,BigQuestion:"Personal Details",Question:"In 2019, did you earn money during any of the following?",QuestionOption:"Income from",AnswerOption:["In the course of a training","With dual studies","As a working student","With a part-time job","During an internship","with a minijob","No"],Containersize:380.0);
+    return Container2(Identity:identity,BigQuestion:"Personal Details",Question:"In 2019, did your partner earn money during any of the following?",QuestionOption:"Income from",AnswerOption:["In the course of a training","With dual studies","As a working student","With a part-time job","During an internship","with a minijob","No"],AnswerImages:["images/withspouseoption.png","images/withpartneroption.png","images/withchildren.png","images/flatshareoption.png","images/withparent.png","images/withparent.png","images/withparent.png"],Containersize:430.0);
+
   }
 
 

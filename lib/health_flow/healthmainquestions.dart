@@ -1391,7 +1391,7 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
         else
           {
-        if(Questions.livingChildrenRelation == "Children")
+        if(Questions.childrenYesHealth == "Childrenyes")
         {
           //Question No 131
           return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
@@ -1433,7 +1433,7 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
         else
         {
-          if(Questions.livingChildrenRelation == "Children")
+          if(Questions.childrenYesHealth == "Childrenyes")
           {
             //Question No 131
             return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
@@ -1469,7 +1469,7 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       else
       {
-        if(Questions.livingChildrenRelation == "Children")
+        if(Questions.childrenYesHealth == "Childrenyes")
         {
           //Question No 131
           return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
@@ -2401,7 +2401,7 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-        if(Questions.livingChildrenRelation == "Children")
+        if(Questions.childrenYesHealth == "Childrenyes")
         {
           //Question No 131
           return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
@@ -2475,7 +2475,7 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-        if(Questions.livingChildrenRelation == "Children")
+        if(Questions.childrenYesHealth == "Childrenyes")
         {
           //Question No 131
           return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
@@ -2509,7 +2509,7 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-        if(Questions.livingChildrenRelation == "Children")
+        if(Questions.childrenYesHealth == "Childrenyes")
         {
           //Question No 131
           return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
@@ -2531,7 +2531,7 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     //Answer No 141
     else if(widget.CheckCompleteQuestion =="How much has been reimbursed?             " && widget.CheckQuestion == "Reimbursement amount")
     {
-      if(Questions.livingChildrenRelation == "Children")
+      if(Questions.childrenYesHealth == "Childrenyes")
       {
         //Question No 131
         return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");

@@ -438,12 +438,20 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
   {
     if(Questions.financeAnswerShow.length == 0)
     {
+
+//      if(Questions.occupationMiniJobFinance == "Minijob")
+//      {
+//        //Question No 76
+//        return financedifferentoptionContainer("","Finances","Does ${Questions.financeYourIdentity} job meet one of the following criteria?","Specialist activity",["Official","Managing director","Judge","Intern","Soldier","No"],220.0,"","",[]);
+//      }
+//      else
+//        {
       //Question No 1
       //For 'Riester' pension and No 430.0
       //For Private pension with capital voting rights 280.0
       //For rest 220.0
       return financemultipleoptionsContainer("","Finances","Did ${Questions.financeYouIdentity} have costs for any of the insurances listed here?","Pensions/Life insurances",["'Riester' pension","Rürup pension","Private pension with capital voting rights","Private pension without capital voting rights","Endowment insurance","Life insurance","Additional contribution statutory pension","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
-
+      //}
     }
 
     else{
@@ -456,9 +464,19 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
 
     if(widget.CheckAnswer[m] == "'Riester' pension")
     {
-     //Question No 2
+     //Agar living situation ki category ka occupation ma Studying select hoa to phir Question No 72 ai ga wrna wasa hi chalta rhega
+      if(Questions.occupationStudyingFinance == "Studying")
+      {
+        //Question No 72
+        return financecalculationContainer("","Finances","What was the sum of all contributions ${Questions.financeYouIdentity} have paid for all Riester contracts?","Total contribution",220.0,"calculation","",[]);
+      }
+
+      else
+        {
+          //Question No 2
       return financemultipleoptionsContainer("","Finances","Did ${Questions.financeYouIdentity} have costs for any other insurance policies?","Other contracts",["Additional unemployment insurance","Occupational disability","Car liability insurance","Liability","Legal protection","Professional liability","Accident insurance","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
 
+      }
     }
 
     else if(widget.CheckAnswer[m] == "Rürup pension")
@@ -1594,6 +1612,92 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
 
 
       // ====== Donations and membership fees Ends ======= //
+
+
+      //Studying 'Riester' Pension (Relation) Starts
+
+     //Answer No 72
+    else if(widget.CheckCompleteQuestion =="What was the sum of all contributions ${Questions.financeYouIdentity} have paid for all Riester contracts?" && widget.CheckQuestion == "Total contribution")
+    {
+
+     //Question No 73
+      return financecalculationContainer("","Finances","What was ${Questions.financeYourIdentity} total annual salary in ${2019 - 1}?","Salary in ${2019 - 1}",220.0,"calculation","",[]);
+
+
+        }
+
+    //Answer No 73
+    else if(widget.CheckCompleteQuestion =="What was ${Questions.financeYourIdentity} total annual salary in ${2019 - 1}?" && widget.CheckQuestion == "Salary in ${2019 - 1}")
+    {
+      //Question No 74
+      return financecalculationContainer("","Finances","If ${Questions.financeYouIdentity} received income replacement benefits in ${2019 - 1}, what was the total amount of these?","Compensation pay in ${2019 - 1}",280.0,"calculation","",[]);
+    }
+
+
+    //Answer no 74
+    else if(widget.CheckCompleteQuestion =="If ${Questions.financeYouIdentity} received income replacement benefits in ${2019 - 1}, what was the total amount of these?" && widget.CheckQuestion == "Compensation pay in ${2019 - 1}")
+    {
+      //Question No 75
+      return financetwooptionContainer("","Finances","For whom was the monthly child support assessed?","Child support receiver",["Me","The other parent"],430.0,"","",[]);
+
+    }
+
+    //Answer No 75
+    else if(widget.CheckCompleteQuestion =="For whom was the monthly child support assessed?" && widget.CheckQuestion == "Child support receiver")
+    {
+      //Question No 2
+      return financemultipleoptionsContainer("","Finances","Did ${Questions.financeYouIdentity} have costs for any other insurance policies?","Other contracts",["Additional unemployment insurance","Occupational disability","Car liability insurance","Liability","Legal protection","Professional liability","Accident insurance","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+
+    }
+
+      //Studying 'Riester' Pension (Relation) Ends
+
+
+      //Occupation Minijob Specialist Activity (Relation) Starts
+
+//      //Answer No 76
+//    else if(widget.CheckCompleteQuestion =="Does ${Questions.financeYourIdentity} job meet one of the following criteria?" && widget.CheckQuestion == "Specialist activity")
+//    {
+//      //Question No 77
+//      return financeyesnoContainer("","Finances","Are ${Questions.financeYouIdentity} exempted from statutory pension insurance?","Pension insurance exemption",220.0,"","",[]);
+//
+//    }
+//
+//    //Answer No 77
+//    else if(widget.CheckCompleteQuestion =="Are ${Questions.financeYouIdentity} exempted from statutory pension insurance?" && widget.CheckQuestion == "Pension insurance exemption")
+//    {
+//
+////      if(widget.CheckAnswer[0] == "No")
+////      {
+////
+////
+////      }
+////
+////      else if(widget.CheckAnswer[0] == "Yes")
+////      {
+////        //Question No 79
+////
+////      }
+//
+//      //Question No 78
+////        return financecalculationContainer("","Finances","How much salary as an official have ${Questions.financeYouIdentity} received in ${2019 - 1}?","",220.0,"calculation","",[]);
+//      //Question No 1
+//      return financemultipleoptionsContainer("","Finances","Did ${Questions.financeYouIdentity} have costs for any of the insurances listed here?","Pensions/Life insurances",["'Riester' pension","Rürup pension","Private pension with capital voting rights","Private pension without capital voting rights","Endowment insurance","Life insurance","Additional contribution statutory pension","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+//
+//    }
+//
+//
+//
+//
+//    //Answer No 78
+//    else if(widget.CheckCompleteQuestion =="How much salary as an official have ${Questions.financeYouIdentity} received in ${2019 - 1}?" && widget.CheckQuestion == "Salary in ${2019 - 1}")
+//    {
+//      //Question No 75
+//      return financetwooptionContainer("","Finances","For whom was the monthly child support assessed?","Child support receiver",["Me","The other parent"],430.0,"","",[]);
+//    }
+
+
+      //Occupation Minijob Specialist Activity (Relation) Ends
 
   }
 
