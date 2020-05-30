@@ -343,6 +343,11 @@ static String salePropertyIncome = "";   //Sale of property
 static String occupationStudyingFinance =""; //Studying
 static String childrenYesHealth = ""; // Childrenyes
 static String occupationMiniJobHome = "";  // Minijob
+static String occupationMiniJobFinance = "";  // Minijob
+static String specialistActivityFinance = "";
+static String educationCategoryEnable = "";
+static String workCategoryEnable = "";
+static String familyCategoryEnable = "";
 
 
 

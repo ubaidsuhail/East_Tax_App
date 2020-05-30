@@ -248,7 +248,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
 
 
 
-
+               Questions.workCategoryEnable == "Work" ?
                 GestureDetector(
                   onTap: (){
                     Work();
@@ -294,16 +294,21 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                     )
 
                 )
-                ),
+                )
+               :
+               Container(),
 
+                Questions.workCategoryEnable == "Work" ?
                 Divider(
                   height: 10.0,
                   thickness: 1.0,
-                ),
+                )
+                :
+                Container(),
 
 
 
-
+                Questions.educationCategoryEnable == "Education" ?
                 GestureDetector(
                   onTap: (){
                     Education();
@@ -349,14 +354,20 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                     )
 
                 )
-                ),
+                )
+                :
+                Container(),
 
+                Questions.educationCategoryEnable == "Education" ?
                 Divider(
                   height: 10.0,
                   thickness: 1.0,
-                ),
+                )
+                :
+                Container(),
 
 
+                Questions.familyCategoryEnable == "Family" ?
                 GestureDetector(
                     onTap: (){
                       Family();
@@ -403,12 +414,17 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
 
                     )
 
-                ),
+                )
+                :
+                Container(),
 
+                Questions.familyCategoryEnable == "Family" ?
                 Divider(
                   height: 10.0,
                   thickness: 1.0,
-                ),
+                )
+                :
+                Container(),
 
 
 

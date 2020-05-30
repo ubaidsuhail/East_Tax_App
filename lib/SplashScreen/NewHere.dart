@@ -218,41 +218,41 @@ class _newHereState extends State<newHere> {
 
                         //Family Flow Start//
 
-                        Questions.familyAnswerShow = [];
-                        Questions.childLength = 0;
-                        Questions.totalChild = 0;
-                        Questions.childText = "";
-                        Questions.childFirstName = "";
-                        Questions.childrenLive = "";
-                        Questions.childrenExpense = "";
-                        Questions.childAddressLength = 0;
-                        Questions.totalChildAddress = 0;
-                        Questions.childAddressText = "";
-                        Questions.kindergartenLength = 0;
-                        Questions.totalKindergarten = 0;
-                        Questions.kindergartenText = "";
-                        Questions.childMinderLength = 0;
-                        Questions.totalChildMinder = 0;
-                        Questions.childMinderText = "";
-                        Questions.nannyLength = 0;
-                        Questions.totalNanny = 0;
-                        Questions.nannyText = "";
-                        Questions.babySitterLength = 0;
-                        Questions.totalBabySitter = 0;
-                        Questions.babySitterText = "";
-                        Questions.aupairLength = 0;
-                        Questions.totalAupair = 0;
-                        Questions.aupairText = "";
-                        Questions.dayCareLength = 0;
-                        Questions.totalDayCare = 0;
-                        Questions.dayCareText = "";
-                        Questions.schoolLength = 0;
-                        Questions.totalSchool = 0;
-                        Questions.schoolText = "";
-
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-                          return FamilyMainQuestions(CheckCompleteQuestion:"How many children do you have?",CheckQuestion:"Number of children",CheckAnswer:[]);
-                        }));
+//                        Questions.familyAnswerShow = [];
+//                        Questions.childLength = 0;
+//                        Questions.totalChild = 0;
+//                        Questions.childText = "";
+//                        Questions.childFirstName = "";
+//                        Questions.childrenLive = "";
+//                        Questions.childrenExpense = "";
+//                        Questions.childAddressLength = 0;
+//                        Questions.totalChildAddress = 0;
+//                        Questions.childAddressText = "";
+//                        Questions.kindergartenLength = 0;
+//                        Questions.totalKindergarten = 0;
+//                        Questions.kindergartenText = "";
+//                        Questions.childMinderLength = 0;
+//                        Questions.totalChildMinder = 0;
+//                        Questions.childMinderText = "";
+//                        Questions.nannyLength = 0;
+//                        Questions.totalNanny = 0;
+//                        Questions.nannyText = "";
+//                        Questions.babySitterLength = 0;
+//                        Questions.totalBabySitter = 0;
+//                        Questions.babySitterText = "";
+//                        Questions.aupairLength = 0;
+//                        Questions.totalAupair = 0;
+//                        Questions.aupairText = "";
+//                        Questions.dayCareLength = 0;
+//                        Questions.totalDayCare = 0;
+//                        Questions.dayCareText = "";
+//                        Questions.schoolLength = 0;
+//                        Questions.totalSchool = 0;
+//                        Questions.schoolText = "";
+//
+//                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+//                          return FamilyMainQuestions(CheckCompleteQuestion:"How many children do you have?",CheckQuestion:"Number of children",CheckAnswer:[]);
+//                        }));
 
 
 
@@ -263,20 +263,20 @@ class _newHereState extends State<newHere> {
 
                         //Living Situation Flow Start //
 
-//                        if(Questions.yearfirstTime == 0)
-//                          {
-//                            Questions.yearfirstTime = 1;
-//                        Questions.answerShow = [];
-//                        Questions.LivingCheck = 0;
-//                        Questions.livcolContainer = 0;
-//                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-//                          return mainQuestions(CheckQuestion:"What is your official marital status in Germany?",CheckAnswer:[]);
-//                        }));
-//                          }
-//                          else
-//                            {
-//                              Navigator.pushNamed(context, 'allCategoryScreen');
-//                            }
+                        if(Questions.yearfirstTime == 0)
+                          {
+                            Questions.yearfirstTime = 1;
+                        Questions.answerShow = [];
+                        Questions.LivingCheck = 0;
+                        Questions.livcolContainer = 0;
+                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return mainQuestions(CheckQuestion:"What is your official marital status in Germany?",CheckAnswer:[]);
+                        }));
+                          }
+                          else
+                            {
+                              Navigator.pushNamed(context, 'allCategoryScreen');
+                            }
                         //Living Situation Flow End //
 
                       },

@@ -611,8 +611,13 @@ Widget ChangeContainer()
                 //For Relation in Home
                 Questions.occupationMiniJobHome = "";
 
-//                // For relation in Finance
-//                Questions.occupationMiniJobFinance == "";
+                //For Relation in Finance
+                Questions.occupationMiniJobFinance = "";
+                Questions.specialistActivityFinance = "";
+
+                //For Relation to Education Enable
+                Questions.educationCategoryEnable = "";
+
 
                 return ProfessionalCourseTraining("",430.0);
               }
@@ -625,8 +630,12 @@ Widget ChangeContainer()
                   //For Relation in Home
                   Questions.occupationMiniJobHome = "Minijob";
 
-//                  // For relation in Finance
-//                  Questions.occupationMiniJobFinance == "Minijob";
+                  //For Relation in Finance
+                  Questions.occupationMiniJobFinance = "Minijob";
+                  Questions.specialistActivityFinance = "";
+
+                  //For Relation to Education Enable
+                  Questions.educationCategoryEnable = "";
 
                   return IncomeSources("",430.0);
                 }
@@ -639,9 +648,13 @@ Widget ChangeContainer()
                 //For Relation in Home
                 Questions.occupationMiniJobHome = "";
 
-//                // For relation in Finance
-//                Questions.occupationMiniJobFinance == "";
+                //For Relation in Finance
+                Questions.occupationMiniJobFinance = "";
+                Questions.specialistActivityFinance = "";
 
+
+                //For Relation to Education Enable
+                Questions.educationCategoryEnable = "Education";
 
                 //return ApplyStudies("",430.0);
                 return EarnMoney("",430.0);
@@ -655,8 +668,12 @@ Widget ChangeContainer()
                 //For Relation in Home
                 Questions.occupationMiniJobHome = "";
 
-//                // For relation in Finance
-//                Questions.occupationMiniJobFinance == "";
+                //For Relation in Finance
+                Questions.occupationMiniJobFinance = "";
+                Questions.specialistActivityFinance = "";
+
+                //For Relation to Education Enable
+                Questions.educationCategoryEnable = "Education";
 
                 //return KindOfTraining("",430.0);
                 return EarnMoney("",430.0);
@@ -669,8 +686,12 @@ Widget ChangeContainer()
                 //For Relation in Home
                 Questions.occupationMiniJobHome = "";
 
-//                // For relation in Finance
-//                Questions.occupationMiniJobFinance == "";
+                //For Relation in Finance
+                Questions.occupationMiniJobFinance = "";
+                Questions.specialistActivityFinance = "";
+
+                //For Relation to Education Enable
+                Questions.educationCategoryEnable = "";
 
                 //return UnSupportedScreen();
                 return Text("");
@@ -683,8 +704,12 @@ Widget ChangeContainer()
                 //For Relation in Home
                 Questions.occupationMiniJobHome = "";
 
-//                // For relation in Finance
-//                Questions.occupationMiniJobFinance == "";
+                //For Relation in Finance
+                Questions.occupationMiniJobFinance = "";
+                Questions.specialistActivityFinance = "";
+
+                //For Relation to Education Enable
+                Questions.educationCategoryEnable = "";
 
                 //return UnSupportedScreen();
                 return Text("");
@@ -697,8 +722,12 @@ Widget ChangeContainer()
                 //For Relation in Home
                 Questions.occupationMiniJobHome = "";
 
-//                // For relation in Finance
-//                Questions.occupationMiniJobFinance == "";
+                //For Relation in Finance
+                Questions.occupationMiniJobFinance = "";
+                Questions.specialistActivityFinance = "";
+
+                //For Relation to Education Enable
+                Questions.educationCategoryEnable = "";
 
                 //return UnSupportedScreen();
                 return Text("");
@@ -711,8 +740,12 @@ Widget ChangeContainer()
                 //For Relation in Home
                 Questions.occupationMiniJobHome = "";
 
-//                // For relation in Finance
-//                Questions.occupationMiniJobFinance == "";
+                //For Relation in Finance
+                Questions.occupationMiniJobFinance = "";
+                Questions.specialistActivityFinance = "";
+
+                //For Relation to Education Enable
+                Questions.educationCategoryEnable = "";
 
                 //return UnSupportedScreen();
                 return Text("");
@@ -725,8 +758,12 @@ Widget ChangeContainer()
                 //For Relation in Home
                 Questions.occupationMiniJobHome = "";
 
-//                // For relation in Finance
-//                Questions.occupationMiniJobFinance == "";
+                //For Relation in Finance
+                Questions.occupationMiniJobFinance = "";
+                Questions.specialistActivityFinance = "";
+
+                //For Relation to Education Enable
+                Questions.educationCategoryEnable = "";
 
                 return IncomeSources("",430.0);
               }
@@ -738,16 +775,31 @@ Widget ChangeContainer()
                 //For Relation in Home
                 Questions.occupationMiniJobHome = "";
 
-//                // For relation in Finance
-//                Questions.occupationMiniJobFinance == "";
+                //For Relation in Finance
+                Questions.occupationMiniJobFinance = "";
+                Questions.specialistActivityFinance = "";
+
+                //For Relation to Education Enable
+                Questions.educationCategoryEnable = "";
 
                 return IncomeSources("",430.0);
               }
             }
           }
 
-          else if(widget.CheckQuestion == "Training" && (widget.CheckAnswer[0] == "Yes" || widget.CheckAnswer[0] == "No" ))
+          else if(widget.CheckQuestion == "Training")
             {
+              if(widget.CheckAnswer[0] == "No")
+                {
+                  //For Relation to Education Enable
+                  Questions.educationCategoryEnable = "";
+                }
+                else if(widget.CheckAnswer[0] == "Yes")
+                 {
+                   //For Relation to Education Enable
+                   Questions.educationCategoryEnable = "Education";
+                 }
+
               //for Letting and Leasing 220.0
               // for sale of property 220.0
               // for capital gain 220.0
@@ -1261,6 +1313,9 @@ Widget ChangeContainer()
             //For relation with health
             Questions.childrenYesHealth = "";
 
+            //For relation to enable family
+            Questions.familyCategoryEnable = "";
+
             //For yes 220.0
             //For living abroad no :420
             //yaha last ma at home ka kaam bhi krna ha
@@ -1271,6 +1326,9 @@ Widget ChangeContainer()
 
             //For relation with health
             Questions.childrenYesHealth = "Childrenyes";
+
+            //For relation to enable family
+            Questions.familyCategoryEnable = "Family";
 
             //For yes 220.0
             //For living abroad no :420

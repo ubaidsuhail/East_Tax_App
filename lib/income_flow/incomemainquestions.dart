@@ -491,8 +491,12 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
           {
             if(widget.CheckAnswer[0] == "Had a mini job")
               {
-                //Agar sale of property select hoga living situation ma to phir ya sale date  wala sawal aiga wrna sales wala sawal aiga
 
+                //For relation to enable work
+                Questions.workCategoryEnable = "";
+
+
+                //Agar sale of property select hoga living situation ma to phir ya sale date  wala sawal aiga wrna sales wala sawal aiga
                 if(Questions.salePropertyIncome == "Sale of property")
                 {
                   //Question No 4
@@ -512,6 +516,10 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
               }
             else if(widget.CheckAnswer[0] == "I had no employer")
             {
+              //For relation to enable work
+              Questions.workCategoryEnable = "";
+
+              //Agar sale of property select hoga living situation ma to phir ya sale date  wala sawal aiga wrna sales wala sawal aiga
               if(Questions.salePropertyIncome == "Sale of property")
               {
                 //Question No 4
@@ -531,6 +539,10 @@ class _HomeScreenState extends State<IncomeMainQuestions> {
             }
             else if(widget.CheckAnswer[0] == "I don't know")
             {
+
+              //For relation to enable work
+              Questions.workCategoryEnable = "Work";
+
                //Question No 144
               return yesnoContainer("","Income","Please request the 'Lohnsteuerbescheinigung' from your employer.","Request",220.0,"I have it already");
             }
