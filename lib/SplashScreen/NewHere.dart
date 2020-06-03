@@ -205,6 +205,9 @@ class _newHereState extends State<newHere> {
 //                        Questions.peopleCareLength = 0;
 //                        Questions.totalPeopleCare = 0;
 //                        Questions.peopleCareText = "";
+//                          Questions.doctorTripLength = 0;
+//                          Questions.totalDoctorTrip = 0;
+//                          Questions.doctorTripText = "";
 //
 //                        Navigator.push(context, MaterialPageRoute(builder: (context) {
 //                          return HealthMainQuestions(CheckCompleteQuestion:"What kind of basic health insurance did ${Questions.healthYouIdentity} have in 2019?",CheckQuestion:"Kind of health insurance",CheckAnswer:[]);

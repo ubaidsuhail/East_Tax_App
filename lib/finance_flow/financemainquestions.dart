@@ -438,6 +438,10 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
   {
     if(Questions.financeAnswerShow.length == 0)
     {
+      if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+      {
+        qu.FinanceAddAnswer("You", "","","", [], 60.0);
+      }
 
       if(Questions.occupationMiniJobFinance == "Minijob")
       {
@@ -1047,8 +1051,41 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No" || widget.CheckAnswer[0] == "Yes")
       {
+
+        //For Partner
+        if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.financePartner == true)
+      {
+
+        financePartner();
+
+        if(Questions.occupationMiniJobFinance == "Minijob")
+        {
+          //Question No 76
+          return financedifferentoptionContainer("","Finances","Does ${Questions.financeYourIdentity} job meet one of the following criteria?","Specialist activity",["Official","Managing director","Judge","Intern","Soldier","No"],220.0,"","",[]);
+        }
+        else
+        {
+          //Question No 1
+          return financemultipleoptionsContainer("","Finances","Did ${Questions.financeYouIdentity} have costs for any of the insurances listed here?","Pensions/Life insurances",["'Riester' pension","Rürup pension","Private pension with capital voting rights","Private pension without capital voting rights","Endowment insurance","Life insurance","Additional contribution statutory pension","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+        }
+
+      }
+
+      // For You & Partner
+      else if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          financeYouPartner();
+          //Question No 32(Partner)
+          return financemultipleoptionsContainer("","Donations and membership fees","Has one or both of you made a donation?","Donations",["National charities","Charitable institutions (EU/EEA)","Religious community","Political party","Voter group","Other tax privileged organizations","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+        }
+
+      else
+        {
         //Question No 32
         return financemultipleoptionsContainer("","Donations and membership fees","Have ${Questions.financeYouIdentity} made a donation?","Donations",["National charities","Charitable institutions (EU/EEA)","Religious community","Political party","Voter group","Other tax privileged organizations","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+      }
+
+
       }
 
     }
@@ -1067,8 +1104,39 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-        //Question No 32
-        return financemultipleoptionsContainer("","Donations and membership fees","Have ${Questions.financeYouIdentity} made a donation?","Donations",["National charities","Charitable institutions (EU/EEA)","Religious community","Political party","Voter group","Other tax privileged organizations","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+        //For Partner
+        if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.financePartner == true)
+        {
+
+          financePartner();
+
+          if(Questions.occupationMiniJobFinance == "Minijob")
+          {
+            //Question No 76
+            return financedifferentoptionContainer("","Finances","Does ${Questions.financeYourIdentity} job meet one of the following criteria?","Specialist activity",["Official","Managing director","Judge","Intern","Soldier","No"],220.0,"","",[]);
+          }
+          else
+          {
+            //Question No 1
+            return financemultipleoptionsContainer("","Finances","Did ${Questions.financeYouIdentity} have costs for any of the insurances listed here?","Pensions/Life insurances",["'Riester' pension","Rürup pension","Private pension with capital voting rights","Private pension without capital voting rights","Endowment insurance","Life insurance","Additional contribution statutory pension","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+          }
+
+        }
+
+        // For You & Partner
+        else if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          financeYouPartner();
+          //Question No 32(Partner)
+          return financemultipleoptionsContainer("","Donations and membership fees","Has one or both of you made a donation?","Donations",["National charities","Charitable institutions (EU/EEA)","Religious community","Political party","Voter group","Other tax privileged organizations","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+        }
+
+        else
+        {
+          //Question No 32
+          return financemultipleoptionsContainer("","Donations and membership fees","Have ${Questions.financeYouIdentity} made a donation?","Donations",["National charities","Charitable institutions (EU/EEA)","Religious community","Political party","Voter group","Other tax privileged organizations","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+        }
+
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -1082,15 +1150,46 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
     //Answer No 35
     else if(widget.CheckCompleteQuestion =="When did ${Questions.financeYouIdentity} change religion in 2019?" && widget.CheckQuestion == "Change of religion")
     {
-      //Question No 32
-      return financemultipleoptionsContainer("","Donations and membership fees","Have ${Questions.financeYouIdentity} made a donation?","Donations",["National charities","Charitable institutions (EU/EEA)","Religious community","Political party","Voter group","Other tax privileged organizations","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+      //For Partner
+      if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.financePartner == true)
+      {
+
+        financePartner();
+
+        if(Questions.occupationMiniJobFinance == "Minijob")
+        {
+          //Question No 76
+          return financedifferentoptionContainer("","Finances","Does ${Questions.financeYourIdentity} job meet one of the following criteria?","Specialist activity",["Official","Managing director","Judge","Intern","Soldier","No"],220.0,"","",[]);
+        }
+        else
+        {
+          //Question No 1
+          return financemultipleoptionsContainer("","Finances","Did ${Questions.financeYouIdentity} have costs for any of the insurances listed here?","Pensions/Life insurances",["'Riester' pension","Rürup pension","Private pension with capital voting rights","Private pension without capital voting rights","Endowment insurance","Life insurance","Additional contribution statutory pension","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+        }
+
+      }
+
+      // For You & Partner
+      else if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+      {
+        financeYouPartner();
+        //Question No 32(Partner)
+        return financemultipleoptionsContainer("","Donations and membership fees","Has one or both of you made a donation?","Donations",["National charities","Charitable institutions (EU/EEA)","Religious community","Political party","Voter group","Other tax privileged organizations","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+      }
+
+      else
+      {
+        //Question No 32
+        return financemultipleoptionsContainer("","Donations and membership fees","Have ${Questions.financeYouIdentity} made a donation?","Donations",["National charities","Charitable institutions (EU/EEA)","Religious community","Political party","Voter group","Other tax privileged organizations","No"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"No","",[]);
+      }
+
     }
 
 
     // ====== Donations and membership fees Starts ======= //
 
-
-    else if(widget.CheckCompleteQuestion =="Have ${Questions.financeYouIdentity} made a donation?" && widget.CheckQuestion == "Donations")
+//Answer No 32 and 32(Partner)
+    else if((widget.CheckCompleteQuestion =="Have ${Questions.financeYouIdentity} made a donation?" || widget.CheckCompleteQuestion =="Has one or both of you made a donation?") && widget.CheckQuestion == "Donations")
     {
 
       for(int m=0;m<widget.CheckAnswer.length;m++) {
@@ -1137,8 +1236,18 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
 
         else if(widget.CheckAnswer[m] == "No")
         {
-          return FinishCategory("Finances Category","End Categories");
-        }
+          //For You & Partner
+          if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+          {
+            //Question No 81
+            return financeyesnoContainer("","","Have you agreed on joint property?","Joint property",220.0,"","",[]);
+          }
+          else
+            {
+            return FinishCategory("Finances Category", "End Categories");
+          }
+
+            }
 
 
       }
@@ -1212,7 +1321,16 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
         }
         else
           {
-            return FinishCategory("Finances Category","End Categories");
+            //For You & Partner
+            if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+            {
+              //Question No 81
+              return financeyesnoContainer("","","Have you agreed on joint property?","Joint property",220.0,"","",[]);
+            }
+            else
+            {
+              return FinishCategory("Finances Category", "End Categories");
+            }
           }
 
     }
@@ -1270,7 +1388,16 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
       }
       else
       {
-        return FinishCategory("Finances Category","End Categories");
+        //For You & Partner
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 81
+          return financeyesnoContainer("","","Have you agreed on joint property?","Joint property",220.0,"","",[]);
+        }
+        else
+        {
+          return FinishCategory("Finances Category", "End Categories");
+        }
       }
 
     }
@@ -1347,7 +1474,16 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
       }
       else
       {
-        return FinishCategory("Finances Category","End Categories");
+        //For You & Partner
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 81
+          return financeyesnoContainer("","","Have you agreed on joint property?","Joint property",220.0,"","",[]);
+        }
+        else
+        {
+          return FinishCategory("Finances Category", "End Categories");
+        }
       }
 
     }
@@ -1448,7 +1584,16 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
       }
       else
       {
-        return FinishCategory("Finances Category","End Categories");
+        //For You & Partner
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 81
+          return financeyesnoContainer("","","Have you agreed on joint property?","Joint property",220.0,"","",[]);
+        }
+        else
+        {
+          return FinishCategory("Finances Category", "End Categories");
+        }
       }
 
     }
@@ -1522,7 +1667,16 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
       }
       else
       {
-        return FinishCategory("Finances Category","End Categories");
+        //For You & Partner
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 81
+          return financeyesnoContainer("","","Have you agreed on joint property?","Joint property",220.0,"","",[]);
+        }
+        else
+        {
+          return FinishCategory("Finances Category", "End Categories");
+        }
       }
 
     }
@@ -1598,7 +1752,16 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
       }
       else
       {
-        return FinishCategory("Finances Category","End Categories");
+        //For You & Partner
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 81
+          return financeyesnoContainer("","","Have you agreed on joint property?","Joint property",220.0,"","",[]);
+        }
+        else
+        {
+          return FinishCategory("Finances Category", "End Categories");
+        }
       }
 
     }
@@ -1807,6 +1970,15 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
 
       //Occupation Minijob Specialist Activity (Relation) Ends
 
+
+      //For You & Partner Starts
+    //Answer No 81
+    else if(widget.CheckCompleteQuestion =="Have you agreed on joint property?" && widget.CheckQuestion == "Joint property")
+    {
+      return FinishCategory("Finances Category", "End Categories");
+    }
+    //For You & Partner Ends
+
   }
 
 
@@ -1861,6 +2033,51 @@ class _FinanceMainQuestionsState extends State<FinanceMainQuestions> {
   {
     Questions.financeAnimatedContainer = animatedcontainer;
     return FinanceThreeOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:340.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
+  }
+
+  void financePartner()
+  {
+
+    qu.FinanceAddAnswer("Partner", "","","", [], 60.0);
+    Questions.financePartner=false;
+
+    Questions.financeYouIdentity = "your partner";
+    Questions.financeYourIdentity = "your partner";
+
+    Questions.specialistActivityFinance = "";
+
+
+  }
+
+
+  void financeYouPartner()
+  {
+
+    qu.FinanceAddAnswer("You & Partner", "","","", [], 60.0);
+
+    Questions.financeYouIdentity = "you";
+    Questions.financeYourIdentity = "your";
+
+    Questions.financeOrganizationLength = 0;
+    Questions.totalFinanceOrganization = 0;
+    Questions.financeOrganizationText = "";
+    Questions.financeEuOrganizationLength = 0;
+    Questions.totalFinanceEuOrganization = 0;
+    Questions.financeEuOrganizationText = "";
+    Questions.financeReligiousLength = 0;
+    Questions.totalFinanceReligious = 0;
+    Questions.financeReligiousText = "";
+    Questions.financePartyLength = 0;
+    Questions.totalFinanceParty = 0;
+    Questions.financePartyText = "";
+    Questions.financeVoterLength = 0;
+    Questions.totalFinanceVoter = 0;
+    Questions.financeVoterText = "";
+    Questions.financeProjectLength = 0;
+    Questions.totalFinanceProject = 0;
+    Questions.financeProjectText = "";
+
+
   }
 }
 

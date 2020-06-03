@@ -365,7 +365,9 @@ static String familyCategoryEnable = "";
 
 static bool incomePartner = true;
 static bool educationPartner = true;
-
+static bool healthPartner = true;
+static bool healthYouPartner = true;
+static bool financePartner = true;
 // ====== Partner End ======= //
 
 }

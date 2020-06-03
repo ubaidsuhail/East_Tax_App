@@ -440,6 +440,10 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
   {
     if(Questions.healthAnswerShow.length == 0)
     {
+      if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+      {
+        qu.HealthAddAnswer("You", "","","", [], 60.0);
+      }
       //Question No 1
       //For Statutory 220.0
       //For Private 220.0
@@ -1389,18 +1393,52 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
         }
 
+        //For partner
+        else if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.healthPartner == true)
+        {
+          healthPartner();
+         return healthmultithreeContainer("","Health","What kind of basic health insurance did ${Questions.healthYouIdentity} have in 2019?","Kind of health insurance",["Statutory","Private","Family","None of them"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"None of them","","");
+        }
+
         else
           {
+
         if(Questions.childrenYesHealth == "Childrenyes")
         {
-          //Question No 131
+          //For you & partner
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          healthYouPartner();
+          //Question No 131(Partner)
+          return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did you both have for your family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+        }
+
+      else
+        {
+            //Question No 131
           return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
         }
-        else{
-          //Question No 72
-          return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+
         }
+        else
+          {
+            //For you & partner
+          if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+          {
+            healthYouPartner();
+            //Question No 72
+            return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          }
+          else
+            {
+              //Question No 72
+              return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+            }
+
+          }
         }
+
+
 
       }
 
@@ -1431,18 +1469,52 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
         }
 
+        //For partner
+        else if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.healthPartner == true)
+        {
+          healthPartner();
+          return healthmultithreeContainer("","Health","What kind of basic health insurance did ${Questions.healthYouIdentity} have in 2019?","Kind of health insurance",["Statutory","Private","Family","None of them"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"None of them","","");
+        }
+
         else
         {
+
           if(Questions.childrenYesHealth == "Childrenyes")
           {
-            //Question No 131
-            return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+            //For you & partner
+            if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+            {
+              healthYouPartner();
+              //Question No 131(Partner)
+              return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did you both have for your family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+            }
+
+            else
+            {
+              //Question No 131
+              return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+            }
+
           }
-          else{
-            //Question No 72
-            return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          else
+          {
+            //For you & partner
+            if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+            {
+              healthYouPartner();
+              //Question No 72
+              return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+            }
+            else
+            {
+              //Question No 72
+              return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+            }
+
           }
         }
+
+
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -1467,40 +1539,88 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       }
 
-      else
+      //For partner
+      else if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.healthPartner == true)
       {
-        if(Questions.childrenYesHealth == "Childrenyes")
-        {
-          //Question No 131
-          return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
-        }
-        else{
-          //Question No 72
-          return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
-        }
+        healthPartner();
+        return healthmultithreeContainer("","Health","What kind of basic health insurance did ${Questions.healthYouIdentity} have in 2019?","Kind of health insurance",["Statutory","Private","Family","None of them"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"None of them","","");
       }
 
+      else
+      {
+
+        if(Questions.childrenYesHealth == "Childrenyes")
+        {
+          //For you & partner
+          if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+          {
+            healthYouPartner();
+            //Question No 131(Partner)
+            return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did you both have for your family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          }
+
+          else
+          {
+            //Question No 131
+            return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          }
+
+        }
+        else
+        {
+          //For you & partner
+          if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+          {
+            healthYouPartner();
+            //Question No 72
+            return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          }
+          else
+          {
+            //Question No 72
+            return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          }
+
+        }
+      }
     }
 
     // ====== Non work related Medical Expense Starts ====== //
 
 
-    //Answer No 72 and 131
-    else if((widget.CheckCompleteQuestion =="Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?" || widget.CheckCompleteQuestion =="What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?" ) && (widget.CheckQuestion == "Treatment costs" || widget.CheckQuestion == "Medical expenses"))
+    //Answer No 72 and 131 and 131(Partner)
+    else if((widget.CheckCompleteQuestion =="Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?" || widget.CheckCompleteQuestion =="What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?" || widget.CheckCompleteQuestion =="What special health costs did you both have for your family?" ) && (widget.CheckQuestion == "Treatment costs" || widget.CheckQuestion == "Medical expenses"))
     {
 
       for(int m=0;m<widget.CheckAnswer.length;m++) {
 
         if(widget.CheckAnswer[m] == "Prescribed medication")
         {
+          if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+          {
+
+            //Question No 73(Partner)
+            return healthcalculationContainer("","Your healthcare costs","How much did you both spend in total on medication?","Medication costs",220.0,"calculation","","");
+          }
+          else
+            {
          //Question No 73
           return healthcalculationContainer("","Your healthcare costs","How much did ${Questions.healthYouIdentity} spend in total on medication?","Medication costs",220.0,"calculation","","");
         }
+          }
 
         else if(widget.CheckAnswer[m] == "Treatment by a doctor")
         {
-         //Questiion No 77
-          return healthcalculationContainer("","Your healthcare costs","How much did ${Questions.healthYouIdentity} spend in total for medical treatments?","Treatment costs",220.0,"calculation","","");
+          if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+          {
+            //Question No 77(Partner)
+            return healthcalculationContainer("","Your healthcare costs","How much did you both spend in total for medical treatments?","Treatment costs",220.0,"calculation","","");
+          }
+          else
+          {
+            //Question No 77
+            return healthcalculationContainer("","Your healthcare costs","How much did ${Questions.healthYouIdentity} spend in total for medical treatments?","Treatment costs",220.0,"calculation","","");
+          }
         }
 
         else if(widget.CheckAnswer[m] == "Trips to the doctor or to treatments")
@@ -1512,9 +1632,18 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
         else if(widget.CheckAnswer[m] == "Operations")
         {
+          if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+          {
+            //Question No 80(Partner)
+            return healthcalculationContainer("","Your healthcare costs","How much have you both spent on operations in total?","Operation costs",220.0,"calculation","","");
+          }
+          else
+            {
         //Question No 80
           return healthcalculationContainer("","Your healthcare costs","What did ${Questions.healthYouIdentity} spend in total on operations?","Operation costs",220.0,"calculation","","");
-        }
+
+            }
+            }
 
         else if(widget.CheckAnswer[m] == "Glasses")
         {
@@ -1573,9 +1702,20 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
         else if(widget.CheckAnswer[m] == "None")
         {
-//Question No 76
+
+          if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+          {
+            //Question No 76(Partner)
+            return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+          }
+          else
+            {
+              //Question No 76
           return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
-        }
+
+            }
+
+            }
       }
     }
 
@@ -1584,7 +1724,7 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     // ====== Prescribed medication Starts ====== //
 
         //Answer No 73
-    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend in total on medication?" && widget.CheckQuestion == "Medication costs")
+    else if((widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend in total on medication?" || widget.CheckCompleteQuestion =="How much did you both spend in total on medication?") && widget.CheckQuestion == "Medication costs")
     {
       //Question No 74
       return healthyesnoContainer("","Your healthcare costs","Did ${Questions.healthYourIdentity} health insurance reimburse the cost of medication?","Reimbursements",220.0,"","","");
@@ -1597,8 +1737,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-        //Question No 76
-        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 76(Partner)
+          return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+        }
+        else
+        {
+          //Question No 76
+          return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+        }
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -1613,8 +1762,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     //Answer No 75
     else if(widget.CheckCompleteQuestion =="How much has been reimbursed?" && widget.CheckQuestion == "Reimbursement amount")
     {
-      //Question No 76
-      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+      if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+      {
+        //Question No 76(Partner)
+        return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+      }
+      else
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+      }
     }
    // ====== Prescribed medication Ends ====== //
 
@@ -1626,7 +1784,7 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
   // ====== Treatment by a doctor Starts ====== //
 
     //Answer No 77
-    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend in total for medical treatments?" && widget.CheckQuestion == "Treatment costs")
+    else if((widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend in total for medical treatments?" || widget.CheckCompleteQuestion =="How much did you both spend in total for medical treatments?") && widget.CheckQuestion == "Treatment costs")
     {
       //Question No 78
       return healthyesnoContainer("","Your healthcare costs","Did ${Questions.healthYourIdentity} health insurance reimburse your treatment costs?","Reimbursements",430.0,"","","");
@@ -1639,8 +1797,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-        //Question No 76
-        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 76(Partner)
+          return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+        }
+        else
+        {
+          //Question No 76
+          return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+        }
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -1655,8 +1822,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     //Answer No 79
     else if(widget.CheckCompleteQuestion ==" How much has been reimbursed?" && widget.CheckQuestion == "Reimbursement amount")
     {
-      //Question No 76
-      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+      if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+      {
+        //Question No 76(Partner)
+        return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+      }
+      else
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+      }
     }
 
   // ====== Treatment by a doctor Ends ====== //
@@ -1726,8 +1902,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
           }
           else
           {
-            //Question No 76
-            return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+            if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+            {
+              //Question No 76(Partner)
+              return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+            }
+            else
+            {
+              //Question No 76
+              return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+            }
           }
         }
 
@@ -1740,8 +1925,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
           }
           else
           {
-            //Question No 76
-            return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+            if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+            {
+              //Question No 76(Partner)
+              return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+            }
+            else
+            {
+              //Question No 76
+              return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+            }
           }
         }
 
@@ -1795,8 +1989,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
         }
         else
           {
-            //Question No 76
-            return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+            if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+            {
+              //Question No 76(Partner)
+              return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+            }
+            else
+            {
+              //Question No 76
+              return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+            }
           }
       }
 
@@ -1818,8 +2021,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
       }
       else
       {
-        //Question No 76
-        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 76(Partner)
+          return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+        }
+        else
+        {
+          //Question No 76
+          return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+        }
       }
     }
 
@@ -1834,8 +2046,8 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
  // ====== Operations Starts ====== //
 
 
-    //Answer No 80
-    else if(widget.CheckCompleteQuestion =="What did ${Questions.healthYouIdentity} spend in total on operations?" && widget.CheckQuestion == "Operation costs")
+    //Answer No 80 and 80(Partner)
+    else if((widget.CheckCompleteQuestion =="What did ${Questions.healthYouIdentity} spend in total on operations?" || widget.CheckCompleteQuestion =="How much have you both spent on operations in total?") && widget.CheckQuestion == "Operation costs")
     {
       //Question No 81
       return healthyesnoContainer("","Your healthcare costs","Did ${Questions.healthYourIdentity} health insurance reimburse the cost of operations?","Reimbursements",220.0,"","","");
@@ -1848,8 +2060,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-        //Question No 76
-        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 76(Partner)
+          return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+        }
+        else
+        {
+          //Question No 76
+          return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+        }
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -1864,8 +2085,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     //Answer No 82
     else if(widget.CheckCompleteQuestion =="  How much has been reimbursed?" && widget.CheckQuestion == "Reimbursement amount")
     {
-      //Question No 76
-      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+      if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+      {
+        //Question No 76(Partner)
+        return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+      }
+      else
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+      }
     }
 
 
@@ -1890,8 +2120,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-        //Question No 76
-        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 76(Partner)
+          return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+        }
+        else
+        {
+          //Question No 76
+          return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+        }
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -1905,8 +2144,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     //Answer No 85
     else if(widget.CheckCompleteQuestion =="How much has been  reimbursed?" && widget.CheckQuestion == "Reimbursement amount")
     {
-      //Question No 76
-      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+      if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+      {
+        //Question No 76(Partner)
+        return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+      }
+      else
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+      }
     }
 
 
@@ -1929,8 +2177,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-        //Question No 76
-        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 76(Partner)
+          return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+        }
+        else
+        {
+          //Question No 76
+          return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+        }
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -1944,8 +2201,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     //Answer No 88
     else if(widget.CheckCompleteQuestion =="How much has been reimburse?" && widget.CheckQuestion == "Reimbursement amount")
     {
-      //Question No 76
-      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+      if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+      {
+        //Question No 76(Partner)
+        return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+      }
+      else
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+      }
     }
 
 
@@ -1969,8 +2235,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-        //Question No 76
-        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 76(Partner)
+          return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+        }
+        else
+        {
+          //Question No 76
+          return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+        }
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -1985,8 +2260,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     //Answer No 91
     else if(widget.CheckCompleteQuestion =="How much has reimburse?" && widget.CheckQuestion == "Reimbursement amount")
     {
-      //Question No 76
-      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+      if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+      {
+        //Question No 76(Partner)
+        return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+      }
+      else
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+      }
     }
 
 
@@ -2009,8 +2293,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-        //Question No 76
-        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 76(Partner)
+          return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+        }
+        else
+        {
+          //Question No 76
+          return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+        }
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -2024,8 +2317,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     //Answer No 94
     else if(widget.CheckCompleteQuestion =="How much has been reimbursed? " && widget.CheckQuestion == "Reimbursement amount")
     {
-      //Question No 76
-      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+      if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+      {
+        //Question No 76(Partner)
+        return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+      }
+      else
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+      }
     }
 
     // ====== Dental treatment Ends ====== //
@@ -2048,8 +2350,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-        //Question No 76
-        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 76(Partner)
+          return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+        }
+        else
+        {
+          //Question No 76
+          return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+        }
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -2063,8 +2374,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     //Answer No 97
     else if(widget.CheckCompleteQuestion =="How much has been reimbursed?  " && widget.CheckQuestion == "Reimbursement amount")
     {
-      //Question No 76
-      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+      if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+      {
+        //Question No 76(Partner)
+        return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+      }
+      else
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+      }
     }
 
 
@@ -2087,8 +2407,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-        //Question No 76
-        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 76(Partner)
+          return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+        }
+        else
+        {
+          //Question No 76
+          return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+        }
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -2103,8 +2432,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     //Answer No 100
     else if(widget.CheckCompleteQuestion =="How much has been reimbursed?   " && widget.CheckQuestion == "Reimbursement amount")
     {
-      //Question No 76
-      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+      if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+      {
+        //Question No 76(Partner)
+        return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+      }
+      else
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+      }
     }
 
 
@@ -2127,8 +2465,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-        //Question No 76
-        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 76(Partner)
+          return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+        }
+        else
+        {
+          //Question No 76
+          return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+        }
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -2142,8 +2489,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     //Answer No 103
     else if(widget.CheckCompleteQuestion =="How much has been reimbursed?    " && widget.CheckQuestion == "Reimbursement amount")
     {
-      //Question No 76
-      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+      if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+      {
+        //Question No 76(Partner)
+        return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+      }
+      else
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+      }
     }
 
  // ====== Nursing care Ends ====== //
@@ -2165,8 +2521,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-        //Question No 76
-        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 76(Partner)
+          return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+        }
+        else
+        {
+          //Question No 76
+          return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+        }
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -2180,8 +2545,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     //Answer No 106
     else if(widget.CheckCompleteQuestion =="How much has been reimbursed?     " && widget.CheckQuestion == "Refund amount")
     {
-      //Question No 76
-      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+      if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+      {
+        //Question No 76(Partner)
+        return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+      }
+      else
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+      }
     }
 
 
@@ -2210,8 +2584,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
-        //Question No 76
-        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",220.0,"","","");
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 76(Partner)
+          return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+        }
+        else
+        {
+          //Question No 76
+          return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+        }
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -2225,8 +2608,17 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     //Answer No 110
     else if(widget.CheckCompleteQuestion =="How much has been reimbursed?" && widget.CheckQuestion == "Health insurance reimbursement")
     {
-      //Question No 76
-      return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+      if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+      {
+        //Question No 76(Partner)
+        return healthyesnoContainer("","Care of others","Did either of you nurse a close person at home?","Nursing",430.0,"","","");
+      }
+      else
+      {
+        //Question No 76
+        return healthyesnoContainer("","Care of others","Did ${Questions.healthYouIdentity} nurse another person at home without payment?","Free care of others",430.0,"","","");
+
+      }
     }
 
 
@@ -2236,14 +2628,23 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
 
 
-  //Answer No 76
-    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYouIdentity} nurse another person at home without payment?" && widget.CheckQuestion == "Free care of others")
+  //Answer No 76 and 76 (Partner)
+    else if((widget.CheckCompleteQuestion =="Did ${Questions.healthYouIdentity} nurse another person at home without payment?" || widget.CheckCompleteQuestion =="Did either of you nurse a close person at home?") && (widget.CheckQuestion == "Free care of others" || widget.CheckQuestion == "Nursing") )
     {
 
       if(widget.CheckAnswer[0] == "No")
       {
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 119(Partner)
+          return healthyesnoContainer("","Costs funeral","Did one or both of you have any funeral costs?","Costs funerals both",220.0,"","","");
+        }
+        else
+          {
         //Question No 119
         return healthyesnoContainer("","Costs funeral","Did ${Questions.healthYouIdentity} have any funeral costs?","Funeral costs",220.0,"","","");
+      }
+
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -2315,8 +2716,16 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
          }
          else
            {
-             //Question No 119
-             return healthyesnoContainer("","Costs funeral","Did ${Questions.healthYouIdentity} have any funeral costs?","Funeral costs",220.0,"","","");
+             if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+             {
+               //Question No 119(Partner)
+               return healthyesnoContainer("","Costs funeral","Did one or both of you have any funeral costs?","Costs funerals both",220.0,"","","");
+             }
+             else
+             {
+               //Question No 119
+               return healthyesnoContainer("","Costs funeral","Did ${Questions.healthYouIdentity} have any funeral costs?","Funeral costs",220.0,"","","");
+             }
        }
       }
 
@@ -2339,13 +2748,21 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
       }
       else
       {
-        //Question No 119
-        return healthyesnoContainer("","Costs funeral","Did ${Questions.healthYouIdentity} have any funeral costs?","Funeral costs",220.0,"","","");
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 119(Partner)
+          return healthyesnoContainer("","Costs funeral","Did one or both of you have any funeral costs?","Costs funerals both",220.0,"","","");
+        }
+        else
+        {
+          //Question No 119
+          return healthyesnoContainer("","Costs funeral","Did ${Questions.healthYouIdentity} have any funeral costs?","Funeral costs",220.0,"","","");
+        }
       }
     }
 
-    //Answer No 119
-    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYouIdentity} have any funeral costs?" && widget.CheckQuestion == "Funeral costs")
+    //Answer No 119 and 119(Partner)
+    else if((widget.CheckCompleteQuestion =="Did ${Questions.healthYouIdentity} have any funeral costs?" || widget.CheckCompleteQuestion =="Did one or both of you have any funeral costs?") && (widget.CheckQuestion == "Funeral costs" || widget.CheckQuestion == "Costs funerals both"))
     {
 
       if(widget.CheckAnswer[0] == "No")
@@ -2401,15 +2818,51 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
 
       if(widget.CheckAnswer[0] == "No")
       {
+        //For partner
+      if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.healthPartner == true)
+      {
+        healthPartner();
+        return healthmultithreeContainer("","Health","What kind of basic health insurance did ${Questions.healthYouIdentity} have in 2019?","Kind of health insurance",["Statutory","Private","Family","None of them"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"None of them","","");
+      }
+
+      else
+      {
+
         if(Questions.childrenYesHealth == "Childrenyes")
         {
-          //Question No 131
-          return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          //For you & partner
+          if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+          {
+            healthYouPartner();
+            //Question No 131(Partner)
+            return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did you both have for your family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          }
+
+          else
+          {
+            //Question No 131
+            return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          }
+
         }
-        else{
-          //Question No 72
-          return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+        else
+        {
+          //For you & partner
+          if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+          {
+            healthYouPartner();
+            //Question No 72
+            return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          }
+          else
+          {
+            //Question No 72
+            return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          }
+
         }
+      }
+
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -2462,40 +2915,89 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     //Answer No 137
     else if(widget.CheckCompleteQuestion =="Does one of these apply to ${Questions.healthYouIdentity}?" && widget.CheckQuestion == "Criteria")
     {
-      //Question No 138
+      //For partner
+    if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.healthPartner == true)
+    {
+      healthPartner();
+      return healthmultithreeContainer("","Health","What kind of basic health insurance did ${Questions.healthYouIdentity} have in 2019?","Kind of health insurance",["Statutory","Private","Family","None of them"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png"],220.0,"None of them","","");
+    }
+
+    //For you & partner
+    else if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+    {
+      healthYouPartner();
+      //Question No 138(Partner)
+      return healthyesnoContainer("","Additional disability costs","Did one or both of you have to change your home in 2019 due to disability?","Home Modifications",220.0,"","","");
+    }
+
+    else
+      {
+    //Question No 138
       //For No 430.0
       //For Yes 220.0
       return healthyesnoContainer("","Additional disability costs","Did ${Questions.healthYouIdentity} have to make any changes to ${Questions.healthYourIdentity} home in 2019 due to ${Questions.healthYourIdentity} disability?","Home Modifications",220.0,"","","");
     }
+    }
 
 
-    //Answer No 138
-    else if(widget.CheckCompleteQuestion =="Did ${Questions.healthYouIdentity} have to make any changes to ${Questions.healthYourIdentity} home in 2019 due to ${Questions.healthYourIdentity} disability?" && widget.CheckQuestion == "Home Modifications")
+    //Answer No 138 And Answer No 138 (Partner)
+    else if((widget.CheckCompleteQuestion =="Did ${Questions.healthYouIdentity} have to make any changes to ${Questions.healthYourIdentity} home in 2019 due to ${Questions.healthYourIdentity} disability?" || widget.CheckCompleteQuestion =="Did one or both of you have to change your home in 2019 due to disability?") && widget.CheckQuestion == "Home Modifications")
     {
 
       if(widget.CheckAnswer[0] == "No")
       {
         if(Questions.childrenYesHealth == "Childrenyes")
         {
-          //Question No 131
-          return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          //For you & partner
+          if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+          {
+            //Question No 131(Partner)
+            return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did you both have for your family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          }
+
+          else
+          {
+            //Question No 131
+            return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          }
+
         }
-        else{
-          //Question No 72
-          return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+        else
+        {
+          //For you & partner
+          if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+          {
+            //Question No 72
+            return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          }
+          else
+          {
+            //Question No 72
+            return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          }
+
         }
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
       {
-        //Question No 139
-        return healthcalculationContainer("","Additional disability costs","How much did ${Questions.healthYouIdentity} spend in total in 2019 for changes made to ${Questions.healthYourIdentity} home?","Home renovation costs",220.0,"calculation","","");
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+          {
+            //Question No 139(Partner)
+            return healthcalculationContainer("","Additional disability costs","How much were the total costs in 2019 for changes made to your home?","Home renovation costs",220.0,"calculation","","");
+          }
+          else
+            {
+              //Question No 139
+              return healthcalculationContainer("","Additional disability costs","How much did ${Questions.healthYouIdentity} spend in total in 2019 for changes made to ${Questions.healthYourIdentity} home?","Home renovation costs",220.0,"calculation","","");
+            }
+
       }
 
     }
 
-    //Answer No 139
-    else if(widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend in total in 2019 for changes made to ${Questions.healthYourIdentity} home?" && widget.CheckQuestion == "Home renovation costs")
+    //Answer No 139 and Answer No 139(Partner)
+    else if((widget.CheckCompleteQuestion =="How much did ${Questions.healthYouIdentity} spend in total in 2019 for changes made to ${Questions.healthYourIdentity} home?" || widget.CheckCompleteQuestion =="How much were the total costs in 2019 for changes made to your home?") && widget.CheckQuestion == "Home renovation costs")
     {
       //Question No 140
       //For No 430.0
@@ -2511,12 +3013,35 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
       {
         if(Questions.childrenYesHealth == "Childrenyes")
         {
-          //Question No 131
-          return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          //For you & partner
+          if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+          {
+            //Question No 131(Partner)
+            return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did you both have for your family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          }
+
+          else
+          {
+            //Question No 131
+            return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          }
+
         }
-        else{
-          //Question No 72
-          return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+        else
+        {
+          //For you & partner
+          if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+          {
+
+            //Question No 72
+            return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          }
+          else
+          {
+            //Question No 72
+            return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+          }
+
         }
       }
 
@@ -2533,12 +3058,34 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     {
       if(Questions.childrenYesHealth == "Childrenyes")
       {
-        //Question No 131
-        return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+        //For you & partner
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 131(Partner)
+          return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did you both have for your family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+        }
+
+        else
+        {
+          //Question No 131
+          return healthmultipleoptionsContainer("","Your healthcare costs","What special health costs did ${Questions.healthYouIdentity} have for ${Questions.healthYourIdentity} family?","Medical expenses",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+        }
+
       }
-      else{
-        //Question No 72
-        return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+      else
+      {
+        //For you & partner
+        if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          //Question No 72
+          return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+        }
+        else
+        {
+          //Question No 72
+          return healthmultipleoptionsContainer("","Your healthcare costs","Which non work related medical expenses would ${Questions.healthYouIdentity} like to write off?","Treatment costs",["Prescribed medication","Treatment by a doctor","Trips to the doctor or to treatments","Operations","Glasses","Contact lenses","Hearing aid","Dental treatment","Wheelchair / walking aid","Hospital stay","Nursing care","Health course","Other costs","None"],["images/disabilityoption.png","images/alimonypaidoption.png","images/survivorspension.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png","images/check.png"],220.0,"None","","");
+        }
+
       }
     }
 
@@ -2606,6 +3153,53 @@ class _HealthMainQuestionsState extends State<HealthMainQuestions> {
     Questions.healthAnimatedContainer = animatedcontainer;
     return HealthDifferentOptionContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,containerSize:420.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
   }
+
+
+
+   void healthPartner()
+  {
+
+    qu.HealthAddAnswer("Partner", "","","", [], 60.0);
+    Questions.healthPartner=false;
+
+    Questions.healthYouIdentity = "your partner";
+    Questions.healthYourIdentity = "your partner";
+
+    Questions.healthChildrenLength = 0;
+    Questions.totalHealthChildren = 0;
+    Questions.healthChildrenText = "";
+
+    Questions.peopleCareLength = 0;
+    Questions.totalPeopleCare = 0;
+    Questions.peopleCareText = "";
+    Questions.doctorTripLength = 0;
+    Questions.totalDoctorTrip = 0;
+    Questions.doctorTripText = "";
+
+  }
+
+  void healthYouPartner()
+  {
+
+    qu.HealthAddAnswer("You & Partner", "","","", [], 60.0);
+    Questions.healthYouPartner=false;
+
+    Questions.healthYouIdentity = "you";
+    Questions.healthYourIdentity = "your";
+
+
+    Questions.peopleCareLength = 0;
+    Questions.totalPeopleCare = 0;
+    Questions.peopleCareText = "";
+    Questions.doctorTripLength = 0;
+    Questions.totalDoctorTrip = 0;
+    Questions.doctorTripText = "";
+
+  }
+
+
+
+
 }
 
 

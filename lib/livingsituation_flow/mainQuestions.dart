@@ -1896,6 +1896,7 @@ Widget ChangeContainer()
 
   else if(widget.CheckQuestion == "Tax return filed" && (widget.CheckAnswer[0] == "No" || widget.CheckAnswer[0] == "Yes"))
   {
+
     Questions.livcolContainer = 1;
     qu.addAnswer("You & Partner", "", "", [], 60.0);
 
@@ -1905,6 +1906,8 @@ Widget ChangeContainer()
 
         else if(widget.CheckQuestion == "Children" && (widget.CheckAnswer[0] == "No" || widget.CheckAnswer[0] == "Yes"))
         {
+          //For relation with health(Partner)
+          Questions.childrenYesHealth = "Childrenyes";
 
           return PartnerLiveTogetherEntireYear("",220.0);
         }
