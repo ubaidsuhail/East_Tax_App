@@ -195,27 +195,27 @@ class _EducationDateContainerState extends State<EducationDateContainer> {
 
   void AddData()
   {
-    if(widget.completeQuestion == "When did you buy the desk?" && widget.questionOption == "Purchase date")
+    if(widget.completeQuestion == "When did ${Questions.educationYouIdentity} buy the desk?" && widget.questionOption == "Purchase date")
   {
     Questions.expFurnitureLength += 1;
   }
-    else if(widget.completeQuestion == "When did you buy the office chair?" && widget.questionOption == "Purchase date")
+    else if(widget.completeQuestion == "When did ${Questions.educationYouIdentity} buy the office chair?" && widget.questionOption == "Purchase date")
     {
       Questions.expFurnitureLength += 1;
     }
-    else if(widget.completeQuestion == "When did you buy the bookshelf?" && widget.questionOption == "Purchase date")
+    else if(widget.completeQuestion == "When did ${Questions.educationYouIdentity} buy the bookshelf?" && widget.questionOption == "Purchase date")
     {
       Questions.expFurnitureLength += 1;
     }
-    else if(widget.completeQuestion == "When did you buy the lamp?" && widget.questionOption == "Purchase date")
+    else if(widget.completeQuestion == "When did ${Questions.educationYouIdentity} buy the lamp?" && widget.questionOption == "Purchase date")
     {
       Questions.expFurnitureLength += 1;
     }
-    else if(widget.completeQuestion == "When did you buy the filing cabinet?" && widget.questionOption == "Purchase date")
+    else if(widget.completeQuestion == "When did ${Questions.educationYouIdentity} buy the filing cabinet?" && widget.questionOption == "Purchase date")
     {
       Questions.expFurnitureLength += 1;
     }
-    else if(widget.completeQuestion == "When did you buy the ${Questions.educationOtherFurniture}?" && widget.questionOption == "Purchase date")
+    else if(widget.completeQuestion == "When did ${Questions.educationYouIdentity} buy the ${Questions.educationOtherFurniture}?" && widget.questionOption == "Purchase date")
     {
       Questions.expFurnitureLength += 1;
     }

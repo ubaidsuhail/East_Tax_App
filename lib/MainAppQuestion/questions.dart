@@ -54,6 +54,8 @@ class Questions{
 
  static List incomeAnswerShow=[];
  static double incomeAnimatedContainer;
+ static String incomeYouIdentity = "you";
+ static String incomeYourIdentity = "your";
  static int domainLength = 0;
  static int totalDomain = 0;
  static String serviceName = "";
@@ -159,6 +161,8 @@ static String otherCostExpense = "";
 
 static List educationAnswerShow=[];
 static double educationAnimatedContainer;
+static String educationYouIdentity = "you";
+static String educationYourIdentity = "your";
 static int trainingLength = 1;
 static int totalTraining = 0;
 static String trainingText = "TRAINING ${trainingLength}";
@@ -355,5 +359,13 @@ static String familyCategoryEnable = "";
 
 
 // ===== Relations End ======= //
+
+
+// ====== Partner Start ====== //
+
+static bool incomePartner = true;
+static bool educationPartner = true;
+
+// ====== Partner End ======= //
 
 }

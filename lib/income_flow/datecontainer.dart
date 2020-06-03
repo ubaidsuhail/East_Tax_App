@@ -195,7 +195,7 @@ class _Container7State extends State<DateContainer> {
   {
     print("ddate is"+dates.text.toString());
 
-   if(widget.completeQuestion == "When did you sell the domain?" && widget.questionOption == "Date of sale: domain")
+   if(widget.completeQuestion == "When did ${Questions.incomeYouIdentity} sell the domain?" && widget.questionOption == "Date of sale: domain")
    {
      Questions.domainLength +=1;
        qu.IncomeAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion, widget.questionOption, [dates.text.toString()], 55.0);
@@ -206,7 +206,7 @@ class _Container7State extends State<DateContainer> {
        }));
      }
 
-    else if(widget.completeQuestion == "When did you sell the "+ Questions.singleValuableName + " ?" && widget.questionOption == "Date of sale")
+    else if(widget.completeQuestion == "When did ${Questions.incomeYouIdentity} sell the "+ Questions.singleValuableName + " ?" && widget.questionOption == "Date of sale")
     {
       Questions.valuableLength +=1;
       qu.IncomeAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion, widget.questionOption, [dates.text.toString()], 55.0);

@@ -389,7 +389,7 @@ class _EducationMultipleOptionsContainerState extends State<EducationMultipleOpt
 
 
 
-    if(widget.completeQuestion == "What education costs did you have?" && widget.questionOption == "Type of costs" && data[0] == "None of these")
+    if(widget.completeQuestion == "What education costs did ${Questions.educationYouIdentity} have?" && widget.questionOption == "Type of costs" && data[0] == "None of these")
     {
       Questions.trainingLength += 1;
       Questions.trainingText ="TRAINING "+Questions.trainingLength.toString();
@@ -402,7 +402,7 @@ class _EducationMultipleOptionsContainerState extends State<EducationMultipleOpt
       }));
     }
 
-   else if(widget.completeQuestion == "How did you get there?" && widget.questionOption == "Means of transport" && (data[0] == "By car" || data[0] == "Bicycle" || data[0] == "on foot"))
+   else if(widget.completeQuestion == "How did ${Questions.educationYouIdentity} get there?" && widget.questionOption == "Means of transport" && (data[0] == "By car" || data[0] == "Bicycle" || data[0] == "on foot"))
     {
       Questions.schoolRouteLength += 1;
       Questions.schoolRouteText ="ROUTE "+Questions.schoolRouteLength.toString();
@@ -415,7 +415,7 @@ class _EducationMultipleOptionsContainerState extends State<EducationMultipleOpt
       }));
     }
 
-    else  if(widget.completeQuestion == "What route did you use to get to the library no. ${Questions.libraryRouteLength}?" && widget.questionOption == "Transportation" && (data[0] == "By bike" || data[0] == "By foot"))
+    else  if(widget.completeQuestion == "What route did ${Questions.educationYouIdentity} use to get to the library no. ${Questions.libraryRouteLength}?" && widget.questionOption == "Transportation" && (data[0] == "By bike" || data[0] == "By foot"))
     {
       print("thek");
       Questions.libraryRouteLength += 1;
@@ -424,11 +424,11 @@ class _EducationMultipleOptionsContainerState extends State<EducationMultipleOpt
 
       Navigator.of(context).pop();
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return EducationMainQuestions(CheckCompleteQuestion : "What route did you use to get to the library no. ${Questions.libraryRouteLength}?",CheckQuestion : widget.questionOption,CheckAnswer : data);
+        return EducationMainQuestions(CheckCompleteQuestion : "What route did ${Questions.educationYouIdentity} use to get to the library no. ${Questions.libraryRouteLength}?",CheckQuestion : widget.questionOption,CheckAnswer : data);
       }));
     }
 
-    else  if(widget.completeQuestion == "How did you go to the learning community on route no. ${Questions.learningRouteLength}?" && widget.questionOption == "Transportation" && (data[0] == "By bike" || data[0] == "By foot"))
+    else  if(widget.completeQuestion == "How did ${Questions.educationYouIdentity} go to the learning community on route no. ${Questions.learningRouteLength}?" && widget.questionOption == "Transportation" && (data[0] == "By bike" || data[0] == "By foot"))
     {
 
       Questions.learningRouteLength += 1;
@@ -437,7 +437,7 @@ class _EducationMultipleOptionsContainerState extends State<EducationMultipleOpt
 
       Navigator.of(context).pop();
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return EducationMainQuestions(CheckCompleteQuestion : "How did you go to the learning community on route no. ${Questions.learningRouteLength}?",CheckQuestion : widget.questionOption,CheckAnswer : data);
+        return EducationMainQuestions(CheckCompleteQuestion : "How did ${Questions.educationYouIdentity} go to the learning community on route no. ${Questions.learningRouteLength}?",CheckQuestion : widget.questionOption,CheckAnswer : data);
       }));
     }
 

@@ -161,7 +161,7 @@ class _HomeScreenState extends State<PaySlipContainer> {
                         flex: 1,
                         child: Column(
                           children: <Widget>[
-                          Text("The Lohnsteuerbescheinigung is your annual payslip.You usually receive one per employer once per year.",style: TextStyle(fontSize: 15.0,color: Colors.grey)),
+                          Text("The Lohnsteuerbescheinigung is ${Questions.incomeYourIdentity} annual payslip.${Questions.incomeYouIdentity} usually receive one per employer once per year.",style: TextStyle(fontSize: 15.0,color: Colors.grey)),
                           ],
                         ),
                       )

@@ -222,7 +222,7 @@ class _EducationYesNoContainerScreenState extends State<EducationYesNoContainer>
   void NoResponse()
   {
 
-    if(widget.completeQuestion == "Were your travel expenses for route no. ${Questions.schoolRouteLength} higher than €1.00?" && widget.questionOption == "Higher expenses")
+    if(widget.completeQuestion == "Were ${Questions.educationYourIdentity} travel expenses for route no. ${Questions.schoolRouteLength} higher than €1.00?" && widget.questionOption == "Higher expenses")
     {
       Questions.schoolRouteLength += 1;
       Questions.schoolRouteText ="ROUTE "+Questions.schoolRouteLength.toString();
@@ -230,10 +230,10 @@ class _EducationYesNoContainerScreenState extends State<EducationYesNoContainer>
 
       Navigator.of(context).pop();
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return EducationMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion : widget.questionOption,CheckAnswer : ["No"]);
+        return EducationMainQuestions(CheckCompleteQuestion : "Were ${Questions.educationYourIdentity} travel expenses for route no. ${Questions.schoolRouteLength} higher than €1.00?",CheckQuestion : widget.questionOption,CheckAnswer : ["No"]);
       }));
     }
-    else if(widget.completeQuestion == "Were the costs reimbursed by your employer or the employment agency?" && widget.questionOption == "Reimbursement of costs")
+    else if(widget.completeQuestion == "Were the costs reimbursed by ${Questions.educationYourIdentity} employer or the employment agency?" && widget.questionOption == "Reimbursement of costs")
     {
       Questions.trainingLength += 1;
       Questions.trainingText ="TRAINING "+Questions.trainingLength.toString();

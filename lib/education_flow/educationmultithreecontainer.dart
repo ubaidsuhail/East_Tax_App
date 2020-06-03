@@ -389,7 +389,7 @@ class _EducationMultiThreeContainerState extends State<EducationMultiThreeContai
       }
     }
 
-    if(widget.completeQuestion == "Did you receive free meals?" && widget.questionOption == "Free meals" && data[0] == "No" && Questions.unpaidInternText.contains("UNPAID INTERNSHIP"))
+    if(widget.completeQuestion == "Did ${Questions.educationYouIdentity} receive free meals?" && widget.questionOption == "Free meals" && data[0] == "No" && Questions.unpaidInternText.contains("UNPAID INTERNSHIP"))
     {
       Questions.unpaidInternLength += 1;
       Questions.unpaidInternText ="UNPAID INTERNSHIP "+Questions.unpaidInternLength.toString();
@@ -400,7 +400,7 @@ class _EducationMultiThreeContainerState extends State<EducationMultiThreeContai
         return EducationMainQuestions(CheckCompleteQuestion : widget.completeQuestion,CheckQuestion : widget.questionOption,CheckAnswer : data);
       }));
     }
-    else if(widget.completeQuestion == "Did any of these absences apply to you during your unpaid internship no. ${Questions.unpaidInternLength}?" && widget.questionOption == "Absence" && (data[0] == "24 hours due to overnight stay" || data[0] == "No"))
+    else if(widget.completeQuestion == "Did any of these absences apply to ${Questions.educationYouIdentity} during ${Questions.educationYourIdentity} unpaid internship no. ${Questions.unpaidInternLength}?" && widget.questionOption == "Absence" && (data[0] == "24 hours due to overnight stay" || data[0] == "No"))
     {
       Questions.unpaidInternLength += 1;
       Questions.unpaidInternText ="UNPAID INTERNSHIP "+Questions.unpaidInternLength.toString();
@@ -408,11 +408,11 @@ class _EducationMultiThreeContainerState extends State<EducationMultiThreeContai
 
       Navigator.of(context).pop();
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return EducationMainQuestions(CheckCompleteQuestion : "Did any of these absences apply to you during your unpaid internship no. ${Questions.unpaidInternLength}?",CheckQuestion : widget.questionOption,CheckAnswer : data);
+        return EducationMainQuestions(CheckCompleteQuestion : "Did any of these absences apply to ${Questions.educationYouIdentity} during ${Questions.educationYourIdentity} unpaid internship no. ${Questions.unpaidInternLength}?",CheckQuestion : widget.questionOption,CheckAnswer : data);
       }));
     }
 
-    else if(widget.completeQuestion == "Did you receive free meals?" && widget.questionOption == "Free meals" && data[0] == "No" && Questions.excursionText.contains("EXCURSION"))
+    else if(widget.completeQuestion == "Did ${Questions.educationYouIdentity} receive free meals?" && widget.questionOption == "Free meals" && data[0] == "No" && Questions.excursionText.contains("EXCURSION"))
     {
       Questions.excursionLength += 1;
       Questions.excursionText ="EXCURSION "+Questions.excursionLength.toString();
@@ -424,7 +424,7 @@ class _EducationMultiThreeContainerState extends State<EducationMultiThreeContai
       }));
     }
 
-    else if(widget.completeQuestion == "Do any of these kind of absences apply to you for excursion no. ${Questions.excursionLength}?" && widget.questionOption == "Absence" && (data[0] == "24 hours due to overnight stay" || data[0] == "No"))
+    else if(widget.completeQuestion == "Do any of these kind of absences apply to ${Questions.educationYouIdentity} for excursion no. ${Questions.excursionLength}?" && widget.questionOption == "Absence" && (data[0] == "24 hours due to overnight stay" || data[0] == "No"))
     {
       Questions.excursionLength += 1;
       Questions.excursionText ="EXCURSION "+Questions.excursionLength.toString();
@@ -432,11 +432,11 @@ class _EducationMultiThreeContainerState extends State<EducationMultiThreeContai
 
       Navigator.of(context).pop();
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return EducationMainQuestions(CheckCompleteQuestion : "Do any of these kind of absences apply to you for excursion no. ${Questions.excursionLength}?",CheckQuestion : widget.questionOption,CheckAnswer : data);
+        return EducationMainQuestions(CheckCompleteQuestion : "Do any of these kind of absences apply to ${Questions.educationYouIdentity} for excursion no. ${Questions.excursionLength}?",CheckQuestion : widget.questionOption,CheckAnswer : data);
       }));
     }
 
-    else if(widget.completeQuestion == "Did you receive free meals?" && widget.questionOption == "Free meals" && data[0] == "No" && Questions.semesterText.contains("SEMESTER ABROAD"))
+    else if(widget.completeQuestion == "Did ${Questions.educationYouIdentity} receive free meals?" && widget.questionOption == "Free meals" && data[0] == "No" && Questions.semesterText.contains("SEMESTER ABROAD"))
     {
       Questions.semesterLength += 1;
       Questions.semesterText ="SEMESTER ABROAD "+Questions.semesterLength.toString();
@@ -448,7 +448,7 @@ class _EducationMultiThreeContainerState extends State<EducationMultiThreeContai
       }));
     }
 
-    else if(widget.completeQuestion == "Do any of these kinds of absences apply to you for semester abroad no. ${Questions.semesterLength} in the 1st three months?" && widget.questionOption == "Absence" && (data[0] == "24 hours due to overnight stay" || data[0] == "No"))
+    else if(widget.completeQuestion == "Do any of these kinds of absences apply to ${Questions.educationYouIdentity} for semester abroad no. ${Questions.semesterLength} in the 1st three months?" && widget.questionOption == "Absence" && (data[0] == "24 hours due to overnight stay" || data[0] == "No"))
     {
       Questions.semesterLength += 1;
       Questions.semesterText ="SEMESTER ABROAD "+Questions.semesterLength.toString();
@@ -456,7 +456,7 @@ class _EducationMultiThreeContainerState extends State<EducationMultiThreeContai
 
       Navigator.of(context).pop();
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return EducationMainQuestions(CheckCompleteQuestion : "Do any of these kinds of absences apply to you for semester abroad no. ${Questions.semesterLength} in the 1st three months?",CheckQuestion : widget.questionOption,CheckAnswer : data);
+        return EducationMainQuestions(CheckCompleteQuestion : "Do any of these kinds of absences apply to ${Questions.educationYouIdentity} for semester abroad no. ${Questions.semesterLength} in the 1st three months?",CheckQuestion : widget.questionOption,CheckAnswer : data);
       }));
     }
 

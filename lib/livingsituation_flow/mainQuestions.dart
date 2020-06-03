@@ -480,6 +480,10 @@ Widget ChangeContainer()
     else if(Questions.LivingCheck == 1 || Questions.LivingCheck == 2 ) {
     if (widget.CheckQuestion == "Marital"){
       if (widget.CheckAnswer[0] == "Single") {
+
+        //Partner Relation
+        Questions.LivingCheck = 1;
+
         //for Employed 220.0
         // for Minijob (e.g. 450€ basis) 430.0
         // for studying 380.0 for container No 5
@@ -502,11 +506,17 @@ Widget ChangeContainer()
         }
 
         else if(widget.CheckAnswer[0] == "Divorced"){
-        return DivorceDate("",430.0);
+        //Partner Relation
+        Questions.LivingCheck = 1;
+
+          return DivorceDate("",430.0);
 
       }
 
       else if(widget.CheckAnswer[0] == "Widowed"){
+        //Partner Relation
+        Questions.LivingCheck = 1;
+
         return WidowedDate("",430.0);
       }
 
@@ -1293,7 +1303,8 @@ Widget ChangeContainer()
 
         else if(widget.CheckQuestion == "Tax return filed" && (widget.CheckAnswer[0] == "No" || widget.CheckAnswer[0] == "Yes"))
           {
-            if(Questions.LivingCheck == 1) {
+            if(Questions.LivingCheck == 1)
+            {
               return HaveChildren("", 220.0);
             }
             else if(Questions.LivingCheck == 2)

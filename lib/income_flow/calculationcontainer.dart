@@ -197,7 +197,7 @@ class _Container7State extends State<CalculationContainer> {
   {
     print("ddate is"+calculations.text.toString());
 
-if(widget.completeQuestion == "Have you owned 1 domain(s) for longer than a year?" &&widget.questionOption == "Number of sales") {
+if(widget.completeQuestion == "Have ${Questions.incomeYouIdentity} owned 1 domain(s) for longer than a year?" &&widget.questionOption == "Number of sales") {
   Questions.domainLength = 0;
   Questions.totalDomain= int.parse(calculations.text);
   //print("Questions domain length sis:"+Questions.domainLength.toString());
@@ -218,7 +218,7 @@ if(widget.completeQuestion == "Have you owned 1 domain(s) for longer than a year
 
 
 
-else if(widget.completeQuestion == "How many valuable objects did you sell?" &&widget.questionOption == "Number of sales") {
+else if(widget.completeQuestion == "How many valuable objects did ${Questions.incomeYouIdentity} sell?" &&widget.questionOption == "Number of sales") {
       Questions.valuableLength = 0;
       Questions.totalValuable= int.parse(calculations.text);
       Questions.valuableLength = Questions.valuableLength + 1;
@@ -237,7 +237,7 @@ else if(widget.completeQuestion == "How many valuable objects did you sell?" &&w
 
 
 
-else if(widget.completeQuestion == "What did you sell?" && widget.questionOption == "Valuables") {
+else if(widget.completeQuestion == "What did ${Questions.incomeYouIdentity} sell?" && widget.questionOption == "Valuables") {
   Questions.singleValuableName = calculations.text;
   //print("Totals Domain is"+Questions.totalDomain.toString());
   qu.IncomeAddAnswer(
@@ -252,7 +252,7 @@ else if(widget.completeQuestion == "What did you sell?" && widget.questionOption
 
 
 
-    else if(widget.completeQuestion == "What kind of other services did you receive?") {
+    else if(widget.completeQuestion == "What kind of other services did ${Questions.incomeYouIdentity} receive?") {
       Questions.serviceName = calculations.text;
       //print("Totals Domain is"+Questions.totalDomain.toString());
       qu.IncomeAddAnswer(
