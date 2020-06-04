@@ -155,7 +155,7 @@ class _HomeSixOptionContainerState extends State<HomeSixOptionContainer> {
                           return GestureDetector(
                             onTap: (){
                               //Home
-                              if(widget.completeQuestion == "Why did you have a second household?" && widget.questionOption == "Reason for double housekeeping" && widget.answerOption[index] == "Private reasons" && Questions.secondHouseHoldLength > 0)
+                              if(widget.completeQuestion == "Why did ${Questions.homeYouIdentity} have a second household?" && widget.questionOption == "Reason for double housekeeping" && widget.answerOption[index] == "Private reasons" && Questions.secondHouseHoldLength > 0)
                               {
                                 Questions.secondHouseHoldLength += 1;
                                 Questions.secondHouseHoldText =Questions.secondHouseHoldLength.toString() + ". SECOND HOUSEHOLD";
@@ -167,7 +167,7 @@ class _HomeSixOptionContainerState extends State<HomeSixOptionContainer> {
                                 }));
                               }
                               //Relocation
-                              else if(widget.completeQuestion == "What is the reason for your relocation No. ${Questions.relocationLength}?" && widget.questionOption == "Reason of relocation" && widget.answerOption[index] == "Moved in or out of a second household" && Questions.relocationLength > 0)
+                              else if(widget.completeQuestion == "What is the reason for ${Questions.homeYourIdentity} relocation No. ${Questions.relocationLength}?" && widget.questionOption == "Reason of relocation" && widget.answerOption[index] == "Moved in or out of a second household" && Questions.relocationLength > 0)
                               {
                                 Questions.relocationLength += 1;
                                 Questions.relocationText ="RELOCATION "+Questions.relocationLength.toString();
@@ -175,12 +175,12 @@ class _HomeSixOptionContainerState extends State<HomeSixOptionContainer> {
 
                                 Navigator.of(context).pop();
                                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                                  return HomeMainQuestions(CheckCompleteQuestion : "What is the reason for your relocation No. ${Questions.relocationLength}?",CheckQuestion : widget.questionOption,CheckAnswer : [widget.answerOption[index]]);
+                                  return HomeMainQuestions(CheckCompleteQuestion : "What is the reason for ${Questions.homeYourIdentity} relocation No. ${Questions.relocationLength}?",CheckQuestion : widget.questionOption,CheckAnswer : [widget.answerOption[index]]);
                                 }));
 
                               }
                               //Relocation
-                              else if(widget.completeQuestion == "What is the reason for your relocation No. ${Questions.relocationLength}?" && widget.questionOption == "Reason of relocation" && widget.answerOption[index] == "None of them" && Questions.relocationLength > 0)
+                              else if(widget.completeQuestion == "What is the reason for ${Questions.homeYourIdentity} relocation No. ${Questions.relocationLength}?" && widget.questionOption == "Reason of relocation" && widget.answerOption[index] == "None of them" && Questions.relocationLength > 0)
                               {
                                 Questions.relocationLength += 1;
                                 Questions.relocationText ="RELOCATION "+Questions.relocationLength.toString();
@@ -188,7 +188,7 @@ class _HomeSixOptionContainerState extends State<HomeSixOptionContainer> {
 
                                 Navigator.of(context).pop();
                                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                                  return HomeMainQuestions(CheckCompleteQuestion : "What is the reason for your relocation No. ${Questions.relocationLength}?",CheckQuestion : widget.questionOption,CheckAnswer : [widget.answerOption[index]]);
+                                  return HomeMainQuestions(CheckCompleteQuestion : "What is the reason for ${Questions.homeYourIdentity} relocation No. ${Questions.relocationLength}?",CheckQuestion : widget.questionOption,CheckAnswer : [widget.answerOption[index]]);
                                 }));
 
                               }

@@ -406,15 +406,35 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
   Widget WorkChangeContainer()
   {
+
     if(Questions.workAnswerShow.length == 0)
     {
+
+      if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+      {
+        qu.WorkAddAnswer("You", "","","", [], 60.0);
+        Questions.workFirst = "FirstQuestion";
+        Questions.workPartnerSingleMove = true;
+        Questions.workPartnerSingleMoveCal = true;
+      }
+
       //Question No 1
       return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
 
     }
 
+    //For you for the partner
+    else if(Questions.workFirst == "FirstQuestion")
+      {
+        print("work firs");
+        Questions.workFirst = "";
+        //Question No 1
+        return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+      }
+
     else
       {
+print("kyu");
         //Answer No 1
         if(widget.CheckCompleteQuestion =="What was ${Questions.workYourIdentity} job title?" && widget.CheckQuestion == "Profession")
         {
@@ -944,13 +964,13 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
           else if(widget.CheckAnswer[0] == "Carpet")
           {
             //Question No 58
-            return workcalculationContainer("","Work","How much did ${Questions.financeYouIdentity} spend on the carpet?","Amount carpet",220.0,"calculation",Questions.workFurnitureText,[]);
+            return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on the carpet?","Amount carpet",220.0,"calculation",Questions.workFurnitureText,[]);
           }
 
           else if(widget.CheckAnswer[0] == "Other")
           {
            //Question No 62
-            return workcalculationContainer("","Work","What kind of furniture/equipment did ${Questions.financeYouIdentity} buy?","Type",220.0,"",Questions.workFurnitureText,[]);
+            return workcalculationContainer("","Work","What kind of furniture/equipment did ${Questions.workYouIdentity} buy?","Type",220.0,"",Questions.workFurnitureText,[]);
           }
 
         }
@@ -985,7 +1005,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
             if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
             {
               //Question No 36
-              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.workYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
             }
             else
             {
@@ -1003,7 +1023,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
           if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
           {
             //Question No 36
-            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.workYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
           }
           else
           {
@@ -1052,7 +1072,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
             if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
             {
               //Question No 36
-              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.workYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
             }
             else
             {
@@ -1070,7 +1090,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
           if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
           {
             //Question No 36
-            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.workYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
           }
           else
           {
@@ -1120,7 +1140,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
             if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
             {
               //Question No 36
-              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.workYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
             }
             else
             {
@@ -1138,7 +1158,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
           if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
           {
             //Question No 36
-            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.workYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
           }
           else
           {
@@ -1186,7 +1206,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
             if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
             {
               //Question No 36
-              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.workYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
             }
             else
             {
@@ -1204,7 +1224,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
           if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
           {
             //Question No 36
-            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.workYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
           }
           else
           {
@@ -1251,7 +1271,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
             if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
             {
               //Question No 36
-              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.workYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
             }
             else
             {
@@ -1269,7 +1289,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
           if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
           {
             //Question No 36
-            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.workYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
           }
           else
           {
@@ -1290,7 +1310,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
         // ====== Carpet Starts ====== //
 
         //Answer No 58
-        else if(widget.CheckCompleteQuestion =="How much did ${Questions.financeYouIdentity} spend on the carpet?" && widget.CheckQuestion == "Amount carpet")
+        else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on the carpet?" && widget.CheckQuestion == "Amount carpet")
         {
           //Question No 59
           return workdateContainer("","Work","When did ${Questions.workYouIdentity} buy the carpet?","Purchase date",220.0,"",Questions.workFurnitureText,[]);
@@ -1318,7 +1338,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
             if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
             {
               //Question No 36
-              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+              return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.workYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
             }
             else
             {
@@ -1336,7 +1356,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
           if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
           {
             //Question No 36
-            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.workYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
           }
           else
           {
@@ -1356,7 +1376,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
         // ====== Other Starts ====== //
 
         //Answer No 62
-        else if(widget.CheckCompleteQuestion =="What kind of furniture/equipment did ${Questions.financeYouIdentity} buy?" && widget.CheckQuestion == "Type")
+        else if(widget.CheckCompleteQuestion =="What kind of furniture/equipment did ${Questions.workYouIdentity} buy?" && widget.CheckQuestion == "Type")
         {
           //Question No 63
           return workcalculationContainer("","Work","How much did ${Questions.workYouIdentity} spend on the ${Questions.otherFurniture}?","Amount",220.0,"calculation",Questions.workFurnitureText,[]);
@@ -1383,7 +1403,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
           if(Questions.workFurnitureLength <= Questions.totalWorkFurniture)
           {
             //Question No 36
-            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.financeYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
+            return workdifferentoptionContainer("","Work","What furniture/equipment did ${Questions.workYouIdentity} buy?","Piece of furniture",["Desk","Office chair","Bookshelf","Lamp","Filing cabinet","Carpet","Other"],220.0,"",Questions.workFurnitureText,[]);
           }
           else
           {
@@ -3579,8 +3599,9 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
     // ====== Work-related expenses Starts ====== //
 
+        //For single time move for partner and you
     //Answer no 185
-        else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} have any other work-related expenses in 2019?" && widget.CheckQuestion == "Work expenses")
+        else if((widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} have any other work-related expenses in 2019?" || widget.CheckCompleteQuestion =="Did you have any other work-related expenses in 2019?") && widget.CheckQuestion == "Work expenses")
     {
 
     for(int m=0;m<widget.CheckAnswer.length;m++) {
@@ -3667,8 +3688,29 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
     else if(widget.CheckAnswer[m] == "No")
     {
+
+      //For Partner
+    if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+    {
+      workPartner();
+      //Question No 1
+      return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For single move
+    else if(Questions.workPartnerSingleMove == true)
+      {
+      Questions.workPartnerSingleMove = false;
+      //Question No 1
+      return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+      }
+
+    else
+    {
     return FinishCategory("Work Category","Education Category");
     }
+
+      }
 
     }
     }
@@ -3676,12 +3718,32 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
     // ====== Telephone costs Starts ====== //
 
     //Answer No 198
-    else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} private cell/smartphone for business purposes?" && widget.CheckQuestion == "Share private mobile")
+    else if((widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} private cell/smartphone for business purposes?" || widget.CheckCompleteQuestion =="How often did you use your private cell/smartphone for business purposes?") && widget.CheckQuestion == "Share private mobile")
       {
 
       if(widget.CheckAnswer[0] == "Only for some calls and checking emails")
       {
+      //For Partner
+      if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+      {
+      workPartner();
+      //Question No 1
+      return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+      }
+
+      //For single move
+      else if(Questions.workPartnerSingleMove == true)
+      {
+      Questions.workPartnerSingleMove = false;
+      //Question No 1
+      return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+      }
+
+      else
+      {
       return FinishCategory("Work Category","Education Category");
+      }
+
       }
 
       else if(widget.CheckAnswer[0] == "Often")
@@ -3699,15 +3761,72 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
       }
 
       //Answer No 199
-      else if(widget.CheckCompleteQuestion =="We recommend that ${Questions.workYouIdentity} enter 20% of ${Questions.workYourIdentity} phone costs. How much is that?" && widget.CheckQuestion == "Amount 20%")
+      else if((widget.CheckCompleteQuestion =="We recommend that ${Questions.workYouIdentity} enter 20% of ${Questions.workYourIdentity} phone costs. How much is that?" || widget.CheckCompleteQuestion =="We recommend that you enter 20% of your phone costs. How much is that?") && widget.CheckQuestion == "Amount 20%")
+      {
+        //print("lets see");
+      //return FinishCategory("Work Category","Education Category");
+      //For Partner
+      if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+      {
+      workPartner();
+      //Question No 1
+      return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+      }
+
+      //For single move
+      else if(Questions.workPartnerSingleMove == true)
+      {
+      Questions.workPartnerSingleMove = false;
+      //Question No 1
+      return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+      }
+
+      //For another single move
+      else if(Questions.workPartnerSingleMoveCal == true)
+      {
+      Questions.workPartnerSingleMoveCal = false;
+      //Question No 1
+      return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+      }
+
+      else
       {
       return FinishCategory("Work Category","Education Category");
       }
 
+      }
+
   //Answer No 200
-  else if(widget.CheckCompleteQuestion =="We recommend that ${Questions.workYouIdentity} enter 50% of ${Questions.workYourIdentity} phone costs. How much is that?" && widget.CheckQuestion == "Amount 50%")
+  else if((widget.CheckCompleteQuestion =="We recommend that ${Questions.workYouIdentity} enter 50% of ${Questions.workYourIdentity} phone costs. How much is that?" || widget.CheckCompleteQuestion =="We recommend that you enter 50% of your phone costs. How much is that?") && widget.CheckQuestion == "Amount 50%")
+    {
+    if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+    {
+    workPartner();
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For single move
+    else if(Questions.workPartnerSingleMove == true)
+    {
+    Questions.workPartnerSingleMove = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For another single move
+    else if(Questions.workPartnerSingleMoveCal == true)
+    {
+    Questions.workPartnerSingleMoveCal = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    else
     {
     return FinishCategory("Work Category","Education Category");
+    }
+
     }
 
 
@@ -3717,12 +3836,32 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
     // ====== Internet costs Starts ====== //
 
     //Answer No 201
-    else if(widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} private internet connection for work purposes?" && widget.CheckQuestion == "Share private internet")
+    else if((widget.CheckCompleteQuestion =="How often did ${Questions.workYouIdentity} use ${Questions.workYourIdentity} private internet connection for work purposes?" || widget.CheckCompleteQuestion =="How often did you use your private internet connection for work purposes?") && widget.CheckQuestion == "Share private internet")
     {
 
     if(widget.CheckAnswer[0] == "Occasional browsing and checking emails")
     {
+    if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+    {
+    workPartner();
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For single move
+    else if(Questions.workPartnerSingleMove == true)
+    {
+    Questions.workPartnerSingleMove = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+
+    else
+    {
     return FinishCategory("Work Category","Education Category");
+    }
+
     }
 
     else if(widget.CheckAnswer[0] == "Very often")
@@ -3741,15 +3880,69 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
 
   //Answer No 202
-  else if(widget.CheckCompleteQuestion =="We recommend that ${Questions.workYouIdentity} enter 20% of ${Questions.workYourIdentity} internet costs. How much is that?" && widget.CheckQuestion == "Amount 20%")
+  else if((widget.CheckCompleteQuestion =="We recommend that ${Questions.workYouIdentity} enter 20% of ${Questions.workYourIdentity} internet costs. How much is that?" || widget.CheckCompleteQuestion =="We recommend that you enter 20% of your internet costs. How much is that?") && widget.CheckQuestion == "Amount 20%")
+    {
+    if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+    {
+    workPartner();
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For single move
+    else if(Questions.workPartnerSingleMove == true)
+    {
+    Questions.workPartnerSingleMove = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For another single move
+    else if(Questions.workPartnerSingleMoveCal == true)
+    {
+    Questions.workPartnerSingleMoveCal = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    else
     {
     return FinishCategory("Work Category","Education Category");
     }
 
+    }
+
     //Answer No 203
-    else if(widget.CheckCompleteQuestion =="We recommend that ${Questions.workYouIdentity} enter 50% of ${Questions.workYourIdentity} internet costs. How much is that?" && widget.CheckQuestion == "Amount 50%")
+    else if((widget.CheckCompleteQuestion =="We recommend that ${Questions.workYouIdentity} enter 50% of ${Questions.workYourIdentity} internet costs. How much is that?" || widget.CheckCompleteQuestion =="We recommend that you enter 50% of your internet costs. How much is that?") && widget.CheckQuestion == "Amount 50%")
+    {
+    if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+    {
+    workPartner();
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For single move
+    else if(Questions.workPartnerSingleMove == true)
+    {
+    Questions.workPartnerSingleMove = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For another single move
+    else if(Questions.workPartnerSingleMoveCal == true)
+    {
+    Questions.workPartnerSingleMoveCal = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    else
     {
     return FinishCategory("Work Category","Education Category");
+    }
+
     }
 
     // ====== Internet costs Ends ====== //
@@ -3823,12 +4016,31 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
     // Simple cover letter Ends
 
     //Answer No 206
-    else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} spend more than €${Questions.applicationExpense} in total on job applications?" && widget.CheckQuestion == "Application expenses")
+    else if((widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} spend more than €${Questions.applicationExpense} in total on job applications?" || widget.CheckCompleteQuestion =="Did you spend more than €${Questions.applicationExpense} in total on job applications?") && widget.CheckQuestion == "Application expenses")
       {
 
         if(widget.CheckAnswer[0] == "No")
         {
+        if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+        {
+        workPartner();
+        //Question No 1
+        return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+        }
+
+        //For single move
+        else if(Questions.workPartnerSingleMove == true)
+        {
+        Questions.workPartnerSingleMove = false;
+        //Question No 1
+        return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+        }
+
+        else
+        {
         return FinishCategory("Work Category","Education Category");
+        }
+
         }
 
         else if(widget.CheckAnswer[0] == "Yes")
@@ -3840,9 +4052,36 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
       }
 
       //Answer No 207
-      else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on job applications?" && widget.CheckQuestion == "Expenses for job applications")
+      else if((widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on job applications?" || widget.CheckCompleteQuestion =="How much did you spend on job applications?") && widget.CheckQuestion == "Expenses for job applications")
+      {
+      if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+      {
+      workPartner();
+      //Question No 1
+      return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+      }
+
+      //For single move
+      else if(Questions.workPartnerSingleMove == true)
+      {
+      Questions.workPartnerSingleMove = false;
+      //Question No 1
+      return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+      }
+
+      //For another single move
+      else if(Questions.workPartnerSingleMoveCal == true)
+      {
+      Questions.workPartnerSingleMoveCal = false;
+      //Question No 1
+      return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+      }
+
+      else
       {
       return FinishCategory("Work Category","Education Category");
+      }
+
       }
 
       // ======= Applications Ends ======= //
@@ -4128,7 +4367,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
 
     //Answer No 223
-    else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} receive any reimbursements for the trip to the interview?" && widget.CheckQuestion == "Amount of reimbursement")
+    else if((widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} receive any reimbursements for the trip to the interview?" || widget.CheckCompleteQuestion =="Did you receive any reimbursements for the trip to the interview?") && widget.CheckQuestion == "Amount of reimbursement")
   {
 
   if(widget.CheckAnswer[0] == "No")
@@ -4138,9 +4377,31 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
        //Question No 211
        return worktwooptionContainer("","Work","Where have ${Questions.workYouIdentity} traveled to for ${Questions.workYourIdentity} interview?","Place ${Questions.jobInterviewLength}. job interview",["Germany","Abroad"],430.0,"",Questions.jobInterviewText,[]);
        }
-       else{
-         return FinishCategory("Work Category","Education Category");
-      }
+       else
+         {
+
+  if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+  {
+  workPartner();
+  //Question No 1
+  return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+  }
+
+  //For single move
+  else if(Questions.workPartnerSingleMove == true)
+  {
+  Questions.workPartnerSingleMove = false;
+  //Question No 1
+  return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+  }
+
+
+  else
+  {
+  return FinishCategory("Work Category","Education Category");
+  }
+
+  }
   }
 
   else if(widget.CheckAnswer[0] == "Yes")
@@ -4153,7 +4414,7 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
   }
 
   //Answer No 229
-  else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} receive?" && widget.CheckQuestion == "Amount")
+  else if((widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} receive?" || widget.CheckCompleteQuestion =="How much did you receive?") && widget.CheckQuestion == "Amount")
   {
   if(Questions.jobInterviewLength <= Questions.totalJobInterview)
   {
@@ -4161,7 +4422,34 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
   return worktwooptionContainer("","Work","Where have ${Questions.workYouIdentity} traveled to for ${Questions.workYourIdentity} interview?","Place ${Questions.jobInterviewLength}. job interview",["Germany","Abroad"],430.0,"",Questions.jobInterviewText,[]);
   }
   else{
+  if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+  {
+  workPartner();
+  //Question No 1
+  return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+  }
+
+  //For single move
+  else if(Questions.workPartnerSingleMove == true)
+  {
+  Questions.workPartnerSingleMove = false;
+  //Question No 1
+  return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+  }
+
+  //For another single move
+  else if(Questions.workPartnerSingleMoveCal == true)
+  {
+  Questions.workPartnerSingleMoveCal = false;
+  //Question No 1
+  return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+  }
+
+  else
+  {
   return FinishCategory("Work Category","Education Category");
+  }
+
   }
   }
 
@@ -4178,9 +4466,36 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
   }
 
   //Answer No 231
-  else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on that?" && widget.CheckQuestion == "Amount professional association")
+  else if((widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on that?" || widget.CheckCompleteQuestion =="How much did you spend on that?") && widget.CheckQuestion == "Amount professional association")
+    {
+    if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+    {
+    workPartner();
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For single move
+    else if(Questions.workPartnerSingleMove == true)
+    {
+    Questions.workPartnerSingleMove = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For another single move
+    else if(Questions.workPartnerSingleMoveCal == true)
+    {
+    Questions.workPartnerSingleMoveCal = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    else
     {
     return FinishCategory("Work Category","Education Category");
+    }
+
     }
 
 
@@ -4189,9 +4504,36 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
    // ======= Legal expenses Starts ===== //
 
 //Answer No 232
-    else if(widget.CheckCompleteQuestion =="How much were ${Questions.workYourIdentity} work-related legal expenses?" && widget.CheckQuestion == "Legal expenses")
+    else if((widget.CheckCompleteQuestion =="How much were ${Questions.workYourIdentity} work-related legal expenses?" || widget.CheckCompleteQuestion =="How much were your work-related legal expenses?") && widget.CheckQuestion == "Legal expenses")
+    {
+    if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+    {
+    workPartner();
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For single move
+    else if(Questions.workPartnerSingleMove == true)
+    {
+    Questions.workPartnerSingleMove = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For another single move
+    else if(Questions.workPartnerSingleMoveCal == true)
+    {
+    Questions.workPartnerSingleMoveCal = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    else
     {
     return FinishCategory("Work Category","Education Category");
+    }
+
     }
 
     // ======= Legal expenses Ends ===== //
@@ -4200,12 +4542,31 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
   // ======== Business meals Starts ===== //
 
     //Answer No 233
-    else if(widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} have any expenses due to work-related business meals?" && widget.CheckQuestion == "Business meals")
+    else if((widget.CheckCompleteQuestion =="Did ${Questions.workYouIdentity} have any expenses due to work-related business meals?" || widget.CheckCompleteQuestion =="Did you have any expenses due to work-related business meals?") && widget.CheckQuestion == "Business meals")
   {
 
       if(widget.CheckAnswer[0] == "No")
       {
+      if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+      {
+      workPartner();
+      //Question No 1
+      return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+      }
+
+      //For single move
+      else if(Questions.workPartnerSingleMove == true)
+      {
+      Questions.workPartnerSingleMove = false;
+      //Question No 1
+      return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+      }
+
+      else
+      {
       return FinishCategory("Work Category","Education Category");
+      }
+
       }
 
       else if(widget.CheckAnswer[0] == "Yes")
@@ -4219,9 +4580,36 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
 
     //Answer No 234
-    else if(widget.CheckCompleteQuestion =="How much have ${Questions.workYouIdentity} spent?" && widget.CheckQuestion == "Total cost of business meals")
+    else if((widget.CheckCompleteQuestion =="How much have ${Questions.workYouIdentity} spent?" || widget.CheckCompleteQuestion =="How much have you spent?" ) && widget.CheckQuestion == "Total cost of business meals")
+    {
+    if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+    {
+    workPartner();
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For single move
+    else if(Questions.workPartnerSingleMove == true)
+    {
+    Questions.workPartnerSingleMove = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For another single move
+    else if(Questions.workPartnerSingleMoveCal == true)
+    {
+    Questions.workPartnerSingleMoveCal = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    else
     {
     return FinishCategory("Work Category","Education Category");
+    }
+
     }
 
     // ======== Business meals Ends ===== //
@@ -4229,9 +4617,36 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
     // ======= Gift for customers and business associates Starts ======= //
 
     //Answer No 235
-    else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on gifts for customers and business partners?" && widget.CheckQuestion == "Total spent on gifts")
+    else if((widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on gifts for customers and business partners?" || widget.CheckCompleteQuestion =="How much did you spend on gifts for customers and business partners?") && widget.CheckQuestion == "Total spent on gifts")
+    {
+    if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+    {
+    workPartner();
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For single move
+    else if(Questions.workPartnerSingleMove == true)
+    {
+    Questions.workPartnerSingleMove = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For another single move
+    else if(Questions.workPartnerSingleMoveCal == true)
+    {
+    Questions.workPartnerSingleMoveCal = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    else
     {
     return FinishCategory("Work Category","Education Category");
+    }
+
     }
 
 
@@ -4248,7 +4663,27 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
 
     if(widget.CheckAnswer[m] == "None of this")
     {
+    if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+    {
+    workPartner();
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For single move
+    else if(Questions.workPartnerSingleMove == true)
+    {
+    Questions.workPartnerSingleMove = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+
+    else
+    {
     return FinishCategory("Work Category","Education Category");
+    }
+
     }
 
     else
@@ -4262,9 +4697,36 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
     }
 
     //Answer No 237
-   else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on ${Questions.workYourIdentity} driving license?" && widget.CheckQuestion == "Total spent on driving license")
+   else if((widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on ${Questions.workYourIdentity} driving license?" || widget.CheckCompleteQuestion =="How much did you spend on your driving license?") && widget.CheckQuestion == "Total spent on driving license")
+  {
+  if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+  {
+  workPartner();
+  //Question No 1
+  return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+  }
+
+  //For single move
+  else if(Questions.workPartnerSingleMove == true)
+  {
+  Questions.workPartnerSingleMove = false;
+  //Question No 1
+  return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+  }
+
+  //For another single move
+  else if(Questions.workPartnerSingleMoveCal == true)
+  {
+  Questions.workPartnerSingleMoveCal = false;
+  //Question No 1
+  return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+  }
+
+  else
   {
   return FinishCategory("Work Category","Education Category");
+  }
+
   }
 
 
@@ -4275,9 +4737,37 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
    // ======== Pension allowance (Versorgungszuschlag) Starts ======== //
 
 //Answer No 238
-  else if(widget.CheckCompleteQuestion =="How much pension allowance did ${Questions.workYouIdentity} pay?" && widget.CheckQuestion == "Total pension allowance")
+  else if((widget.CheckCompleteQuestion =="How much pension allowance did ${Questions.workYouIdentity} pay?" || widget.CheckCompleteQuestion =="How much pension allowance did you pay?") && widget.CheckQuestion == "Total pension allowance")
+  {
+  if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+  {
+  workPartner();
+  //Question No 1
+  return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+  }
+
+  //For single move
+  else if(Questions.workPartnerSingleMove == true)
+  {
+  Questions.workPartnerSingleMove = false;
+  //Question No 1
+  return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+  }
+
+  //For another single move
+  else if(Questions.workPartnerSingleMoveCal == true)
+  {
+  Questions.workPartnerSingleMoveCal = false;
+  //Question No 1
+  return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+  }
+
+  else
   {
   return FinishCategory("Work Category","Education Category");
+  }
+
+
   }
 
 
@@ -4286,9 +4776,36 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
     // ========= Winter allowance contribution Starts ========= //
 
 //Answer No 239
-    else if(widget.CheckCompleteQuestion =="How much winter allowance contribution did ${Questions.workYouIdentity} pay?" && widget.CheckQuestion == "Total winter allowance contribution")
+    else if((widget.CheckCompleteQuestion =="How much winter allowance contribution did ${Questions.workYouIdentity} pay?" || widget.CheckCompleteQuestion =="How much winter allowance contribution did you pay?") && widget.CheckQuestion == "Total winter allowance contribution")
+    {
+    if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+    {
+    workPartner();
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For single move
+    else if(Questions.workPartnerSingleMove == true)
+    {
+    Questions.workPartnerSingleMove = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    //For another single move
+    else if(Questions.workPartnerSingleMoveCal == true)
+    {
+    Questions.workPartnerSingleMoveCal = false;
+    //Question No 1
+    return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+    }
+
+    else
     {
     return FinishCategory("Work Category","Education Category");
+    }
+
     }
 
     // ========= Winter allowance contribution Ends ========= //
@@ -4304,9 +4821,38 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
     }
 
     //Answer No 241
-    else if(widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on ${Questions.otherCostExpense}?" && widget.CheckQuestion == "Amount other costs")
+    else if((widget.CheckCompleteQuestion =="How much did ${Questions.workYouIdentity} spend on ${Questions.otherCostExpense}?" || widget.CheckCompleteQuestion =="How much did you spend on ${Questions.otherCostExpense}?") && widget.CheckQuestion == "Amount other costs")
+  {
+
+  if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.workPartner == true)
+  {
+  workPartner();
+  //Question No 1
+  return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+  }
+
+  //For single move
+  else if(Questions.workPartnerSingleMove == true)
+  {
+  Questions.workPartnerSingleMove = false;
+  //Question No 1
+  return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+  }
+
+  //For another single move
+  else if(Questions.workPartnerSingleMoveCal == true)
+  {
+  Questions.workPartnerSingleMoveCal = false;
+  //Question No 1
+  return workcalculationContainer("","Work","What was ${Questions.workYourIdentity} job title?","Profession",220.0,"","",[]);
+  }
+
+  else
   {
   return FinishCategory("Work Category","Education Category");
+  }
+
+
   }
 
 
@@ -4378,6 +4924,44 @@ class _WorkMainQuestionsState extends State<WorkMainQuestions> {
   {
     Questions.workAnimatedContainer = animatedcontainer;
     return WorkMultiTwoContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,answerImages:AnswerImages,containerSize:320.0,additionalData:AdditionalData,multipleData:MultipleData,suggestion:Suggestion);
+  }
+
+  void workPartner()
+  {
+
+    qu.WorkAddAnswer("Partner", "","","", [], 60.0);
+    Questions.workPartner=false;
+
+    Questions.workYouIdentity = "your partner";
+    Questions.workYourIdentity = "your partner";
+
+                        Questions.homeOfficeLength = 0;
+                        Questions.totalHomeOffice = 0;
+                        Questions.homeOfficeText = "";
+                        Questions.workFurnitureLength = 0;
+                        Questions.totalWorkFurniture = 0;
+                        Questions.workFurnitureText = "";
+                        Questions.otherFurniture = "";
+                        Questions.homeOfficeFurniture = false;
+                        Questions.workBusTripLength = 0;
+                        Questions.totalWorkBusTrip = 0;
+                        Questions.workBusTripText = "";
+                        Questions.workBusCostLength = 0;
+                        Questions.totalWorkBusCost = 0;
+                        Questions.workBusCostText = "";
+                        Questions.officeFurnitureLength = 0;
+                        Questions.totalOfficeFurniture = 0;
+                        Questions.officeFurnitureText = "";
+                        Questions.otherOfficeFurniture = "";
+                        Questions.otherItemsLength = 0;
+                        Questions.totalOtherItems = 0;
+                        Questions.otherItemsText = "";
+                        Questions.otherItems ="";
+                        Questions.applicationExpense;
+                        Questions.jobInterviewLength = 0;
+                        Questions.totalJobInterview = 0;
+                        Questions.jobInterviewText = "";
+                        Questions.otherCostExpense = "";
   }
 
 }

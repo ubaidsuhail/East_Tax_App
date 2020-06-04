@@ -395,14 +395,14 @@ class _HomeMultipleOptionsContainerNoState extends State<HomeMultipleOptionsCont
 
 
 //Home
-    if(widget.completeQuestion == "Did you have any other costs due to double housekeeping?" && widget.questionOption == "Type of costs" && data[0] == "No" && Questions.secondHouseHoldLength > 0)
+    if(widget.completeQuestion == "Did ${Questions.homeYouIdentity} have any other costs due to double housekeeping?" && widget.questionOption == "Type of costs" && data[0] == "No" && Questions.secondHouseHoldLength > 0)
       {
         Questions.secondHouseHoldLength += 1;
         Questions.secondHouseHoldText =Questions.secondHouseHoldLength.toString() + ". SECOND HOUSEHOLD";
       }
 
       //Relocation
-    else if(widget.completeQuestion == "Did you have any other costs due to the move?" && widget.questionOption == "Costs" && data[0] == "No" && Questions.relocationLength > 0)
+    else if(widget.completeQuestion == "Did ${Questions.homeYouIdentity} have any other costs due to the move?" && widget.questionOption == "Costs" && data[0] == "No" && Questions.relocationLength > 0)
     {
       Questions.relocationLength += 1;
       Questions.relocationText ="RELOCATION "+Questions.relocationLength.toString();

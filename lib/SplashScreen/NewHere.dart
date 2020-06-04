@@ -347,6 +347,8 @@ class _newHereState extends State<newHere> {
               trailing: GestureDetector(
                 onTap: (){
                   Questions.homeAnswerShow = [];
+                  Questions.homeYouIdentity = "you";
+                  Questions.homeYourIdentity = "your";
                   Questions.utilityBillLength = 0;
                   Questions.totalUtilityBill = 0;
                   Questions.WEGLength = 0;
@@ -393,8 +395,8 @@ class _newHereState extends State<newHere> {
                 trailing: GestureDetector(
                   onTap: (){
                     Questions.educationAnswerShow = [];
-                    Questions.educationYouIdentity = "your partner";
-                    Questions.educationYourIdentity = "your partner";
+                    Questions.educationYouIdentity = "you";
+                    Questions.educationYourIdentity = "your";
                     Questions.educationOtherCosts = "";
                     Questions.trainingLength = 1;
                     Questions.totalTraining = 0;

@@ -55,7 +55,7 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
 //        .height * .3;
 
     //double maxHeight = 210.0;
-    double maxHeight = widget.completeQuestion == "What was the bill amount for services or craftsmen on your utilities statement (excluding heating, electricity, insurances etc.)?" ? 270.0:widget.containerSize;
+    double maxHeight = widget.completeQuestion == "What was the bill amount for services or craftsmen on ${Questions.homeYourIdentity} utilities statement (excluding heating, electricity, insurances etc.)?" ? 270.0:widget.containerSize;
     // var maskTextInputFormatter = MaskTextInputFormatter(mask: "## / ## / ####");
 //filter: { "#": RegExp(r'[0-9]')
 
@@ -91,7 +91,7 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
                           borderRadius: BorderRadius.circular(10.0),
                           color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),
                         ),
-                        height: widget.completeQuestion == "What was the bill amount for services or craftsmen on your utilities statement (excluding heating, electricity, insurances etc.)?" ? 200.0:150.0,
+                        height: widget.completeQuestion == "What was the bill amount for services or craftsmen on ${Questions.homeYourIdentity} utilities statement (excluding heating, electricity, insurances etc.)?" ? 200.0:150.0,
                         width: MediaQuery.of(context).size.width,
 
                       ),
@@ -200,7 +200,7 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
   void AddData()
   {
 //Relocation
-    if(widget.completeQuestion == "How often did you move for job-related reasons in 2019?" && widget.questionOption == "Number of moves")
+    if(widget.completeQuestion == "How often did ${Questions.homeYouIdentity} move for job-related reasons in 2019?" && widget.questionOption == "Number of moves")
   {
     Questions.relocationLength = 0;
     Questions.totalRelocation = int.parse(calculations.text);
@@ -217,14 +217,14 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
 
     }
 //Relocation
-    else if(widget.completeQuestion == "How much were your travel costs for apartment viewings?" && widget.questionOption == "Apartment viewings" && Questions.relocationLength > 0)
+    else if(widget.completeQuestion == "How much were ${Questions.homeYourIdentity} travel costs for apartment viewings?" && widget.questionOption == "Apartment viewings" && Questions.relocationLength > 0)
     {
       Questions.relocationLength += 1;
       Questions.relocationText ="RELOCATION "+Questions.relocationLength.toString();
 
     }
 //Relocation
-    else if(widget.completeQuestion == "How much did you pay in rent for the unused apartment?" && widget.questionOption == "Double rent payments" && Questions.relocationLength > 0)
+    else if(widget.completeQuestion == "How much did ${Questions.homeYouIdentity} pay in rent for the unused apartment?" && widget.questionOption == "Double rent payments" && Questions.relocationLength > 0)
     {
       Questions.relocationLength += 1;
       Questions.relocationText ="RELOCATION "+Questions.relocationLength.toString();
@@ -238,14 +238,14 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
 
     }
 //Relocation
-    else if(widget.completeQuestion == "How much did you spend on tutoring due to change of school?" && widget.questionOption == "Private tutoring" && Questions.relocationLength > 0)
+    else if(widget.completeQuestion == "How much did ${Questions.homeYouIdentity} spend on tutoring due to change of school?" && widget.questionOption == "Private tutoring" && Questions.relocationLength > 0)
     {
       Questions.relocationLength += 1;
       Questions.relocationText ="RELOCATION "+Questions.relocationLength.toString();
 
     }
 //Relocation
-    else if(widget.completeQuestion == "Please enter any other costs you had due to relocation?" && widget.questionOption == "Other costs" && Questions.relocationLength > 0)
+    else if(widget.completeQuestion == "Please enter any other costs ${Questions.homeYouIdentity} had due to relocation?" && widget.questionOption == "Other costs" && Questions.relocationLength > 0)
     {
       Questions.relocationLength += 1;
       Questions.relocationText ="RELOCATION "+Questions.relocationLength.toString();
@@ -254,7 +254,7 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
 
 
 //House hold Services
-    else if(widget.completeQuestion == "How many utility statements would you like to enter?" && widget.questionOption == "Number of bills")
+    else if(widget.completeQuestion == "How many utility statements would ${Questions.homeYouIdentity} like to enter?" && widget.questionOption == "Number of bills")
       {
         Questions.utilityBillLength = 0;
         Questions.totalUtilityBill = int.parse(calculations.text);
@@ -264,55 +264,55 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
       }
 
 //House hold Services
-    else if(widget.completeQuestion == "What was the bill amount for services or craftsmen on your utilities statement (excluding heating, electricity, insurances etc.)?" && widget.questionOption == "Amount for ${Questions.utilityBillLength}")
+    else if(widget.completeQuestion == "What was the bill amount for services or craftsmen on ${Questions.homeYourIdentity} utilities statement (excluding heating, electricity, insurances etc.)?" && widget.questionOption == "Amount for ${Questions.utilityBillLength}")
     {
       Questions.utilityBillLength += 1;
 
     }
 //House hold Services
-    else if(widget.completeQuestion == "How much is your share for cleaning / pest control from utility bill no. ${Questions.utilityBillLength} relating to your flat?" && widget.questionOption == "Share cleaning/pest control ${Questions.utilityBillLength}")
+    else if(widget.completeQuestion == "How much is ${Questions.homeYourIdentity} share for cleaning / pest control from utility bill no. ${Questions.utilityBillLength} relating to ${Questions.homeYourIdentity} flat?" && widget.questionOption == "Share cleaning/pest control ${Questions.utilityBillLength}")
     {
       Questions.utilityBillLength += 1;
       print("utility print is:"+Questions.utilityBillLength.toString());
     }
 //House hold Services
-    else if(widget.completeQuestion == "How much is your share for gardening from utility bill no. ${Questions.utilityBillLength} relating to your flat?" && widget.questionOption == "Share gardening ${Questions.utilityBillLength}")
+    else if(widget.completeQuestion == "How much is ${Questions.homeYourIdentity} share for gardening from utility bill no. ${Questions.utilityBillLength} relating to ${Questions.homeYourIdentity} flat?" && widget.questionOption == "Share gardening ${Questions.utilityBillLength}")
     {
       Questions.utilityBillLength += 1;
       print("utility print is:"+Questions.utilityBillLength.toString());
     }
 //House hold Services
-    else if(widget.completeQuestion == "How much is your share for janitorial services from utility bill no. ${Questions.utilityBillLength} relating to your flat?" && widget.questionOption == "Share janitorial service ${Questions.utilityBillLength}")
+    else if(widget.completeQuestion == "How much is ${Questions.homeYourIdentity} share for janitorial services from utility bill no. ${Questions.utilityBillLength} relating to ${Questions.homeYourIdentity} flat?" && widget.questionOption == "Share janitorial service ${Questions.utilityBillLength}")
     {
       Questions.utilityBillLength += 1;
       print("utility print is:"+Questions.utilityBillLength.toString());
     }
 //House hold Services
-    else if(widget.completeQuestion == "How much is your share for maintenance / repair from utility bill no. ${Questions.utilityBillLength} relating to your flat?" && widget.questionOption == "Share maintenance/repair ${Questions.utilityBillLength}")
+    else if(widget.completeQuestion == "How much is ${Questions.homeYourIdentity} share for maintenance / repair from utility bill no. ${Questions.utilityBillLength} relating to ${Questions.homeYourIdentity} flat?" && widget.questionOption == "Share maintenance/repair ${Questions.utilityBillLength}")
     {
       Questions.utilityBillLength += 1;
       print("utility print is:"+Questions.utilityBillLength.toString());
     }
 //House hold Services
-    else if(widget.completeQuestion == "How much is your share for chimney sweeper from utility bill no. ${Questions.utilityBillLength} relating to your flat?" && widget.questionOption == "Share chimney sweeper ${Questions.utilityBillLength}")
+    else if(widget.completeQuestion == "How much is ${Questions.homeYourIdentity} share for chimney sweeper from utility bill no. ${Questions.utilityBillLength} relating to ${Questions.homeYourIdentity} flat?" && widget.questionOption == "Share chimney sweeper ${Questions.utilityBillLength}")
     {
       Questions.utilityBillLength += 1;
       print("utility print is:"+Questions.utilityBillLength.toString());
     }
 //House hold Services
-    else if(widget.completeQuestion == "How much is your share for winter services from utility bill no. ${Questions.utilityBillLength} relating to your flat?" && widget.questionOption == "Share winter services ${Questions.utilityBillLength}")
+    else if(widget.completeQuestion == "How much is ${Questions.homeYourIdentity} share for winter services from utility bill no. ${Questions.utilityBillLength} relating to ${Questions.homeYourIdentity} flat?" && widget.questionOption == "Share winter services ${Questions.utilityBillLength}")
     {
       Questions.utilityBillLength += 1;
       print("utility print is:"+Questions.utilityBillLength.toString());
     }
 //House hold Services
-    else if(widget.completeQuestion == "How much is your share for other services from utility bill no. ${Questions.utilityBillLength} relating to your flat (excluding heating, electricity, insurances etc.)?" && widget.questionOption == "Share other services ${Questions.utilityBillLength}")
+    else if(widget.completeQuestion == "How much is ${Questions.homeYourIdentity} share for other services from utility bill no. ${Questions.utilityBillLength} relating to ${Questions.homeYourIdentity} flat (excluding heating, electricity, insurances etc.)?" && widget.questionOption == "Share other services ${Questions.utilityBillLength}")
     {
       Questions.utilityBillLength += 1;
       print("utility print is:"+Questions.utilityBillLength.toString());
     }
 //House hold Services
-    else if(widget.completeQuestion == "How many 'WEG' statements would you like to enter?" && widget.questionOption == "Number of 'WEG' statements")
+    else if(widget.completeQuestion == "How many 'WEG' statements would ${Questions.homeYouIdentity} like to enter?" && widget.questionOption == "Number of 'WEG' statements")
     {
       Questions.WEGLength = 0;
       Questions.totalWEG = int.parse(calculations.text);
@@ -320,18 +320,18 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
       Questions.WEGLength += 1;
     }
     //House hold Services
-    else if(widget.completeQuestion == "How much was invoiced for utility services on your 'WEG' bill?" && widget.questionOption == "'WEG' ${Questions.WEGLength}")
+    else if(widget.completeQuestion == "How much was invoiced for utility services on ${Questions.homeYourIdentity} 'WEG' bill?" && widget.questionOption == "'WEG' ${Questions.WEGLength}")
     {
       Questions.WEGLength += 1;
     }
 //House hold Services
-    else if(widget.completeQuestion == "Which other fixtures did you buy?" && widget.questionOption == "Other fixture")
+    else if(widget.completeQuestion == "Which other fixtures did ${Questions.homeYouIdentity} buy?" && widget.questionOption == "Other fixture")
     {
       Questions.otherFixture = calculations.text.toString();
     }
 
     //House hold Services
-    else if(widget.completeQuestion == "How many services by craftsmen would you like to enter?" && widget.questionOption == "Craftsmen services")
+    else if(widget.completeQuestion == "How many services by craftsmen would ${Questions.homeYouIdentity} like to enter?" && widget.questionOption == "Craftsmen services")
     {
       Questions.craftsmenLength = 0;
       Questions.totalCraftsmen = int.parse(calculations.text);
@@ -342,42 +342,42 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
 
 
     //House hold Services
-    else if(widget.completeQuestion == "How much have you spent on maintenance?" && widget.questionOption == "Amount maintenance" && Questions.craftsmenLength > 0)
+    else if(widget.completeQuestion == "How much have ${Questions.homeYouIdentity} spent on maintenance?" && widget.questionOption == "Amount maintenance" && Questions.craftsmenLength > 0)
     {
 
       Questions.craftsmenLength += 1;
       Questions.craftsmenText = "CRAFTSMAN SERVICE "+Questions.craftsmenLength.toString();
     }
 //House hold Services
-    else if(widget.completeQuestion == "How much did you spend on repairs?" && widget.questionOption == "Amount repairs" && Questions.craftsmenLength > 0)
+    else if(widget.completeQuestion == "How much did ${Questions.homeYouIdentity} spend on repairs?" && widget.questionOption == "Amount repairs" && Questions.craftsmenLength > 0)
     {
 
       Questions.craftsmenLength += 1;
       Questions.craftsmenText = "CRAFTSMAN SERVICE "+Questions.craftsmenLength.toString();
     }
 //House hold Services
-    else if(widget.completeQuestion == "How much did you spend on paintwork?" && widget.questionOption == "Amount paintwork" && Questions.craftsmenLength > 0)
+    else if(widget.completeQuestion == "How much did ${Questions.homeYouIdentity} spend on paintwork?" && widget.questionOption == "Amount paintwork" && Questions.craftsmenLength > 0)
     {
 
       Questions.craftsmenLength += 1;
       Questions.craftsmenText = "CRAFTSMAN SERVICE "+Questions.craftsmenLength.toString();
     }
 //House hold Services
-    else if(widget.completeQuestion == "How much did you spend on modernisation?" && widget.questionOption == "Costs modernisation" && Questions.craftsmenLength > 0)
+    else if(widget.completeQuestion == "How much did ${Questions.homeYouIdentity} spend on modernisation?" && widget.questionOption == "Costs modernisation" && Questions.craftsmenLength > 0)
     {
 
       Questions.craftsmenLength += 1;
       Questions.craftsmenText = "CRAFTSMAN SERVICE "+Questions.craftsmenLength.toString();
     }
 //House hold Services
-    else if(widget.completeQuestion == "How much did you spend on extension work?" && widget.questionOption == "Amount extension work" && Questions.craftsmenLength > 0)
+    else if(widget.completeQuestion == "How much did ${Questions.homeYouIdentity} spend on extension work?" && widget.questionOption == "Amount extension work" && Questions.craftsmenLength > 0)
     {
 
       Questions.craftsmenLength += 1;
       Questions.craftsmenText = "CRAFTSMAN SERVICE "+Questions.craftsmenLength.toString();
     }
 //House hold Services
-    else if(widget.completeQuestion == "How much did you spend on supply works?" && widget.questionOption == "Amount supply works" && Questions.craftsmenLength > 0)
+    else if(widget.completeQuestion == "How much did ${Questions.homeYouIdentity} spend on supply works?" && widget.questionOption == "Amount supply works" && Questions.craftsmenLength > 0)
     {
 
       Questions.craftsmenLength += 1;
@@ -389,7 +389,7 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
 
 
     //Home
-    else if(widget.completeQuestion == "How many second households would you like to enter?" && widget.questionOption == "Quantity")
+    else if(widget.completeQuestion == "How many second households would ${Questions.homeYouIdentity} like to enter?" && widget.questionOption == "Quantity")
     {
       Questions.secondHouseHoldLength = 0;
       Questions.totalSecondHouseHold = int.parse(calculations.text);
@@ -404,19 +404,19 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
       Questions.secondHouseHoldText =Questions.secondHouseHoldLength.toString() + ". SECOND HOUSEHOLD";
     }
     //Home
-    else if(widget.completeQuestion == "How much did you spend on the broadcasting license fee?" && widget.questionOption == "Costs broadcasting fee" && Questions.secondHouseHoldLength > 0)
+    else if(widget.completeQuestion == "How much did ${Questions.homeYouIdentity} spend on the broadcasting license fee?" && widget.questionOption == "Costs broadcasting fee" && Questions.secondHouseHoldLength > 0)
     {
       Questions.secondHouseHoldLength += 1;
       Questions.secondHouseHoldText =Questions.secondHouseHoldLength.toString() + ". SECOND HOUSEHOLD";
     }
     //Home
-    else if(widget.completeQuestion == "How much did you spend on taxes for your second household?" && widget.questionOption == "Second home tax" && Questions.secondHouseHoldLength > 0)
+    else if(widget.completeQuestion == "How much did ${Questions.homeYouIdentity} spend on taxes for ${Questions.homeYourIdentity} second household?" && widget.questionOption == "Second home tax" && Questions.secondHouseHoldLength > 0)
     {
       Questions.secondHouseHoldLength += 1;
       Questions.secondHouseHoldText =Questions.secondHouseHoldLength.toString() + ". SECOND HOUSEHOLD";
     }
     //Home
-    else if(widget.completeQuestion == "How much have you spent on journeys to apartment viewings?" && widget.questionOption == "Apartment viewings" && Questions.secondHouseHoldLength > 0)
+    else if(widget.completeQuestion == "How much have ${Questions.homeYouIdentity} spent on journeys to apartment viewings?" && widget.questionOption == "Apartment viewings" && Questions.secondHouseHoldLength > 0)
     {
       Questions.secondHouseHoldLength += 1;
       Questions.secondHouseHoldText =Questions.secondHouseHoldLength.toString() + ". SECOND HOUSEHOLD";
@@ -428,7 +428,7 @@ class _HomeCalculationContainerState extends State<HomeCalculationContainer> {
       Questions.secondHouseHoldText =Questions.secondHouseHoldLength.toString() + ". SECOND HOUSEHOLD";
     }
     //Home
-    else if(widget.completeQuestion == "How much did you spend on that?" && widget.questionOption == "Amount other" && Questions.secondHouseHoldLength > 0)
+    else if(widget.completeQuestion == "How much did ${Questions.homeYouIdentity} spend on that?" && widget.questionOption == "Amount other" && Questions.secondHouseHoldLength > 0)
     {
       Questions.secondHouseHoldLength += 1;
       Questions.secondHouseHoldText =Questions.secondHouseHoldLength.toString() + ". SECOND HOUSEHOLD";

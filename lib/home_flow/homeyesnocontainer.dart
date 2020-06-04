@@ -64,7 +64,7 @@ class _HomeYesNoContainerScreenState extends State<HomeYesNoContainer> {
     //double maxHeight = MediaQuery.of(context).size.height * .3;
     // double maxHeight = 370.0;
     //double maxHeight = 280.0;
-    double maxHeight = widget.completeQuestion == "Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.)?" ? 300.0:widget.containerSize;
+    double maxHeight = widget.completeQuestion == "Did ${Questions.homeYouIdentity} receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.)?" ? 300.0:widget.containerSize;
     // widget.Containersize;
     return AnimatedContainer(
         duration: Duration(milliseconds: 800),
@@ -97,7 +97,7 @@ class _HomeYesNoContainerScreenState extends State<HomeYesNoContainer> {
                           borderRadius: BorderRadius.circular(10.0),
                           color: Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),
                         ),
-                        height: widget.completeQuestion == "Did you receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.)?" ? 228.0 : 148.0,
+                        height: widget.completeQuestion == "Did ${Questions.homeYouIdentity} receive a separate certificate that only includes the sum for household services and/or craftsman services according to §35a EStG(excluding heating, electricity, insurances etc.)?" ? 228.0 : 148.0,
                         width: MediaQuery.of(context).size.width,
 
                       ),
@@ -165,6 +165,16 @@ class _HomeYesNoContainerScreenState extends State<HomeYesNoContainer> {
                         children: <Widget>[
                           GestureDetector(
                             onTap: (){
+
+                              if(widget.completeQuestion == "Does your partner live somewhere else?" && widget.questionOption == "Partner somewhere else")
+                              {
+                                qu.HomeAddAnswer("Partner", "","","", [], 60.0);
+                              }
+
+                              else if(widget.completeQuestion == "Did one or both of you move in 2019?" && widget.questionOption == "Moving")
+                              {
+                                qu.HomeAddAnswer("You & Partner", "","","", [], 60.0);
+                              }
                               //Questions.animatedContainer = 420.0;
                               qu.HomeAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, ['Yes'], 55.0);
 
@@ -195,6 +205,16 @@ class _HomeYesNoContainerScreenState extends State<HomeYesNoContainer> {
                           ),
                           GestureDetector(
                             onTap: (){
+
+                              if(widget.completeQuestion == "Does your partner live somewhere else?" && widget.questionOption == "Partner somewhere else")
+                              {
+                                qu.HomeAddAnswer("Partner", "","","", [], 60.0);
+                              }
+                              else if(widget.completeQuestion == "Did one or both of you move in 2019?" && widget.questionOption == "Moving")
+                              {
+                                qu.HomeAddAnswer("You & Partner", "","","", [], 60.0);
+                              }
+
                               //Questions.animatedContainer = 420.0;
                               qu.HomeAddAnswer(widget.identity,widget.bigQuestion,widget.completeQuestion,widget.questionOption, ['No'], 55.0);
 

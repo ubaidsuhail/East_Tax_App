@@ -80,6 +80,8 @@ class Questions{
 // ========= Home Flow work Start ========//
 static List homeAnswerShow=[];
 static double homeAnimatedContainer;
+static String homeYouIdentity = "you";
+static String homeYourIdentity = "your";
 static int utilityBillLength = 0;
 static int totalUtilityBill = 0;
 static int WEGLength = 0;
@@ -350,7 +352,7 @@ static String occupationMiniJobHome = "";  // Minijob
 static String occupationMiniJobFinance = "";  // Minijob
 static String specialistActivityFinance = "";
 static String educationCategoryEnable = "";
-static String workCategoryEnable = "";
+static String workCategoryEnable = "Work";
 static String familyCategoryEnable = "";
 
 
@@ -368,6 +370,13 @@ static bool educationPartner = true;
 static bool healthPartner = true;
 static bool healthYouPartner = true;
 static bool financePartner = true;
+static bool homePartner = true;
+static bool homeSecondHouseholdYou = true; //(Not repeated)
+static bool homeSecondHouseholdPartner = true; //(Not repeated)
+static bool workPartner = true;
+static bool workPartnerSingleMove = false; //(Not Repeated)
+static bool workPartnerSingleMoveCal = false;
+static String workFirst = ""; //(Not Repeated)
 // ====== Partner End ======= //
 
 }

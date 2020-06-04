@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
+
 import 'package:easy_taxx/MainAppQuestion/questions.dart';
-import 'package:easy_taxx/work_flow/workmainquestions.dart';
 import 'package:easy_taxx/datamodels/designfile.dart';
+import 'package:easy_taxx/work_flow/workmainquestions.dart';
+import 'package:flutter/material.dart';
 
 class WorkCalculationContainer extends StatefulWidget {
   String identity;
@@ -251,7 +252,7 @@ class _WorkCalculationContainerState extends State<WorkCalculationContainer> {
       Questions.workFurnitureText ="FURNITURE "+Questions.workFurnitureLength.toString();
     }
 
-    else if(widget.completeQuestion == "What kind of furniture/equipment did ${Questions.financeYouIdentity} buy?" && widget.questionOption == "Type")
+    else if(widget.completeQuestion == "What kind of furniture/equipment did ${Questions.workYouIdentity} buy?" && widget.questionOption == "Type")
     {
       Questions.otherFurniture = calculations.text;
     }
