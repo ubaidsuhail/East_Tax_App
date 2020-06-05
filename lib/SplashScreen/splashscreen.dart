@@ -23,21 +23,41 @@ class SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
+     width: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage("images/tax.png"), ),
+        //image: DecorationImage(image: AssetImage("images/mainimage.png"), ),
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           stops: [0.3, 0.6, 0.6, 1.9],
           colors: [
             // Colors are easy thanks to Flutter's Colors class.
-            Color.fromARGB(0xff,0x3A ,0xB5, 0xFF),
-            Color.fromARGB(0xff,0x3A ,0xB5, 0xFF),
-            Color.fromARGB(0xff,0x3A ,0xB5, 0xFF),
-            Color.fromARGB(0xff,0x3A ,0xB5, 0xFF),
+            Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),
+            Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),
+            Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),
+            Color.fromARGB(0XFF, 0X38, 0Xb6, 0XFF),
 
           ],
         ),
+      ),
+
+      child: Column(
+        children: <Widget>[
+
+          Container(
+            height: MediaQuery.of(context).size.height*0.9,
+
+          child:Image(image: AssetImage("images/mainimage.png"),)
+          ),
+
+          Expanded
+            (
+            //child:Image(image: AssetImage("images/maintext.png"),) ,
+              child:Image(image: AssetImage("images/maintext.jpg"),width: 300.0,height:50.0)
+          ),
+
+
+        ],
       ),
 
     );

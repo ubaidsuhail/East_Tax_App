@@ -216,6 +216,8 @@ static String equipmentName = "";
 
 static List familyAnswerShow=[];
 static double familyAnimatedContainer;
+static String familyYouIdentity = "you";
+static String familyYourIdentity = "your";
 static int childLength = 0;
 static int totalChild = 0;
 static String childText = "";
@@ -352,7 +354,7 @@ static String occupationMiniJobHome = "";  // Minijob
 static String occupationMiniJobFinance = "";  // Minijob
 static String specialistActivityFinance = "";
 static String educationCategoryEnable = "";
-static String workCategoryEnable = "Work";
+static String workCategoryEnable = "";
 static String familyCategoryEnable = "";
 
 
@@ -371,12 +373,22 @@ static bool healthPartner = true;
 static bool healthYouPartner = true;
 static bool financePartner = true;
 static bool homePartner = true;
-static bool homeSecondHouseholdYou = true; //(Not repeated)
-static bool homeSecondHouseholdPartner = true; //(Not repeated)
+static bool homeSecondHouseholdYou = false; //(Not repeated)
+static bool homeSecondHouseholdPartner = false; //(Not repeated)
 static bool workPartner = true;
 static bool workPartnerSingleMove = false; //(Not Repeated)
-static bool workPartnerSingleMoveCal = false;
+static bool workPartnerSingleMoveCal = false; //(Not Repeated)
 static String workFirst = ""; //(Not Repeated)
+
+static bool familyPartner = true;
+static String familyFirst = "";
+static bool familyYou = true;
+static bool familyPartnerSingleMove = false;
+static bool familyPartnerYouSingleMove = false;
+static bool familyPartnerYouSecondMove = false;
+static bool familyPartnerEndSingleMove = false;
+static bool familyPartnerEndSecondMove = false;
+
 // ====== Partner End ======= //
 
 }

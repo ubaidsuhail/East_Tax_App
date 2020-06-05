@@ -166,7 +166,19 @@ class _HomeScreenState extends State<Container3> {
                                         GestureDetector(
                                           onTap: (){
                                             //Questions.animatedContainer = 420.0;
-                                            if(widget.QuestionOption == "More than one property")
+
+                                            if(widget.QuestionOption == "Joint assessment")
+                                              {
+                                                qu.updateAnswer("You & Partner","", "", [], 60.0);
+                                                qu.addAnswer(widget.Identity,widget.BigQuestion, widget.QuestionOption, ['Yes'], 55.0);
+                                                qu.addAnswer("You", "", "", [], 60.0);
+                                                Navigator.of(context).pop();
+                                                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                                  return mainQuestions(CheckQuestion : widget.QuestionOption,CheckAnswer : ["Yes"]);
+                                                }));
+                                              }
+
+                                            else if(widget.QuestionOption == "More than one property")
                                               {
                                                 Navigator.of(context).pop();
                                                 Navigator.push(context, MaterialPageRoute(builder: (context) {

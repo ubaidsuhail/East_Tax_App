@@ -445,6 +445,8 @@ class _HomeMainScreenState extends State<HomeMainQuestions> {
       if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
       {
         qu.HomeAddAnswer("You & Partner", "","","", [], 60.0);
+        Questions.homeSecondHouseholdYou = true; //(Not repeated)
+        Questions.homeSecondHouseholdPartner = true; //(Not repeated)
         //Question No 178
         return homeaddressContainer("","","What is your current address? ","Current address",220.0,"","");
       }

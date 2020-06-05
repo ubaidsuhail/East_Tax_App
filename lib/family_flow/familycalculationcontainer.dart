@@ -196,7 +196,7 @@ class _FamilyCalculationContainerState extends State<FamilyCalculationContainer>
   void AddData()
   {
 
-    if(widget.completeQuestion == "How many children do you have?" && widget.questionOption == "Number of children")
+    if((widget.completeQuestion == "How many children do you have?" || widget.completeQuestion == "How many children do you both have?") && widget.questionOption == "Number of children")
     {
       Questions.childLength = 0;
       Questions.totalChild = int.parse(calculations.text);

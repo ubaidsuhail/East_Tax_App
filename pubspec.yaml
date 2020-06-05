@@ -121,6 +121,8 @@ flutter:
    - images/files.png
    - images/close.png
    - images/forwardarrow.png
+   - images/mainimage.png
+   - images/maintext.jpg
 
 
   #  - images/a_dot_ham.jpeg

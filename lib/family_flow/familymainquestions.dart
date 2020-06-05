@@ -432,14 +432,39 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
   {
     if(Questions.familyAnswerShow.length == 0)
     {
-      //Question No 1
-      return familycalculationContainer("","","How many children do you have?","Number of children",220.0,"loop","");
+
+      if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+      {
+        qu.FamilyAddAnswer("You & Partner", "","","", [], 60.0);
+        Questions.familyFirst = "First Question";
+        Questions.familyYou = true;
+        Questions.familyPartnerSingleMove = true;
+        Questions.familyPartnerYouSingleMove = true;
+        Questions.familyPartnerYouSecondMove = true;
+        //Question No 1(Partner)
+        return familycalculationContainer("","","How many children do you both have?","Number of children",220.0,"loop","");
+
+      }
+      else
+        {
+          //Question No 1
+          return familycalculationContainer("","","How many children do you have?","Number of children",220.0,"loop","");
+        }
+
 
     }
+
+    else if(Questions.familyFirst == "First Question")
+      {
+        Questions.familyFirst = "";
+        //Question No 1(Partner)
+        return familycalculationContainer("","","How many children do you both have?","Number of children",220.0,"loop","");
+      }
+
     else{
 
-      //Answer No 1
-      if(widget.CheckCompleteQuestion =="How many children do you have?" && widget.CheckQuestion == "Number of children")
+      //Answer No 1(Partner)
+      if((widget.CheckCompleteQuestion =="How many children do you have?" || widget.CheckCompleteQuestion =="How many children do you both have?")  && widget.CheckQuestion == "Number of children")
       {
         //Question No 2
         return familycalculationContainer("","Child ${Questions.childLength}","What is your child's first name?","First name child",220.0,"",Questions.childText);
@@ -448,9 +473,28 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
       //Answer No 2
       else if(widget.CheckCompleteQuestion =="What is your child's first name?" && widget.CheckQuestion == "First name child")
       {
+        //For You relation
+        if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.familyYou == true )
+        {
+          Questions.familyYou = false;
+          qu.FamilyAddAnswer("You", "","","", [], 60.0);
+          //Question No 176
+          return familydifferentoptionContainer("","Child ${Questions.childLength}","What is the relationship between ${Questions.familyYouIdentity} and ${Questions.childFirstName}?","Relationship",["Biological child","Adopted child","Foster child","Grandchild","Stepchild","None"],220.0,"","");
+        }
+
+        else if(Questions.familyYou == false)
+          {
+            //Question No 176
+            return familydifferentoptionContainer("","Child ${Questions.childLength}","What is the relationship between ${Questions.familyYouIdentity} and ${Questions.childFirstName}?","Relationship",["Biological child","Adopted child","Foster child","Grandchild","Stepchild","None"],220.0,"","");
+
+          }
+
+        else
+          {
         //Question No 3
         return familycalculationContainer("","Child ${Questions.childLength}","What is ${Questions.childFirstName}'s last name?","Child's last name",220.0,"",Questions.childText);
 
+          }
       }
 
       //Answer No 3
@@ -3253,7 +3297,31 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
 
         else
           {
-            if(Questions.childLength <= Questions.totalChild)
+
+            if((Questions.childLength <= Questions.totalChild) && (Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && (Questions.familyPartnerEndSingleMove == false))
+            {
+
+              print("Child Length:"+Questions.childLength.toString());
+              print("Total child:"+Questions.totalChild.toString());
+
+              Questions.familyPartnerEndSingleMove = true;
+              Questions.familyYou = true;
+              Questions.familyPartnerSingleMove = true;
+              Questions.familyPartnerYouSingleMove = true;
+              Questions.familyPartnerYouSecondMove = true;
+              Questions.familyPartner=true;
+              //Question No 2
+              return familycalculationContainer("","Child ${Questions.childLength}","What is your child's first name?","First name child",220.0,"",Questions.childText);
+            }
+
+            else if(Questions.familyPartnerEndSingleMove == true)
+              {
+                Questions.familyPartnerEndSingleMove = false;
+                //Question No 2
+                return familycalculationContainer("","Child ${Questions.childLength}","What is your child's first name?","First name child",220.0,"",Questions.childText);
+              }
+
+            else if(Questions.childLength <= Questions.totalChild)
             {
               //Question No 2
               return familycalculationContainer("","Child ${Questions.childLength}","What is your child's first name?","First name child",220.0,"",Questions.childText);
@@ -3278,7 +3346,40 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
       //Answer No 161
       else if(widget.CheckCompleteQuestion =="What other benefits office is responsible for your child benefits?" && widget.CheckQuestion == "Child benefits office")
       {
-        if(Questions.childLength <= Questions.totalChild)
+
+        if((Questions.childLength <= Questions.totalChild) && (Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && (Questions.familyPartnerEndSingleMove == false && Questions.familyPartnerEndSecondMove == false ))
+        {
+
+          print("Child Length:"+Questions.childLength.toString());
+          print("Total child:"+Questions.totalChild.toString());
+
+          Questions.familyPartnerEndSingleMove = true;
+          Questions.familyPartnerEndSecondMove = true;
+          Questions.familyYou = true;
+          Questions.familyPartnerSingleMove = true;
+          Questions.familyPartnerYouSingleMove = true;
+          Questions.familyPartnerYouSecondMove = true;
+          Questions.familyPartner=true;
+          //Question No 2
+          return familycalculationContainer("","Child ${Questions.childLength}","What is your child's first name?","First name child",220.0,"",Questions.childText);
+        }
+
+        else if(Questions.familyPartnerEndSingleMove == true)
+        {
+          Questions.familyPartnerEndSingleMove = false;
+          //Question No 2
+          return familycalculationContainer("","Child ${Questions.childLength}","What is your child's first name?","First name child",220.0,"",Questions.childText);
+        }
+
+        else if(Questions.familyPartnerEndSecondMove == true)
+        {
+          Questions.familyPartnerEndSecondMove = false;
+          //Question No 2
+          return familycalculationContainer("","Child ${Questions.childLength}","What is your child's first name?","First name child",220.0,"",Questions.childText);
+        }
+
+
+        else if(Questions.childLength <= Questions.totalChild)
         {
           //Question No 2
           return familycalculationContainer("","Child ${Questions.childLength}","What is your child's first name?","First name child",220.0,"",Questions.childText);
@@ -3489,6 +3590,228 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
 
       // ====== Alimony Paid Ends (Relation) ======= //
 
+
+      //Partner Extra Question Starts
+      //Answer No 176
+      else if(widget.CheckCompleteQuestion =="What is the relationship between ${Questions.familyYouIdentity} and ${Questions.childFirstName}?" && widget.CheckQuestion == "Relationship")
+      {
+        //Question No 177
+        return familyyesnoContainer("","Child ${Questions.childLength}","Did the relationship between ${Questions.familyYouIdentity} and ${Questions.childFirstName} last all year?","All year",220.0,"","");
+
+      }
+
+      //Answer No 177
+      else if((widget.CheckCompleteQuestion =="Did the relationship between ${Questions.familyYouIdentity} and ${Questions.childFirstName} last all year?" || widget.CheckCompleteQuestion =="Did the relationship between you and ${Questions.childFirstName} last all year?") && widget.CheckQuestion == "All year")
+      {
+
+        if(widget.CheckAnswer[0] == "No")
+        {
+          //Question No 178
+          return familythreeoptionContainer("","Child ${Questions.childLength}","How did the relationship change during 2019?","Kind of change",["It started","It ended","It existed temporarily"],220.0,"",Questions.childText);
+        }
+
+        else if(widget.CheckAnswer[0] == "Yes")
+        {
+          if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.familyPartner == true)
+          {
+            Questions.familyPartnerSingleMove = false;
+            familyPartner();
+            //Question No 176
+            return familydifferentoptionContainer("","Child ${Questions.childLength}","What is the relationship between ${Questions.familyYouIdentity} and ${Questions.childFirstName}?","Relationship",["Biological child","Adopted child","Foster child","Grandchild","Stepchild","None"],220.0,"","");
+          }
+
+
+          else if(Questions.familyPartnerYouSingleMove == true)
+          {
+            Questions.familyPartnerYouSingleMove = false;
+            //Question No 3
+            return familycalculationContainer("","Child ${Questions.childLength}","What is ${Questions.childFirstName}'s last name?","Child's last name",220.0,"",Questions.childText);
+          }
+
+          else if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+          {
+            familyYouPartner();
+            //Question No 3
+            return familycalculationContainer("","Child ${Questions.childLength}","What is ${Questions.childFirstName}'s last name?","Child's last name",220.0,"",Questions.childText);
+          }
+
+
+
+        }
+
+      }
+
+      //Answer No 178
+      else if(widget.CheckCompleteQuestion =="How did the relationship change during 2019?" && widget.CheckQuestion == "Kind of change")
+      {
+
+        if(widget.CheckAnswer[0] == "It started")
+        {
+          //Question No 179
+          return familydateContainer("","Child ${Questions.childLength}","When did the childhood relationship start in 2019?","Start date",220.0,"","");
+        }
+
+        else if(widget.CheckAnswer[0] == "It ended")
+        {
+          //Question No 180
+          return familydateContainer("","Child ${Questions.childLength}","When did the childhood relationship end in 2019?","End date",220.0,"","");
+        }
+
+        else if(widget.CheckAnswer[0] == "It existed temporarily")
+        {
+          //Question No 181
+          return familydateContainer("","Child ${Questions.childLength}","From when to when lastet the childhood relationship?","Duration",220.0,"","");
+        }
+      }
+
+
+      //Answer No 179
+      else if(widget.CheckCompleteQuestion =="When did the childhood relationship start in 2019?" && widget.CheckQuestion == "Start date")
+      {
+
+      if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.familyPartner == true)
+      {
+
+        familyPartner();
+        //Question No 176
+        return familydifferentoptionContainer("","Child ${Questions.childLength}","What is the relationship between ${Questions.familyYouIdentity} and ${Questions.childFirstName}?","Relationship",["Biological child","Adopted child","Foster child","Grandchild","Stepchild","None"],220.0,"","");
+      }
+
+      else if(Questions.familyPartnerSingleMove == true)
+        {
+
+          Questions.familyPartnerSingleMove = false;
+          //Question No 176
+          return familydifferentoptionContainer("","Child ${Questions.childLength}","What is the relationship between ${Questions.familyYouIdentity} and ${Questions.childFirstName}?","Relationship",["Biological child","Adopted child","Foster child","Grandchild","Stepchild","None"],220.0,"","");
+        }
+
+        else if(Questions.familyPartnerYouSingleMove == true)
+          {
+            Questions.familyPartnerYouSingleMove = false;
+            //Question No 3
+            return familycalculationContainer("","Child ${Questions.childLength}","What is ${Questions.childFirstName}'s last name?","Child's last name",220.0,"",Questions.childText);
+          }
+
+        else if(Questions.familyPartnerYouSecondMove == true)
+        {
+          Questions.familyPartnerYouSecondMove = false;
+          //Question No 3
+          return familycalculationContainer("","Child ${Questions.childLength}","What is ${Questions.childFirstName}'s last name?","Child's last name",220.0,"",Questions.childText);
+        }
+
+
+       else if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+         {
+           familyYouPartner();
+           //Question No 3
+           return familycalculationContainer("","Child ${Questions.childLength}","What is ${Questions.childFirstName}'s last name?","Child's last name",220.0,"",Questions.childText);
+         }
+
+
+
+
+      }
+
+
+      //Answer No 180
+      else if(widget.CheckCompleteQuestion =="When did the childhood relationship end in 2019?" && widget.CheckQuestion == "End date")
+      {
+
+        if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.familyPartner == true)
+        {
+
+          familyPartner();
+          //Question No 176
+          return familydifferentoptionContainer("","Child ${Questions.childLength}","What is the relationship between ${Questions.familyYouIdentity} and ${Questions.childFirstName}?","Relationship",["Biological child","Adopted child","Foster child","Grandchild","Stepchild","None"],220.0,"","");
+        }
+
+        else if(Questions.familyPartnerSingleMove == true)
+        {
+
+          Questions.familyPartnerSingleMove = false;
+          //Question No 176
+          return familydifferentoptionContainer("","Child ${Questions.childLength}","What is the relationship between ${Questions.familyYouIdentity} and ${Questions.childFirstName}?","Relationship",["Biological child","Adopted child","Foster child","Grandchild","Stepchild","None"],220.0,"","");
+        }
+
+        else if(Questions.familyPartnerYouSingleMove == true)
+        {
+          Questions.familyPartnerYouSingleMove = false;
+          //Question No 3
+          return familycalculationContainer("","Child ${Questions.childLength}","What is ${Questions.childFirstName}'s last name?","Child's last name",220.0,"",Questions.childText);
+        }
+
+        else if(Questions.familyPartnerYouSecondMove == true)
+        {
+          Questions.familyPartnerYouSecondMove = false;
+          //Question No 3
+          return familycalculationContainer("","Child ${Questions.childLength}","What is ${Questions.childFirstName}'s last name?","Child's last name",220.0,"",Questions.childText);
+        }
+
+
+        else if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          familyYouPartner();
+          //Question No 3
+          return familycalculationContainer("","Child ${Questions.childLength}","What is ${Questions.childFirstName}'s last name?","Child's last name",220.0,"",Questions.childText);
+        }
+
+
+
+
+
+
+
+      }
+
+      //Answer No 181
+      else if(widget.CheckCompleteQuestion =="From when to when lastet the childhood relationship?" && widget.CheckQuestion == "Duration")
+      {
+
+        if((Questions.LivingCheck == 2 || Questions.LivingCheck == 3) && Questions.familyPartner == true)
+        {
+
+          familyPartner();
+          //Question No 176
+          return familydifferentoptionContainer("","Child ${Questions.childLength}","What is the relationship between ${Questions.familyYouIdentity} and ${Questions.childFirstName}?","Relationship",["Biological child","Adopted child","Foster child","Grandchild","Stepchild","None"],220.0,"","");
+        }
+
+        else if(Questions.familyPartnerSingleMove == true)
+        {
+
+          Questions.familyPartnerSingleMove = false;
+          //Question No 176
+          return familydifferentoptionContainer("","Child ${Questions.childLength}","What is the relationship between ${Questions.familyYouIdentity} and ${Questions.childFirstName}?","Relationship",["Biological child","Adopted child","Foster child","Grandchild","Stepchild","None"],220.0,"","");
+        }
+
+        else if(Questions.familyPartnerYouSingleMove == true)
+        {
+          Questions.familyPartnerYouSingleMove = false;
+          //Question No 3
+          return familycalculationContainer("","Child ${Questions.childLength}","What is ${Questions.childFirstName}'s last name?","Child's last name",220.0,"",Questions.childText);
+        }
+
+        else if(Questions.familyPartnerYouSecondMove == true)
+        {
+          Questions.familyPartnerYouSecondMove = false;
+          //Question No 3
+          return familycalculationContainer("","Child ${Questions.childLength}","What is ${Questions.childFirstName}'s last name?","Child's last name",220.0,"",Questions.childText);
+        }
+
+
+        else if(Questions.LivingCheck == 2 || Questions.LivingCheck == 3)
+        {
+          familyYouPartner();
+          //Question No 3
+          return familycalculationContainer("","Child ${Questions.childLength}","What is ${Questions.childFirstName}'s last name?","Child's last name",220.0,"",Questions.childText);
+        }
+
+
+
+
+
+      }
+
+      //Partner Extra questions Ends
 
 
 
@@ -3997,6 +4320,60 @@ class _FamilyMainQuestionsState extends State<FamilyMainQuestions> {
     Questions.familyAnimatedContainer = animatedcontainer;
     return FamilyMultiThreeContainer(identity:Identity,bigQuestion:BigQuestion,completeQuestion:CompleteQuestion,questionOption:QuestionOption,answerOption:AnswerOption,answerImages:AnswerImages,containerSize:370.0,additionalData:AdditionalData,multipleData:MultipleData);
   }
+
+
+  void familyPartner()
+  {
+
+    qu.FamilyAddAnswer("Partner", "","","", [], 60.0);
+    Questions.familyPartner=false;
+
+    Questions.familyYouIdentity = "your partner";
+    Questions.familyYourIdentity = "your partner";
+
+
+  }
+
+  void familyYouPartner()
+  {
+
+    qu.FamilyAddAnswer("You & Partner", "","","", [], 60.0);
+
+
+    Questions.familyYouIdentity = "you";
+    Questions.familyYourIdentity = "your";
+
+    Questions.childrenLive = "";
+    Questions.childrenExpense = "";
+    Questions.childAddressLength = 0;
+    Questions.totalChildAddress = 0;
+    Questions.childAddressText = "";
+    Questions.kindergartenLength = 0;
+    Questions.totalKindergarten = 0;
+    Questions.kindergartenText = "";
+    Questions.childMinderLength = 0;
+    Questions.totalChildMinder = 0;
+    Questions.childMinderText = "";
+    Questions.nannyLength = 0;
+    Questions.totalNanny = 0;
+    Questions.nannyText = "";
+    Questions.babySitterLength = 0;
+    Questions.totalBabySitter = 0;
+    Questions.babySitterText = "";
+    Questions.aupairLength = 0;
+    Questions.totalAupair = 0;
+    Questions.aupairText = "";
+    Questions.dayCareLength = 0;
+    Questions.totalDayCare = 0;
+    Questions.dayCareText = "";
+    Questions.schoolLength = 0;
+    Questions.totalSchool = 0;
+    Questions.schoolText = "";
+
+
+  }
+
+
 }
 
 

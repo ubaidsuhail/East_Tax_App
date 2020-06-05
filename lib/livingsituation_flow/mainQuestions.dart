@@ -601,8 +601,8 @@ Widget ChangeContainer()
             {
              //Partner's Question will be here for married/civilpartnership
               Questions.LivingCheck = 2;
-              qu.updateAnswer("You & Partner","", "", [], 60.0);
-              qu.addAnswer("You", "", "", [], 60.0);
+             // qu.updateAnswer("You & Partner","", "", [], 60.0);
+              //qu.addAnswer("You", "", "", [], 60.0);
               return OccupationContainer("",430.0);
             }
           }
